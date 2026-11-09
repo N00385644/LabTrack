@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>Listado de issues (0) · regla + archivo</title>
+<style>
+  :root { --ink:#0f172a; --muted:#5b6b82; --line:#dfe6ee; --teal:#0f766e; --navy:#16233a; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:#eef3f8; color:var(--ink);
+         font-family:"Segoe UI",system-ui,-apple-system,sans-serif; }
+  .page { width:1240px; margin:0 auto; padding:26px 32px 30px; }
+  .top { display:flex; justify-content:space-between; align-items:flex-start;
+          gap:20px; border-bottom:2px solid #cdd8e5; padding-bottom:14px; }
+  .kicker { font-size:12px; letter-spacing:.18em; text-transform:uppercase;
+             color:var(--teal); font-weight:700; }
+  h1 { margin:6px 0 4px; font-size:27px; letter-spacing:-.02em; }
+  .sub { color:var(--muted); font-size:13px; }
+  .brand { font-size:12px; font-weight:800; letter-spacing:.12em; text-transform:uppercase;
+            color:var(--navy); text-align:right; }
+  .brand small { display:block; color:var(--muted); font-weight:600; letter-spacing:.02em;
+                  text-transform:none; margin-top:4px; }
+  .banner { margin:16px 0 6px; padding:11px 14px; border-radius:10px; font-size:12.5px;
+             font-weight:600; border:1px solid; }
+  .banner.warning { background:#fff7e6; border-color:#f2c66d; color:#7a4a05; }
+  .banner.info { background:#eaf3ff; border-color:#b7d2f5; color:#1d4c8c; }
+  .meta { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin:14px 0 18px; }
+  .meta div { background:#fff; border:1px solid var(--line); border-radius:10px;
+               padding:9px 11px; font-size:11.5px; color:var(--muted); }
+  .meta b { display:block; color:var(--ink); font-size:12.5px; margin-top:3px;
+             font-family:Consolas,monospace; font-weight:600; }
+  .kpis { display:grid; grid-template-columns:repeat(6,1fr); gap:11px; margin-bottom:16px; }
+  .kpi { background:#fff; border:1px solid var(--line); border-radius:12px; padding:12px 14px; }
+  .kpi span { display:block; font-size:11px; text-transform:uppercase; letter-spacing:.09em;
+               color:var(--muted); font-weight:700; }
+  .kpi b { display:block; font-size:32px; line-height:1.15; margin-top:4px; letter-spacing:-.03em; }
+  .kpi small { color:var(--muted); font-size:11px; }
+  .kpi.bad b { color:#b42318; }
+  .kpi.good b { color:#067647; }
+  h2 { font-size:17px; margin:22px 0 10px; }
+  table { width:100%; border-collapse:collapse; background:#fff; font-size:12.3px;
+           border:1px solid var(--line); border-radius:10px; overflow:hidden; }
+  th { background:var(--navy); color:#fff; text-align:left; padding:8px 9px; font-size:11.5px;
+        text-transform:uppercase; letter-spacing:.05em; }
+  td { padding:6px 9px; border-bottom:1px solid var(--line); vertical-align:top; }
+  tr:nth-child(even) td { background:#f7fafd; }
+  .rule { font-family:Consolas,monospace; color:var(--teal); font-weight:700; white-space:nowrap; }
+  .file { font-family:Consolas,monospace; color:#2b3a52; }
+  .pill { display:inline-block; padding:2px 8px; border-radius:999px; font-size:10.5px;
+           font-weight:700; text-transform:uppercase; letter-spacing:.05em; }
+  .pill.bug { background:#fee4e2; color:#b42318; }
+  .pill.vuln { background:#fde7d9; color:#9a3412; }
+  .pill.smell { background:#e8eefc; color:#2f4b8f; }
+  .pill.ok { background:#dcfae6; color:#067647; }
+  .ratings { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+  .rating { background:#fff; border:1px solid var(--line); border-radius:14px; padding:18px;
+             display:flex; align-items:center; gap:16px; }
+  .grade { width:64px; height:64px; border-radius:14px; display:grid; place-items:center;
+            font-size:32px; font-weight:800; color:#fff; }
+  .grade.A { background:#0e8a5f; } .grade.B { background:#7aa62b; }
+  .grade.C { background:#d98b16; } .grade.D { background:#c2570f; } .grade.E { background:#b42318; }
+  .rating p { margin:2px 0; color:var(--muted); font-size:12px; }
+  .rating b { font-size:14px; }
+  .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+  .card { background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px; }
+  .card span { color:var(--muted); font-size:11px; text-transform:uppercase; letter-spacing:.08em;
+                font-weight:700; }
+  .card b { display:block; font-size:28px; margin-top:4px; }
+  .delta-down { color:#067647; font-weight:800; }
+  .delta-flat { color:#8a6d1f; font-weight:800; }
+  .bar-row { display:grid; grid-template-columns:210px 1fr 90px; align-items:center;
+              gap:12px; margin:9px 0; }
+  .bar-label { font-size:12.5px; font-weight:600; }
+  .bar-track { background:#edf2f8; border-radius:6px; height:26px; overflow:hidden; }
+  .bar { height:100%; border-radius:6px; }
+  .bar.antes { background:#b42318; } .bar.despues { background:#0e8a5f; }
+  .bar-value { font-family:Consolas,monospace; font-weight:700; font-size:12.5px; }
+  .legend { display:flex; gap:18px; font-size:12px; color:var(--muted); margin:6px 0 14px; }
+  .dot { display:inline-block; width:10px; height:10px; border-radius:3px; margin-right:6px; }
+  .note { background:#fff; border-left:4px solid #b7d2f5; border-radius:8px; padding:11px 14px;
+           color:var(--muted); font-size:12px; margin-top:14px; }
+  ul { margin:8px 0 0; padding-left:18px; color:var(--muted); font-size:12.5px; }
+  footer { margin-top:22px; padding-top:12px; border-top:1px solid #cdd8e5;
+            color:var(--muted); font-size:11px; display:flex; justify-content:space-between; }
+  .empty { background:#fff; border:1px dashed #b8c6d8; border-radius:12px; padding:34px;
+            text-align:center; color:var(--muted); font-size:13px; }
+</style></head>
+<body><div class="page">
+  <div class="top">
+    <div><div class="kicker">Evidencia SonarQube · DESPUÉS (instantánea histórica)</div><h1>Listado de issues (0) · regla + archivo</h1>
+      <div class="sub">SonarQube Community Build 26.10 · SonarScanner CLI 8.3.1</div></div>
+    <div class="brand">LabTrack<small>Calidad y Pruebas de Software</small></div>
+  </div>
+  <div class="banner info">DESPUÉS — Métricas tomadas de docs/sonar-data.json (estado final). NO es un escaneo nuevo: SonarQube no estaba disponible.</div>
+  <div class="meta">
+  <div>Proyecto<b>labtrack-despues</b></div>
+  <div>Estado<b>DESPUÉS (instantánea histórica)</b></div>
+  <div>Commit<b>840052e · 2026-11-09 13:15:16 -0500</b></div>
+  <div>Fuente<b>docs/sonar-data.json · final</b></div>
+</div><div class="empty">Sin issues abiertos en la instantánea.</div>
+  <footer><span>Captura local: 2026-11-09 · commit 840052e</span>
+  <span>docs/evidencias-sonarqube · datos: sonar-baseline.json / sonar-data.json</span></footer>
+</div></body></html>

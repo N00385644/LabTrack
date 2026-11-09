@@ -1,0 +1,583 @@
+{
+  "nota": "Comparacion de instantaneas historicas. NO proviene de un escaneo nuevo: SonarQube no estaba disponible.",
+  "commit": "840052e769ac7386f458d9cac2332d6a4dd2d50d",
+  "fecha": "2026-11-09",
+  "proyectos": {
+    "antes": "labtrack-antes",
+    "despues": "labtrack-despues"
+  },
+  "metricas_principales": [
+    {
+      "metrica": "Bugs",
+      "antes": "2",
+      "despues": "0",
+      "mejora": "-2 (-100 %)"
+    },
+    {
+      "metrica": "Vulnerabilidades",
+      "antes": "2",
+      "despues": "0",
+      "mejora": "-2 (-100 %)"
+    },
+    {
+      "metrica": "Code Smells",
+      "antes": "40",
+      "despues": "0",
+      "mejora": "-40 (-100 %)"
+    },
+    {
+      "metrica": "Confiabilidad",
+      "antes": "B",
+      "despues": "A",
+      "mejora": "B → A"
+    },
+    {
+      "metrica": "Seguridad",
+      "antes": "C",
+      "despues": "A",
+      "mejora": "C → A"
+    },
+    {
+      "metrica": "Mantenibilidad",
+      "antes": "A",
+      "despues": "A",
+      "mejora": "A → A (sin deuda abierta)"
+    },
+    {
+      "metrica": "Quality Gate",
+      "antes": "OK",
+      "despues": "OK",
+      "mejora": "OK → OK (0 issues abiertos)"
+    }
+  ],
+  "metricas_secundarias": [
+    {
+      "metrica": "Líneas de código (ncloc)",
+      "antes": "4101",
+      "despues": "4120",
+      "mejora": "+19"
+    },
+    {
+      "metrica": "Cobertura",
+      "antes": "89.6 %",
+      "despues": "89.6 %",
+      "mejora": "sin cambio"
+    },
+    {
+      "metrica": "Duplicación",
+      "antes": "0.7 %",
+      "despues": "0.7 %",
+      "mejora": "sin cambio"
+    },
+    {
+      "metrica": "Complejidad ciclomática",
+      "antes": "514",
+      "despues": "538",
+      "mejora": "+24"
+    },
+    {
+      "metrica": "Complejidad cognitiva",
+      "antes": "303",
+      "despues": "297",
+      "mejora": "-6"
+    },
+    {
+      "metrica": "Issues abiertos",
+      "antes": "44",
+      "despues": "0",
+      "mejora": "-44 (-100 %)"
+    }
+  ],
+  "antes": {
+    "linesOfCode": 4101,
+    "bugs": 2,
+    "vulnerabilities": 2,
+    "codeSmells": 40,
+    "coverage": 89.6,
+    "duplications": 0.7,
+    "reliabilityRating": "B",
+    "securityRating": "C",
+    "maintainabilityRating": "A",
+    "complexity": 514,
+    "cognitiveComplexity": 303,
+    "qualityGate": "OK",
+    "conditions": [],
+    "issues": [
+      {
+        "rule": "typescript:S1082",
+        "severity": "MINOR",
+        "type": "BUG",
+        "component": "frontend/src/components/ui.tsx",
+        "line": 218,
+        "message": "Visible, non-interactive elements with click handlers must have at least one keyboard listener.",
+        "status": "Corregido",
+        "effort": "5min"
+      },
+      {
+        "rule": "typescript:S1082",
+        "severity": "MINOR",
+        "type": "BUG",
+        "component": "frontend/src/components/ui.tsx",
+        "line": 222,
+        "message": "Visible, non-interactive elements with click handlers must have at least one keyboard listener.",
+        "status": "Corregido",
+        "effort": "5min"
+      },
+      {
+        "rule": "typescript:S3358",
+        "severity": "MAJOR",
+        "type": "CODE_SMELL",
+        "component": "backend/src/admin/admin.service.ts",
+        "line": 29,
+        "message": "Extract this nested ternary operation into an independent statement.",
+        "status": "Corregido",
+        "effort": "5min"
+      },
+      {
+        "rule": "typescript:S6819",
+        "severity": "MAJOR",
+        "type": "CODE_SMELL",
+        "component": "frontend/src/components/ui.tsx",
+        "line": 222,
+        "message": "Use <dialog> instead of the \"dialog\" role to ensure accessibility across all devices.",
+        "status": "Corregido",
+        "effort": "5min"
+      },
+      {
+        "rule": "typescript:S6847",
+        "severity": "MAJOR",
+        "type": "CODE_SMELL",
+        "component": "frontend/src/components/ui.tsx",
+        "line": 222,
+        "message": "Non-interactive elements should not be assigned mouse or keyboard event listeners.",
+        "status": "Corregido",
+        "effort": "5min"
+      },
+      {
+        "rule": "typescript:S6848",
+        "severity": "MAJOR",
+        "type": "CODE_SMELL",
+        "component": "frontend/src/components/ui.tsx",
+        "line": 218,
+        "message": "Avoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element.",
+        "status": "Corregido",
+        "effort": "5min"
+      },
+      {
+        "rule": "typescript:S6819",
+        "severity": "MAJOR",
+        "type": "CODE_SMELL",
+        "component": "frontend/src/contexts/ToastContext.tsx",
+        "line": 62,
+        "message": "Use <output> instead of the \"status\" role to ensure accessibility across all devices.",
+        "status": "Corregido",
+        "effort": "5min"
+      },
+      {
+        "rule": "typescript:S3358",
+        "severity": "MAJOR",
+        "type": "CODE_SMELL",
+        "component": "frontend/src/pages/AdminHistoryPage.tsx",
+        "line": 98,
+        "message": "Extract this nested ternary operation into an independent statement.",
+        "status": "Corregido",
+        "effort": "5min"
+      },
+      {
+        "rule": "typescript:S3358",
+        "severity": "MAJOR",
+        "type": "CODE_SMELL",
+        "component": "frontend/src/pages/AdminHistoryPage.tsx",
+        "line": 99,
+        "message": "Extract this nested ternary operation into an independent statement.",
+        "status": "Corregido",
+        "effort": "5min"
+      },
+      {
+        "rule": "typescript:S3358",
+        "severity": "MAJOR",
+        "type": "CODE_SMELL",
+        "component": "frontend/src/pages/AdminHistoryPage.tsx",
+        "line": 159,
+        "message": "Extract this nested ternary operation into an independent statement.",
+        "status": "Corregido",
+        "effort": "5min"
+      },
+      {
+        "rule": "typescript:S3358",
+        "severity": "MAJOR",
+        "type": "CODE_SMELL",
+        "component": "frontend/src/pages/AdminPendingPage.tsx",
+        "line": 152,
+        "message": "Extract this nested ternary operation into an independent statement.",
+        "status": "Corregido",
+        "effort": "5min"
+      },
+      {
+        "rule": "typescript:S3358",
+        "severity": "MAJOR",
+        "type": "CODE_SMELL",
+        "component": "frontend/src/pages/AdminReturnsPage.tsx",
+        "line": 139,
+        "message": "Extract this nested ternary operation into an independent statement.",
+        "status": "Corregido",
+        "effort": "5min"
+      },
+      {
+        "rule": "typescript:S3358",
+        "severity": "MAJOR",
+        "type": "CODE_SMELL",
+        "component": "frontend/src/pages/CatalogPage.tsx",
+        "line": 215,
+        "message": "Extract this nested ternary operation into an independent statement.",
+        "status": "Corregido",
+        "effort": "5min"
+      },
+      {
+        "rule": "typescript:S6819",
+        "severity": "MAJOR",
+        "type": "CODE_SMELL",
+        "component": "frontend/src/pages/CatalogPage.tsx",
+        "line": 168,
+        "message": "Use <details>, <fieldset>, <optgroup>, or <address> instead of the \"group\" role to ensure accessibility across all devices.",
+        "status": "Corregido",
+        "effort": "5min"
+      },
+      {
+        "rule": "typescript:S9379",
+        "severity": "MAJOR",
+        "type": "CODE_SMELL",
+        "component": "frontend/src/pages/LoginPage.tsx",
+        "line": 172,
+        "message": "Remove this \"autoFocus\" attribute, as it can reduce usability and accessibility for users.",
+        "status": "Corregido",
+        "effort": "5min"
+      },
+      {
+        "rule": "typescript:S3358",
+        "severity": "MAJOR",
+        "type": "CODE_SMELL",
+        "component": "frontend/src/pages/MyReservationsPage.tsx",
+        "line": 129,
+        "message": "Extract this nested ternary operation into an independent statement.",
+        "status": "Corregido",
+        "effort": "5min"
+      },
+      {
+        "rule": "typescript:S6819",
+        "severity": "MAJOR",
+        "type": "CODE_SMELL",
+        "component": "frontend/src/pages/MyReservationsPage.tsx",
+        "line": 99,
+        "message": "Use <details>, <fieldset>, <optgroup>, or <address> instead of the \"group\" role to ensure accessibility across all devices.",
+        "status": "Corregido",
+        "effort": "5min"
+      },
+      {
+        "rule": "typescript:S6759",
+        "severity": "MINOR",
+        "type": "CODE_SMELL",
+        "component": "frontend/src/components/AppLayout.tsx",
+        "line": 83,
+        "message": "Mark the props of the component as read-only.",
+        "status": "Corregido",
+        "effort": "5min"
+      },
+      {
+        "rule": "typescript:S6759",
+        "severity": "MINOR",
+        "type": "CODE_SMELL",
+        "component": "frontend/src/components/CategoryIconLabel.tsx",
+        "line": 3,
+        "message": "Mark the props of the component as read-only.",
+        "status": "Corregido",
+        "effort": "5min"
+      },
+      {
+        "rule": "typescript:S6759",
+        "severity": "MINOR",
+        "type": "CODE_SMELL",
+        "component": "frontend/src/components/ProtectedRoute.tsx",
+        "line": 7,
+        "message": "Mark the props of the component as read-only.",
+        "status": "Corregido",
+        "effort": "5min"
+      },
+      {
+        "rule": "typescript:S6759",
+        "severity": "MINOR",
+        "type": "CODE_SMELL",
+        "component": "frontend/src/components/ui.tsx",
+        "line": 29,
+        "message": "Mark the props of the component as read-only.",
+        "status": "Corregido",
+        "effort": "5min"
+      },
+      {
+        "rule": "typescript:S6759",
+        "severity": "MINOR",
+        "type": "CODE_SMELL",
+        "component": "frontend/src/components/ui.tsx",
+        "line": 38,
+        "message": "Mark the props of the component as read-only.",
+        "status": "Corregido",
+        "effort": "5min"
+      },
+      {
+        "rule": "typescript:S6759",
+        "severity": "MINOR",
+        "type": "CODE_SMELL",
+        "component": "frontend/src/components/ui.tsx",
+        "line": 54,
+        "message": "Mark the props of the component as read-only.",
+        "status": "Corregido",
+        "effort": "5min"
+      },
+      {
+        "rule": "typescript:S6759",
+        "severity": "MINOR",
+        "type": "CODE_SMELL",
+        "component": "frontend/src/components/ui.tsx",
+        "line": 86,
+        "message": "Mark the props of the component as read-only.",
+        "status": "Corregido",
+        "effort": "5min"
+      },
+      {
+        "rule": "typescript:S6759",
+        "severity": "MINOR",
+        "type": "CODE_SMELL",
+        "component": "frontend/src/components/ui.tsx",
+        "line": 113,
+        "message": "Mark the props of the component as read-only.",
+        "status": "Corregido",
+        "effort": "5min"
+      },
+      {
+        "rule": "typescript:S6759",
+        "severity": "MINOR",
+        "type": "CODE_SMELL",
+        "component": "frontend/src/components/ui.tsx",
+        "line": 133,
+        "message": "Mark the props of the component as read-only.",
+        "status": "Corregido",
+        "effort": "5min"
+      },
+      {
+        "rule": "typescript:S6759",
+        "severity": "MINOR",
+        "type": "CODE_SMELL",
+        "component": "frontend/src/components/ui.tsx",
+        "line": 159,
+        "message": "Mark the props of the component as read-only.",
+        "status": "Corregido",
+        "effort": "5min"
+      },
+      {
+        "rule": "typescript:S6759",
+        "severity": "MINOR",
+        "type": "CODE_SMELL",
+        "component": "frontend/src/components/ui.tsx",
+        "line": 186,
+        "message": "Mark the props of the component as read-only.",
+        "status": "Corregido",
+        "effort": "5min"
+      },
+      {
+        "rule": "typescript:S6759",
+        "severity": "MINOR",
+        "type": "CODE_SMELL",
+        "component": "frontend/src/contexts/AuthContext.tsx",
+        "line": 30,
+        "message": "Mark the props of the component as read-only.",
+        "status": "Corregido",
+        "effort": "5min"
+      },
+      {
+        "rule": "typescript:S6759",
+        "severity": "MINOR",
+        "type": "CODE_SMELL",
+        "component": "frontend/src/contexts/ToastContext.tsx",
+        "line": 39,
+        "message": "Mark the props of the component as read-only.",
+        "status": "Corregido",
+        "effort": "5min"
+      },
+      {
+        "rule": "typescript:S7718",
+        "severity": "MINOR",
+        "type": "CODE_SMELL",
+        "component": "frontend/src/pages/AdminHistoryPage.tsx",
+        "line": 44,
+        "message": "The catch parameter `caught` should be named `error_`.",
+        "status": "Corregido",
+        "effort": "5min"
+      },
+      {
+        "rule": "typescript:S7718",
+        "severity": "MINOR",
+        "type": "CODE_SMELL",
+        "component": "frontend/src/pages/AdminPendingPage.tsx",
+        "line": 49,
+        "message": "The catch parameter `caught` should be named `error_`.",
+        "status": "Corregido",
+        "effort": "5min"
+      },
+      {
+        "rule": "typescript:S7718",
+        "severity": "MINOR",
+        "type": "CODE_SMELL",
+        "component": "frontend/src/pages/AdminPendingPage.tsx",
+        "line": 69,
+        "message": "The catch parameter `caught` should be named `error_`.",
+        "status": "Corregido",
+        "effort": "5min"
+      },
+      {
+        "rule": "typescript:S7718",
+        "severity": "MINOR",
+        "type": "CODE_SMELL",
+        "component": "frontend/src/pages/AdminPendingPage.tsx",
+        "line": 96,
+        "message": "The catch parameter `caught` should be named `error_`.",
+        "status": "Corregido",
+        "effort": "5min"
+      },
+      {
+        "rule": "typescript:S7718",
+        "severity": "MINOR",
+        "type": "CODE_SMELL",
+        "component": "frontend/src/pages/AdminReturnsPage.tsx",
+        "line": 54,
+        "message": "The catch parameter `caught` should be named `error_`.",
+        "status": "Corregido",
+        "effort": "5min"
+      },
+      {
+        "rule": "typescript:S7718",
+        "severity": "MINOR",
+        "type": "CODE_SMELL",
+        "component": "frontend/src/pages/AdminReturnsPage.tsx",
+        "line": 94,
+        "message": "The catch parameter `caught` should be named `error_`.",
+        "status": "Corregido",
+        "effort": "5min"
+      },
+      {
+        "rule": "typescript:S6759",
+        "severity": "MINOR",
+        "type": "CODE_SMELL",
+        "component": "frontend/src/pages/CatalogPage.tsx",
+        "line": 36,
+        "message": "Mark the props of the component as read-only.",
+        "status": "Corregido",
+        "effort": "5min"
+      },
+      {
+        "rule": "typescript:S7718",
+        "severity": "MINOR",
+        "type": "CODE_SMELL",
+        "component": "frontend/src/pages/CatalogPage.tsx",
+        "line": 65,
+        "message": "The catch parameter `caught` should be named `error_`.",
+        "status": "Corregido",
+        "effort": "5min"
+      },
+      {
+        "rule": "typescript:S7718",
+        "severity": "MINOR",
+        "type": "CODE_SMELL",
+        "component": "frontend/src/pages/LoginPage.tsx",
+        "line": 71,
+        "message": "The catch parameter `caught` should be named `error_`.",
+        "status": "Corregido",
+        "effort": "5min"
+      },
+      {
+        "rule": "typescript:S7718",
+        "severity": "MINOR",
+        "type": "CODE_SMELL",
+        "component": "frontend/src/pages/MyReservationsPage.tsx",
+        "line": 44,
+        "message": "The catch parameter `caught` should be named `error_`.",
+        "status": "Corregido",
+        "effort": "5min"
+      },
+      {
+        "rule": "typescript:S7718",
+        "severity": "MINOR",
+        "type": "CODE_SMELL",
+        "component": "frontend/src/pages/NewReservationPage.tsx",
+        "line": 71,
+        "message": "The catch parameter `caught` should be named `error_`.",
+        "status": "Corregido",
+        "effort": "5min"
+      },
+      {
+        "rule": "typescript:S7718",
+        "severity": "MINOR",
+        "type": "CODE_SMELL",
+        "component": "frontend/src/pages/NewReservationPage.tsx",
+        "line": 133,
+        "message": "The catch parameter `caught` should be named `error_`.",
+        "status": "Corregido",
+        "effort": "5min"
+      },
+      {
+        "rule": "typescript:S2245",
+        "severity": "MAJOR",
+        "type": "VULNERABILITY",
+        "component": "frontend/src/contexts/ToastContext.tsx",
+        "line": 48,
+        "message": "Make sure that using this pseudorandom number generator is safe here.",
+        "status": "Corregido",
+        "effort": "10min"
+      },
+      {
+        "rule": "typescript:S2068",
+        "severity": "MAJOR",
+        "type": "VULNERABILITY",
+        "component": "frontend/src/pages/LoginPage.tsx",
+        "line": 31,
+        "message": "Review this potentially hard-coded password.",
+        "status": "Corregido",
+        "effort": "30min"
+      }
+    ]
+  },
+  "despues": {
+    "linesOfCode": 4120,
+    "bugs": 0,
+    "vulnerabilities": 0,
+    "codeSmells": 0,
+    "coverage": 89.6,
+    "duplications": 0.7,
+    "reliabilityRating": "A",
+    "securityRating": "A",
+    "maintainabilityRating": "A",
+    "complexity": 538,
+    "cognitiveComplexity": 297,
+    "qualityGate": "OK",
+    "conditions": [
+      {
+        "metric": "new_coverage",
+        "status": "OK",
+        "actual": "87.1",
+        "threshold": "80"
+      },
+      {
+        "metric": "new_duplicated_lines_density",
+        "status": "OK",
+        "actual": "0.0",
+        "threshold": "3"
+      },
+      {
+        "metric": "new_violations",
+        "status": "OK",
+        "actual": "0",
+        "threshold": "0"
+      }
+    ],
+    "issues": []
+  }
+}

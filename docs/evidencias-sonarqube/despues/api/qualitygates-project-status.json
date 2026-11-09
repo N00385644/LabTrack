@@ -1,0 +1,28 @@
+{
+  "reconstruido": true,
+  "fuente": "docs/sonar-data.json · final",
+  "nota": "Respuesta con forma de api/qualitygates/project_status reconstruida. NO es un escaneo nuevo.",
+  "projectStatus": {
+    "status": "OK",
+    "conditions": [
+      {
+        "metricKey": "new_coverage",
+        "status": "OK",
+        "actualValue": "87.1",
+        "errorThreshold": "80"
+      },
+      {
+        "metricKey": "new_duplicated_lines_density",
+        "status": "OK",
+        "actualValue": "0.0",
+        "errorThreshold": "3"
+      },
+      {
+        "metricKey": "new_violations",
+        "status": "OK",
+        "actualValue": "0",
+        "errorThreshold": "0"
+      }
+    ]
+  }
+}

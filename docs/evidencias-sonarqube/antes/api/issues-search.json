@@ -1,0 +1,585 @@
+{
+  "reconstruido": true,
+  "fuente": "docs/sonar-baseline.json",
+  "nota": "Respuesta con forma de api/issues/search reconstruida desde una instantanea historica. NO es un escaneo nuevo.",
+  "proyecto": "labtrack-antes",
+  "capturado": "2026-11-09",
+  "commit": "840052e769ac7386f458d9cac2332d6a4dd2d50d",
+  "p": 1,
+  "ps": 500,
+  "total": 44,
+  "issues": [
+    {
+      "key": "LABTRACK-ANTES-001",
+      "rule": "typescript:S1082",
+      "severity": "MINOR",
+      "type": "BUG",
+      "component": "labtrack-antes:frontend/src/components/ui.tsx",
+      "textRange": {
+        "startLine": 218
+      },
+      "message": "Visible, non-interactive elements with click handlers must have at least one keyboard listener.",
+      "effort": "5min",
+      "status": "OPEN"
+    },
+    {
+      "key": "LABTRACK-ANTES-002",
+      "rule": "typescript:S1082",
+      "severity": "MINOR",
+      "type": "BUG",
+      "component": "labtrack-antes:frontend/src/components/ui.tsx",
+      "textRange": {
+        "startLine": 222
+      },
+      "message": "Visible, non-interactive elements with click handlers must have at least one keyboard listener.",
+      "effort": "5min",
+      "status": "OPEN"
+    },
+    {
+      "key": "LABTRACK-ANTES-003",
+      "rule": "typescript:S3358",
+      "severity": "MAJOR",
+      "type": "CODE_SMELL",
+      "component": "labtrack-antes:backend/src/admin/admin.service.ts",
+      "textRange": {
+        "startLine": 29
+      },
+      "message": "Extract this nested ternary operation into an independent statement.",
+      "effort": "5min",
+      "status": "OPEN"
+    },
+    {
+      "key": "LABTRACK-ANTES-004",
+      "rule": "typescript:S6819",
+      "severity": "MAJOR",
+      "type": "CODE_SMELL",
+      "component": "labtrack-antes:frontend/src/components/ui.tsx",
+      "textRange": {
+        "startLine": 222
+      },
+      "message": "Use <dialog> instead of the \"dialog\" role to ensure accessibility across all devices.",
+      "effort": "5min",
+      "status": "OPEN"
+    },
+    {
+      "key": "LABTRACK-ANTES-005",
+      "rule": "typescript:S6847",
+      "severity": "MAJOR",
+      "type": "CODE_SMELL",
+      "component": "labtrack-antes:frontend/src/components/ui.tsx",
+      "textRange": {
+        "startLine": 222
+      },
+      "message": "Non-interactive elements should not be assigned mouse or keyboard event listeners.",
+      "effort": "5min",
+      "status": "OPEN"
+    },
+    {
+      "key": "LABTRACK-ANTES-006",
+      "rule": "typescript:S6848",
+      "severity": "MAJOR",
+      "type": "CODE_SMELL",
+      "component": "labtrack-antes:frontend/src/components/ui.tsx",
+      "textRange": {
+        "startLine": 218
+      },
+      "message": "Avoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element.",
+      "effort": "5min",
+      "status": "OPEN"
+    },
+    {
+      "key": "LABTRACK-ANTES-007",
+      "rule": "typescript:S6819",
+      "severity": "MAJOR",
+      "type": "CODE_SMELL",
+      "component": "labtrack-antes:frontend/src/contexts/ToastContext.tsx",
+      "textRange": {
+        "startLine": 62
+      },
+      "message": "Use <output> instead of the \"status\" role to ensure accessibility across all devices.",
+      "effort": "5min",
+      "status": "OPEN"
+    },
+    {
+      "key": "LABTRACK-ANTES-008",
+      "rule": "typescript:S3358",
+      "severity": "MAJOR",
+      "type": "CODE_SMELL",
+      "component": "labtrack-antes:frontend/src/pages/AdminHistoryPage.tsx",
+      "textRange": {
+        "startLine": 98
+      },
+      "message": "Extract this nested ternary operation into an independent statement.",
+      "effort": "5min",
+      "status": "OPEN"
+    },
+    {
+      "key": "LABTRACK-ANTES-009",
+      "rule": "typescript:S3358",
+      "severity": "MAJOR",
+      "type": "CODE_SMELL",
+      "component": "labtrack-antes:frontend/src/pages/AdminHistoryPage.tsx",
+      "textRange": {
+        "startLine": 99
+      },
+      "message": "Extract this nested ternary operation into an independent statement.",
+      "effort": "5min",
+      "status": "OPEN"
+    },
+    {
+      "key": "LABTRACK-ANTES-010",
+      "rule": "typescript:S3358",
+      "severity": "MAJOR",
+      "type": "CODE_SMELL",
+      "component": "labtrack-antes:frontend/src/pages/AdminHistoryPage.tsx",
+      "textRange": {
+        "startLine": 159
+      },
+      "message": "Extract this nested ternary operation into an independent statement.",
+      "effort": "5min",
+      "status": "OPEN"
+    },
+    {
+      "key": "LABTRACK-ANTES-011",
+      "rule": "typescript:S3358",
+      "severity": "MAJOR",
+      "type": "CODE_SMELL",
+      "component": "labtrack-antes:frontend/src/pages/AdminPendingPage.tsx",
+      "textRange": {
+        "startLine": 152
+      },
+      "message": "Extract this nested ternary operation into an independent statement.",
+      "effort": "5min",
+      "status": "OPEN"
+    },
+    {
+      "key": "LABTRACK-ANTES-012",
+      "rule": "typescript:S3358",
+      "severity": "MAJOR",
+      "type": "CODE_SMELL",
+      "component": "labtrack-antes:frontend/src/pages/AdminReturnsPage.tsx",
+      "textRange": {
+        "startLine": 139
+      },
+      "message": "Extract this nested ternary operation into an independent statement.",
+      "effort": "5min",
+      "status": "OPEN"
+    },
+    {
+      "key": "LABTRACK-ANTES-013",
+      "rule": "typescript:S3358",
+      "severity": "MAJOR",
+      "type": "CODE_SMELL",
+      "component": "labtrack-antes:frontend/src/pages/CatalogPage.tsx",
+      "textRange": {
+        "startLine": 215
+      },
+      "message": "Extract this nested ternary operation into an independent statement.",
+      "effort": "5min",
+      "status": "OPEN"
+    },
+    {
+      "key": "LABTRACK-ANTES-014",
+      "rule": "typescript:S6819",
+      "severity": "MAJOR",
+      "type": "CODE_SMELL",
+      "component": "labtrack-antes:frontend/src/pages/CatalogPage.tsx",
+      "textRange": {
+        "startLine": 168
+      },
+      "message": "Use <details>, <fieldset>, <optgroup>, or <address> instead of the \"group\" role to ensure accessibility across all devices.",
+      "effort": "5min",
+      "status": "OPEN"
+    },
+    {
+      "key": "LABTRACK-ANTES-015",
+      "rule": "typescript:S9379",
+      "severity": "MAJOR",
+      "type": "CODE_SMELL",
+      "component": "labtrack-antes:frontend/src/pages/LoginPage.tsx",
+      "textRange": {
+        "startLine": 172
+      },
+      "message": "Remove this \"autoFocus\" attribute, as it can reduce usability and accessibility for users.",
+      "effort": "5min",
+      "status": "OPEN"
+    },
+    {
+      "key": "LABTRACK-ANTES-016",
+      "rule": "typescript:S3358",
+      "severity": "MAJOR",
+      "type": "CODE_SMELL",
+      "component": "labtrack-antes:frontend/src/pages/MyReservationsPage.tsx",
+      "textRange": {
+        "startLine": 129
+      },
+      "message": "Extract this nested ternary operation into an independent statement.",
+      "effort": "5min",
+      "status": "OPEN"
+    },
+    {
+      "key": "LABTRACK-ANTES-017",
+      "rule": "typescript:S6819",
+      "severity": "MAJOR",
+      "type": "CODE_SMELL",
+      "component": "labtrack-antes:frontend/src/pages/MyReservationsPage.tsx",
+      "textRange": {
+        "startLine": 99
+      },
+      "message": "Use <details>, <fieldset>, <optgroup>, or <address> instead of the \"group\" role to ensure accessibility across all devices.",
+      "effort": "5min",
+      "status": "OPEN"
+    },
+    {
+      "key": "LABTRACK-ANTES-018",
+      "rule": "typescript:S6759",
+      "severity": "MINOR",
+      "type": "CODE_SMELL",
+      "component": "labtrack-antes:frontend/src/components/AppLayout.tsx",
+      "textRange": {
+        "startLine": 83
+      },
+      "message": "Mark the props of the component as read-only.",
+      "effort": "5min",
+      "status": "OPEN"
+    },
+    {
+      "key": "LABTRACK-ANTES-019",
+      "rule": "typescript:S6759",
+      "severity": "MINOR",
+      "type": "CODE_SMELL",
+      "component": "labtrack-antes:frontend/src/components/CategoryIconLabel.tsx",
+      "textRange": {
+        "startLine": 3
+      },
+      "message": "Mark the props of the component as read-only.",
+      "effort": "5min",
+      "status": "OPEN"
+    },
+    {
+      "key": "LABTRACK-ANTES-020",
+      "rule": "typescript:S6759",
+      "severity": "MINOR",
+      "type": "CODE_SMELL",
+      "component": "labtrack-antes:frontend/src/components/ProtectedRoute.tsx",
+      "textRange": {
+        "startLine": 7
+      },
+      "message": "Mark the props of the component as read-only.",
+      "effort": "5min",
+      "status": "OPEN"
+    },
+    {
+      "key": "LABTRACK-ANTES-021",
+      "rule": "typescript:S6759",
+      "severity": "MINOR",
+      "type": "CODE_SMELL",
+      "component": "labtrack-antes:frontend/src/components/ui.tsx",
+      "textRange": {
+        "startLine": 29
+      },
+      "message": "Mark the props of the component as read-only.",
+      "effort": "5min",
+      "status": "OPEN"
+    },
+    {
+      "key": "LABTRACK-ANTES-022",
+      "rule": "typescript:S6759",
+      "severity": "MINOR",
+      "type": "CODE_SMELL",
+      "component": "labtrack-antes:frontend/src/components/ui.tsx",
+      "textRange": {
+        "startLine": 38
+      },
+      "message": "Mark the props of the component as read-only.",
+      "effort": "5min",
+      "status": "OPEN"
+    },
+    {
+      "key": "LABTRACK-ANTES-023",
+      "rule": "typescript:S6759",
+      "severity": "MINOR",
+      "type": "CODE_SMELL",
+      "component": "labtrack-antes:frontend/src/components/ui.tsx",
+      "textRange": {
+        "startLine": 54
+      },
+      "message": "Mark the props of the component as read-only.",
+      "effort": "5min",
+      "status": "OPEN"
+    },
+    {
+      "key": "LABTRACK-ANTES-024",
+      "rule": "typescript:S6759",
+      "severity": "MINOR",
+      "type": "CODE_SMELL",
+      "component": "labtrack-antes:frontend/src/components/ui.tsx",
+      "textRange": {
+        "startLine": 86
+      },
+      "message": "Mark the props of the component as read-only.",
+      "effort": "5min",
+      "status": "OPEN"
+    },
+    {
+      "key": "LABTRACK-ANTES-025",
+      "rule": "typescript:S6759",
+      "severity": "MINOR",
+      "type": "CODE_SMELL",
+      "component": "labtrack-antes:frontend/src/components/ui.tsx",
+      "textRange": {
+        "startLine": 113
+      },
+      "message": "Mark the props of the component as read-only.",
+      "effort": "5min",
+      "status": "OPEN"
+    },
+    {
+      "key": "LABTRACK-ANTES-026",
+      "rule": "typescript:S6759",
+      "severity": "MINOR",
+      "type": "CODE_SMELL",
+      "component": "labtrack-antes:frontend/src/components/ui.tsx",
+      "textRange": {
+        "startLine": 133
+      },
+      "message": "Mark the props of the component as read-only.",
+      "effort": "5min",
+      "status": "OPEN"
+    },
+    {
+      "key": "LABTRACK-ANTES-027",
+      "rule": "typescript:S6759",
+      "severity": "MINOR",
+      "type": "CODE_SMELL",
+      "component": "labtrack-antes:frontend/src/components/ui.tsx",
+      "textRange": {
+        "startLine": 159
+      },
+      "message": "Mark the props of the component as read-only.",
+      "effort": "5min",
+      "status": "OPEN"
+    },
+    {
+      "key": "LABTRACK-ANTES-028",
+      "rule": "typescript:S6759",
+      "severity": "MINOR",
+      "type": "CODE_SMELL",
+      "component": "labtrack-antes:frontend/src/components/ui.tsx",
+      "textRange": {
+        "startLine": 186
+      },
+      "message": "Mark the props of the component as read-only.",
+      "effort": "5min",
+      "status": "OPEN"
+    },
+    {
+      "key": "LABTRACK-ANTES-029",
+      "rule": "typescript:S6759",
+      "severity": "MINOR",
+      "type": "CODE_SMELL",
+      "component": "labtrack-antes:frontend/src/contexts/AuthContext.tsx",
+      "textRange": {
+        "startLine": 30
+      },
+      "message": "Mark the props of the component as read-only.",
+      "effort": "5min",
+      "status": "OPEN"
+    },
+    {
+      "key": "LABTRACK-ANTES-030",
+      "rule": "typescript:S6759",
+      "severity": "MINOR",
+      "type": "CODE_SMELL",
+      "component": "labtrack-antes:frontend/src/contexts/ToastContext.tsx",
+      "textRange": {
+        "startLine": 39
+      },
+      "message": "Mark the props of the component as read-only.",
+      "effort": "5min",
+      "status": "OPEN"
+    },
+    {
+      "key": "LABTRACK-ANTES-031",
+      "rule": "typescript:S7718",
+      "severity": "MINOR",
+      "type": "CODE_SMELL",
+      "component": "labtrack-antes:frontend/src/pages/AdminHistoryPage.tsx",
+      "textRange": {
+        "startLine": 44
+      },
+      "message": "The catch parameter `caught` should be named `error_`.",
+      "effort": "5min",
+      "status": "OPEN"
+    },
+    {
+      "key": "LABTRACK-ANTES-032",
+      "rule": "typescript:S7718",
+      "severity": "MINOR",
+      "type": "CODE_SMELL",
+      "component": "labtrack-antes:frontend/src/pages/AdminPendingPage.tsx",
+      "textRange": {
+        "startLine": 49
+      },
+      "message": "The catch parameter `caught` should be named `error_`.",
+      "effort": "5min",
+      "status": "OPEN"
+    },
+    {
+      "key": "LABTRACK-ANTES-033",
+      "rule": "typescript:S7718",
+      "severity": "MINOR",
+      "type": "CODE_SMELL",
+      "component": "labtrack-antes:frontend/src/pages/AdminPendingPage.tsx",
+      "textRange": {
+        "startLine": 69
+      },
+      "message": "The catch parameter `caught` should be named `error_`.",
+      "effort": "5min",
+      "status": "OPEN"
+    },
+    {
+      "key": "LABTRACK-ANTES-034",
+      "rule": "typescript:S7718",
+      "severity": "MINOR",
+      "type": "CODE_SMELL",
+      "component": "labtrack-antes:frontend/src/pages/AdminPendingPage.tsx",
+      "textRange": {
+        "startLine": 96
+      },
+      "message": "The catch parameter `caught` should be named `error_`.",
+      "effort": "5min",
+      "status": "OPEN"
+    },
+    {
+      "key": "LABTRACK-ANTES-035",
+      "rule": "typescript:S7718",
+      "severity": "MINOR",
+      "type": "CODE_SMELL",
+      "component": "labtrack-antes:frontend/src/pages/AdminReturnsPage.tsx",
+      "textRange": {
+        "startLine": 54
+      },
+      "message": "The catch parameter `caught` should be named `error_`.",
+      "effort": "5min",
+      "status": "OPEN"
+    },
+    {
+      "key": "LABTRACK-ANTES-036",
+      "rule": "typescript:S7718",
+      "severity": "MINOR",
+      "type": "CODE_SMELL",
+      "component": "labtrack-antes:frontend/src/pages/AdminReturnsPage.tsx",
+      "textRange": {
+        "startLine": 94
+      },
+      "message": "The catch parameter `caught` should be named `error_`.",
+      "effort": "5min",
+      "status": "OPEN"
+    },
+    {
+      "key": "LABTRACK-ANTES-037",
+      "rule": "typescript:S6759",
+      "severity": "MINOR",
+      "type": "CODE_SMELL",
+      "component": "labtrack-antes:frontend/src/pages/CatalogPage.tsx",
+      "textRange": {
+        "startLine": 36
+      },
+      "message": "Mark the props of the component as read-only.",
+      "effort": "5min",
+      "status": "OPEN"
+    },
+    {
+      "key": "LABTRACK-ANTES-038",
+      "rule": "typescript:S7718",
+      "severity": "MINOR",
+      "type": "CODE_SMELL",
+      "component": "labtrack-antes:frontend/src/pages/CatalogPage.tsx",
+      "textRange": {
+        "startLine": 65
+      },
+      "message": "The catch parameter `caught` should be named `error_`.",
+      "effort": "5min",
+      "status": "OPEN"
+    },
+    {
+      "key": "LABTRACK-ANTES-039",
+      "rule": "typescript:S7718",
+      "severity": "MINOR",
+      "type": "CODE_SMELL",
+      "component": "labtrack-antes:frontend/src/pages/LoginPage.tsx",
+      "textRange": {
+        "startLine": 71
+      },
+      "message": "The catch parameter `caught` should be named `error_`.",
+      "effort": "5min",
+      "status": "OPEN"
+    },
+    {
+      "key": "LABTRACK-ANTES-040",
+      "rule": "typescript:S7718",
+      "severity": "MINOR",
+      "type": "CODE_SMELL",
+      "component": "labtrack-antes:frontend/src/pages/MyReservationsPage.tsx",
+      "textRange": {
+        "startLine": 44
+      },
+      "message": "The catch parameter `caught` should be named `error_`.",
+      "effort": "5min",
+      "status": "OPEN"
+    },
+    {
+      "key": "LABTRACK-ANTES-041",
+      "rule": "typescript:S7718",
+      "severity": "MINOR",
+      "type": "CODE_SMELL",
+      "component": "labtrack-antes:frontend/src/pages/NewReservationPage.tsx",
+      "textRange": {
+        "startLine": 71
+      },
+      "message": "The catch parameter `caught` should be named `error_`.",
+      "effort": "5min",
+      "status": "OPEN"
+    },
+    {
+      "key": "LABTRACK-ANTES-042",
+      "rule": "typescript:S7718",
+      "severity": "MINOR",
+      "type": "CODE_SMELL",
+      "component": "labtrack-antes:frontend/src/pages/NewReservationPage.tsx",
+      "textRange": {
+        "startLine": 133
+      },
+      "message": "The catch parameter `caught` should be named `error_`.",
+      "effort": "5min",
+      "status": "OPEN"
+    },
+    {
+      "key": "LABTRACK-ANTES-043",
+      "rule": "typescript:S2245",
+      "severity": "MAJOR",
+      "type": "VULNERABILITY",
+      "component": "labtrack-antes:frontend/src/contexts/ToastContext.tsx",
+      "textRange": {
+        "startLine": 48
+      },
+      "message": "Make sure that using this pseudorandom number generator is safe here.",
+      "effort": "10min",
+      "status": "OPEN"
+    },
+    {
+      "key": "LABTRACK-ANTES-044",
+      "rule": "typescript:S2068",
+      "severity": "MAJOR",
+      "type": "VULNERABILITY",
+      "component": "labtrack-antes:frontend/src/pages/LoginPage.tsx",
+      "textRange": {
+        "startLine": 31
+      },
+      "message": "Review this potentially hard-coded password.",
+      "effort": "30min",
+      "status": "OPEN"
+    }
+  ]
+}
