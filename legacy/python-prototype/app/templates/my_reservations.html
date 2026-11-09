@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block title %}Mis reservas{% endblock %}
+{% set active_page = 'mine' %}
+
+{% block content %}
+<div class="page-head">
+  <div>
+    <span class="eyebrow eyebrow-dark">Mi actividad</span>
+    <h1>Mis reservas</h1>
+    <p class="muted">Consulta el estado de tus solicitudes y el historial de préstamos.</p>
+  </div>
+  <a href="/catalog" class="btn btn-primary">Nueva reserva</a>
+</div>
+
+{% if current_user.is_penalized %}
+<div class="notice notice-danger">
+  <strong>Cuenta penalizada</strong>
+  <p>Registras una devolución tardía. No podrás crear nuevas reservas hasta que el encargado regularice tu situación.</p>
+</div>
+{% endif %}
+
+{% if reservations %}
+<section class="panel">
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Equipo</th>
+          <th>Fecha</th>
+          <th>Horario</th>
+          <th>Estado</th>
+          <th>Detalle</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for reservation in reservations %}
+        <tr>
+          <td>
+            <strong>{{ reservation.equipment.name }}</strong>
+            <small class="table-sub">{{ reservation.equipment.inventory_code }} · {{ reservation.equipment.category }}</small>
+          </td>
+          <td>{{ reservation.date.strftime('%d/%m/%Y') }}</td>
+          <td>{{ reservation.start_time.strftime('%H:%M') }} – {{ reservation.end_time.strftime('%H:%M') }}</td>
+          <td>
+            <span class="badge
+              {% if reservation.status == 'Aprobada' %}badge-success
+              {% elif reservation.status == 'Pendiente' %}badge-warning
+              {% elif reservation.status == 'Rechazada' %}badge-danger
+              {% else %}badge-neutral{% endif %}">{{ reservation.status }}</span>
+          </td>
+          <td>
+            {% if reservation.status == 'Rechazada' %}
+              <span class="table-note">Motivo: {{ reservation.rejection_reason }}</span>
+            {% elif reservation.status == 'Devuelta' %}
+              <span class="table-note">
+                Devuelto {{ reservation.returned_at.strftime('%d/%m/%Y %H:%M') if reservation.returned_at else '' }}
+                {% if reservation.penalty_applied %}<span class="badge badge-danger">Penalización</span>{% endif %}
+              </span>
+            {% elif reservation.status == 'Aprobada' %}
+              <span class="table-note">Retira el equipo en {{ reservation.equipment.location }}</span>
+            {% else %}
+              <span class="table-note">En espera de revisión del encargado</span>
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+{% else %}
+<section class="empty-state">
+  <div class="empty-icon" aria-hidden="true">
+    <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 11h18"/><path d="M9 16h6"/></svg>
+  </div>
+  <h2>Aún no tienes reservas</h2>
+  <p>Explora el catálogo y solicita el equipo que necesitas para tu próxima práctica.</p>
+  <a href="/catalog" class="btn btn-primary">Explorar catálogo</a>
+</section>
+{% endif %}
+{% endblock %}

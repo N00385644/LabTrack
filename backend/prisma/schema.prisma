@@ -1,0 +1,98 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  STUDENT
+  ADMIN
+}
+
+enum UserStatus {
+  ACTIVE
+  PENALIZED
+}
+
+enum EquipmentStatus {
+  AVAILABLE
+  BORROWED
+}
+
+enum ReservationStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  RETURNED
+}
+
+model User {
+  id             String        @id @default(cuid())
+  code           String        @unique
+  fullName       String
+  email          String        @default("")
+  passwordHash   String
+  role           Role          @default(STUDENT)
+  status         UserStatus    @default(ACTIVE)
+  failedAttempts Int           @default(0)
+  lockedUntil    DateTime?
+  createdAt      DateTime      @default(now())
+  reservations   Reservation[]
+  auditLogs      AuditLog[]
+
+  @@index([role])
+}
+
+model Equipment {
+  id            String            @id @default(cuid())
+  name          String
+  inventoryCode String            @unique
+  category      String
+  status        EquipmentStatus   @default(AVAILABLE)
+  description   String            @default("")
+  location      String            @default("Laboratorio principal")
+  createdAt     DateTime          @default(now())
+  reservations  Reservation[]
+
+  @@index([category])
+  @@index([status])
+}
+
+model Reservation {
+  id              String            @id @default(cuid())
+  userId          String
+  equipmentId     String
+  date            DateTime          @db.Date
+  startTime       String            @db.VarChar(5)
+  endTime         String            @db.VarChar(5)
+  status          ReservationStatus @default(PENDING)
+  rejectionReason String?           @db.VarChar(300)
+  reviewedBy      String?
+  reviewedAt      DateTime?
+  returnedAt      DateTime?
+  penaltyApplied  Boolean           @default(false)
+  createdAt       DateTime          @default(now())
+  user            User              @relation(fields: [userId], references: [id])
+  equipment       Equipment         @relation(fields: [equipmentId], references: [id])
+
+  @@index([userId, date])
+  @@index([equipmentId, date])
+  @@index([status])
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  event     String
+  actorCode String   @default("")
+  detail    String   @default("") @db.VarChar(300)
+  ipAddress String   @default("") @db.VarChar(60)
+  userId    String?
+  createdAt DateTime @default(now())
+  user      User?    @relation(fields: [userId], references: [id])
+
+  @@index([event])
+  @@index([createdAt])
+}

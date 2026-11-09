@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block title %}Iniciar sesión{% endblock %}
+{% block body_class %}login-body{% endblock %}
+{% block main_class %}login-main{% endblock %}
+
+{% block content %}
+<section class="login-shell">
+  <aside class="login-brand-panel">
+    <div class="login-brand-top">
+      <span class="brand-mark brand-mark-lg" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16V9"/><path d="M13 16V6"/><path d="M18 16v-4"/></svg>
+      </span>
+      <span class="brand-text">
+        <strong>LabTrack</strong>
+        <small>Gestión de laboratorios</small>
+      </span>
+    </div>
+
+    <div class="login-copy">
+      <span class="eyebrow">Plataforma académica</span>
+      <h1>Reserva tu equipo.<br>Práctica sin fricción.</h1>
+      <p>Catálogo de equipos, reservas por horario y control de devoluciones para los laboratorios de Cómputo, Electrónica y Redes.</p>
+      <ul class="login-benefits">
+        <li><span>✓</span> Disponibilidad en tiempo real</li>
+        <li><span>✓</span> Aprobación por el encargado</li>
+        <li><span>✓</span> Control automático de penalizaciones</li>
+      </ul>
+    </div>
+
+    <div class="login-brand-foot">
+      <span>Calidad y Pruebas de Software</span>
+      <span>UPN · 2026</span>
+    </div>
+  </aside>
+
+  <div class="login-form-panel">
+    <div class="login-card">
+      <span class="eyebrow eyebrow-dark">Acceso al sistema</span>
+      <h2>Inicia sesión</h2>
+      <p class="muted">Ingresa con tu código de estudiante o cuenta administrativa.</p>
+
+      <form method="post" action="/login" class="stack-form" novalidate>
+        <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+        <input type="hidden" name="next" value="{{ next_url or '' }}">
+
+        <label class="field">
+          <span>Código de usuario</span>
+          <input type="text" name="code" id="code" placeholder="Ej. 20240001" autocomplete="username" required autofocus>
+        </label>
+
+        <label class="field">
+          <span>Contraseña</span>
+          <div class="password-wrap">
+            <input type="password" name="password" id="password" placeholder="Tu contraseña" autocomplete="current-password" required>
+            <button type="button" class="password-toggle" data-toggle-password="password" aria-label="Mostrar contraseña">Ver</button>
+          </div>
+        </label>
+
+        <button type="submit" class="btn btn-primary btn-block">Ingresar a LabTrack</button>
+      </form>
+
+      <div class="demo-credentials">
+        <span class="demo-title">Cuentas de demostración</span>
+        <div class="demo-grid">
+          <div class="demo-item">
+            <span class="badge badge-soft">Estudiante</span>
+            <code>20240001</code>
+            <small>Estudiante2026!</small>
+          </div>
+          <div class="demo-item">
+            <span class="badge badge-soft">Administrador</span>
+            <code>ADMIN01</code>
+            <small>Admin2026!</small>
+          </div>
+        </div>
+      </div>
+
+      <p class="security-note">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+        Sesión protegida. Tras 3 intentos fallidos la cuenta se bloquea temporalmente.
+      </p>
+    </div>
+  </div>
+</section>
+{% endblock %}

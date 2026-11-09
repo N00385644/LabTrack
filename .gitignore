@@ -1,0 +1,34 @@
+# Dependencies and build artifacts
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+coverage/
+**/coverage/
+*.tsbuildinfo
+__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environment and local runtime data
+.env
+.env.*
+instance/
+logs/
+runs/
+reports/
+**/reports/
+.venv/
+**/.venv/
+.scannerwork/
+
+# Large local tooling / generated binaries
+tools/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+*.log
+~$*

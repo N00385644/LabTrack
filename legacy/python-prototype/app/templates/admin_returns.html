@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block title %}Devoluciones{% endblock %}
+
+{% block content %}
+<div class="page-head">
+  <div>
+    <span class="eyebrow eyebrow-dark">Panel de administración</span>
+    <h1>Devoluciones</h1>
+    <p class="muted">Registra la devolución física del equipo y libera su disponibilidad.</p>
+  </div>
+  <a href="/admin/pending" class="btn btn-secondary">Ver solicitudes</a>
+</div>
+
+{% include "_admin_stats.html" %}
+
+<section class="panel">
+  <div class="panel-head">
+    <div>
+      <h2 class="panel-title">Préstamos activos</h2>
+      <p class="muted small">La devolución tardía aplica una penalización automática al estudiante.</p>
+    </div>
+    <span class="badge badge-success">{{ reservations|length }} activo(s)</span>
+  </div>
+
+  {% if reservations %}
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Estudiante</th>
+          <th>Equipo</th>
+          <th>Bloque reservado</th>
+          <th>Condición</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for reservation in reservations %}
+        <tr>
+          <td>
+            <strong>{{ reservation.user.full_name }}</strong>
+            <small class="table-sub">{{ reservation.user.code }}</small>
+          </td>
+          <td>
+            <strong>{{ reservation.equipment.name }}</strong>
+            <small class="table-sub">{{ reservation.equipment.inventory_code }}</small>
+          </td>
+          <td>
+            <strong>{{ reservation.date.strftime('%d/%m/%Y') }}</strong>
+            <small class="table-sub">{{ reservation.start_time.strftime('%H:%M') }} – {{ reservation.end_time.strftime('%H:%M') }}</small>
+          </td>
+          <td>
+            {% if reservation.is_overdue %}
+              <span class="badge badge-danger">Devolución atrasada</span>
+              <small class="table-note">Se aplicará penalización</small>
+            {% else %}
+              <span class="badge badge-success">Dentro del plazo</span>
+              <small class="table-note">Sin penalización</small>
+            {% endif %}
+          </td>
+          <td>
+            <form method="post" action="/admin/reservations/{{ reservation.id }}/return">
+              <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+              <button type="submit" class="btn btn-small btn-primary" data-confirm="¿Registrar la devolución de {{ reservation.equipment.name }}?">Marcar devolución</button>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <div class="empty-inline">
+    <span class="empty-inline-icon">✓</span>
+    <div>
+      <h3>No hay préstamos activos</h3>
+      <p>Cuando apruebes una solicitud, el equipo aparecerá aquí hasta que registres su devolución.</p>
+    </div>
+  </div>
+  {% endif %}
+</section>
+{% endblock %}

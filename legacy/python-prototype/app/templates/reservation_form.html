@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% block title %}Nueva reserva{% endblock %}
+{% set active_page = 'mine' %}
+
+{% block content %}
+<div class="page-head">
+  <div>
+    <a href="/catalog" class="back-link">← Volver al catálogo</a>
+    <h1>Nueva reserva</h1>
+    <p class="muted">Selecciona el equipo y define el bloque de tiempo para tu práctica.</p>
+  </div>
+  <a href="/reservations/mine" class="btn btn-secondary">Mis reservas</a>
+</div>
+
+<div class="split-layout">
+  <section class="panel">
+    <h2 class="panel-title">Datos de la reserva</h2>
+    <form method="post" action="/reservations" class="stack-form" data-reservation-form>
+      <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+
+      <label class="field">
+        <span>Equipo</span>
+        <select name="equipment_id" id="equipment_id" required data-equipment-select>
+          <option value="" disabled {{ 'selected' if not selected_equipment }}>Selecciona un equipo disponible</option>
+          {% for item in equipment_list %}
+          <option value="{{ item.id }}"
+                  data-name="{{ item.name }}"
+                  data-code="{{ item.inventory_code }}"
+                  data-category="{{ item.category }}"
+                  data-location="{{ item.location }}"
+                  {{ 'selected' if selected_equipment and selected_equipment.id == item.id }}>
+            {{ item.name }} · {{ item.inventory_code }} ({{ item.category }})
+          </option>
+          {% endfor %}
+        </select>
+        {% if not equipment_list %}
+        <small class="field-hint field-hint-error">No hay equipos disponibles en este momento.</small>
+        {% endif %}
+      </label>
+
+      <div class="form-row">
+        <label class="field">
+          <span>Fecha de uso</span>
+          <input type="date" name="reservation_date" id="reservation_date" min="{{ today }}" value="{{ tomorrow }}" required>
+        </label>
+        <div class="time-row">
+          <label class="field">
+            <span>Hora de inicio</span>
+            <input type="time" name="start_time" id="start_time" min="07:00" max="22:00" value="10:00" required>
+          </label>
+          <label class="field">
+            <span>Hora de fin</span>
+            <input type="time" name="end_time" id="end_time" min="07:00" max="22:00" value="12:00" required>
+          </label>
+        </div>
+      </div>
+
+      <div class="notice notice-info">
+        <strong>Reglas de reserva</strong>
+        <ul>
+          <li>El horario del laboratorio es de 07:00 a 22:00 y el bloque máximo es de 4 horas.</li>
+          <li>No se permiten reservas cruzadas para el mismo equipo ni dos reservas activas en el mismo horario.</li>
+          <li>Toda solicitud queda pendiente hasta que el encargado la apruebe o rechace.</li>
+        </ul>
+      </div>
+
+      <button type="submit" class="btn btn-primary" {{ 'disabled' if not equipment_list }}>Enviar solicitud de reserva</button>
+    </form>
+  </section>
+
+  <aside class="side-stack">
+    <section class="panel summary-panel" data-equipment-summary>
+      <span class="eyebrow eyebrow-dark">Resumen</span>
+      <h3 data-summary-name>{{ selected_equipment.name if selected_equipment else 'Selecciona un equipo' }}</h3>
+      <p class="muted" data-summary-category>{{ selected_equipment.category if selected_equipment else 'Aún no has elegido el material' }}</p>
+      <dl class="summary-list">
+        <div><dt>Código de inventario</dt><dd data-summary-code>{{ selected_equipment.inventory_code if selected_equipment else '—' }}</dd></div>
+        <div><dt>Ubicación</dt><dd data-summary-location>{{ selected_equipment.location if selected_equipment else '—' }}</dd></div>
+        <div><dt>Estado</dt><dd><span class="badge badge-success">Disponible</span></dd></div>
+      </dl>
+    </section>
+
+    <section class="panel">
+      <h3 class="panel-title">¿Cómo funciona?</h3>
+      <ol class="steps">
+        <li><span>1</span> Envías la solicitud con fecha y horario.</li>
+        <li><span>2</span> El encargado revisa la disponibilidad.</li>
+        <li><span>3</span> Si se aprueba, el equipo queda prestado para tu bloque.</li>
+        <li><span>4</span> Devuélvelo a tiempo para evitar penalizaciones.</li>
+      </ol>
+    </section>
+  </aside>
+</div>
+{% endblock %}

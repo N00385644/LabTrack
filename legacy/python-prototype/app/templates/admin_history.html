@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% block title %}Historial y auditoría{% endblock %}
+
+{% block content %}
+<div class="page-head">
+  <div>
+    <span class="eyebrow eyebrow-dark">Trazabilidad</span>
+    <h1>Historial y auditoría</h1>
+    <p class="muted">Consulta todas las reservas y los eventos de seguridad registrados por el sistema.</p>
+  </div>
+  <a href="/admin/pending" class="btn btn-secondary">Volver a solicitudes</a>
+</div>
+
+{% include "_admin_stats.html" %}
+
+<div class="split-layout split-wide">
+  <section class="panel">
+    <div class="panel-head">
+      <h2 class="panel-title">Últimas reservas</h2>
+      <span class="badge badge-neutral">{{ reservations|length }} registro(s)</span>
+    </div>
+    {% if reservations %}
+    <div class="table-wrap">
+      <table class="data-table data-table-compact">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Estudiante</th>
+            <th>Equipo</th>
+            <th>Horario</th>
+            <th>Estado</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for reservation in reservations %}
+          <tr>
+            <td>{{ reservation.id }}</td>
+            <td>
+              <strong>{{ reservation.user.full_name }}</strong>
+              <small class="table-sub">{{ reservation.user.code }}</small>
+            </td>
+            <td>
+              <strong>{{ reservation.equipment.name }}</strong>
+              <small class="table-sub">{{ reservation.equipment.inventory_code }}</small>
+            </td>
+            <td>
+              {{ reservation.date.strftime('%d/%m') }}
+              <small class="table-sub">{{ reservation.start_time.strftime('%H:%M') }}–{{ reservation.end_time.strftime('%H:%M') }}</small>
+            </td>
+            <td>
+              <span class="badge
+                {% if reservation.status == 'Aprobada' %}badge-success
+                {% elif reservation.status == 'Pendiente' %}badge-warning
+                {% elif reservation.status == 'Rechazada' %}badge-danger
+                {% else %}badge-neutral{% endif %}">{{ reservation.status }}</span>
+              {% if reservation.penalty_applied %}<span class="badge badge-danger">Penalización</span>{% endif %}
+            </td>
+            <td>
+              {% if reservation.rejection_reason %}
+                <span class="table-note">{{ reservation.rejection_reason }}</span>
+              {% elif reservation.reviewed_by %}
+                <span class="table-note">Revisado por {{ reservation.reviewed_by }}</span>
+              {% else %}
+                <span class="table-note">Sin revisión</span>
+              {% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% else %}
+    <div class="empty-inline"><div><h3>Sin reservas registradas</h3><p>El historial se llenará con la actividad del sistema.</p></div></div>
+    {% endif %}
+  </section>
+
+  <aside class="panel">
+    <h2 class="panel-title">Eventos recientes</h2>
+    {% set event_labels = {
+      'login_success': 'Inicio de sesión',
+      'login_failed': 'Intento fallido',
+      'login_locked': 'Cuenta bloqueada',
+      'login_blocked': 'Acceso bloqueado',
+      'reservation_created': 'Reserva creada',
+      'reservation_approved': 'Reserva aprobada',
+      'reservation_rejected': 'Reserva rechazada',
+      'reservation_returned': 'Devolución registrada',
+      'penalty_applied': 'Penalización aplicada'
+    } %}
+    {% if events %}
+    <ol class="timeline">
+      {% for event in events %}
+      <li class="timeline-item timeline-{{ 'danger' if 'lock' in event.event or 'failed' in event.event or 'penalty' in event.event else 'success' }}">
+        <div class="timeline-dot"></div>
+        <div class="timeline-body">
+          <strong>{{ event_labels.get(event.event, event.event) }}</strong>
+          <span class="table-sub">{{ event.actor_code or 'Sistema' }} · {{ event.created_at.strftime('%d/%m %H:%M') }}</span>
+          {% if event.detail %}<p>{{ event.detail }}</p>{% endif %}
+        </div>
+      </li>
+      {% endfor %}
+    </ol>
+    {% else %}
+    <p class="muted">Todavía no hay eventos de auditoría.</p>
+    {% endif %}
+  </aside>
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+<section class="stats-grid" aria-label="Indicadores del panel">
+  <article class="stat-card stat-card-accent">
+    <span class="stat-label">Pendientes</span>
+    <strong class="stat-value">{{ stats.pending }}</strong>
+    <span class="stat-hint">Requieren revisión</span>
+  </article>
+  <article class="stat-card">
+    <span class="stat-label">Aprobadas</span>
+    <strong class="stat-value">{{ stats.approved }}</strong>
+    <span class="stat-hint">Equipos prestados</span>
+  </article>
+  <article class="stat-card">
+    <span class="stat-label">Devoluciones hoy</span>
+    <strong class="stat-value">{{ stats.returns_today }}</strong>
+    <span class="stat-hint">Registradas en el día</span>
+  </article>
+  <article class="stat-card">
+    <span class="stat-label">Estudiantes penalizados</span>
+    <strong class="stat-value">{{ stats.penalized }}</strong>
+    <span class="stat-hint">Devoluciones tardías</span>
+  </article>
+</section>

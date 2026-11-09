@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% block title %}Catálogo de equipos{% endblock %}
+{% set active_page = 'catalog' %}
+
+{% block content %}
+<div class="page-head">
+  <div>
+    <span class="eyebrow eyebrow-dark">Inventario del laboratorio</span>
+    <h1>Catálogo de equipos</h1>
+    <p class="muted">Explora el material disponible y reserva el bloque de tiempo que necesites.</p>
+  </div>
+  <a href="/reservations/mine" class="btn btn-secondary">Mis reservas</a>
+</div>
+
+<section class="stats-grid" aria-label="Resumen del inventario">
+  <article class="stat-card">
+    <span class="stat-label">Equipos registrados</span>
+    <strong class="stat-value">{{ stats.total }}</strong>
+    <span class="stat-hint">En las tres categorías</span>
+  </article>
+  <article class="stat-card stat-card-accent">
+    <span class="stat-label">Disponibles ahora</span>
+    <strong class="stat-value">{{ stats.available }}</strong>
+    <span class="stat-hint">Listos para reserva</span>
+  </article>
+  <article class="stat-card">
+    <span class="stat-label">Prestados</span>
+    <strong class="stat-value">{{ stats.borrowed }}</strong>
+    <span class="stat-hint">Con reserva aprobada</span>
+  </article>
+  <article class="stat-card">
+    <span class="stat-label">Solicitudes pendientes</span>
+    <strong class="stat-value">{{ stats.pending }}</strong>
+    <span class="stat-hint">En espera de revisión</span>
+  </article>
+</section>
+
+<section class="filter-bar" aria-label="Filtros por categoría">
+  <a href="/catalog" class="filter-chip {{ 'is-active' if not selected_category }}">
+    Todos <span>{{ stats.total }}</span>
+  </a>
+  {% for category in categories %}
+  <a href="/catalog?category={{ category|urlencode }}" class="filter-chip {{ 'is-active' if selected_category == category }}">
+    {{ category }} <span>{{ category_counts[category] }}</span>
+  </a>
+  {% endfor %}
+</section>
+
+{% if is_empty_filter %}
+<section class="empty-state">
+  <div class="empty-icon" aria-hidden="true">
+    <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18"/><path d="M5 7V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v2"/><path d="M5 7l1 12h12l1-12"/><path d="M9 11v4"/><path d="M15 11v4"/></svg>
+  </div>
+  <h2>No hay equipos disponibles en esta categoría</h2>
+  <p>Prueba con otro filtro o consulta más tarde. El inventario se actualiza cuando el encargado registra devoluciones.</p>
+  <a href="/catalog" class="btn btn-primary">Ver todo el catálogo</a>
+</section>
+{% else %}
+<section class="equipment-grid">
+  {% for item in equipment %}
+  <article class="equipment-card" data-category="{{ item.category }}">
+    <div class="equipment-top">
+      <span class="category-icon category-{{ item.category|lower|replace('ó','o')|replace('é','e') }}">
+        {% if item.category == 'Cómputo' %}
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8"/><path d="M12 16v4"/></svg>
+        {% elif item.category == 'Electrónica' %}
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M9 3v2M15 3v2M9 19v2M15 19v2M3 9h2M3 15h2M19 9h2M19 15h2"/></svg>
+        {% else %}
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="14" width="20" height="6" rx="2"/><path d="M6 17h.01M10 17h.01"/><path d="M5 14V9a7 7 0 0 1 14 0v5"/></svg>
+        {% endif %}
+      </span>
+      <span class="badge {{ 'badge-success' if item.status == 'Disponible' else 'badge-warning' }}">{{ item.status }}</span>
+    </div>
+    <div class="equipment-body">
+      <span class="equipment-category">{{ item.category }}</span>
+      <h3>{{ item.name }}</h3>
+      <p class="equipment-desc">{{ item.description }}</p>
+      <dl class="equipment-meta">
+        <div><dt>Código</dt><dd>{{ item.inventory_code }}</dd></div>
+        <div><dt>Ubicación</dt><dd>{{ item.location }}</dd></div>
+      </dl>
+    </div>
+    <div class="equipment-foot">
+      {% if item.status == 'Disponible' %}
+      <a href="/reservations/new?equipment_id={{ item.id }}" class="btn btn-primary btn-block">Reservar equipo</a>
+      {% else %}
+      <button type="button" class="btn btn-disabled btn-block" disabled>No disponible</button>
+      {% endif %}
+    </div>
+  </article>
+  {% endfor %}
+</section>
+{% endif %}
+{% endblock %}

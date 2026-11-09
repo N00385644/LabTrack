@@ -1,0 +1,9 @@
+process.env.NODE_ENV = 'test';
+process.env.DATABASE_URL =
+  'postgresql://labtrack@127.0.0.1:55432/labtrack_test?schema=public';
+process.env.JWT_SECRET = 'test-secret-labtrack-2026';
+process.env.JWT_EXPIRES_IN = '1h';
+process.env.PORT = '3100';
+process.env.CORS_ORIGINS = 'http://localhost:4173';
+process.env.SEED_LOAD_USERS = 'false';
+process.env.SEED_DEMO_RESERVATIONS = 'false';

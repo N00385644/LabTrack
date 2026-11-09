@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block title %}Solicitudes pendientes{% endblock %}
+
+{% block content %}
+<div class="page-head">
+  <div>
+    <span class="eyebrow eyebrow-dark">Panel de administración</span>
+    <h1>Solicitudes pendientes</h1>
+    <p class="muted">Revisa, aprueba o rechaza las reservas solicitadas por los estudiantes.</p>
+  </div>
+  <a href="/admin/returns" class="btn btn-secondary">Registrar devolución</a>
+</div>
+
+{% include "_admin_stats.html" %}
+
+<section class="panel">
+  <div class="panel-head">
+    <div>
+      <h2 class="panel-title">Reservas por revisar</h2>
+      <p class="muted small">Las aprobaciones marcan el equipo como prestado automáticamente.</p>
+    </div>
+    <span class="badge badge-warning">{{ reservations|length }} pendiente(s)</span>
+  </div>
+
+  {% if reservations %}
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Estudiante</th>
+          <th>Equipo</th>
+          <th>Fecha y horario</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for reservation in reservations %}
+        <tr>
+          <td>
+            <strong>{{ reservation.user.full_name }}</strong>
+            <small class="table-sub">{{ reservation.user.code }}</small>
+          </td>
+          <td>
+            <strong>{{ reservation.equipment.name }}</strong>
+            <small class="table-sub">{{ reservation.equipment.inventory_code }} · {{ reservation.equipment.category }}</small>
+          </td>
+          <td>
+            <strong>{{ reservation.date.strftime('%d/%m/%Y') }}</strong>
+            <small class="table-sub">{{ reservation.start_time.strftime('%H:%M') }} – {{ reservation.end_time.strftime('%H:%M') }}</small>
+          </td>
+          <td>
+            <div class="action-row">
+              <form method="post" action="/admin/reservations/{{ reservation.id }}/approve">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                <button type="submit" class="btn btn-small btn-success" data-confirm="¿Aprobar la reserva #{{ reservation.id }} de {{ reservation.user.full_name }}?">Aprobar</button>
+              </form>
+              <form method="post" action="/admin/reservations/{{ reservation.id }}/reject" class="reject-form">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                <input type="text" name="reason" placeholder="Motivo del rechazo" maxlength="300" required aria-label="Motivo del rechazo para la reserva {{ reservation.id }}">
+                <button type="submit" class="btn btn-small btn-danger">Rechazar</button>
+              </form>
+            </div>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <div class="empty-inline">
+    <span class="empty-inline-icon">✓</span>
+    <div>
+      <h3>No hay solicitudes pendientes</h3>
+      <p>Las nuevas reservas de los estudiantes aparecerán automáticamente en esta bandeja.</p>
+    </div>
+  </div>
+  {% endif %}
+</section>
+{% endblock %}
