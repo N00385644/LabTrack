@@ -13,7 +13,8 @@
                           "ignoredConditions":  false,
                           "period":  {
                                          "mode":  "PREVIOUS_VERSION",
-                                         "date":  "2026-11-09T17:55:51-0500"
+                                         "date":  "2026-11-09T18:15:14-0500",
+                                         "parameter":  "antes-reproducido-0a63a0a"
                                      },
                           "caycStatus":  "compliant"
                       }

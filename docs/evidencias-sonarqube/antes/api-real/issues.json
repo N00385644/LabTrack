@@ -1,13 +1,13 @@
 ﻿{
-    "total":  35,
+    "total":  44,
     "p":  1,
     "ps":  500,
     "paging":  {
                    "pageIndex":  1,
                    "pageSize":  500,
-                   "total":  35
+                   "total":  44
                },
-    "effortTotal":  209,
+    "effortTotal":  254,
     "issues":  [
                    {
                        "key":  "cd916058-68d5-46c2-b873-bee7a9def9e0",
@@ -63,208 +63,33 @@
                        "linkedTicketStatus":  "NOT_LINKED"
                    },
                    {
-                       "key":  "74f4e232-cbfd-4209-9f46-d3ce4de8a15b",
-                       "rule":  "typescript:S7503",
+                       "key":  "ae1ec55d-e610-4e65-bc5f-9e252e031bdf",
+                       "rule":  "typescript:S6759",
                        "severity":  "MINOR",
-                       "component":  "labtrack-antes:backend/src/audit/audit.service.ts",
+                       "component":  "labtrack-antes:frontend/src/components/AppLayout.tsx",
                        "project":  "labtrack-antes",
-                       "line":  27,
-                       "hash":  "2ba1fbe462f28fe57e333d8739443989",
+                       "line":  83,
+                       "hash":  "fd3ca3c5f7022bc5007efe31a97b20c7",
                        "textRange":  {
-                                         "startLine":  27,
-                                         "endLine":  27,
-                                         "startOffset":  2,
-                                         "endOffset":  14
+                                         "startLine":  83,
+                                         "endLine":  83,
+                                         "startOffset":  24,
+                                         "endOffset":  67
                                      },
                        "flows":  [
 
                                  ],
                        "status":  "OPEN",
-                       "message":  "Async method \u0027recent\u0027 has no \u0027await\u0027 expression.",
+                       "message":  "Mark the props of the component as read-only.",
                        "effort":  "5min",
                        "debt":  "5min",
                        "author":  "",
                        "tags":  [
-                                    "async",
-                                    "type-dependent"
-                                ],
-                       "creationDate":  "2026-11-09T17:55:51-0500",
-                       "updateDate":  "2026-11-09T17:59:54-0500",
-                       "type":  "CODE_SMELL",
-                       "scope":  "MAIN",
-                       "quickFixAvailable":  true,
-                       "messageFormattings":  [
-
-                                              ],
-                       "codeVariants":  [
-
-                                        ],
-                       "cleanCodeAttribute":  "CONVENTIONAL",
-                       "cleanCodeAttributeCategory":  "CONSISTENT",
-                       "impacts":  [
-                                       {
-                                           "softwareQuality":  "MAINTAINABILITY",
-                                           "severity":  "MEDIUM"
-                                       },
-                                       {
-                                           "softwareQuality":  "RELIABILITY",
-                                           "severity":  "LOW"
-                                       }
-                                   ],
-                       "issueStatus":  "OPEN",
-                       "prioritizedRule":  false,
-                       "fromSonarQubeUpdate":  false,
-                       "internalTags":  [
-
-                                        ],
-                       "linkedTicketStatus":  "NOT_LINKED"
-                   },
-                   {
-                       "key":  "39e9a9fd-a514-47ac-9774-5ee04804548d",
-                       "rule":  "typescript:S7503",
-                       "severity":  "MINOR",
-                       "component":  "labtrack-antes:backend/src/equipment/equipment.service.ts",
-                       "project":  "labtrack-antes",
-                       "line":  10,
-                       "hash":  "f2226979ae843590dec77fa2dec8037e",
-                       "textRange":  {
-                                         "startLine":  10,
-                                         "endLine":  10,
-                                         "startOffset":  2,
-                                         "endOffset":  15
-                                     },
-                       "flows":  [
-
-                                 ],
-                       "status":  "OPEN",
-                       "message":  "Async method \u0027findAll\u0027 has no \u0027await\u0027 expression.",
-                       "effort":  "5min",
-                       "debt":  "5min",
-                       "author":  "",
-                       "tags":  [
-                                    "async",
-                                    "type-dependent"
-                                ],
-                       "creationDate":  "2026-11-09T17:55:51-0500",
-                       "updateDate":  "2026-11-09T17:59:54-0500",
-                       "type":  "CODE_SMELL",
-                       "scope":  "MAIN",
-                       "quickFixAvailable":  true,
-                       "messageFormattings":  [
-
-                                              ],
-                       "codeVariants":  [
-
-                                        ],
-                       "cleanCodeAttribute":  "CONVENTIONAL",
-                       "cleanCodeAttributeCategory":  "CONSISTENT",
-                       "impacts":  [
-                                       {
-                                           "softwareQuality":  "MAINTAINABILITY",
-                                           "severity":  "MEDIUM"
-                                       },
-                                       {
-                                           "softwareQuality":  "RELIABILITY",
-                                           "severity":  "LOW"
-                                       }
-                                   ],
-                       "issueStatus":  "OPEN",
-                       "prioritizedRule":  false,
-                       "fromSonarQubeUpdate":  false,
-                       "internalTags":  [
-
-                                        ],
-                       "linkedTicketStatus":  "NOT_LINKED"
-                   },
-                   {
-                       "key":  "b139e6a8-ef0e-497f-9857-a3f190e911a3",
-                       "rule":  "typescript:S7503",
-                       "severity":  "MINOR",
-                       "component":  "labtrack-antes:backend/src/equipment/equipment.service.ts",
-                       "project":  "labtrack-antes",
-                       "line":  18,
-                       "hash":  "c3eecc7c50062daf2eb776253cf53d0c",
-                       "textRange":  {
-                                         "startLine":  18,
-                                         "endLine":  18,
-                                         "startOffset":  2,
-                                         "endOffset":  21
-                                     },
-                       "flows":  [
-
-                                 ],
-                       "status":  "OPEN",
-                       "message":  "Async method \u0027findAvailable\u0027 has no \u0027await\u0027 expression.",
-                       "effort":  "5min",
-                       "debt":  "5min",
-                       "author":  "",
-                       "tags":  [
-                                    "async",
-                                    "type-dependent"
-                                ],
-                       "creationDate":  "2026-11-09T17:55:51-0500",
-                       "updateDate":  "2026-11-09T17:59:54-0500",
-                       "type":  "CODE_SMELL",
-                       "scope":  "MAIN",
-                       "quickFixAvailable":  true,
-                       "messageFormattings":  [
-
-                                              ],
-                       "codeVariants":  [
-
-                                        ],
-                       "cleanCodeAttribute":  "CONVENTIONAL",
-                       "cleanCodeAttributeCategory":  "CONSISTENT",
-                       "impacts":  [
-                                       {
-                                           "softwareQuality":  "MAINTAINABILITY",
-                                           "severity":  "MEDIUM"
-                                       },
-                                       {
-                                           "softwareQuality":  "RELIABILITY",
-                                           "severity":  "LOW"
-                                       }
-                                   ],
-                       "issueStatus":  "OPEN",
-                       "prioritizedRule":  false,
-                       "fromSonarQubeUpdate":  false,
-                       "internalTags":  [
-
-                                        ],
-                       "linkedTicketStatus":  "NOT_LINKED"
-                   },
-                   {
-                       "key":  "e250fc23-7b64-47b3-9e5f-a825d412de0d",
-                       "rule":  "typescript:S7785",
-                       "severity":  "MAJOR",
-                       "component":  "labtrack-antes:backend/src/main.ts",
-                       "project":  "labtrack-antes",
-                       "line":  59,
-                       "hash":  "92f3fcb49e6da117f9bc41bd9430a111",
-                       "textRange":  {
-                                         "startLine":  59,
-                                         "endLine":  59,
-                                         "startOffset":  5,
-                                         "endOffset":  16
-                                     },
-                       "flows":  [
-
-                                 ],
-                       "status":  "OPEN",
-                       "message":  "Prefer top-level await over an async function `bootstrap` call.",
-                       "effort":  "5min",
-                       "debt":  "5min",
-                       "author":  "",
-                       "tags":  [
-                                    "async",
-                                    "editable-source",
                                     "type-dependent",
-                                    "es2022",
-                                    "esm-only",
-                                    "modernize"
+                                    "react"
                                 ],
                        "creationDate":  "2026-11-09T17:55:51-0500",
-                       "updateDate":  "2026-11-09T17:59:54-0500",
+                       "updateDate":  "2026-11-09T18:34:12-0500",
                        "type":  "CODE_SMELL",
                        "scope":  "MAIN",
                        "quickFixAvailable":  true,
@@ -279,7 +104,537 @@
                        "impacts":  [
                                        {
                                            "softwareQuality":  "MAINTAINABILITY",
-                                           "severity":  "MEDIUM"
+                                           "severity":  "LOW"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "6f6180bf-1600-4dab-9d6e-416d378f5a36",
+                       "rule":  "typescript:S6759",
+                       "severity":  "MINOR",
+                       "component":  "labtrack-antes:frontend/src/components/CategoryIconLabel.tsx",
+                       "project":  "labtrack-antes",
+                       "line":  3,
+                       "hash":  "501fbbb4467535cdaa53a2c05ff9bac9",
+                       "textRange":  {
+                                         "startLine":  3,
+                                         "endLine":  3,
+                                         "startOffset":  34,
+                                         "endOffset":  68
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Mark the props of the component as read-only.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "type-dependent",
+                                    "react"
+                                ],
+                       "creationDate":  "2026-11-09T17:55:51-0500",
+                       "updateDate":  "2026-11-09T18:34:12-0500",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  true,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "LOW"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "d836c941-9228-4c7a-96a6-93cdc789f0ad",
+                       "rule":  "typescript:S6759",
+                       "severity":  "MINOR",
+                       "component":  "labtrack-antes:frontend/src/components/ProtectedRoute.tsx",
+                       "project":  "labtrack-antes",
+                       "line":  7,
+                       "hash":  "08bcccca4ce0ac7853a91fdcc7dd7b18",
+                       "textRange":  {
+                                         "startLine":  7,
+                                         "endLine":  7,
+                                         "startOffset":  31,
+                                         "endOffset":  56
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Mark the props of the component as read-only.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "type-dependent",
+                                    "react"
+                                ],
+                       "creationDate":  "2026-11-09T17:55:51-0500",
+                       "updateDate":  "2026-11-09T18:34:12-0500",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  true,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "LOW"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "2a59e9ad-1f35-41b8-93ea-9f57365ee03f",
+                       "rule":  "typescript:S6759",
+                       "severity":  "MINOR",
+                       "component":  "labtrack-antes:frontend/src/components/ui.tsx",
+                       "project":  "labtrack-antes",
+                       "line":  29,
+                       "hash":  "8bf903884af3dbeb351bb091ecb89c15",
+                       "textRange":  {
+                                         "startLine":  29,
+                                         "endLine":  29,
+                                         "startOffset":  28,
+                                         "endOffset":  69
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Mark the props of the component as read-only.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "type-dependent",
+                                    "react"
+                                ],
+                       "creationDate":  "2026-11-09T17:55:51-0500",
+                       "updateDate":  "2026-11-09T18:34:12-0500",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  true,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "LOW"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "a149f305-7cc7-40fb-83e7-e620b3a700e1",
+                       "rule":  "typescript:S6759",
+                       "severity":  "MINOR",
+                       "component":  "labtrack-antes:frontend/src/components/ui.tsx",
+                       "project":  "labtrack-antes",
+                       "line":  38,
+                       "hash":  "a9412d80b0e3c5f2f594b4e93f690f23",
+                       "textRange":  {
+                                         "startLine":  38,
+                                         "endLine":  38,
+                                         "startOffset":  37,
+                                         "endOffset":  76
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Mark the props of the component as read-only.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "type-dependent",
+                                    "react"
+                                ],
+                       "creationDate":  "2026-11-09T17:55:51-0500",
+                       "updateDate":  "2026-11-09T18:34:12-0500",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  true,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "LOW"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "74301605-00bd-4e0d-b66c-b56a51af301f",
+                       "rule":  "typescript:S6759",
+                       "severity":  "MINOR",
+                       "component":  "labtrack-antes:frontend/src/components/ui.tsx",
+                       "project":  "labtrack-antes",
+                       "line":  54,
+                       "hash":  "e834c4d59ceb8459390117d2993c2f54",
+                       "textRange":  {
+                                         "startLine":  54,
+                                         "endLine":  64,
+                                         "startOffset":  27,
+                                         "endOffset":  1
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Mark the props of the component as read-only.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "type-dependent",
+                                    "react"
+                                ],
+                       "creationDate":  "2026-11-09T17:55:51-0500",
+                       "updateDate":  "2026-11-09T18:34:12-0500",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  true,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "LOW"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "414d6fc5-1fbd-4c61-bbe1-73a00a9b9f62",
+                       "rule":  "typescript:S6759",
+                       "severity":  "MINOR",
+                       "component":  "labtrack-antes:frontend/src/components/ui.tsx",
+                       "project":  "labtrack-antes",
+                       "line":  86,
+                       "hash":  "ffce7ae1df5a658c8f151f075e759f89",
+                       "textRange":  {
+                                         "startLine":  86,
+                                         "endLine":  98,
+                                         "startOffset":  25,
+                                         "endOffset":  1
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Mark the props of the component as read-only.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "type-dependent",
+                                    "react"
+                                ],
+                       "creationDate":  "2026-11-09T17:55:51-0500",
+                       "updateDate":  "2026-11-09T18:34:12-0500",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  true,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "LOW"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "d38ac90a-fddf-44f3-941f-193d8a85b233",
+                       "rule":  "typescript:S6759",
+                       "severity":  "MINOR",
+                       "component":  "labtrack-antes:frontend/src/components/ui.tsx",
+                       "project":  "labtrack-antes",
+                       "line":  113,
+                       "hash":  "2239a368445e094f1c74c20f1f110416",
+                       "textRange":  {
+                                         "startLine":  113,
+                                         "endLine":  113,
+                                         "startOffset":  29,
+                                         "endOffset":  84
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Mark the props of the component as read-only.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "type-dependent",
+                                    "react"
+                                ],
+                       "creationDate":  "2026-11-09T17:55:51-0500",
+                       "updateDate":  "2026-11-09T18:34:12-0500",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  true,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "LOW"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "b66946c0-ca17-4400-9a2a-484913fa6178",
+                       "rule":  "typescript:S6759",
+                       "severity":  "MINOR",
+                       "component":  "labtrack-antes:frontend/src/components/ui.tsx",
+                       "project":  "labtrack-antes",
+                       "line":  133,
+                       "hash":  "7d220c9501a950a8a18f393629b13c65",
+                       "textRange":  {
+                                         "startLine":  133,
+                                         "endLine":  139,
+                                         "startOffset":  27,
+                                         "endOffset":  1
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Mark the props of the component as read-only.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "type-dependent",
+                                    "react"
+                                ],
+                       "creationDate":  "2026-11-09T17:55:51-0500",
+                       "updateDate":  "2026-11-09T18:34:12-0500",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  true,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "LOW"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "93a68ac6-963e-4a32-88ff-41271d05e106",
+                       "rule":  "typescript:S6759",
+                       "severity":  "MINOR",
+                       "component":  "labtrack-antes:frontend/src/components/ui.tsx",
+                       "project":  "labtrack-antes",
+                       "line":  159,
+                       "hash":  "97f4785d97f1c1280d79e6d30d132111",
+                       "textRange":  {
+                                         "startLine":  159,
+                                         "endLine":  171,
+                                         "startOffset":  27,
+                                         "endOffset":  1
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Mark the props of the component as read-only.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "type-dependent",
+                                    "react"
+                                ],
+                       "creationDate":  "2026-11-09T17:55:51-0500",
+                       "updateDate":  "2026-11-09T18:34:12-0500",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  true,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "LOW"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "06580d74-618f-4fb1-957e-4e1a3689d18c",
+                       "rule":  "typescript:S6759",
+                       "severity":  "MINOR",
+                       "component":  "labtrack-antes:frontend/src/components/ui.tsx",
+                       "project":  "labtrack-antes",
+                       "line":  186,
+                       "hash":  "244d6daf30d8e99efc75e4f4acd63a2b",
+                       "textRange":  {
+                                         "startLine":  186,
+                                         "endLine":  200,
+                                         "startOffset":  22,
+                                         "endOffset":  1
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Mark the props of the component as read-only.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "type-dependent",
+                                    "react"
+                                ],
+                       "creationDate":  "2026-11-09T17:55:51-0500",
+                       "updateDate":  "2026-11-09T18:34:12-0500",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  true,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "LOW"
                                        }
                                    ],
                        "issueStatus":  "OPEN",
@@ -496,6 +851,112 @@
                                        {
                                            "softwareQuality":  "MAINTAINABILITY",
                                            "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "6cc66c0c-d625-4b69-aaf5-8c64495385b6",
+                       "rule":  "typescript:S6759",
+                       "severity":  "MINOR",
+                       "component":  "labtrack-antes:frontend/src/contexts/AuthContext.tsx",
+                       "project":  "labtrack-antes",
+                       "line":  30,
+                       "hash":  "e9ffa80fc4f709ff2cce06b1f7ae6929",
+                       "textRange":  {
+                                         "startLine":  30,
+                                         "endLine":  30,
+                                         "startOffset":  29,
+                                         "endOffset":  101
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Mark the props of the component as read-only.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "type-dependent",
+                                    "react"
+                                ],
+                       "creationDate":  "2026-11-09T17:55:51-0500",
+                       "updateDate":  "2026-11-09T18:34:12-0500",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  true,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "LOW"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "72b939b8-3668-484a-93e0-a531ee1803b6",
+                       "rule":  "typescript:S6759",
+                       "severity":  "MINOR",
+                       "component":  "labtrack-antes:frontend/src/contexts/ToastContext.tsx",
+                       "project":  "labtrack-antes",
+                       "line":  39,
+                       "hash":  "7c8350249de831556a5b1f1027635290",
+                       "textRange":  {
+                                         "startLine":  39,
+                                         "endLine":  39,
+                                         "startOffset":  30,
+                                         "endOffset":  67
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Mark the props of the component as read-only.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "type-dependent",
+                                    "react"
+                                ],
+                       "creationDate":  "2026-11-09T17:55:51-0500",
+                       "updateDate":  "2026-11-09T18:34:12-0500",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  true,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "LOW"
                                        }
                                    ],
                        "issueStatus":  "OPEN",
@@ -1527,6 +1988,59 @@
                        "linkedTicketStatus":  "NOT_LINKED"
                    },
                    {
+                       "key":  "bd115cf3-e567-48a0-b0e5-0b2897336cd9",
+                       "rule":  "typescript:S6759",
+                       "severity":  "MINOR",
+                       "component":  "labtrack-antes:frontend/src/pages/CatalogPage.tsx",
+                       "project":  "labtrack-antes",
+                       "line":  36,
+                       "hash":  "42dc51c7530dd3fe350b0224ba6270f1",
+                       "textRange":  {
+                                         "startLine":  36,
+                                         "endLine":  36,
+                                         "startOffset":  22,
+                                         "endOffset":  87
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Mark the props of the component as read-only.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "type-dependent",
+                                    "react"
+                                ],
+                       "creationDate":  "2026-11-09T17:55:51-0500",
+                       "updateDate":  "2026-11-09T18:34:12-0500",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  true,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "LOW"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
                        "key":  "d9ac3ff7-37dd-4cb2-b03c-721d3c876eba",
                        "rule":  "typescript:S7718",
                        "severity":  "MINOR",
@@ -2118,86 +2632,23 @@
 
                                         ],
                        "linkedTicketStatus":  "NOT_LINKED"
-                   },
-                   {
-                       "key":  "9f700f39-5020-4338-880b-7602e57ee724",
-                       "rule":  "typescript:S6606",
-                       "severity":  "MINOR",
-                       "component":  "labtrack-antes:frontend/src/test/utils.tsx",
-                       "project":  "labtrack-antes",
-                       "hash":  "f73d4f571b4a7546131acba54c6c40e5",
-                       "textRange":  {
-                                         "startLine":  89,
-                                         "endLine":  89,
-                                         "startOffset":  15,
-                                         "endOffset":  70
-                                     },
-                       "flows":  [
-
-                                 ],
-                       "resolution":  "FIXED",
-                       "status":  "CLOSED",
-                       "message":  "Prefer using nullish coalescing operator (`??`) instead of a ternary expression, as it is simpler to read.",
-                       "effort":  "5min",
-                       "debt":  "5min",
-                       "author":  "",
-                       "tags":  [
-                                    "type-dependent",
-                                    "nullish-coalescing",
-                                    "es2020"
-                                ],
-                       "creationDate":  "2026-11-09T17:55:51-0500",
-                       "updateDate":  "2026-11-09T18:15:14-0500",
-                       "closeDate":  "2026-11-09T18:15:14-0500",
-                       "type":  "CODE_SMELL",
-                       "scope":  "MAIN",
-                       "quickFixAvailable":  true,
-                       "messageFormattings":  [
-
-                                              ],
-                       "codeVariants":  [
-
-                                        ],
-                       "cleanCodeAttribute":  "CONVENTIONAL",
-                       "cleanCodeAttributeCategory":  "CONSISTENT",
-                       "impacts":  [
-                                       {
-                                           "softwareQuality":  "MAINTAINABILITY",
-                                           "severity":  "LOW"
-                                       }
-                                   ],
-                       "issueStatus":  "FIXED",
-                       "prioritizedRule":  false,
-                       "fromSonarQubeUpdate":  false,
-                       "internalTags":  [
-
-                                        ],
-                       "linkedTicketStatus":  "NOT_LINKED"
                    }
                ],
     "components":  [
+                       {
+                           "key":  "labtrack-antes:frontend/src/contexts/AuthContext.tsx",
+                           "enabled":  true,
+                           "qualifier":  "FIL",
+                           "name":  "AuthContext.tsx",
+                           "longName":  "frontend/src/contexts/AuthContext.tsx",
+                           "path":  "frontend/src/contexts/AuthContext.tsx"
+                       },
                        {
                            "key":  "labtrack-antes",
                            "enabled":  true,
                            "qualifier":  "TRK",
                            "name":  "labtrack-antes",
                            "longName":  "labtrack-antes"
-                       },
-                       {
-                           "key":  "labtrack-antes:backend/src/main.ts",
-                           "enabled":  true,
-                           "qualifier":  "FIL",
-                           "name":  "main.ts",
-                           "longName":  "backend/src/main.ts",
-                           "path":  "backend/src/main.ts"
-                       },
-                       {
-                           "key":  "labtrack-antes:backend/src/audit/audit.service.ts",
-                           "enabled":  true,
-                           "qualifier":  "FIL",
-                           "name":  "audit.service.ts",
-                           "longName":  "backend/src/audit/audit.service.ts",
-                           "path":  "backend/src/audit/audit.service.ts"
                        },
                        {
                            "key":  "labtrack-antes:frontend/src/pages/CatalogPage.tsx",
@@ -2232,6 +2683,14 @@
                            "path":  "frontend/src/pages/AdminHistoryPage.tsx"
                        },
                        {
+                           "key":  "labtrack-antes:frontend/src/components/AppLayout.tsx",
+                           "enabled":  true,
+                           "qualifier":  "FIL",
+                           "name":  "AppLayout.tsx",
+                           "longName":  "frontend/src/components/AppLayout.tsx",
+                           "path":  "frontend/src/components/AppLayout.tsx"
+                       },
+                       {
                            "key":  "labtrack-antes:frontend/src/components/ui.tsx",
                            "enabled":  true,
                            "qualifier":  "FIL",
@@ -2246,6 +2705,22 @@
                            "name":  "AdminPendingPage.tsx",
                            "longName":  "frontend/src/pages/AdminPendingPage.tsx",
                            "path":  "frontend/src/pages/AdminPendingPage.tsx"
+                       },
+                       {
+                           "key":  "labtrack-antes:frontend/src/components/CategoryIconLabel.tsx",
+                           "enabled":  true,
+                           "qualifier":  "FIL",
+                           "name":  "CategoryIconLabel.tsx",
+                           "longName":  "frontend/src/components/CategoryIconLabel.tsx",
+                           "path":  "frontend/src/components/CategoryIconLabel.tsx"
+                       },
+                       {
+                           "key":  "labtrack-antes:frontend/src/components/ProtectedRoute.tsx",
+                           "enabled":  true,
+                           "qualifier":  "FIL",
+                           "name":  "ProtectedRoute.tsx",
+                           "longName":  "frontend/src/components/ProtectedRoute.tsx",
+                           "path":  "frontend/src/components/ProtectedRoute.tsx"
                        },
                        {
                            "key":  "labtrack-antes:backend/src/admin/admin.service.ts",
@@ -2264,28 +2739,12 @@
                            "path":  "frontend/src/pages/MyReservationsPage.tsx"
                        },
                        {
-                           "key":  "labtrack-antes:backend/src/equipment/equipment.service.ts",
-                           "enabled":  true,
-                           "qualifier":  "FIL",
-                           "name":  "equipment.service.ts",
-                           "longName":  "backend/src/equipment/equipment.service.ts",
-                           "path":  "backend/src/equipment/equipment.service.ts"
-                       },
-                       {
                            "key":  "labtrack-antes:frontend/src/pages/AdminReturnsPage.tsx",
                            "enabled":  true,
                            "qualifier":  "FIL",
                            "name":  "AdminReturnsPage.tsx",
                            "longName":  "frontend/src/pages/AdminReturnsPage.tsx",
                            "path":  "frontend/src/pages/AdminReturnsPage.tsx"
-                       },
-                       {
-                           "key":  "labtrack-antes:frontend/src/test/utils.tsx",
-                           "enabled":  false,
-                           "qualifier":  "FIL",
-                           "name":  "utils.tsx",
-                           "longName":  "frontend/src/test/utils.tsx",
-                           "path":  "frontend/src/test/utils.tsx"
                        },
                        {
                            "key":  "labtrack-antes:frontend/src/contexts/ToastContext.tsx",

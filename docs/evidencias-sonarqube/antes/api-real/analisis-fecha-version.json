@@ -2,9 +2,43 @@
     "paging":  {
                    "pageIndex":  1,
                    "pageSize":  100,
-                   "total":  3
+                   "total":  6
                },
     "analyses":  [
+                     {
+                         "key":  "0ba12f51-3ee7-470a-9117-45862d991740",
+                         "date":  "2026-11-09T18:34:12-0500",
+                         "events":  [
+                                        {
+                                            "key":  "b43f1e2a-4aee-4998-b5d5-3398bcfb000b",
+                                            "category":  "VERSION",
+                                            "name":  "antes-reproducido-2da978f"
+                                        }
+                                    ],
+                         "projectVersion":  "antes-reproducido-2da978f",
+                         "manualNewCodePeriodBaseline":  false,
+                         "detectedCI":  "undetected"
+                     },
+                     {
+                         "key":  "6832187f-753d-49ad-9432-597885243d1e",
+                         "date":  "2026-11-09T18:33:02-0500",
+                         "events":  [
+
+                                    ],
+                         "projectVersion":  "antes-reproducido-2da978f",
+                         "manualNewCodePeriodBaseline":  false,
+                         "detectedCI":  "undetected"
+                     },
+                     {
+                         "key":  "23722078-38e6-47fa-af87-38daf89e98b4",
+                         "date":  "2026-11-09T18:30:14-0500",
+                         "events":  [
+
+                                    ],
+                         "projectVersion":  "antes-reproducido-2da978f",
+                         "manualNewCodePeriodBaseline":  false,
+                         "detectedCI":  "undetected"
+                     },
                      {
                          "key":  "55601e00-1cb5-4bfa-a0d3-2a01bd82fe0f",
                          "date":  "2026-11-09T18:15:14-0500",

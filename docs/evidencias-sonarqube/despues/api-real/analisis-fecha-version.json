@@ -2,9 +2,24 @@
     "paging":  {
                    "pageIndex":  1,
                    "pageSize":  100,
-                   "total":  2
+                   "total":  3
                },
     "analyses":  [
+                     {
+                         "key":  "77819d8d-61c0-4723-8364-8fabd8accdf9",
+                         "date":  "2026-11-09T18:31:22-0500",
+                         "events":  [
+                                        {
+                                            "key":  "c79341c4-17b0-48b0-b426-c9cac9633d13",
+                                            "category":  "VERSION",
+                                            "name":  "despues-2da978f"
+                                        }
+                                    ],
+                         "projectVersion":  "despues-2da978f",
+                         "manualNewCodePeriodBaseline":  false,
+                         "revision":  "2da978f07261ad25101a4679120cf14a65d44e89",
+                         "detectedCI":  "undetected"
+                     },
                      {
                          "key":  "21d8a129-a2cf-4375-a532-b99bbb09a45f",
                          "date":  "2026-11-09T18:00:51-0500",
