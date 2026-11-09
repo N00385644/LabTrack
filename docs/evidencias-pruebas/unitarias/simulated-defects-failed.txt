@@ -1,0 +1,56 @@
+
+ RUN  v3.2.7 C:/Users/1luis/Documents/Calidad y Pruebas de software/T3/.team/worktrees/pruebas-unitarias/backend
+
+ × test/simulated-defects.extra.spec.ts > Defectos simulados para evidencia > falla cuando el mock acepta duración cero 14ms
+   → expected true to be false // Object.is equality
+ × test/simulated-defects.extra.spec.ts > Defectos simulados para evidencia > falla cuando el mock cruza reservas contiguas 1ms
+   → expected true to be false // Object.is equality
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/simulated-defects.extra.spec.ts > Defectos simulados para evidencia > falla cuando el mock acepta duración cero
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ test/simulated-defects.extra.spec.ts:6:31
+      4|   it('falla cuando el mock acepta duración cero', () => {
+      5|     const defective = (start: number, end: number) => start <= end;
+      6|     expect(defective(10, 10)).toBe(false);
+       |                               ^
+      7|   });
+      8| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  test/simulated-defects.extra.spec.ts > Defectos simulados para evidencia > falla cuando el mock cruza reservas contiguas
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ test/simulated-defects.extra.spec.ts:11:31
+      9|   it('falla cuando el mock cruza reservas contiguas', () => {
+     10|     const defective = (leftEnd: number, rightStart: number) => leftEnd…
+     11|     expect(defective(10, 10)).toBe(false);
+       |                               ^
+     12|   });
+     13| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed (2)
+   Start at  17:11:26
+   Duration  2.03s (transform 85ms, setup 38ms, collect 44ms, tests 17ms, environment 0ms, prepare 314ms)
+
+
+EXIT_CODE=1

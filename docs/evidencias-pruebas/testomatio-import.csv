@@ -1,0 +1,5 @@
+id,title,context,steps,expected_result,status,human_validation
+IA-01,"Reservas contiguas","Equipo disponible y reserva aprobada 08:00-10:00","Solicitar 10:00-12:00 para el mismo equipo","La solicitud es aceptada sin cruce","Pending human review","Pendiente de revisión"
+IA-02,"Duración cero","Formulario de reserva abierto","Usar inicio 10:00 y fin 10:00; enviar","La validación rechaza la ventana","Pending human review","Pendiente de revisión"
+IA-03,"Límites de atención","Formulario de reserva abierto","Usar 07:00-22:00","El horario completo de atención es aceptado","Pending human review","Pendiente de revisión"
+IA-04,"Normalización de código","Usuario activo existente","Ingresar código con espacios y minúsculas","El login normaliza el código y autentica","Pending human review","Pendiente de revisión"
