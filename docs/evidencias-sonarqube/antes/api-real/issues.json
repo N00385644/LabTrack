@@ -1,0 +1,2302 @@
+﻿{
+    "total":  35,
+    "p":  1,
+    "ps":  500,
+    "paging":  {
+                   "pageIndex":  1,
+                   "pageSize":  500,
+                   "total":  35
+               },
+    "effortTotal":  209,
+    "issues":  [
+                   {
+                       "key":  "cd916058-68d5-46c2-b873-bee7a9def9e0",
+                       "rule":  "typescript:S3358",
+                       "severity":  "MAJOR",
+                       "component":  "labtrack-antes:backend/src/admin/admin.service.ts",
+                       "project":  "labtrack-antes",
+                       "line":  29,
+                       "hash":  "75d4d39dc13bec14c471cc91316c220f",
+                       "textRange":  {
+                                         "startLine":  29,
+                                         "endLine":  29,
+                                         "startOffset":  36,
+                                         "endOffset":  99
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Extract this nested ternary operation into an independent statement.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "editable-source",
+                                    "confusing"
+                                ],
+                       "creationDate":  "2026-11-09T17:55:51-0500",
+                       "updateDate":  "2026-11-09T17:59:54-0500",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CLEAR",
+                       "cleanCodeAttributeCategory":  "INTENTIONAL",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "74f4e232-cbfd-4209-9f46-d3ce4de8a15b",
+                       "rule":  "typescript:S7503",
+                       "severity":  "MINOR",
+                       "component":  "labtrack-antes:backend/src/audit/audit.service.ts",
+                       "project":  "labtrack-antes",
+                       "line":  27,
+                       "hash":  "2ba1fbe462f28fe57e333d8739443989",
+                       "textRange":  {
+                                         "startLine":  27,
+                                         "endLine":  27,
+                                         "startOffset":  2,
+                                         "endOffset":  14
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Async method \u0027recent\u0027 has no \u0027await\u0027 expression.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "async",
+                                    "type-dependent"
+                                ],
+                       "creationDate":  "2026-11-09T17:55:51-0500",
+                       "updateDate":  "2026-11-09T17:59:54-0500",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  true,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "MEDIUM"
+                                       },
+                                       {
+                                           "softwareQuality":  "RELIABILITY",
+                                           "severity":  "LOW"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "39e9a9fd-a514-47ac-9774-5ee04804548d",
+                       "rule":  "typescript:S7503",
+                       "severity":  "MINOR",
+                       "component":  "labtrack-antes:backend/src/equipment/equipment.service.ts",
+                       "project":  "labtrack-antes",
+                       "line":  10,
+                       "hash":  "f2226979ae843590dec77fa2dec8037e",
+                       "textRange":  {
+                                         "startLine":  10,
+                                         "endLine":  10,
+                                         "startOffset":  2,
+                                         "endOffset":  15
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Async method \u0027findAll\u0027 has no \u0027await\u0027 expression.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "async",
+                                    "type-dependent"
+                                ],
+                       "creationDate":  "2026-11-09T17:55:51-0500",
+                       "updateDate":  "2026-11-09T17:59:54-0500",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  true,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "MEDIUM"
+                                       },
+                                       {
+                                           "softwareQuality":  "RELIABILITY",
+                                           "severity":  "LOW"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "b139e6a8-ef0e-497f-9857-a3f190e911a3",
+                       "rule":  "typescript:S7503",
+                       "severity":  "MINOR",
+                       "component":  "labtrack-antes:backend/src/equipment/equipment.service.ts",
+                       "project":  "labtrack-antes",
+                       "line":  18,
+                       "hash":  "c3eecc7c50062daf2eb776253cf53d0c",
+                       "textRange":  {
+                                         "startLine":  18,
+                                         "endLine":  18,
+                                         "startOffset":  2,
+                                         "endOffset":  21
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Async method \u0027findAvailable\u0027 has no \u0027await\u0027 expression.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "async",
+                                    "type-dependent"
+                                ],
+                       "creationDate":  "2026-11-09T17:55:51-0500",
+                       "updateDate":  "2026-11-09T17:59:54-0500",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  true,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "MEDIUM"
+                                       },
+                                       {
+                                           "softwareQuality":  "RELIABILITY",
+                                           "severity":  "LOW"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "e250fc23-7b64-47b3-9e5f-a825d412de0d",
+                       "rule":  "typescript:S7785",
+                       "severity":  "MAJOR",
+                       "component":  "labtrack-antes:backend/src/main.ts",
+                       "project":  "labtrack-antes",
+                       "line":  59,
+                       "hash":  "92f3fcb49e6da117f9bc41bd9430a111",
+                       "textRange":  {
+                                         "startLine":  59,
+                                         "endLine":  59,
+                                         "startOffset":  5,
+                                         "endOffset":  16
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Prefer top-level await over an async function `bootstrap` call.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "async",
+                                    "editable-source",
+                                    "type-dependent",
+                                    "es2022",
+                                    "esm-only",
+                                    "modernize"
+                                ],
+                       "creationDate":  "2026-11-09T17:55:51-0500",
+                       "updateDate":  "2026-11-09T17:59:54-0500",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  true,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "708c7964-7545-480a-be93-2f0fcc110f63",
+                       "rule":  "typescript:S6819",
+                       "severity":  "MAJOR",
+                       "component":  "labtrack-antes:frontend/src/components/ui.tsx",
+                       "project":  "labtrack-antes",
+                       "line":  218,
+                       "hash":  "b5049c80103d9d8f8879d8be8fa8eda0",
+                       "textRange":  {
+                                         "startLine":  218,
+                                         "endLine":  218,
+                                         "startOffset":  4,
+                                         "endOffset":  130
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Use \u003cimg alt=...\u003e instead of the \"presentation\" role to ensure accessibility across all devices.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "accessibility",
+                                    "react"
+                                ],
+                       "creationDate":  "2026-11-09T17:55:51-0500",
+                       "updateDate":  "2026-11-09T17:59:54-0500",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "d42a683a-4522-4594-9292-f856d4eb41ca",
+                       "rule":  "typescript:S1082",
+                       "severity":  "MINOR",
+                       "component":  "labtrack-antes:frontend/src/components/ui.tsx",
+                       "project":  "labtrack-antes",
+                       "line":  222,
+                       "hash":  "3090a2d6aa907f49ff980ae46cabc41d",
+                       "textRange":  {
+                                         "startLine":  222,
+                                         "endLine":  222,
+                                         "startOffset":  6,
+                                         "endOffset":  210
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Visible, non-interactive elements with click handlers must have at least one keyboard listener.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "accessibility",
+                                    "react"
+                                ],
+                       "creationDate":  "2026-11-09T17:55:51-0500",
+                       "updateDate":  "2026-11-09T17:59:54-0500",
+                       "type":  "BUG",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "COMPLETE",
+                       "cleanCodeAttributeCategory":  "INTENTIONAL",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "RELIABILITY",
+                                           "severity":  "LOW"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "d751d387-bb83-4eed-809d-0fee4f96db0d",
+                       "rule":  "typescript:S6847",
+                       "severity":  "MAJOR",
+                       "component":  "labtrack-antes:frontend/src/components/ui.tsx",
+                       "project":  "labtrack-antes",
+                       "line":  222,
+                       "hash":  "3090a2d6aa907f49ff980ae46cabc41d",
+                       "textRange":  {
+                                         "startLine":  222,
+                                         "endLine":  222,
+                                         "startOffset":  6,
+                                         "endOffset":  210
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Non-interactive elements should not be assigned mouse or keyboard event listeners.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "accessibility",
+                                    "react"
+                                ],
+                       "creationDate":  "2026-11-09T17:55:51-0500",
+                       "updateDate":  "2026-11-09T17:59:54-0500",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "MEDIUM"
+                                       },
+                                       {
+                                           "softwareQuality":  "RELIABILITY",
+                                           "severity":  "LOW"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "d96fe5e3-7347-4902-b417-d92972b22360",
+                       "rule":  "typescript:S6819",
+                       "severity":  "MAJOR",
+                       "component":  "labtrack-antes:frontend/src/components/ui.tsx",
+                       "project":  "labtrack-antes",
+                       "line":  222,
+                       "hash":  "3090a2d6aa907f49ff980ae46cabc41d",
+                       "textRange":  {
+                                         "startLine":  222,
+                                         "endLine":  222,
+                                         "startOffset":  6,
+                                         "endOffset":  210
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Use \u003cdialog\u003e instead of the \"dialog\" role to ensure accessibility across all devices.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "accessibility",
+                                    "react"
+                                ],
+                       "creationDate":  "2026-11-09T17:55:51-0500",
+                       "updateDate":  "2026-11-09T17:59:54-0500",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "50a54ff8-6f76-4b31-83c1-7b4d42f8dbc6",
+                       "rule":  "typescript:S2245",
+                       "severity":  "MAJOR",
+                       "component":  "labtrack-antes:frontend/src/contexts/ToastContext.tsx",
+                       "project":  "labtrack-antes",
+                       "line":  48,
+                       "hash":  "6fc527bb48e59b3b0e1d5e3f95ca34ee",
+                       "textRange":  {
+                                         "startLine":  48,
+                                         "endLine":  48,
+                                         "startOffset":  28,
+                                         "endOffset":  41
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Make sure that using this pseudorandom number generator is safe here.",
+                       "effort":  "10min",
+                       "debt":  "10min",
+                       "author":  "",
+                       "tags":  [
+                                    "cwe",
+                                    "cryptography",
+                                    "former-hotspot"
+                                ],
+                       "creationDate":  "2026-11-09T17:55:51-0500",
+                       "updateDate":  "2026-11-09T17:55:51-0500",
+                       "type":  "VULNERABILITY",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "TRUSTWORTHY",
+                       "cleanCodeAttributeCategory":  "RESPONSIBLE",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "SECURITY",
+                                           "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "c71f4a18-3c23-45aa-8387-81cf6bf5a959",
+                       "rule":  "typescript:S6819",
+                       "severity":  "MAJOR",
+                       "component":  "labtrack-antes:frontend/src/contexts/ToastContext.tsx",
+                       "project":  "labtrack-antes",
+                       "line":  61,
+                       "hash":  "fcb774c6d4a5a9d99c60174746ac1972",
+                       "textRange":  {
+                                         "startLine":  61,
+                                         "endLine":  61,
+                                         "startOffset":  6,
+                                         "endOffset":  138
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Use \u003coutput\u003e instead of the \"status\" role to ensure accessibility across all devices.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "accessibility",
+                                    "react"
+                                ],
+                       "creationDate":  "2026-11-09T17:55:51-0500",
+                       "updateDate":  "2026-11-09T17:59:54-0500",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "6e55d1eb-f046-49db-aaa6-b43defdef96e",
+                       "rule":  "typescript:S3776",
+                       "severity":  "CRITICAL",
+                       "component":  "labtrack-antes:frontend/src/pages/AdminHistoryPage.tsx",
+                       "project":  "labtrack-antes",
+                       "line":  27,
+                       "hash":  "4d43a6c4ed936e821e6a59e93b3c24e9",
+                       "textRange":  {
+                                         "startLine":  27,
+                                         "endLine":  27,
+                                         "startOffset":  24,
+                                         "endOffset":  40
+                                     },
+                       "flows":  [
+                                     {
+                                         "locations":  [
+                                                           {
+                                                               "component":  "labtrack-antes:frontend/src/pages/AdminHistoryPage.tsx",
+                                                               "textRange":  {
+                                                                                 "startLine":  63,
+                                                                                 "endLine":  63,
+                                                                                 "startOffset":  12,
+                                                                                 "endOffset":  13
+                                                                             },
+                                                               "msg":  "+1",
+                                                               "msgFormattings":  [
+
+                                                                                  ]
+                                                           }
+                                                       ]
+                                     },
+                                     {
+                                         "locations":  [
+                                                           {
+                                                               "component":  "labtrack-antes:frontend/src/pages/AdminHistoryPage.tsx",
+                                                               "textRange":  {
+                                                                                 "startLine":  65,
+                                                                                 "endLine":  65,
+                                                                                 "startOffset":  14,
+                                                                                 "endOffset":  15
+                                                                             },
+                                                               "msg":  "+2 (incl. 1 for nesting)",
+                                                               "msgFormattings":  [
+
+                                                                                  ]
+                                                           }
+                                                       ]
+                                     },
+                                     {
+                                         "locations":  [
+                                                           {
+                                                               "component":  "labtrack-antes:frontend/src/pages/AdminHistoryPage.tsx",
+                                                               "textRange":  {
+                                                                                 "startLine":  82,
+                                                                                 "endLine":  82,
+                                                                                 "startOffset":  35,
+                                                                                 "endOffset":  36
+                                                                             },
+                                                               "msg":  "+1",
+                                                               "msgFormattings":  [
+
+                                                                                  ]
+                                                           }
+                                                       ]
+                                     },
+                                     {
+                                         "locations":  [
+                                                           {
+                                                               "component":  "labtrack-antes:frontend/src/pages/AdminHistoryPage.tsx",
+                                                               "textRange":  {
+                                                                                 "startLine":  93,
+                                                                                 "endLine":  93,
+                                                                                 "startOffset":  28,
+                                                                                 "endOffset":  29
+                                                                             },
+                                                               "msg":  "+1",
+                                                               "msgFormattings":  [
+
+                                                                                  ]
+                                                           }
+                                                       ]
+                                     },
+                                     {
+                                         "locations":  [
+                                                           {
+                                                               "component":  "labtrack-antes:frontend/src/pages/AdminHistoryPage.tsx",
+                                                               "textRange":  {
+                                                                                 "startLine":  101,
+                                                                                 "endLine":  101,
+                                                                                 "startOffset":  13,
+                                                                                 "endOffset":  14
+                                                                             },
+                                                               "msg":  "+1",
+                                                               "msgFormattings":  [
+
+                                                                                  ]
+                                                           }
+                                                       ]
+                                     },
+                                     {
+                                         "locations":  [
+                                                           {
+                                                               "component":  "labtrack-antes:frontend/src/pages/AdminHistoryPage.tsx",
+                                                               "textRange":  {
+                                                                                 "startLine":  103,
+                                                                                 "endLine":  103,
+                                                                                 "startOffset":  15,
+                                                                                 "endOffset":  16
+                                                                             },
+                                                               "msg":  "+1",
+                                                               "msgFormattings":  [
+
+                                                                                  ]
+                                                           }
+                                                       ]
+                                     },
+                                     {
+                                         "locations":  [
+                                                           {
+                                                               "component":  "labtrack-antes:frontend/src/pages/AdminHistoryPage.tsx",
+                                                               "textRange":  {
+                                                                                 "startLine":  107,
+                                                                                 "endLine":  107,
+                                                                                 "startOffset":  8,
+                                                                                 "endOffset":  9
+                                                                             },
+                                                               "msg":  "+1",
+                                                               "msgFormattings":  [
+
+                                                                                  ]
+                                                           }
+                                                       ]
+                                     },
+                                     {
+                                         "locations":  [
+                                                           {
+                                                               "component":  "labtrack-antes:frontend/src/pages/AdminHistoryPage.tsx",
+                                                               "textRange":  {
+                                                                                 "startLine":  106,
+                                                                                 "endLine":  106,
+                                                                                 "startOffset":  16,
+                                                                                 "endOffset":  18
+                                                                             },
+                                                               "msg":  "+1",
+                                                               "msgFormattings":  [
+
+                                                                                  ]
+                                                           }
+                                                       ]
+                                     },
+                                     {
+                                         "locations":  [
+                                                           {
+                                                               "component":  "labtrack-antes:frontend/src/pages/AdminHistoryPage.tsx",
+                                                               "textRange":  {
+                                                                                 "startLine":  108,
+                                                                                 "endLine":  108,
+                                                                                 "startOffset":  10,
+                                                                                 "endOffset":  11
+                                                                             },
+                                                               "msg":  "+2 (incl. 1 for nesting)",
+                                                               "msgFormattings":  [
+
+                                                                                  ]
+                                                           }
+                                                       ]
+                                     },
+                                     {
+                                         "locations":  [
+                                                           {
+                                                               "component":  "labtrack-antes:frontend/src/pages/AdminHistoryPage.tsx",
+                                                               "textRange":  {
+                                                                                 "startLine":  120,
+                                                                                 "endLine":  120,
+                                                                                 "startOffset":  8,
+                                                                                 "endOffset":  9
+                                                                             },
+                                                               "msg":  "+1",
+                                                               "msgFormattings":  [
+
+                                                                                  ]
+                                                           }
+                                                       ]
+                                     },
+                                     {
+                                         "locations":  [
+                                                           {
+                                                               "component":  "labtrack-antes:frontend/src/pages/AdminHistoryPage.tsx",
+                                                               "textRange":  {
+                                                                                 "startLine":  119,
+                                                                                 "endLine":  119,
+                                                                                 "startOffset":  16,
+                                                                                 "endOffset":  18
+                                                                             },
+                                                               "msg":  "+1",
+                                                               "msgFormattings":  [
+
+                                                                                  ]
+                                                           }
+                                                       ]
+                                     },
+                                     {
+                                         "locations":  [
+                                                           {
+                                                               "component":  "labtrack-antes:frontend/src/pages/AdminHistoryPage.tsx",
+                                                               "textRange":  {
+                                                                                 "startLine":  121,
+                                                                                 "endLine":  121,
+                                                                                 "startOffset":  10,
+                                                                                 "endOffset":  11
+                                                                             },
+                                                               "msg":  "+2 (incl. 1 for nesting)",
+                                                               "msgFormattings":  [
+
+                                                                                  ]
+                                                           }
+                                                       ]
+                                     },
+                                     {
+                                         "locations":  [
+                                                           {
+                                                               "component":  "labtrack-antes:frontend/src/pages/AdminHistoryPage.tsx",
+                                                               "textRange":  {
+                                                                                 "startLine":  178,
+                                                                                 "endLine":  178,
+                                                                                 "startOffset":  57,
+                                                                                 "endOffset":  58
+                                                                             },
+                                                               "msg":  "+1",
+                                                               "msgFormattings":  [
+
+                                                                                  ]
+                                                           }
+                                                       ]
+                                     },
+                                     {
+                                         "locations":  [
+                                                           {
+                                                               "component":  "labtrack-antes:frontend/src/pages/AdminHistoryPage.tsx",
+                                                               "textRange":  {
+                                                                                 "startLine":  178,
+                                                                                 "endLine":  178,
+                                                                                 "startOffset":  16,
+                                                                                 "endOffset":  18
+                                                                             },
+                                                               "msg":  "+1",
+                                                               "msgFormattings":  [
+
+                                                                                  ]
+                                                           }
+                                                       ]
+                                     },
+                                     {
+                                         "locations":  [
+                                                           {
+                                                               "component":  "labtrack-antes:frontend/src/pages/AdminHistoryPage.tsx",
+                                                               "textRange":  {
+                                                                                 "startLine":  186,
+                                                                                 "endLine":  186,
+                                                                                 "startOffset":  55,
+                                                                                 "endOffset":  56
+                                                                             },
+                                                               "msg":  "+1",
+                                                               "msgFormattings":  [
+
+                                                                                  ]
+                                                           }
+                                                       ]
+                                     },
+                                     {
+                                         "locations":  [
+                                                           {
+                                                               "component":  "labtrack-antes:frontend/src/pages/AdminHistoryPage.tsx",
+                                                               "textRange":  {
+                                                                                 "startLine":  186,
+                                                                                 "endLine":  186,
+                                                                                 "startOffset":  16,
+                                                                                 "endOffset":  18
+                                                                             },
+                                                               "msg":  "+1",
+                                                               "msgFormattings":  [
+
+                                                                                  ]
+                                                           }
+                                                       ]
+                                     }
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Refactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.",
+                       "effort":  "9min",
+                       "debt":  "9min",
+                       "author":  "",
+                       "tags":  [
+                                    "brain-overload",
+                                    "editable-source"
+                                ],
+                       "creationDate":  "2026-11-09T17:55:51-0500",
+                       "updateDate":  "2026-11-09T17:59:54-0500",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "FOCUSED",
+                       "cleanCodeAttributeCategory":  "ADAPTABLE",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "HIGH"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "522ed5e9-0e26-4774-8af5-4622fd732c29",
+                       "rule":  "typescript:S7718",
+                       "severity":  "MINOR",
+                       "component":  "labtrack-antes:frontend/src/pages/AdminHistoryPage.tsx",
+                       "project":  "labtrack-antes",
+                       "line":  44,
+                       "hash":  "b9611d896b4884c2083f6988b549b9c5",
+                       "textRange":  {
+                                         "startLine":  44,
+                                         "endLine":  44,
+                                         "startOffset":  13,
+                                         "endOffset":  19
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "The catch parameter `caught` should be named `error_`.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "convention",
+                                    "error-handling",
+                                    "editable-source"
+                                ],
+                       "creationDate":  "2026-11-09T17:55:51-0500",
+                       "updateDate":  "2026-11-09T17:59:54-0500",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  true,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "LOW"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "38f51b20-8ec5-4198-a872-73cc0bf32db2",
+                       "rule":  "typescript:S3358",
+                       "severity":  "MAJOR",
+                       "component":  "labtrack-antes:frontend/src/pages/AdminHistoryPage.tsx",
+                       "project":  "labtrack-antes",
+                       "line":  64,
+                       "hash":  "2fafef5740cb68ada4674348b36fd2e1",
+                       "textRange":  {
+                                         "startLine":  64,
+                                         "endLine":  66,
+                                         "startOffset":  14,
+                                         "endOffset":  43
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Extract this nested ternary operation into an independent statement.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "editable-source",
+                                    "confusing"
+                                ],
+                       "creationDate":  "2026-11-09T17:55:51-0500",
+                       "updateDate":  "2026-11-09T17:59:54-0500",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CLEAR",
+                       "cleanCodeAttributeCategory":  "INTENTIONAL",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "944ea4a2-7b53-44fb-976a-bed58b9079c6",
+                       "rule":  "typescript:S3358",
+                       "severity":  "MAJOR",
+                       "component":  "labtrack-antes:frontend/src/pages/AdminHistoryPage.tsx",
+                       "project":  "labtrack-antes",
+                       "line":  107,
+                       "hash":  "79ebe5ac5347b92ab29969b326d88859",
+                       "textRange":  {
+                                         "startLine":  107,
+                                         "endLine":  115,
+                                         "startOffset":  10,
+                                         "endOffset":  16
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Extract this nested ternary operation into an independent statement.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "editable-source",
+                                    "confusing"
+                                ],
+                       "creationDate":  "2026-11-09T17:55:51-0500",
+                       "updateDate":  "2026-11-09T17:59:54-0500",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CLEAR",
+                       "cleanCodeAttributeCategory":  "INTENTIONAL",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "4b454187-3597-4ebc-bc89-b37b4e77cad9",
+                       "rule":  "typescript:S3358",
+                       "severity":  "MAJOR",
+                       "component":  "labtrack-antes:frontend/src/pages/AdminHistoryPage.tsx",
+                       "project":  "labtrack-antes",
+                       "line":  120,
+                       "hash":  "8348219fa5a5f0536b83076884a6e38f",
+                       "textRange":  {
+                                         "startLine":  120,
+                                         "endLine":  175,
+                                         "startOffset":  10,
+                                         "endOffset":  16
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Extract this nested ternary operation into an independent statement.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "editable-source",
+                                    "confusing"
+                                ],
+                       "creationDate":  "2026-11-09T17:55:51-0500",
+                       "updateDate":  "2026-11-09T17:59:54-0500",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CLEAR",
+                       "cleanCodeAttributeCategory":  "INTENTIONAL",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "3e420fb5-2c61-40c3-b139-09318266a43d",
+                       "rule":  "typescript:S7718",
+                       "severity":  "MINOR",
+                       "component":  "labtrack-antes:frontend/src/pages/AdminPendingPage.tsx",
+                       "project":  "labtrack-antes",
+                       "line":  49,
+                       "hash":  "b9611d896b4884c2083f6988b549b9c5",
+                       "textRange":  {
+                                         "startLine":  49,
+                                         "endLine":  49,
+                                         "startOffset":  13,
+                                         "endOffset":  19
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "The catch parameter `caught` should be named `error_`.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "convention",
+                                    "error-handling",
+                                    "editable-source"
+                                ],
+                       "creationDate":  "2026-11-09T17:55:51-0500",
+                       "updateDate":  "2026-11-09T17:59:54-0500",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  true,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "LOW"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "99a8b4e7-4c15-434d-afb2-57152d5237b8",
+                       "rule":  "typescript:S7718",
+                       "severity":  "MINOR",
+                       "component":  "labtrack-antes:frontend/src/pages/AdminPendingPage.tsx",
+                       "project":  "labtrack-antes",
+                       "line":  69,
+                       "hash":  "b9611d896b4884c2083f6988b549b9c5",
+                       "textRange":  {
+                                         "startLine":  69,
+                                         "endLine":  69,
+                                         "startOffset":  13,
+                                         "endOffset":  19
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "The catch parameter `caught` should be named `error_`.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "convention",
+                                    "error-handling",
+                                    "editable-source"
+                                ],
+                       "creationDate":  "2026-11-09T17:55:51-0500",
+                       "updateDate":  "2026-11-09T17:59:54-0500",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  true,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "LOW"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "d4eb28b8-12c4-49f6-b4fe-4df8ae6358c9",
+                       "rule":  "typescript:S7718",
+                       "severity":  "MINOR",
+                       "component":  "labtrack-antes:frontend/src/pages/AdminPendingPage.tsx",
+                       "project":  "labtrack-antes",
+                       "line":  96,
+                       "hash":  "b9611d896b4884c2083f6988b549b9c5",
+                       "textRange":  {
+                                         "startLine":  96,
+                                         "endLine":  96,
+                                         "startOffset":  13,
+                                         "endOffset":  19
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "The catch parameter `caught` should be named `error_`.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "convention",
+                                    "error-handling",
+                                    "editable-source"
+                                ],
+                       "creationDate":  "2026-11-09T17:55:51-0500",
+                       "updateDate":  "2026-11-09T17:59:54-0500",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  true,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "LOW"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "7255ecdb-fac5-4b6d-abd6-ea3f298f8259",
+                       "rule":  "typescript:S3358",
+                       "severity":  "MAJOR",
+                       "component":  "labtrack-antes:frontend/src/pages/AdminPendingPage.tsx",
+                       "project":  "labtrack-antes",
+                       "line":  154,
+                       "hash":  "79ebe5ac5347b92ab29969b326d88859",
+                       "textRange":  {
+                                         "startLine":  154,
+                                         "endLine":  163,
+                                         "startOffset":  10,
+                                         "endOffset":  16
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Extract this nested ternary operation into an independent statement.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "editable-source",
+                                    "confusing"
+                                ],
+                       "creationDate":  "2026-11-09T17:55:51-0500",
+                       "updateDate":  "2026-11-09T17:59:54-0500",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CLEAR",
+                       "cleanCodeAttributeCategory":  "INTENTIONAL",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "bf6715af-8dac-4313-ac19-5f8e3b3f4e55",
+                       "rule":  "typescript:S7718",
+                       "severity":  "MINOR",
+                       "component":  "labtrack-antes:frontend/src/pages/AdminReturnsPage.tsx",
+                       "project":  "labtrack-antes",
+                       "line":  54,
+                       "hash":  "b9611d896b4884c2083f6988b549b9c5",
+                       "textRange":  {
+                                         "startLine":  54,
+                                         "endLine":  54,
+                                         "startOffset":  13,
+                                         "endOffset":  19
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "The catch parameter `caught` should be named `error_`.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "convention",
+                                    "error-handling",
+                                    "editable-source"
+                                ],
+                       "creationDate":  "2026-11-09T17:55:51-0500",
+                       "updateDate":  "2026-11-09T17:59:54-0500",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  true,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "LOW"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "40d5fb83-ccbe-4320-bbfb-3e0f77f4377f",
+                       "rule":  "typescript:S7718",
+                       "severity":  "MINOR",
+                       "component":  "labtrack-antes:frontend/src/pages/AdminReturnsPage.tsx",
+                       "project":  "labtrack-antes",
+                       "line":  94,
+                       "hash":  "b9611d896b4884c2083f6988b549b9c5",
+                       "textRange":  {
+                                         "startLine":  94,
+                                         "endLine":  94,
+                                         "startOffset":  13,
+                                         "endOffset":  19
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "The catch parameter `caught` should be named `error_`.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "convention",
+                                    "error-handling",
+                                    "editable-source"
+                                ],
+                       "creationDate":  "2026-11-09T17:55:51-0500",
+                       "updateDate":  "2026-11-09T17:59:54-0500",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  true,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "LOW"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "c0e752fd-064c-4dbb-ada6-ef3279f77184",
+                       "rule":  "typescript:S3358",
+                       "severity":  "MAJOR",
+                       "component":  "labtrack-antes:frontend/src/pages/AdminReturnsPage.tsx",
+                       "project":  "labtrack-antes",
+                       "line":  141,
+                       "hash":  "57f5c015accf40f7fd168f81e4db759f",
+                       "textRange":  {
+                                         "startLine":  141,
+                                         "endLine":  150,
+                                         "startOffset":  10,
+                                         "endOffset":  16
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Extract this nested ternary operation into an independent statement.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "editable-source",
+                                    "confusing"
+                                ],
+                       "creationDate":  "2026-11-09T17:55:51-0500",
+                       "updateDate":  "2026-11-09T17:59:54-0500",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CLEAR",
+                       "cleanCodeAttributeCategory":  "INTENTIONAL",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "d9ac3ff7-37dd-4cb2-b03c-721d3c876eba",
+                       "rule":  "typescript:S7718",
+                       "severity":  "MINOR",
+                       "component":  "labtrack-antes:frontend/src/pages/CatalogPage.tsx",
+                       "project":  "labtrack-antes",
+                       "line":  65,
+                       "hash":  "1668360f82172f249f3136cf6dfecbf4",
+                       "textRange":  {
+                                         "startLine":  65,
+                                         "endLine":  65,
+                                         "startOffset":  14,
+                                         "endOffset":  20
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "The catch parameter `caught` should be named `error_`.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "convention",
+                                    "error-handling",
+                                    "editable-source"
+                                ],
+                       "creationDate":  "2026-11-09T17:55:51-0500",
+                       "updateDate":  "2026-11-09T17:59:54-0500",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  true,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "LOW"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "ff8581c8-8e3d-4b31-88f5-9a31592dfc99",
+                       "rule":  "typescript:S6819",
+                       "severity":  "MAJOR",
+                       "component":  "labtrack-antes:frontend/src/pages/CatalogPage.tsx",
+                       "project":  "labtrack-antes",
+                       "line":  169,
+                       "hash":  "88053083218d1bcfea204a3f4df83e45",
+                       "textRange":  {
+                                         "startLine":  169,
+                                         "endLine":  169,
+                                         "startOffset":  10,
+                                         "endOffset":  109
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Use \u003cdetails\u003e, \u003cfieldset\u003e, \u003coptgroup\u003e, or \u003caddress\u003e instead of the \"group\" role to ensure accessibility across all devices.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "accessibility",
+                                    "react"
+                                ],
+                       "creationDate":  "2026-11-09T17:55:51-0500",
+                       "updateDate":  "2026-11-09T17:59:54-0500",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "4182f156-409f-4758-a9af-7c45d35a8475",
+                       "rule":  "typescript:S3358",
+                       "severity":  "MAJOR",
+                       "component":  "labtrack-antes:frontend/src/pages/CatalogPage.tsx",
+                       "project":  "labtrack-antes",
+                       "line":  218,
+                       "hash":  "57f5c015accf40f7fd168f81e4db759f",
+                       "textRange":  {
+                                         "startLine":  218,
+                                         "endLine":  239,
+                                         "startOffset":  10,
+                                         "endOffset":  16
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Extract this nested ternary operation into an independent statement.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "editable-source",
+                                    "confusing"
+                                ],
+                       "creationDate":  "2026-11-09T17:55:51-0500",
+                       "updateDate":  "2026-11-09T17:59:54-0500",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CLEAR",
+                       "cleanCodeAttributeCategory":  "INTENTIONAL",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "5e63cac7-0409-4a60-bb1d-ba7115115126",
+                       "rule":  "typescript:S2068",
+                       "severity":  "MAJOR",
+                       "component":  "labtrack-antes:frontend/src/pages/LoginPage.tsx",
+                       "project":  "labtrack-antes",
+                       "line":  31,
+                       "hash":  "125006bd5d03fa2c76be44ed88d768eb",
+                       "textRange":  {
+                                         "startLine":  31,
+                                         "endLine":  31,
+                                         "startOffset":  14,
+                                         "endOffset":  31
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Review this potentially hard-coded password.",
+                       "effort":  "30min",
+                       "debt":  "30min",
+                       "author":  "",
+                       "tags":  [
+                                    "cwe",
+                                    "secret",
+                                    "former-hotspot"
+                                ],
+                       "creationDate":  "2026-11-09T17:55:51-0500",
+                       "updateDate":  "2026-11-09T17:55:51-0500",
+                       "type":  "VULNERABILITY",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "TRUSTWORTHY",
+                       "cleanCodeAttributeCategory":  "RESPONSIBLE",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "SECURITY",
+                                           "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "202aeae1-ca25-496a-b5d4-1aceb5cf5ee5",
+                       "rule":  "typescript:S7718",
+                       "severity":  "MINOR",
+                       "component":  "labtrack-antes:frontend/src/pages/LoginPage.tsx",
+                       "project":  "labtrack-antes",
+                       "line":  71,
+                       "hash":  "b9611d896b4884c2083f6988b549b9c5",
+                       "textRange":  {
+                                         "startLine":  71,
+                                         "endLine":  71,
+                                         "startOffset":  13,
+                                         "endOffset":  19
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "The catch parameter `caught` should be named `error_`.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "convention",
+                                    "error-handling",
+                                    "editable-source"
+                                ],
+                       "creationDate":  "2026-11-09T17:55:51-0500",
+                       "updateDate":  "2026-11-09T17:59:54-0500",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  true,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "LOW"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "db2e7b75-a8f0-4b3b-8560-adeb4747cd3d",
+                       "rule":  "typescript:S9379",
+                       "severity":  "MAJOR",
+                       "component":  "labtrack-antes:frontend/src/pages/LoginPage.tsx",
+                       "project":  "labtrack-antes",
+                       "line":  172,
+                       "hash":  "00bff60b62300c6dfdf2b4fa594864cd",
+                       "textRange":  {
+                                         "startLine":  172,
+                                         "endLine":  172,
+                                         "startOffset":  20,
+                                         "endOffset":  29
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Remove this \"autoFocus\" attribute, as it can reduce usability and accessibility for users.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "accessibility",
+                                    "react"
+                                ],
+                       "creationDate":  "2026-11-09T17:55:51-0500",
+                       "updateDate":  "2026-11-09T17:55:51-0500",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "LOW"
+                                       },
+                                       {
+                                           "softwareQuality":  "RELIABILITY",
+                                           "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "c3dafa10-4c76-408a-8b72-7dc94dda1582",
+                       "rule":  "typescript:S7718",
+                       "severity":  "MINOR",
+                       "component":  "labtrack-antes:frontend/src/pages/MyReservationsPage.tsx",
+                       "project":  "labtrack-antes",
+                       "line":  44,
+                       "hash":  "b9611d896b4884c2083f6988b549b9c5",
+                       "textRange":  {
+                                         "startLine":  44,
+                                         "endLine":  44,
+                                         "startOffset":  13,
+                                         "endOffset":  19
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "The catch parameter `caught` should be named `error_`.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "convention",
+                                    "error-handling",
+                                    "editable-source"
+                                ],
+                       "creationDate":  "2026-11-09T17:55:51-0500",
+                       "updateDate":  "2026-11-09T17:59:54-0500",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  true,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "LOW"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "ccfa3f12-e4bc-487b-9f43-c9b318510245",
+                       "rule":  "typescript:S6819",
+                       "severity":  "MAJOR",
+                       "component":  "labtrack-antes:frontend/src/pages/MyReservationsPage.tsx",
+                       "project":  "labtrack-antes",
+                       "line":  100,
+                       "hash":  "17af9ee019f666f13697ef792319928b",
+                       "textRange":  {
+                                         "startLine":  100,
+                                         "endLine":  100,
+                                         "startOffset":  6,
+                                         "endOffset":  96
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Use \u003cdetails\u003e, \u003cfieldset\u003e, \u003coptgroup\u003e, or \u003caddress\u003e instead of the \"group\" role to ensure accessibility across all devices.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "accessibility",
+                                    "react"
+                                ],
+                       "creationDate":  "2026-11-09T17:55:51-0500",
+                       "updateDate":  "2026-11-09T17:59:54-0500",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "a2136f57-229c-44f4-b342-9a97bb82876b",
+                       "rule":  "typescript:S3358",
+                       "severity":  "MAJOR",
+                       "component":  "labtrack-antes:frontend/src/pages/MyReservationsPage.tsx",
+                       "project":  "labtrack-antes",
+                       "line":  132,
+                       "hash":  "925335ba555f102d425f9641f9875ca5",
+                       "textRange":  {
+                                         "startLine":  132,
+                                         "endLine":  150,
+                                         "startOffset":  10,
+                                         "endOffset":  16
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Extract this nested ternary operation into an independent statement.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "editable-source",
+                                    "confusing"
+                                ],
+                       "creationDate":  "2026-11-09T17:55:51-0500",
+                       "updateDate":  "2026-11-09T17:59:54-0500",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CLEAR",
+                       "cleanCodeAttributeCategory":  "INTENTIONAL",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "ec185d22-4d5f-4035-87f0-54b10049cd8e",
+                       "rule":  "typescript:S7718",
+                       "severity":  "MINOR",
+                       "component":  "labtrack-antes:frontend/src/pages/NewReservationPage.tsx",
+                       "project":  "labtrack-antes",
+                       "line":  71,
+                       "hash":  "1668360f82172f249f3136cf6dfecbf4",
+                       "textRange":  {
+                                         "startLine":  71,
+                                         "endLine":  71,
+                                         "startOffset":  14,
+                                         "endOffset":  20
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "The catch parameter `caught` should be named `error_`.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "convention",
+                                    "error-handling",
+                                    "editable-source"
+                                ],
+                       "creationDate":  "2026-11-09T17:55:51-0500",
+                       "updateDate":  "2026-11-09T17:59:54-0500",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  true,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "LOW"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "7e72574f-d882-4ab2-91d3-4bfb54bc389b",
+                       "rule":  "typescript:S7718",
+                       "severity":  "MINOR",
+                       "component":  "labtrack-antes:frontend/src/pages/NewReservationPage.tsx",
+                       "project":  "labtrack-antes",
+                       "line":  133,
+                       "hash":  "b9611d896b4884c2083f6988b549b9c5",
+                       "textRange":  {
+                                         "startLine":  133,
+                                         "endLine":  133,
+                                         "startOffset":  13,
+                                         "endOffset":  19
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "The catch parameter `caught` should be named `error_`.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "convention",
+                                    "error-handling",
+                                    "editable-source"
+                                ],
+                       "creationDate":  "2026-11-09T17:55:51-0500",
+                       "updateDate":  "2026-11-09T17:59:54-0500",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  true,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "LOW"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "9f700f39-5020-4338-880b-7602e57ee724",
+                       "rule":  "typescript:S6606",
+                       "severity":  "MINOR",
+                       "component":  "labtrack-antes:frontend/src/test/utils.tsx",
+                       "project":  "labtrack-antes",
+                       "hash":  "f73d4f571b4a7546131acba54c6c40e5",
+                       "textRange":  {
+                                         "startLine":  89,
+                                         "endLine":  89,
+                                         "startOffset":  15,
+                                         "endOffset":  70
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "resolution":  "FIXED",
+                       "status":  "CLOSED",
+                       "message":  "Prefer using nullish coalescing operator (`??`) instead of a ternary expression, as it is simpler to read.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "type-dependent",
+                                    "nullish-coalescing",
+                                    "es2020"
+                                ],
+                       "creationDate":  "2026-11-09T17:55:51-0500",
+                       "updateDate":  "2026-11-09T18:15:14-0500",
+                       "closeDate":  "2026-11-09T18:15:14-0500",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  true,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "LOW"
+                                       }
+                                   ],
+                       "issueStatus":  "FIXED",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   }
+               ],
+    "components":  [
+                       {
+                           "key":  "labtrack-antes",
+                           "enabled":  true,
+                           "qualifier":  "TRK",
+                           "name":  "labtrack-antes",
+                           "longName":  "labtrack-antes"
+                       },
+                       {
+                           "key":  "labtrack-antes:backend/src/main.ts",
+                           "enabled":  true,
+                           "qualifier":  "FIL",
+                           "name":  "main.ts",
+                           "longName":  "backend/src/main.ts",
+                           "path":  "backend/src/main.ts"
+                       },
+                       {
+                           "key":  "labtrack-antes:backend/src/audit/audit.service.ts",
+                           "enabled":  true,
+                           "qualifier":  "FIL",
+                           "name":  "audit.service.ts",
+                           "longName":  "backend/src/audit/audit.service.ts",
+                           "path":  "backend/src/audit/audit.service.ts"
+                       },
+                       {
+                           "key":  "labtrack-antes:frontend/src/pages/CatalogPage.tsx",
+                           "enabled":  true,
+                           "qualifier":  "FIL",
+                           "name":  "CatalogPage.tsx",
+                           "longName":  "frontend/src/pages/CatalogPage.tsx",
+                           "path":  "frontend/src/pages/CatalogPage.tsx"
+                       },
+                       {
+                           "key":  "labtrack-antes:frontend/src/pages/NewReservationPage.tsx",
+                           "enabled":  true,
+                           "qualifier":  "FIL",
+                           "name":  "NewReservationPage.tsx",
+                           "longName":  "frontend/src/pages/NewReservationPage.tsx",
+                           "path":  "frontend/src/pages/NewReservationPage.tsx"
+                       },
+                       {
+                           "key":  "labtrack-antes:frontend/src/pages/LoginPage.tsx",
+                           "enabled":  true,
+                           "qualifier":  "FIL",
+                           "name":  "LoginPage.tsx",
+                           "longName":  "frontend/src/pages/LoginPage.tsx",
+                           "path":  "frontend/src/pages/LoginPage.tsx"
+                       },
+                       {
+                           "key":  "labtrack-antes:frontend/src/pages/AdminHistoryPage.tsx",
+                           "enabled":  true,
+                           "qualifier":  "FIL",
+                           "name":  "AdminHistoryPage.tsx",
+                           "longName":  "frontend/src/pages/AdminHistoryPage.tsx",
+                           "path":  "frontend/src/pages/AdminHistoryPage.tsx"
+                       },
+                       {
+                           "key":  "labtrack-antes:frontend/src/components/ui.tsx",
+                           "enabled":  true,
+                           "qualifier":  "FIL",
+                           "name":  "ui.tsx",
+                           "longName":  "frontend/src/components/ui.tsx",
+                           "path":  "frontend/src/components/ui.tsx"
+                       },
+                       {
+                           "key":  "labtrack-antes:frontend/src/pages/AdminPendingPage.tsx",
+                           "enabled":  true,
+                           "qualifier":  "FIL",
+                           "name":  "AdminPendingPage.tsx",
+                           "longName":  "frontend/src/pages/AdminPendingPage.tsx",
+                           "path":  "frontend/src/pages/AdminPendingPage.tsx"
+                       },
+                       {
+                           "key":  "labtrack-antes:backend/src/admin/admin.service.ts",
+                           "enabled":  true,
+                           "qualifier":  "FIL",
+                           "name":  "admin.service.ts",
+                           "longName":  "backend/src/admin/admin.service.ts",
+                           "path":  "backend/src/admin/admin.service.ts"
+                       },
+                       {
+                           "key":  "labtrack-antes:frontend/src/pages/MyReservationsPage.tsx",
+                           "enabled":  true,
+                           "qualifier":  "FIL",
+                           "name":  "MyReservationsPage.tsx",
+                           "longName":  "frontend/src/pages/MyReservationsPage.tsx",
+                           "path":  "frontend/src/pages/MyReservationsPage.tsx"
+                       },
+                       {
+                           "key":  "labtrack-antes:backend/src/equipment/equipment.service.ts",
+                           "enabled":  true,
+                           "qualifier":  "FIL",
+                           "name":  "equipment.service.ts",
+                           "longName":  "backend/src/equipment/equipment.service.ts",
+                           "path":  "backend/src/equipment/equipment.service.ts"
+                       },
+                       {
+                           "key":  "labtrack-antes:frontend/src/pages/AdminReturnsPage.tsx",
+                           "enabled":  true,
+                           "qualifier":  "FIL",
+                           "name":  "AdminReturnsPage.tsx",
+                           "longName":  "frontend/src/pages/AdminReturnsPage.tsx",
+                           "path":  "frontend/src/pages/AdminReturnsPage.tsx"
+                       },
+                       {
+                           "key":  "labtrack-antes:frontend/src/test/utils.tsx",
+                           "enabled":  false,
+                           "qualifier":  "FIL",
+                           "name":  "utils.tsx",
+                           "longName":  "frontend/src/test/utils.tsx",
+                           "path":  "frontend/src/test/utils.tsx"
+                       },
+                       {
+                           "key":  "labtrack-antes:frontend/src/contexts/ToastContext.tsx",
+                           "enabled":  true,
+                           "qualifier":  "FIL",
+                           "name":  "ToastContext.tsx",
+                           "longName":  "frontend/src/contexts/ToastContext.tsx",
+                           "path":  "frontend/src/contexts/ToastContext.tsx"
+                       }
+                   ],
+    "facets":  [
+
+               ]
+}

@@ -1,0 +1,7 @@
+Transacción,Muestras,Promedio (ms),Mediana p50 (ms),p90 (ms),p95 (ms),p99 (ms),Mínimo (ms),Máximo (ms),Throughput (req/s),Errores,Tasa Error (%)
+GET /api/equipment,19865,34.53,34.0,43.0,49.0,89.0,3.0,132.0,333.67,0,0.0
+GET /api/equipment/stats,19836,34.35,34.0,42.0,48.0,88.0,3.0,133.0,333.18,0,0.0
+GET /api/equipment?category=Cómputo,19848,34.34,34.0,42.0,48.0,88.53,3.0,132.0,333.38,0,0.0
+GET /api/reservations/me,19825,34.29,33.0,42.0,48.0,88.0,3.0,131.0,333.0,0,0.0
+POST /api/auth/login,50,113.52,104.5,153.2,160.75,204.52,77.0,230.0,0.84,0,0.0
+TOTAL GENERAL,79424,34.43,34.0,42.0,48.0,89.0,3.0,230.0,1334.07,0,0.0

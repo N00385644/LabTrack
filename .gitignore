@@ -32,3 +32,7 @@ tools/
 Thumbs.db
 *.log
 ~$*
+
+# Resultados crudos de JMeter (los reportes HTML y tablas sí se versionan)
+docs/evidencias-jmeter/**/*.jtl
+.playwright-mcp/

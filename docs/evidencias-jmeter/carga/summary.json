@@ -1,0 +1,92 @@
+{
+  "general": {
+    "muestras": 79424,
+    "promedio_ms": 34.43,
+    "mediana_ms": 34.0,
+    "p90_ms": 42.0,
+    "p95_ms": 48.0,
+    "p99_ms": 89.0,
+    "minimo_ms": 3.0,
+    "maximo_ms": 230.0,
+    "desviacion_ms": 11.85,
+    "errores": 0,
+    "tasa_error_pct": 0.0,
+    "throughput_rps": 1334.07,
+    "duracion_s": 59.53,
+    "usuarios_max": 50,
+    "inicio": "2026-11-09T23:08:25.028000+00:00",
+    "fin": "2026-11-09T23:09:24.563000+00:00"
+  },
+  "por_transaccion": {
+    "GET /api/equipment": {
+      "muestras": 19865,
+      "promedio_ms": 34.53,
+      "mediana_ms": 34.0,
+      "p90_ms": 43.0,
+      "p95_ms": 49.0,
+      "p99_ms": 89.0,
+      "minimo_ms": 3.0,
+      "maximo_ms": 132.0,
+      "desviacion_ms": 11.81,
+      "errores": 0,
+      "tasa_error_pct": 0.0,
+      "throughput_rps": 333.67
+    },
+    "GET /api/equipment/stats": {
+      "muestras": 19836,
+      "promedio_ms": 34.35,
+      "mediana_ms": 34.0,
+      "p90_ms": 42.0,
+      "p95_ms": 48.0,
+      "p99_ms": 88.0,
+      "minimo_ms": 3.0,
+      "maximo_ms": 133.0,
+      "desviacion_ms": 11.55,
+      "errores": 0,
+      "tasa_error_pct": 0.0,
+      "throughput_rps": 333.18
+    },
+    "GET /api/equipment?category=Cómputo": {
+      "muestras": 19848,
+      "promedio_ms": 34.34,
+      "mediana_ms": 34.0,
+      "p90_ms": 42.0,
+      "p95_ms": 48.0,
+      "p99_ms": 88.53,
+      "minimo_ms": 3.0,
+      "maximo_ms": 132.0,
+      "desviacion_ms": 11.72,
+      "errores": 0,
+      "tasa_error_pct": 0.0,
+      "throughput_rps": 333.38
+    },
+    "GET /api/reservations/me": {
+      "muestras": 19825,
+      "promedio_ms": 34.29,
+      "mediana_ms": 33.0,
+      "p90_ms": 42.0,
+      "p95_ms": 48.0,
+      "p99_ms": 88.0,
+      "minimo_ms": 3.0,
+      "maximo_ms": 131.0,
+      "desviacion_ms": 11.57,
+      "errores": 0,
+      "tasa_error_pct": 0.0,
+      "throughput_rps": 333.0
+    },
+    "POST /api/auth/login": {
+      "muestras": 50,
+      "promedio_ms": 113.52,
+      "mediana_ms": 104.5,
+      "p90_ms": 153.2,
+      "p95_ms": 160.75,
+      "p99_ms": 204.52,
+      "minimo_ms": 77.0,
+      "maximo_ms": 230.0,
+      "desviacion_ms": 30.07,
+      "errores": 0,
+      "tasa_error_pct": 0.0,
+      "throughput_rps": 0.84
+    }
+  }
+}

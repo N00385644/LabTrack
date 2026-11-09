@@ -1,0 +1,92 @@
+{
+  "general": {
+    "muestras": 113600,
+    "promedio_ms": 108.87,
+    "mediana_ms": 101.0,
+    "p90_ms": 132.0,
+    "p95_ms": 151.0,
+    "p99_ms": 381.0,
+    "minimo_ms": 5.0,
+    "maximo_ms": 1072.0,
+    "desviacion_ms": 47.88,
+    "errores": 0,
+    "tasa_error_pct": 0.0,
+    "throughput_rps": 1265.24,
+    "duracion_s": 89.78,
+    "usuarios_max": 150,
+    "inicio": "2026-11-09T23:09:41.410000+00:00",
+    "fin": "2026-11-09T23:11:11.195000+00:00"
+  },
+  "por_transaccion": {
+    "GET /api/equipment": {
+      "muestras": 28421,
+      "promedio_ms": 108.87,
+      "mediana_ms": 101.0,
+      "p90_ms": 133.0,
+      "p95_ms": 152.0,
+      "p99_ms": 380.0,
+      "minimo_ms": 5.0,
+      "maximo_ms": 670.0,
+      "desviacion_ms": 46.04,
+      "errores": 0,
+      "tasa_error_pct": 0.0,
+      "throughput_rps": 316.55
+    },
+    "GET /api/equipment/stats": {
+      "muestras": 28345,
+      "promedio_ms": 108.26,
+      "mediana_ms": 101.0,
+      "p90_ms": 131.0,
+      "p95_ms": 150.0,
+      "p99_ms": 374.0,
+      "minimo_ms": 5.0,
+      "maximo_ms": 653.0,
+      "desviacion_ms": 44.38,
+      "errores": 0,
+      "tasa_error_pct": 0.0,
+      "throughput_rps": 315.7
+    },
+    "GET /api/equipment?category=Cómputo": {
+      "muestras": 28377,
+      "promedio_ms": 108.44,
+      "mediana_ms": 101.0,
+      "p90_ms": 132.0,
+      "p95_ms": 150.0,
+      "p99_ms": 380.24,
+      "minimo_ms": 5.0,
+      "maximo_ms": 652.0,
+      "desviacion_ms": 45.49,
+      "errores": 0,
+      "tasa_error_pct": 0.0,
+      "throughput_rps": 316.06
+    },
+    "GET /api/reservations/me": {
+      "muestras": 28307,
+      "promedio_ms": 108.06,
+      "mediana_ms": 101.0,
+      "p90_ms": 132.0,
+      "p95_ms": 150.0,
+      "p99_ms": 369.0,
+      "minimo_ms": 5.0,
+      "maximo_ms": 589.0,
+      "desviacion_ms": 43.6,
+      "errores": 0,
+      "tasa_error_pct": 0.0,
+      "throughput_rps": 315.28
+    },
+    "POST /api/auth/login": {
+      "muestras": 150,
+      "promedio_ms": 461.19,
+      "mediana_ms": 402.5,
+      "p90_ms": 891.7,
+      "p95_ms": 963.3,
+      "p99_ms": 1033.36,
+      "minimo_ms": 81.0,
+      "maximo_ms": 1072.0,
+      "desviacion_ms": 296.46,
+      "errores": 0,
+      "tasa_error_pct": 0.0,
+      "throughput_rps": 1.67
+    }
+  }
+}

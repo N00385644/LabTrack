@@ -1,0 +1,55 @@
+﻿{
+    "paging":  {
+                   "pageIndex":  1,
+                   "pageSize":  100,
+                   "total":  2
+               },
+    "analyses":  [
+                     {
+                         "key":  "21d8a129-a2cf-4375-a532-b99bbb09a45f",
+                         "date":  "2026-11-09T18:00:51-0500",
+                         "events":  [
+                                        {
+                                            "key":  "653ab6cc-6c1b-44a0-b605-0ce506fe87e6",
+                                            "category":  "QUALITY_PROFILE",
+                                            "name":  "Use \"Sonar way comprehensive\" (ts)",
+                                            "qualityProfile":  {
+
+                                                               }
+                                        },
+                                        {
+                                            "key":  "043b75ac-fabd-47be-a214-eb73ec6f6455",
+                                            "category":  "QUALITY_PROFILE",
+                                            "name":  "Stop using \"Sonar way core\" (ts)",
+                                            "qualityProfile":  {
+
+                                                               }
+                                        },
+                                        {
+                                            "key":  "47a403d6-3b3c-4de8-a33f-68acf0f3986c",
+                                            "category":  "VERSION",
+                                            "name":  "despues-0a63a0a"
+                                        }
+                                    ],
+                         "projectVersion":  "despues-0a63a0a",
+                         "manualNewCodePeriodBaseline":  false,
+                         "revision":  "0a63a0aa1090b7533b18c891daef58b957ab2dec",
+                         "detectedCI":  "undetected"
+                     },
+                     {
+                         "key":  "7a7fe9aa-51f4-4bc3-b8b9-44f525e7e579",
+                         "date":  "2026-11-09T17:56:56-0500",
+                         "events":  [
+                                        {
+                                            "key":  "f6a87494-c6e1-401f-826e-6b78b9d8bfae",
+                                            "category":  "SQ_UPGRADE",
+                                            "name":  "26.10.0.133078"
+                                        }
+                                    ],
+                         "projectVersion":  "despues-0a63a0a",
+                         "manualNewCodePeriodBaseline":  false,
+                         "revision":  "0a63a0aa1090b7533b18c891daef58b957ab2dec",
+                         "detectedCI":  "undetected"
+                     }
+                 ]
+}
