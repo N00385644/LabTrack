@@ -1,0 +1,9 @@
+{
+  "reconstruido": true,
+  "fuente": "docs/sonar-baseline.json",
+  "nota": "Respuesta con forma de api/qualitygates/project_status reconstruida. NO es un escaneo nuevo.",
+  "projectStatus": {
+    "status": "OK",
+    "conditions": []
+  }
+}

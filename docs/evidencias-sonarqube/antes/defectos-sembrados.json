@@ -1,0 +1,338 @@
+{
+  "nota": "ANTES REPRODUCIDO: lineas reales del arbol docs/evidencias-sonarqube/antes/src. No es una captura historica.",
+  "total_marcas": 41,
+  "total_reglas_sembradas": 44,
+  "marcas": [
+    {
+      "file": "backend/src/admin/admin.service.ts",
+      "line": 29,
+      "rules": [
+        "S3358"
+      ],
+      "text": "where = status === 'ALL' ? {} : isKnownStatus ? { status: status as ReservationStatus } : where; // DEFECTO SEMBRADO (demostracion) S3358 - ternario anidado"
+    },
+    {
+      "file": "frontend/src/components/AppLayout.tsx",
+      "line": 83,
+      "rules": [
+        "S6759"
+      ],
+      "text": "function SidebarContent({ onNavigate }: { onNavigate?: () => void }) { // DEFECTO SEMBRADO (demostracion) S6759 - props sin Readonly"
+    },
+    {
+      "file": "frontend/src/components/CategoryIconLabel.tsx",
+      "line": 3,
+      "rules": [
+        "S6759"
+      ],
+      "text": "export function CategoryIconLabel({ category }: { category: string }) { // DEFECTO SEMBRADO (demostracion) S6759 - props sin Readonly"
+    },
+    {
+      "file": "frontend/src/components/ProtectedRoute.tsx",
+      "line": 7,
+      "rules": [
+        "S6759"
+      ],
+      "text": "export function ProtectedRoute({ role }: { role?: Role }) { // DEFECTO SEMBRADO (demostracion) S6759 - props sin Readonly"
+    },
+    {
+      "file": "frontend/src/components/ui.tsx",
+      "line": 29,
+      "rules": [
+        "S6759"
+      ],
+      "text": "export function StatusBadge({ status }: { status: ReservationStatus }) { // DEFECTO SEMBRADO (demostracion) S6759 - props sin Readonly"
+    },
+    {
+      "file": "frontend/src/components/ui.tsx",
+      "line": 38,
+      "rules": [
+        "S6759"
+      ],
+      "text": "export function EquipmentStatusBadge({ status }: { status: EquipmentStatus }) { // DEFECTO SEMBRADO (demostracion) S6759 - props sin Readonly"
+    },
+    {
+      "file": "frontend/src/components/ui.tsx",
+      "line": 54,
+      "rules": [
+        "S6759"
+      ],
+      "text": "export function PageHeader({ // DEFECTO SEMBRADO (demostracion) S6759 - props sin Readonly"
+    },
+    {
+      "file": "frontend/src/components/ui.tsx",
+      "line": 86,
+      "rules": [
+        "S6759"
+      ],
+      "text": "export function StatCard({ // DEFECTO SEMBRADO (demostracion) S6759 - props sin Readonly"
+    },
+    {
+      "file": "frontend/src/components/ui.tsx",
+      "line": 113,
+      "rules": [
+        "S6759"
+      ],
+      "text": "export function LoadingBlock({ label = 'Cargando información…' }: { label?: string }) { // DEFECTO SEMBRADO (demostracion) S6759 - props sin Readonly"
+    },
+    {
+      "file": "frontend/src/components/ui.tsx",
+      "line": 133,
+      "rules": [
+        "S6759"
+      ],
+      "text": "export function ErrorAlert({ // DEFECTO SEMBRADO (demostracion) S6759 - props sin Readonly"
+    },
+    {
+      "file": "frontend/src/components/ui.tsx",
+      "line": 159,
+      "rules": [
+        "S6759"
+      ],
+      "text": "export function EmptyState({ // DEFECTO SEMBRADO (demostracion) S6759 - props sin Readonly"
+    },
+    {
+      "file": "frontend/src/components/ui.tsx",
+      "line": 186,
+      "rules": [
+        "S6759"
+      ],
+      "text": "export function Modal({ // DEFECTO SEMBRADO (demostracion) S6759 - props sin Readonly"
+    },
+    {
+      "file": "frontend/src/components/ui.tsx",
+      "line": 218,
+      "rules": [
+        "S1082",
+        "S6848"
+      ],
+      "text": "{/* DEFECTO SEMBRADO (demostracion) S1082 S6848 - overlay div clicable sin teclado"
+    },
+    {
+      "file": "frontend/src/components/ui.tsx",
+      "line": 222,
+      "rules": [
+        "S1082",
+        "S6819",
+        "S6847"
+      ],
+      "text": "DEFECTO SEMBRADO (demostracion) S6819 S6847 S1082 - role=\"dialog\" sobre un div nativo */}"
+    },
+    {
+      "file": "frontend/src/contexts/AuthContext.tsx",
+      "line": 24,
+      "rules": [
+        "S6759"
+      ],
+      "text": "interface AuthProviderProps { // DEFECTO SEMBRADO (demostracion) S6759 - props mutables"
+    },
+    {
+      "file": "frontend/src/contexts/ToastContext.tsx",
+      "line": 39,
+      "rules": [
+        "S6759"
+      ],
+      "text": "export function ToastProvider({ children }: { children: ReactNode }) { // DEFECTO SEMBRADO (demostracion) S6759 - props sin Readonly"
+    },
+    {
+      "file": "frontend/src/contexts/ToastContext.tsx",
+      "line": 48,
+      "rules": [
+        "S2245"
+      ],
+      "text": "const id = Math.floor(Math.random() * 1_000_000); // DEFECTO SEMBRADO (demostracion) S2245 - PRNG inseguro"
+    },
+    {
+      "file": "frontend/src/contexts/ToastContext.tsx",
+      "line": 60,
+      "rules": [
+        "S6819"
+      ],
+      "text": "{/* DEFECTO SEMBRADO (demostracion) S6819 - role=\"status\" en div en lugar de <output> */}"
+    },
+    {
+      "file": "frontend/src/pages/AdminHistoryPage.tsx",
+      "line": 44,
+      "rules": [
+        "S7718"
+      ],
+      "text": "} catch (caught) { // DEFECTO SEMBRADO (demostracion) S7718 - parametro caught"
+    },
+    {
+      "file": "frontend/src/pages/AdminHistoryPage.tsx",
+      "line": 61,
+      "rules": [
+        "S3358"
+      ],
+      "text": "// DEFECTO SEMBRADO (demostracion) S3358 - ternario anidado"
+    },
+    {
+      "file": "frontend/src/pages/AdminHistoryPage.tsx",
+      "line": 105,
+      "rules": [
+        "S3358"
+      ],
+      "text": "{/* DEFECTO SEMBRADO (demostracion) S3358 - ternario anidado */}"
+    },
+    {
+      "file": "frontend/src/pages/AdminHistoryPage.tsx",
+      "line": 118,
+      "rules": [
+        "S3358"
+      ],
+      "text": "{/* DEFECTO SEMBRADO (demostracion) S3358 - ternario anidado */}"
+    },
+    {
+      "file": "frontend/src/pages/AdminPendingPage.tsx",
+      "line": 49,
+      "rules": [
+        "S7718"
+      ],
+      "text": "} catch (caught) { // DEFECTO SEMBRADO (demostracion) S7718 - parametro caught"
+    },
+    {
+      "file": "frontend/src/pages/AdminPendingPage.tsx",
+      "line": 69,
+      "rules": [
+        "S7718"
+      ],
+      "text": "} catch (caught) { // DEFECTO SEMBRADO (demostracion) S7718 - parametro caught"
+    },
+    {
+      "file": "frontend/src/pages/AdminPendingPage.tsx",
+      "line": 96,
+      "rules": [
+        "S7718"
+      ],
+      "text": "} catch (caught) { // DEFECTO SEMBRADO (demostracion) S7718 - parametro caught"
+    },
+    {
+      "file": "frontend/src/pages/AdminPendingPage.tsx",
+      "line": 152,
+      "rules": [
+        "S3358"
+      ],
+      "text": "{/* DEFECTO SEMBRADO (demostracion) S3358 - ternario anidado */}"
+    },
+    {
+      "file": "frontend/src/pages/AdminReturnsPage.tsx",
+      "line": 54,
+      "rules": [
+        "S7718"
+      ],
+      "text": "} catch (caught) { // DEFECTO SEMBRADO (demostracion) S7718 - parametro caught"
+    },
+    {
+      "file": "frontend/src/pages/AdminReturnsPage.tsx",
+      "line": 94,
+      "rules": [
+        "S7718"
+      ],
+      "text": "} catch (caught) { // DEFECTO SEMBRADO (demostracion) S7718 - parametro caught"
+    },
+    {
+      "file": "frontend/src/pages/AdminReturnsPage.tsx",
+      "line": 139,
+      "rules": [
+        "S3358"
+      ],
+      "text": "{/* DEFECTO SEMBRADO (demostracion) S3358 - ternario anidado */}"
+    },
+    {
+      "file": "frontend/src/pages/CatalogPage.tsx",
+      "line": 36,
+      "rules": [
+        "S6759"
+      ],
+      "text": "function CategoryIcon({ category, className }: { category: string; className?: string }) { // DEFECTO SEMBRADO (demostracion) S6759 - props sin Readonly"
+    },
+    {
+      "file": "frontend/src/pages/CatalogPage.tsx",
+      "line": 65,
+      "rules": [
+        "S7718"
+      ],
+      "text": ".catch((caught) => { // DEFECTO SEMBRADO (demostracion) S7718 - parametro caught"
+    },
+    {
+      "file": "frontend/src/pages/CatalogPage.tsx",
+      "line": 168,
+      "rules": [
+        "S6819"
+      ],
+      "text": "{/* DEFECTO SEMBRADO (demostracion) S6819 - role=\"group\" en div nativo */}"
+    },
+    {
+      "file": "frontend/src/pages/CatalogPage.tsx",
+      "line": 216,
+      "rules": [
+        "S3358"
+      ],
+      "text": "{/* DEFECTO SEMBRADO (demostracion) S3358 - ternario anidado */}"
+    },
+    {
+      "file": "frontend/src/pages/LoginPage.tsx",
+      "line": 31,
+      "rules": [
+        "S2068"
+      ],
+      "text": "password: 'Estudiante2026!', // DEFECTO SEMBRADO (demostracion) S2068 - credencial embebida"
+    },
+    {
+      "file": "frontend/src/pages/LoginPage.tsx",
+      "line": 71,
+      "rules": [
+        "S7718"
+      ],
+      "text": "} catch (caught) { // DEFECTO SEMBRADO (demostracion) S7718 - parametro caught"
+    },
+    {
+      "file": "frontend/src/pages/LoginPage.tsx",
+      "line": 78,
+      "rules": [
+        "S9379"
+      ],
+      "text": "return ( // DEFECTO SEMBRADO (demostracion) S9379 - autoFocus en el campo de código"
+    },
+    {
+      "file": "frontend/src/pages/MyReservationsPage.tsx",
+      "line": 44,
+      "rules": [
+        "S7718"
+      ],
+      "text": "} catch (caught) { // DEFECTO SEMBRADO (demostracion) S7718 - parametro caught"
+    },
+    {
+      "file": "frontend/src/pages/MyReservationsPage.tsx",
+      "line": 99,
+      "rules": [
+        "S6819"
+      ],
+      "text": "{/* DEFECTO SEMBRADO (demostracion) S6819 - role=\"group\" en div nativo */}"
+    },
+    {
+      "file": "frontend/src/pages/MyReservationsPage.tsx",
+      "line": 130,
+      "rules": [
+        "S3358"
+      ],
+      "text": "{/* DEFECTO SEMBRADO (demostracion) S3358 - ternario anidado */}"
+    },
+    {
+      "file": "frontend/src/pages/NewReservationPage.tsx",
+      "line": 71,
+      "rules": [
+        "S7718"
+      ],
+      "text": ".catch((caught) => { // DEFECTO SEMBRADO (demostracion) S7718 - parametro caught"
+    },
+    {
+      "file": "frontend/src/pages/NewReservationPage.tsx",
+      "line": 133,
+      "rules": [
+        "S7718"
+      ],
+      "text": "} catch (caught) { // DEFECTO SEMBRADO (demostracion) S7718 - parametro caught"
+    }
+  ]
+}

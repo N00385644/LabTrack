@@ -1,0 +1,12 @@
+{
+  "reconstruido": true,
+  "fuente": "docs/sonar-data.json · final",
+  "nota": "Respuesta con forma de api/issues/search reconstruida desde una instantanea historica. NO es un escaneo nuevo.",
+  "proyecto": "labtrack-despues",
+  "capturado": "2026-11-09",
+  "commit": "840052e769ac7386f458d9cac2332d6a4dd2d50d",
+  "p": 1,
+  "ps": 500,
+  "total": 0,
+  "issues": []
+}
