@@ -1,0 +1,119 @@
+
+> labtrack-web@1.0.0 test:cov
+> vitest run --coverage
+
+
+ RUN  v3.2.7 C:/Users/1luis/Documents/Calidad y Pruebas de software/T3/.team/worktrees/pruebas-unitarias/frontend
+      Coverage enabled with v8
+
+stderr | src/test/ProtectedRoute.test.tsx > ProtectedRoute · control de acceso > redirige al login cuando no hay sesión
+⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+
+stderr | src/test/NewReservationPage.test.tsx > NewReservationPage · HU-03 > preselecciona el equipo enviado desde el catálogo
+⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+
+stderr | src/test/AppLayout.test.tsx > AppLayout · navegación > muestra la navegación del estudiante y su identidad
+⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+
+stderr | src/test/AdminHistoryPage.test.tsx > AdminHistoryPage · trazabilidad > lista las reservas con su estado y revisor
+⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+
+stderr | src/test/AdminPendingPage.test.tsx > AdminPendingPage · HU-04 > lista las solicitudes con los datos del estudiante y del equipo
+⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+
+stderr | src/test/MyReservationsPage.test.tsx > MyReservationsPage · seguimiento > muestra el motivo de rechazo al estudiante
+⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+
+stderr | src/test/LoginPage.test.tsx > LoginPage · HU-01 > muestra el formulario y completa las credenciales de demostración
+⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+
+ ✓ src/test/ProtectedRoute.test.tsx (4 tests) 187ms
+stderr | src/test/AdminReturnsPage.test.tsx > AdminReturnsPage · HU-05 > marca visualmente un préstamo vencido
+⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+
+stderr | src/test/MiscComponents.test.tsx > Componentes compartidos > la página 404 informa el error y ofrece volver al inicio
+⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+
+stderr | src/test/CatalogPage.test.tsx > CatalogPage · HU-02 > muestra las tarjetas con nombre, código, categoría y estado
+⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+
+stderr | src/test/App.test.tsx > App · enrutamiento y sesión > muestra el login cuando no hay sesión
+⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+
+ ✓ src/test/MiscComponents.test.tsx (4 tests) 390ms
+ ✓ src/test/MyReservationsPage.test.tsx (4 tests) 760ms
+   ✓ MyReservationsPage · seguimiento > filtra las reservas por estado  333ms
+ ✓ src/test/AdminHistoryPage.test.tsx (3 tests) 860ms
+   ✓ AdminHistoryPage · trazabilidad > muestra la bitácora de auditoría al cambiar de pestaña  383ms
+ ✓ src/test/AppLayout.test.tsx (4 tests) 950ms
+   ✓ AppLayout · navegación > cierra la sesión y vuelve al login  373ms
+ ✓ src/test/NewReservationPage.test.tsx (4 tests) 1136ms
+   ✓ NewReservationPage · HU-03 > valida que la hora de inicio sea anterior a la hora de fin  454ms
+ ✓ src/test/App.test.tsx (3 tests) 1009ms
+   ✓ App · enrutamiento y sesión > muestra el login cuando no hay sesión  524ms
+   ✓ App · enrutamiento y sesión > restaura la sesión del estudiante y abre el catálogo  389ms
+ ✓ src/test/AdminReturnsPage.test.tsx (2 tests) 895ms
+   ✓ AdminReturnsPage · HU-05 > advierte la penalización y registra la devolución tardía  682ms
+ ✓ src/test/CatalogPage.test.tsx (5 tests) 1821ms
+   ✓ CatalogPage · HU-02 > muestra las tarjetas con nombre, código, categoría y estado  469ms
+   ✓ CatalogPage · HU-02 > aplica el filtro exacto por categoría  465ms
+   ✓ CatalogPage · HU-02 > permite buscar por nombre o código de inventario  437ms
+ ✓ src/test/AdminPendingPage.test.tsx (3 tests) 2127ms
+   ✓ AdminPendingPage · HU-04 > exige un motivo antes de rechazar una solicitud  1457ms
+   ✓ AdminPendingPage · HU-04 > aprueba una solicitud pendiente  404ms
+ ✓ src/test/LoginPage.test.tsx (4 tests) 3028ms
+   ✓ LoginPage · HU-01 > muestra el formulario y completa las credenciales de demostración  542ms
+   ✓ LoginPage · HU-01 > muestra el mensaje "Credenciales inválidas" ante un rechazo del API  1019ms
+   ✓ LoginPage · HU-01 > muestra la alerta de bloqueo temporal  763ms
+   ✓ LoginPage · HU-01 > guarda la sesión cuando las credenciales son válidas  700ms
+ ✓ src/test/reservation-boundaries.extra.test.ts (4 tests) 17ms
+ ✓ src/test/format.test.ts (4 tests) 8ms
+
+ Test Files  13 passed (13)
+      Tests  48 passed (48)
+   Start at  17:07:50
+   Duration  20.10s (transform 3.77s, setup 6.97s, collect 15.08s, tests 13.19s, environment 34.43s, prepare 8.91s)
+
+ % Coverage report from v8
+-------------------|---------|----------|---------|---------|-------------------
+File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-------------------|---------|----------|---------|---------|-------------------
+All files          |   90.26 |    81.69 |   63.47 |   90.26 |                   
+ src               |     100 |       80 |     100 |     100 |                   
+  App.tsx          |     100 |       80 |     100 |     100 | 20                
+ src/components    |   99.08 |    85.71 |    90.9 |   99.08 |                   
+  AppLayout.tsx    |     100 |    88.88 |      80 |     100 | 79,87,93          
+  ...IconLabel.tsx |     100 |      100 |     100 |     100 |                   
+  ...ctedRoute.tsx |     100 |      100 |     100 |     100 |                   
+  ui.tsx           |   97.93 |    76.47 |     100 |   97.93 | 70,151-153,250    
+ src/contexts      |   90.32 |    90.32 |      80 |   90.32 |                   
+  AuthContext.tsx  |   86.15 |    91.66 |     100 |   86.15 | 51-54,79-81,95-96 
+  ToastContext.tsx |   94.91 |    85.71 |   66.66 |   94.91 | 45,88-89          
+ src/lib           |   46.06 |    81.48 |      50 |   46.06 |                   
+  api.ts           |    54.4 |    71.42 |   36.84 |    54.4 | ...45-149,151-155 
+  format.ts        |     100 |      100 |     100 |     100 |                   
+  routes.ts        |     100 |      100 |     100 |     100 |                   
+  types.ts         |       0 |        0 |       0 |       0 | 1-87              
+ src/pages         |   94.76 |    79.79 |   56.66 |   94.76 |                   
+  ...storyPage.tsx |   96.59 |    70.73 |      50 |   96.59 | 22-25,45,151      
+  ...ndingPage.tsx |   98.84 |    86.36 |   66.66 |   98.84 | 50,70,97          
+  ...turnsPage.tsx |   91.91 |    71.42 |   54.54 |   91.91 | ...95,198,274-277 
+  CatalogPage.tsx  |   97.48 |    96.07 |      50 |   97.48 | 66-68,226-228     
+  LoginPage.tsx    |   99.55 |       75 |   83.33 |   99.55 | 278               
+  ...tionsPage.tsx |   88.38 |       75 |      50 |   88.38 | ...26-229,235-238 
+  ...ationPage.tsx |   90.67 |       78 |   41.66 |   90.67 | ...90-199,345-347 
+  NotFoundPage.tsx |     100 |      100 |     100 |     100 |                   
+-------------------|---------|----------|---------|---------|-------------------
+
+EXIT_CODE=0
