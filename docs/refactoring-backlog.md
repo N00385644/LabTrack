@@ -1,6 +1,6 @@
 # Backlog de Refactorización y Deuda Técnica — LabTrack
 
-> Nota de alineacion: el texto previo del equipo indicaba formato N0 + 8 digitos y bloqueo de 15 minutos; la implementacion y las pruebas usan codigo de 8 digitos y bloqueo de 5 minutos, coherente con las historias originales del docente, que no fijan formato ni duracion.
+> Nota de alineacion: el código de estudiante usa el formato N + 8 dígitos (ej. `N00385644`); el administrador usa `ADMIN01`. El bloqueo ocurre durante 5 minutos tras 3 fallos. La historia original del docente solo dice "código de estudiante", sin fijar formato ni duración.
 
 **Curso:** Calidad y Pruebas de Software · **Caso de Estudio T3:** Sistema de Gestión de Laboratorios "LabTrack"  
 **Docente:** Mark Anthony Arribasplata Palomino  
@@ -19,9 +19,8 @@ LabTrack es un sistema integral para la reserva y administración de equipos de 
 
 El alcance funcional declarado por el equipo incluye HU-01, HU-02, HU-03, HU-04, HU-05, HU-06,
 HU-07, HU-08, HU-11, HU-13, HU-14 y HU-15. La verificación de repositorio documentada en
-`docs/trazabilidad-historias-usuario.md` confirma implementación con pruebas para HU-01 a HU-05,
-pero mantiene pendiente la duración de 7 días de HU-05 y la evidencia completa de las demás HU;
-esas brechas no se contabilizan como funcionalidades implementadas.
+`docs/trazabilidad-historias-usuario.md` confirma implementación con pruebas para 11 de 12 HU;
+HU-07 es parcial porque su CRUD de equipos existe solo en API, sin pantalla administrativa.
 
 ---
 
@@ -67,15 +66,15 @@ Cada una incluye prioridad, solución y estado explícito; las pendientes no se 
 
 | ID | Defecto / Brecha | Prioridad | Archivos / Módulos | Solución propuesta | Estado | Evidencia actual |
 |---|---|---|---|---|---|---|
-| **HU-BR-01** | Desalineación documental de HU-01 sobre el formato del código y la duración del bloqueo. | Baja | `docs/historias-usuario-implementadas.md`, `docs/trazabilidad-historias-usuario.md`, `docs/matriz-pruebas.md` | Alinear el texto con el código de estudiante de 8 dígitos (ej. `20240001`); el administrador usa un código alfanumérico (`ADMIN01`). Documentar bloqueo de 5 minutos tras 3 fallos consecutivos, sin modificar código ni pruebas. | **Resuelto por alineacion documental** | `backend/prisma/seed.ts` usa `20240001` y `ADMIN01`; `backend/src/auth/dto/login.dto.ts` no exige regex; `backend/src/auth/auth.service.ts` fija `LOCKOUT_MINUTES = 5`. Las pruebas existentes de `backend/test/auth.spec.ts` cubren login y bloqueo tras 3 fallos. |
-| **HU-BR-05** | HU-05 no registra la fecha de levantamiento de la suspensión de 7 días. | Alta | `backend/prisma/schema.prisma`, `backend/src/admin/admin.service.ts` | Persistir `penaltyUntil`, aplicar expiración y añadir pruebas de devolución tardía/levantamiento. | **Pendiente** | Se verifica `PENALIZED`, pero no duración. |
-| **HU-BR-06** | HU-06 carece de carnet digital QR y pruebas de generación/lectura. | Media | `frontend/src`, `backend/src` | Crear vista de carnet, endpoint/valor firmado y pruebas UI/API de escaneo. | **Pendiente** | No hay archivos funcionales ni pruebas HU-06. |
-| **HU-BR-07** | HU-07 carece de CRUD admin de equipos, fotos, especificaciones y QR. | Alta | `backend/src/equipment`, `frontend/src/pages` | Añadir guardas admin, DTOs CRUD, almacenamiento de imagen y generación QR; cubrir API/UI. | **Pendiente** | Solo existen consultas del catálogo y sus pruebas. |
-| **HU-BR-08** | HU-08 no permite levantar sanciones con justificación médica o académica. | Alta | `backend/src/admin`, `frontend/src/pages` | Añadir endpoint transaccional, auditoría, formulario y pruebas de autorización/justificación. | **Pendiente** | Existe aplicación automática de penalización, no levantamiento. |
-| **HU-BR-11** | HU-11 no muestra gráficos de inventario ni tasa de puntualidad. | Media | `backend/src/admin`, `frontend/src/pages/AdminPendingPage.tsx` | Exponer series agregadas, incorporar gráficos y probar cálculo/renderizado de métricas. | **Pendiente** | Solo hay tarjetas numéricas y pruebas de contadores. |
-| **HU-BR-13** | HU-13 carece de CRUD de usuarios, reset de claves y desbloqueo administrativo. | Alta | `backend/src`, `frontend/src/pages` | Crear módulo admin de usuarios, políticas de código, reset y unlock; añadir API/UI tests. | **Pendiente** | No hay módulo ni pruebas de usuarios. |
-| **HU-BR-14** | HU-14 carece de cámara/lector QR para despacho y devolución. | Media | `frontend/src`, `backend/src` | Integrar captura QR, resolver equipo/usuario y probar cámara simulada y flujo de ventanilla. | **Pendiente** | No hay componentes, endpoints ni pruebas QR. |
-| **HU-BR-15** | HU-15 carece de acta PDF descargable y cláusula de responsabilidad. | Media | `frontend/src`, `backend/src` | Crear plantilla/generador PDF, endpoint seguro, botón de descarga y prueba de contenido. | **Pendiente** | No hay generador, ruta ni pruebas PDF. |
+| **HU-BR-01** | Desalineación documental de HU-01 sobre el formato del código y la duración del bloqueo. | Baja | `docs/historias-usuario-implementadas.md`, `docs/trazabilidad-historias-usuario.md`, `docs/matriz-pruebas.md` | Alinear el texto con N + 8 dígitos (ej. `N00385644`), `ADMIN01` y bloqueo de 5 minutos tras 3 fallos. | **Resuelto por alineación documental** | Código y pruebas alineados; el DTO no fija formato y el servicio conserva `LOCKOUT_MINUTES = 5`. |
+| **HU-BR-05** | HU-05 debía persistir el vencimiento de la penalización. | Alta | `backend/prisma/schema.prisma`, `backend/src/admin/admin.service.ts` | Persistir `penaltyUntil` y cubrir expiración. | **Resuelto** | Migración y pruebas backend verifican 7 días. |
+| **HU-BR-06** | HU-06 carecía de carnet digital QR. | Media | `frontend/src/pages/StudentCardPage.tsx`, `frontend/src/App.tsx` | Crear vista y pruebas unitarias. | **Resuelto** | `NewHuPages.test.tsx` y captura del carnet QR. |
+| **HU-BR-07** | HU-07 carecía de CRUD admin completo. | Alta | `backend/src/admin`, `frontend/src/pages` | CRUD API con foto URL y QR; queda pendiente la pantalla admin. | **Parcial** | API y pruebas backend verificadas; no existe UI CRUD. |
+| **HU-BR-08** | HU-08 no permitía levantar sanciones con justificación. | Alta | `backend/src/admin`, `frontend/src/pages/AdminOperationsPage.tsx` | Añadir endpoint, formulario y pruebas. | **Resuelto** | DTO, operación administrativa y pruebas unitarias. |
+| **HU-BR-11** | HU-11 no mostraba dashboard y métricas. | Media | `backend/src/admin`, `frontend/src/pages/AdminDashboardPage.tsx` | Exponer métricas y probar renderizado. | **Resuelto** | Dashboard y pruebas unitarias verificadas. |
+| **HU-BR-13** | HU-13 carecía de administración de usuarios. | Alta | `backend/src/admin`, `frontend/src/pages/AdminOperationsPage.tsx` | Crear usuarios, reset y desbloqueo con pruebas. | **Resuelto** | DTOs, endpoints y pruebas unitarias. |
+| **HU-BR-14** | HU-14 carecía de escaneo QR. | Media | `frontend/src/pages/AdminOperationsPage.tsx` | Integrar operación de escaneo y prueba. | **Resuelto** | Flujo de escaneo y prueba unitaria. |
+| **HU-BR-15** | HU-15 carecía de acta PDF. | Media | `backend/src/admin`, `frontend/src/pages/AdminOperationsPage.tsx` | Generar y descargar acta con prueba. | **Resuelto** | Endpoint, descarga y prueba unitaria. |
 
 ## 4. Convención de Cierre y Verificación Técnica
 

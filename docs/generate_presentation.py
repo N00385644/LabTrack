@@ -216,7 +216,7 @@ def slide_cover(prs):
     add_rect(slide, Inches(7.45), Inches(4.30), Inches(4.85), Inches(0.015), RGBColor(0x33, 0x4E, 0x75))
     ay = Inches(4.44)
     for name in AUTHORS:
-        add_text(slide, Inches(7.45), ay, Inches(5.2), Inches(0.30), f"{name}  (% participación)", 9.2, RGBColor(0xE2, 0xE8, 0xF0))
+        add_text(slide, Inches(7.45), ay, Inches(5.2), Inches(0.30), f"{name}  (100 %)", 9.2, RGBColor(0xE2, 0xE8, 0xF0))
         ay += Inches(0.34)
 
     add_notes(
@@ -254,7 +254,7 @@ def slide_verdict(prs):
         Inches(11.55),
         Inches(0.55),
         "Los flujos críticos, el rendimiento y la deuda técnica están verificados. Quedan una observación de "
-        "accesibilidad y siete historias declaradas sin evidencia suficiente.",
+        "accesibilidad y una historia parcial: HU-07 tiene CRUD API sin pantalla administrativa.",
         11.5,
         RGBColor(0x06, 0x4E, 0x3B),
         italic=True,
@@ -265,7 +265,7 @@ def slide_verdict(prs):
         ("7/7", "flujos E2E aprobados\n(Selenium, Chrome headless)", TEAL_DARK),
         ("0.00 %", "errores HTTP bajo carga\ny estrés (JMeter)", GREEN),
         ("0/0/0", "bugs / vulnerabilidades /\ncode smells (SonarQube A/A/A)", NAVY_LIGHT),
-        ("5 de 12", "historias con evidencia\nverificable en repositorio", AMBER),
+        ("11 de 12", "historias con implementación\nverificada; HU-07 parcial", AMBER),
     ]
     x = Inches(0.6)
     for value, label, accent in cards:
@@ -275,8 +275,8 @@ def slide_verdict(prs):
     add_text(slide, Inches(0.6), Inches(5.06), Inches(4.4), Inches(0.26), "LO QUE FALTA PARA CERRAR", 9, RED, True)
     pending = [
         "Contraste WCAG 2.1 AA: axe-core reporta 1 regla pendiente.",
-        "HU-06, 07, 08, 11, 13, 14 y 15 sin evidencia completa.",
-        "HU-05: los 7 días de penalización no están modelados. WAVE pendiente.",
+        "HU-07: CRUD de equipos en API, sin pantalla administrativa.",
+        "HU-06 a HU-15 tienen pruebas unitarias; Selenium E2E cubre HU-01 a HU-05. WAVE pendiente.",
     ]
     y = Inches(5.38)
     for item in pending:
@@ -288,8 +288,7 @@ def slide_verdict(prs):
     footer(slide)
     add_notes(
         slide,
-        "Veredicto honesto: el sistema supera las pruebas en el alcance verificado, pero no se declara "
-        "conformidad total. Las brechas están documentadas y priorizadas en el backlog. HU-01: código de estudiante de 8 dígitos (20240001), administrador ADMIN01 y bloqueo de 5 minutos tras 3 fallos. HU-BR-01: Resuelto por alineacion documental, prioridad Baja, sin cambiar código ni pruebas. Las historias originales del docente no fijan formato ni duración. Testomat.io: corrida d1058425, 61 passed trasladados del CSV y 4 pending; no es una nueva ejecución de Selenium o Vitest. IA-05 sigue propuesto y no está en el CSV importado. Evidencia: docs/evidencias-pruebas/testomatio/.",
+        "Veredicto honesto: el sistema supera las pruebas en el alcance verificado, pero no se declara conformidad total. HU-01 usa código N + 8 dígitos (N00385644), administrador ADMIN01 y bloqueo de 5 minutos tras 3 fallos. Las historias originales del docente no fijan formato ni duración. HU-07 es parcial por falta de pantalla administrativa. Testomat.io: corrida d1058425, 61 passed trasladados del CSV y 4 pending; no es una nueva ejecución de Selenium o Vitest. Los cinco casos IA tienen diseño validado, no ejecución; IA-05 no se importó.",
     )
 
 

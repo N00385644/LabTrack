@@ -1,6 +1,6 @@
 # Matriz de Casos de Prueba y Trazabilidad de Calidad — LabTrack
 
-> Nota de alineacion: el texto previo del equipo indicaba formato N0 + 8 digitos y bloqueo de 15 minutos; la implementacion y las pruebas usan codigo de 8 digitos y bloqueo de 5 minutos, coherente con las historias originales del docente, que no fijan formato ni duracion.
+> Nota de alineacion: el código de estudiante usa el formato N + 8 dígitos (ej. `N00385644`); el administrador usa `ADMIN01`. El bloqueo ocurre durante 5 minutos tras 3 fallos. La historia original del docente solo dice "código de estudiante", sin fijar formato ni duración.
 
 **Curso:** Calidad y Pruebas de Software · **Caso de Estudio T3:** Sistema de Gestión de Laboratorios "LabTrack"  
 **Docente:** Mark Anthony Arribasplata Palomino  
@@ -12,8 +12,7 @@
 - RAICO MOYA Frank Jhancarlos — 100 %  
 - VILLANUEVA COJAL Luis Oswaldo — 100 %  
 *(Decisión del equipo: 100 % de participación para cada integrante).*  
-**Alcance funcional verificado:** HU-01 Autenticación Segura · HU-02 Catálogo y Filtrado · HU-03 Reserva de Equipos · HU-04 Aprobación y Rechazo Administrativo · HU-05 Devolución y Penalización Automática.
-**Alcance funcional declarado pendiente de evidencia completa:** HU-06, HU-07, HU-08, HU-11, HU-13, HU-14 y HU-15 (ver `docs/trazabilidad-historias-usuario.md`).
+**Alcance funcional verificado:** HU-01 a HU-06, HU-08, HU-11, HU-13, HU-14 y HU-15; HU-07 es parcial (CRUD API sin pantalla administrativa).
 **Alcance no funcional:** Rendimiento bajo Carga (50 usuarios) y Estrés (150 usuarios) con Apache JMeter 5.6.3.
 
 ---
@@ -28,11 +27,9 @@
 | **Estado** | **Aprobado**: Ejecutado y conforme con los criterios de aceptación.<br>**No ejecutado**: Caso con diseño formalmente validado por el equipo humano, pero no ejecutado ni contabilizado como pasado. |
 
 > [!WARNING]
-> La matriz detallada contiene casos ejecutables para HU-01 a HU-05. Las HU-06, HU-07, HU-08,
-> HU-11, HU-13, HU-14 y HU-15 forman parte del alcance declarado por el equipo, pero no se
-> presentan como aprobadas: la trazabilidad las conserva explícitamente como brechas sin evidencia
-> verificable o con evidencia parcial.
-> HU-05 conserva la brecha de duración de la penalización: los 7 días no están modelados.
+> La corrida Selenium 7/7 cubre HU-01 a HU-05. HU-06, HU-08, HU-11, HU-13, HU-14 y HU-15 tienen
+> pruebas unitarias; HU-07 tiene CRUD API con pruebas, pero no pantalla administrativa. No se afirma
+> cobertura E2E para HU-06 a HU-15.
 
 ---
 
@@ -45,7 +42,8 @@
 | **HU-03: Reserva de Equipos** | 18 | 11 | 7 | 18 | 0 | API + UI + E2E (Selenium) |
 | **HU-04: Aprobación y Rechazo** | 12 | 7 | 5 | 12 | 0 | API + UI + E2E (Selenium) |
 | **HU-05: Devolución y Penalización** | 8 | 5 | 3 | 8 | 0 | API + UI + E2E (Selenium) |
-| **HU-06, HU-07, HU-08, HU-11, HU-13, HU-14, HU-15** | — | 0 | 0 | 0 | **Pendientes de evidencia** | Sin pruebas verificables |
+| **HU-06, HU-08, HU-11, HU-13, HU-14, HU-15** | Pruebas unitarias | — | — | Verificadas | **Sin E2E** | Evidencia unitaria |
+| **HU-07** | CRUD API | — | — | Verificada | **Parcial** | Sin pantalla administrativa |
 | **Casos IA Complementarios (Borde)** | 5 | 0 | 5 | 0 | **5 (No ejecutados)** | Propuesta Backend / Frontend |
 | **Subtotal Funcional** | **66** | **38** | **28** | **61** | **5** | — |
 | **Rendimiento Carga (50 usuarios)** | 5 | 3 | 2 | 5 | 0 | Apache JMeter 5.6.3 |
@@ -64,13 +62,13 @@
 | HU | Brecha documentada | Acción de QA |
 |---|---|---|
 | HU-05 | La penalización no modela vencimiento ni duración de 7 días. | Modelar la duración y añadir pruebas de expiración y levantamiento. |
-| HU-06 | No existe carnet QR ni prueba de escaneo. | Diseñar flujo UI/API y prueba de generación/lectura QR. |
-| HU-07 | No existe CRUD administrativo completo de equipos, fotos ni QR. | Implementar endpoints y pantalla admin; añadir pruebas API/UI. |
-| HU-08 | Existe penalización automática, pero no levantamiento con justificación. | Añadir operación de levantamiento, auditoría y prueba de autorización. |
-| HU-11 | Existen contadores, pero no gráficos de inventario ni tasa de puntualidad. | Definir métricas, componentes gráficos y pruebas de datos/renderizado. |
-| HU-13 | No existe administración de usuarios, reset ni desbloqueo. | Crear módulo admin y pruebas de ciclo de vida de usuario. |
-| HU-14 | No existe integración de cámara/lector QR. | Añadir componente de captura y pruebas con dispositivo simulado. |
-| HU-15 | No existe generación ni descarga de acta PDF. | Añadir plantilla/generador, endpoint y prueba de descarga/cláusula. |
+| HU-06 | Implementada; falta E2E. | Mantener pruebas unitarias y agregar E2E si se amplía la cobertura. |
+| HU-07 | CRUD API implementado; falta pantalla administrativa. | Crear pantalla admin y prueba UI. |
+| HU-08 | Implementada; falta E2E. | Mantener pruebas unitarias y agregar E2E si se amplía la cobertura. |
+| HU-11 | Implementada; falta E2E. | Mantener pruebas unitarias y agregar E2E si se amplía la cobertura. |
+| HU-13 | Implementada; falta E2E. | Mantener pruebas unitarias y agregar E2E si se amplía la cobertura. |
+| HU-14 | Implementada; falta E2E. | Mantener pruebas unitarias y agregar E2E si se amplía la cobertura. |
+| HU-15 | Implementada; falta E2E. | Mantener pruebas unitarias y agregar E2E si se amplía la cobertura. |
 
 ---
 
@@ -91,7 +89,7 @@ Con fecha **2026-11-09**, el equipo de aseguramiento de calidad llevó a cabo la
 | **IA-01** | Dos reservas contiguas deben ser válidas | P1 | Backend + Frontend | Si un estudiante o equipo tiene reserva 08:00–10:00, una nueva solicitud 10:00–12:00 debe aceptarse porque los extremos contiguos no se solapan. En `backend/src/reservations/reservations.service.ts`, la consulta de solapamiento usa operadores estrictos (`startTime < dto.endTime` y `endTime > dto.startTime`); los extremos contiguos (`10:00 == 10:00`) no colisionan. | **Válido** | Ninguna. El diseño es conforme con la lógica de negocio del backend. | 2026-11-09 | equipo (revisión asistida por agente, confirmada por el equipo) | **No ejecutado** |
 | **IA-02** | Duración cero debe rechazarse antes del envío | P1 | Frontend (UI) | Formulario con `startTime == endTime`. En `frontend/src/pages/NewReservationPage.tsx`, la función `validate()` intercepta el evento submit retornando error si `start >= end`, impidiendo la llamada a la API y mostrando alerta visual en pantalla. El backend además respalda la regla con HTTP 400. Sin embargo, el botón de confirmación en el cliente no se deshabilita (`disabled`) reactivamente por duración cero. | **Ajustado** | Se ajusta la especificación del diseño: en el cliente no se bloquea/deshabilita el botón de confirmación en la UI, sino que el formulario intercepta el evento `submit` mediante validación síncrona (`validate()`), detiene el envío y despliega la alerta descriptiva (*“La hora de inicio debe ser anterior a la hora de fin.”*). Se mantiene la salvaguarda de rechazo HTTP 400 en API. | 2026-11-09 | equipo (revisión asistida por agente, confirmada por el equipo) | **No ejecutado** |
 | **IA-03** | Límites exactos del horario (07:00 y 22:00) | P2 | Backend + Frontend | Petición que inicie exactamente a las 07:00 o culmine exactamente a las 22:00 debe admitirse; 06:59 o 22:01 deben rechazarse con HTTP 400. En `backend/src/reservations/reservations.service.ts`, las constantes son `LAB_OPEN = '07:00'` y `LAB_CLOSE = '22:00'`, evaluadas inclusivamente. En frontend `NewReservationPage.tsx` se valida la misma franja. | **Válido** | Ninguna. El diseño describe fielmente las condiciones de frontera implementadas. | 2026-11-09 | equipo (revisión asistida por agente, confirmada por el equipo) | **No ejecutado** |
-| **IA-04** | Normalización de código con espacios y minúsculas | P2 | Backend (API) | Si el usuario ingresa `"  20240001  "` o `"admin01"`. En `backend/src/auth/dto/login.dto.ts`, `@Transform` aplica `trim()`. En `backend/src/auth/auth.service.ts`, `dto.code.trim().toUpperCase()` normaliza el identificador y Prisma consulta con `mode: 'insensitive'`, permitiendo la autenticación legítima. | **Válido** | Ninguna. La normalización en DTO y servicio soporta espacios perimetrales e insensibilidad a mayúsculas/minúsculas. | 2026-11-09 | equipo (revisión asistida por agente, confirmada por el equipo) | **No ejecutado** |
+| **IA-04** | Normalización de código con espacios y minúsculas | P2 | Backend (API) | Si el usuario ingresa `"  N00385644  "` o `"admin01"`. En `backend/src/auth/auth.service.ts`, `dto.code.trim().toUpperCase()` normaliza el identificador y Prisma consulta con `mode: 'insensitive'`, permitiendo la autenticación legítima. | **Válido** | Ninguna. La normalización en DTO y servicio soporta espacios perimetrales e insensibilidad a mayúsculas/minúsculas. | 2026-11-09 | equipo (revisión asistida por agente, confirmada por el equipo) | **No ejecutado** |
 | **IA-05** | Manejo de sesión con token JWT expirado | P1 | Frontend + E2E | Con un JWT expirado almacenado al cargar una ruta protegida, `api.me()` falla, `AuthContext.tsx` ejecuta `clearSession`, elimina usuario/token y `ProtectedRoute.tsx` redirige a `/login`. Durante navegación activa, `frontend/src/lib/api.ts` genera `ApiError` 401 con el mensaje de sesión expirada; no implementa limpieza ni redirección global para cualquier 401. No hay reintento automático ni refresh token. | **Ajustado** | Se elimina la expectativa de reintento automático y se delimita el diseño validado a la carga inicial de una ruta protegida con JWT expirado. La notificación de sesión expirada existe en la capa API; la limpieza y redirección global durante navegación activa quedan como mejora pendiente, sin afirmar que estén implementadas. **IA-05 sigue sin importarse a Testomat.io**. | 2026-11-09 | equipo (revisión asistida por agente, confirmada por el equipo) | **No ejecutado** |
 
 ---
@@ -101,18 +99,18 @@ Con fecha **2026-11-09**, el equipo de aseguramiento de calidad llevó a cabo la
 ### HU-01 · Autenticación Segura
 *Como estudiante universitario, quiero iniciar sesión en la plataforma utilizando mi código y contraseña, para acceder a mi panel personal de préstamos.*
 
-Criterios alineados de HU-01: código de estudiante de 8 dígitos (ej. `20240001`); el administrador usa un código alfanumérico (`ADMIN01`). Bloqueo temporal de 5 minutos tras 3 intentos fallidos consecutivos.
+Criterios alineados de HU-01: código de estudiante en formato N + 8 dígitos (ej. `N00385644`); el administrador usa `ADMIN01`. Bloqueo temporal de 5 minutos tras 3 intentos fallidos consecutivos.
 
 | ID | Caso de Prueba | Origen | Prio. | Precondición | Entrada / Pasos | Resultado Esperado | Nivel · Evidencia | Estado |
 |---|---|:---:|:---:|---|---|---|---|:---:|
-| CP-01 | Inicio de sesión válido de estudiante | H | P1 | Usuario `20240001` activo | Código `20240001` y clave correcta; clic en "Ingresar" | HTTP 200, JWT emitido, usuario sin `passwordHash`; redirección a `/catalogo` | API `auth.spec.ts` · E2E `03-catalogo-estudiante.png` | Aprobado |
+| CP-01 | Inicio de sesión válido de estudiante | H | P1 | Usuario `N00385644` activo | Código `N00385644` y clave correcta; clic en "Ingresar" | HTTP 200, JWT emitido, usuario sin `passwordHash`; redirección a `/catalogo` | API `auth.spec.ts` · E2E `03-catalogo-estudiante.png` | Aprobado |
 | CP-02 | Inicio de sesión válido de administrador | H | P1 | Usuario `ADMIN01` activo | Credenciales correctas de administrador | HTTP 200, rol `ADMIN`, acceso habilitado al panel de administración | API `auth.spec.ts` | Aprobado |
 | CP-03 | Credenciales inválidas muestran mensaje exigido | H | P1 | Usuario existente | Contraseña errónea | HTTP 401 y mensaje exacto: **“Credenciales inválidas.”** en la interfaz | API `auth.spec.ts` · E2E `01-login-credenciales-invalidas.png` | Aprobado |
-| CP-04 | Usuario inexistente no revela existencia | IA | P2 | — | Código `99999999` y contraseña cualquiera | HTTP 401 y mismo mensaje: **“Credenciales inválidas.”** (previene enumeración) | API `auth.spec.ts` | Aprobado |
+| CP-04 | Usuario inexistente no revela existencia | IA | P2 | — | Código `N99999999` y contraseña cualquiera | HTTP 401 y mismo mensaje: **“Credenciales inválidas.”** (previene enumeración) | API `auth.spec.ts` | Aprobado |
 | CP-05 | Bloqueo temporal tras 3 intentos fallidos | H | P1 | Usuario activo | Tres contraseñas incorrectas consecutivas | Primeros 2 intentos: 401; tercer intento: HTTP 423 `ACCOUNT_LOCKED` y alerta en pantalla | API `auth.spec.ts` · E2E `02-login-cuenta-bloqueada.png` | Aprobado |
 | CP-06 | Cuenta bloqueada rechaza incluso clave correcta | H | P1 | Cuenta bloqueada por CP-05 | Credenciales válidas del usuario | HTTP 423; se mantiene `lockedUntil` en base de datos hasta cumplir el tiempo | API `auth.spec.ts` | Aprobado |
 | CP-07 | Validación de campos requeridos | IA | P2 | Formulario en blanco | Clic en ingresar sin rellenar campos | HTTP 400 en API; validación visual de campos obligatorios en el cliente | API `auth.spec.ts` · UI `LoginPage.test.tsx` | Aprobado |
-| CP-08 | Normalización de espacios en código | IA | P3 | Usuario activo | Código `"  20240001  "` | Código saneado por DTO; autenticación exitosa sin errores | API `auth.spec.ts` | Aprobado |
+| CP-08 | Normalización de espacios en código | IA | P3 | Usuario activo | Código `"  N00385644  "` | Código saneado por DTO; autenticación exitosa sin errores | API `auth.spec.ts` | Aprobado |
 | CP-09 | Cierre de sesión (Logout) | H | P2 | Sesión activa | Clic en botón "Cerrar sesión" | Token removido de localStorage; redirección inmediata a `/login` | API `auth.spec.ts` · UI `AuthContext` | Aprobado |
 | CP-10 | Estudiante restringido de rutas de administrador | H | P1 | Sesión de estudiante | Petición a `GET /api/admin/reservations` | HTTP 403 Forbidden devuelto por los Guards de NestJS | API `auth.spec.ts` y `admin.spec.ts` | Aprobado |
 | CP-11 | Redirección de ruta protegida sin token | H | P1 | Sin sesión iniciada | Abrir directamente URL `/catalogo` | Redirección automática hacia `/login` por `ProtectedRoute` | UI `ProtectedRoute.test.tsx` | Aprobado |

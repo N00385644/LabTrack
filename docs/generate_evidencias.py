@@ -188,11 +188,11 @@ def build_document():
         "Docente: Mark Anthony Arribasplata Palomino",
         "",
         "Integrantes",
-        "BOÑON FERNANDEZ Josue Samuel",
-        "HERRERA RUITON Jhenifer",
-        "QUILICHE CABANILLA Carlos Miguel",
-        "RAICO MOYA Frank Jhancarlos",
-        "VILLANUEVA COJAL Luis Oswaldo",
+        "BOÑON FERNANDEZ Josue Samuel — 100 %",
+        "HERRERA RUITON Jhenifer — 100 %",
+        "QUILICHE CABANILLA Carlos Miguel — 100 %",
+        "RAICO MOYA Frank Jhancarlos — 100 %",
+        "VILLANUEVA COJAL Luis Oswaldo — 100 %",
     ):
         paragraph = doc.add_paragraph()
         paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
@@ -208,6 +208,7 @@ def build_document():
         "2. Índice",
         "3. Matriz de casos de prueba",
         "4. Evidencias de automatización",
+        "4.2 Evidencias del cambio de códigos y HU nuevas",
         "5. Resultados de JMeter",
         "6. Análisis de SonarQube",
         "7. Backlog de refactorización",
@@ -224,9 +225,9 @@ def build_document():
         ["Unitarias", "Backend y frontend; límites de reservas y ventanas horarias", "101 pruebas después; 93 antes"],
         ["Funcionales automatizadas", "Login, catálogo, reservas, aprobación y devolución", "Ejecutadas"],
         ["Carga y estrés", "JMeter; 50 y 150 usuarios concurrentes", "Aprobadas; ver sección 5"],
-        ["Casos IA", "IA-01 a IA-05", "Validación humana PENDIENTE"],
+        ["Casos IA", "IA-01 a IA-05", "Diseño validado; no ejecutados"],
     ])
-    add_text(doc, "La matriz original está en docs/matriz-pruebas.md y la matriz complementaria en docs/evidencias-pruebas/matriz-casos.md. Testomat.io contiene 65 casos importados: 61 passed según CSV y cuatro pending. Los cinco casos de IA de la matriz siguen pendientes de validación humana; el CSV importado solo incluye IA-01 a IA-04. TestLink y Katalon no se ejecutaron.")
+    add_text(doc, "La matriz original está en docs/matriz-pruebas.md y la matriz complementaria en docs/evidencias-pruebas/matriz-casos.md. Testomat.io contiene 65 casos importados: 61 passed según CSV y cuatro pending. Los cinco casos IA-01 a IA-05 tienen validación humana del DISEÑO, no ejecución; el CSV importado solo incluye IA-01 a IA-04 y IA-05 no se importó. TestLink y Katalon no se ejecutaron.")
     add_table(doc, ["ID", "Caso representativo", "Resultado"], [
         ["U-01", "Reserva contigua no cruza", "Aprobado"],
         ["U-02", "Duración cero es inválida", "Aprobado"],
@@ -254,7 +255,7 @@ def build_document():
         figure = add_figure(doc, path, f"Selenium: {path.stem.replace('-', ' ')}", "La captura muestra un paso verificable del flujo funcional automatizado final.", figure)
     add_heading(doc, "4.1 Gestión de casos en Testomat.io", level=2)
     add_text(doc, "En el proyecto LabTrack T3 se importaron 61 casos CP-01 a CP-61 y cuatro casos IA-01 a IA-04. La corrida Corrida T3 - automatizada (d1058425) conserva 61 passed, 0 failed, 0 skipped y 4 pending. Los resultados se registraron según el CSV; no representan una nueva ejecución de Selenium o Vitest.")
-    add_text(doc, "Las suites H e IA contienen 38 y 23 casos de la matriz. Casos sugeridos por IA contiene cuatro casos con Validacion humana: pendiente. IA-05 está propuesto en la matriz, pero no figura en el CSV importado. La corrida permanece abierta: finalizarla convertiría los pending en skipped.")
+    add_text(doc, "Las suites H e IA contienen 38 y 23 casos de la matriz. Los cinco casos IA tienen diseño validado por el equipo, pero permanecen no ejecutados; cuatro están en Testomat.io como pending e IA-05 no fue importado. La corrida permanece abierta: finalizarla convertiría los pending en skipped.")
     add_text(doc, "El primer intento falló con Runtime error Page[Tests] require columns[Folder]. Las copias compatibles conservaron los datos originales y las importaciones finales aceptaron 61 y 4 casos, sin filas rechazadas. La cuenta usa una prueba gratuita Enterprise; la importación en el plan gratuito permanente no fue verificada. TestLink y Katalon no se ejecutaron.")
     for filename, caption, context in (
         ("01-suites.png", "Testomat.io: suites y conteos", "Las tres suites contienen 38, 23 y 4 casos; total importado: 65."),
@@ -265,6 +266,17 @@ def build_document():
     ):
         figure = add_figure(doc, BASE / "evidencias-pruebas" / "testomatio" / filename, caption, context, figure)
     add_text(doc, "Proyecto: https://app.testomat.io/projects/labtrack-t3/. Corrida: https://app.testomat.io/projects/labtrack-t3/runs/d1058425.")
+
+    add_heading(doc, "4.2 Evidencias del cambio de códigos y HU nuevas", level=2)
+    add_text(doc, "Las capturas históricas que muestran códigos numéricos fueron tomadas antes del cambio de formato y no se alteran. La corrida actual con códigos N + 8 dígitos se conserva en docs/evidencias-pruebas/selenium/corrida-4-codigos-N00/ y registra 7/7 pruebas aprobadas.")
+    for filename, caption, context in (
+        ("00-login-codigo-N00.png", "HU-01: login con código N + 8 dígitos", "Demuestra el acceso con el formato vigente de código de estudiante."),
+        ("01-HU-06-carnet-qr.png", "HU-06: carnet digital QR", "Demuestra la credencial digital QR implementada."),
+        ("02-HU-11-dashboard.png", "HU-11: dashboard", "Demuestra el dashboard y sus métricas de uso."),
+        ("03-HU-13-HU-14-operaciones.png", "HU-13 y HU-14: operaciones administrativas", "Demuestra creación/gestión de usuarios y operación de escaneo."),
+        ("04-HU-15-historial-acta.png", "HU-15: historial y acta", "Demuestra la descarga del acta de préstamo."),
+    ):
+        figure = add_figure(doc, BASE / "evidencias-pruebas" / "capturas-hu-nuevas" / filename, caption, context, figure)
 
     # 5. JMeter
     add_heading(doc, "5. Resultados de JMeter")
@@ -313,7 +325,7 @@ def build_document():
         figure = add_figure(doc, path, f"SonarQube DESPUÉS por regla: {path.stem}", "La captura confirma que la regla corregida ya no tiene issues en el escaneo final.", figure)
     chart = BASE / "evidencias-sonarqube" / "comparacion" / "real" / "grafico-comparativo-real.png"
     figure = add_figure(doc, chart, "Comparación real de SonarQube", "El gráfico resume la reducción de 44 issues del ANTES a cero en el DESPUÉS.", figure)
-    add_text(doc, "La diferencia entre la línea base histórica 2 bugs/2 vulnerabilidades/40 smells y el escaneo real 1/2/41 se explica en la documentación por la versión y reglas de SonarQube. El total real comparable es 44 frente a 0.")
+    add_text(doc, "La diferencia entre la línea base histórica 2 bugs/2 vulnerabilidades/40 smells y el escaneo real 1/2/41 se explica en la documentación por la versión y reglas de SonarQube. El total real comparable es 44 frente a 0. El proyecto SonarQube labtrack-hu-nuevas escaneó 4 583 NCLOC y reportó 0 issues tras corregir el bug S3923 en backend/src/admin/admin.service.ts.")
 
     # 7. Backlog
     add_heading(doc, "7. Backlog de refactorización")
@@ -323,21 +335,21 @@ def build_document():
         ["Complejidad y legibilidad", "S3358, S3776, S7718", "Completado; SonarQube DESPUÉS"],
         ["Seguridad", "S2068, S2245", "Completado; 0 vulnerabilidades"],
         ["Inmutabilidad React", "S6759", "Completado; 14 issues eliminadas"],
-        ["Brechas funcionales", "HU sin evidencia verificable", "Pendiente, trazadas en sección 8"],
+        ["Cobertura E2E", "HU-06 a HU-15", "No ejecutada; HU-07 parcial por falta de pantalla"],
     ])
 
     # 8. Trazabilidad
     add_heading(doc, "8. Historias de usuario y trazabilidad")
-    add_text(doc, "La trazabilidad contrasta las historias declaradas con archivos y pruebas encontrados. De las 12 historias declaradas, 7 quedan sin evidencia verificable completa; se conservan como brechas y no como funcionalidades demostradas.")
+    add_text(doc, "La trazabilidad contrasta las historias declaradas con archivos y pruebas encontrados. De las 12 historias declaradas, 11 tienen implementación verificada y HU-07 es parcial: su CRUD de equipos existe en API, sin pantalla administrativa. Selenium cubre HU-01 a HU-05; HU-06 a HU-15 tienen pruebas unitarias.")
     add_table(doc, ["Estado", "Cantidad", "Interpretación"], [
-        ["Implementada con pruebas", "5", "Existe código y pruebas asociadas"],
-        ["Sin evidencia verificable completa", "7 de 12", "La declaración no basta para afirmar cobertura"],
+        ["Implementada con pruebas", "11", "Existe código y pruebas unitarias asociadas"],
+        ["Parcial", "1 (HU-07)", "CRUD API sin pantalla administrativa"],
     ])
     add_text(doc, "La matriz detallada, criterios de aceptación, archivos y pruebas se encuentra en docs/trazabilidad-historias-usuario.md. Las brechas deben permanecer en el backlog hasta contar con evidencia reproducible.")
 
     alignment_note = next(line.removeprefix("> ") for line in (BASE / "historias-usuario-implementadas.md").read_text(encoding="utf-8").splitlines() if line.startswith("> Nota de alineacion:"))
     add_text(doc, alignment_note)
-    add_text(doc, "HU-BR-01: Resuelto por alineacion documental, prioridad Baja. HU-01 usa código de estudiante de 8 dígitos (20240001), código alfanumérico ADMIN01 para el administrador y bloqueo de 5 minutos tras 3 fallos. HU-05 conserva la brecha de duración de 7 días no modelada; HU-06, 07, 08, 11, 13, 14 y 15 siguen sin evidencia completa.")
+    add_text(doc, "HU-BR-01: Resuelto por alineación documental, prioridad Baja. HU-01 usa código de estudiante N + 8 dígitos (ej. N00385644), ADMIN01 y bloqueo de 5 minutos tras 3 fallos. HU-05 persiste penaltyUntil por 7 días. HU-07 permanece parcial por carecer de pantalla administrativa.")
 
     # 9. Accesibilidad
     add_heading(doc, "9. Accesibilidad")
@@ -356,7 +368,7 @@ def build_document():
         ["Pruebas unitarias", "Logs, cobertura y comparativo 93→101"],
         ["Automatización funcional", "Selenium real, corrida final 7/7"],
         ["Rendimiento", "JMeter carga/estrés con tablas y gráficos"],
-        ["Escenarios exploratorios", "IA-01 a IA-05; validación humana PENDIENTE"],
+        ["Escenarios exploratorios", "IA-01 a IA-05; diseño validado, no ejecutados"],
     ])
     add_text(doc, "La IA se empleó para acelerar documentación, exploración y coordinación, pero los resultados se conservaron únicamente cuando existía evidencia en archivos o capturas del repositorio.")
 

@@ -1,9 +1,9 @@
 # Historias de Usuario Implementadas (fuente: equipo, texto proporcionado por el estudiante)
 
-> Nota de alineacion: el texto previo del equipo indicaba formato N0 + 8 digitos y bloqueo de 15 minutos; la implementacion y las pruebas usan codigo de 8 digitos y bloqueo de 5 minutos, coherente con las historias originales del docente, que no fijan formato ni duracion.
+> Nota de alineacion: el código de estudiante usa el formato N + 8 dígitos (ej. `N00385644`); el administrador usa `ADMIN01`. El bloqueo ocurre durante 5 minutos tras 3 fallos. La historia original del docente solo dice "código de estudiante", sin fijar formato ni duración.
 
 **HU-01: Autenticación Segura y Control de Bloqueos**
-- Login con código de estudiante de 8 dígitos (ej. `20240001`); el administrador usa un código alfanumérico (`ADMIN01`).
+- Login con código de estudiante en formato N + 8 dígitos (ej. `N00385644`); el administrador usa un código alfanumérico (`ADMIN01`).
 - Mensaje de credenciales inválidas: "Credenciales inválidas".
 - Bloqueo temporal por 5 minutos al acumular 3 intentos fallidos consecutivos.
 
@@ -36,7 +36,7 @@
 - Gráficos de distribución de inventario y tasa de puntualidad.
 
 **HU-13: Administración y Creación de Usuarios (CRUD Admin)**
-- Creación de alumnos con código de estudiante de 8 dígitos (ej. `20240001`); el administrador usa un código alfanumérico (`ADMIN01`). Reseteo de claves y botón para desbloquear cuentas bloqueadas tras 3 intentos.
+- Creación de alumnos con código de estudiante en formato N + 8 dígitos (ej. `N00385644`); el administrador usa un código alfanumérico (`ADMIN01`). Reseteo de claves y botón para desbloquear cuentas bloqueadas tras 3 intentos.
 
 **HU-14: Escaneo Rápido con Cámara / Lector QR**
 - Despacho y devolución rápida en ventanilla sin teclear manualmente.
