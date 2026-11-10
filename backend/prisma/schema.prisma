@@ -39,6 +39,7 @@ model User {
   status         UserStatus    @default(ACTIVE)
   failedAttempts Int           @default(0)
   lockedUntil    DateTime?
+  penaltyUntil   DateTime?
   createdAt      DateTime      @default(now())
   reservations   Reservation[]
   auditLogs      AuditLog[]
@@ -54,6 +55,8 @@ model Equipment {
   status        EquipmentStatus   @default(AVAILABLE)
   description   String            @default("")
   location      String            @default("Laboratorio principal")
+  photoUrl      String            @default("")
+  qrCode        String            @default("")
   createdAt     DateTime          @default(now())
   reservations  Reservation[]
 

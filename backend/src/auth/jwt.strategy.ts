@@ -27,11 +27,12 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
         fullName: true,
         role: true,
         status: true,
+        penaltyUntil: true,
       },
     });
     if (!user) {
       throw new UnauthorizedException('Sesión no válida.');
     }
-    return user;
+    return { ...user, penaltyUntil: user.penaltyUntil?.toISOString() ?? null };
   }
 }

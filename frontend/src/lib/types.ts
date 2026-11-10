@@ -10,6 +10,8 @@ export interface User {
   email: string;
   role: Role;
   status: UserStatus;
+  penaltyUntil?: string | null;
+  lockedUntil?: string | null;
 }
 
 export interface Equipment {
@@ -20,6 +22,8 @@ export interface Equipment {
   status: EquipmentStatus;
   description: string;
   location: string;
+  photoUrl?: string;
+  qrCode?: string;
 }
 
 export interface ReservationStudent {
@@ -75,6 +79,8 @@ export interface AdminStats {
   penalized: number;
   equipmentTotal: number;
   equipmentAvailable: number;
+  inventoryDistribution?: Array<{ category: string; available: number }>;
+  punctualityRate?: number;
 }
 
 export interface AuditEvent {
