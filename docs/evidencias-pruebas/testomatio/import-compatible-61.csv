@@ -1,0 +1,1526 @@
+"ID","Title","Status","Folder","Emoji","Priority","Tags","Owner","Description","Examples","Labels","Issues","Url"
+"","CP-01 - Inicio de sesión válido de estudiante","manual","/H","","high","@CP-01 @matriz-t3","","### Identificador original
+
+CP-01
+
+### Precondiciones
+
+Usuario `20240001` activo
+
+### Pasos
+
+Código `20240001` y clave correcta; clic en ""Ingresar""
+
+### Resultado esperado
+
+HTTP 200, JWT emitido, usuario sin `passwordHash`; redirección a `/catalogo
+
+### Automatización (referencia original)
+
+API `auth.spec.ts` · E2E `03-catalogo-estudiante.png
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P1","","Status: Aprobado,Automation: API `auth.spec.ts` · E2E `03-catalogo-estudiante.png,Prioridad original: P1","",""
+"","CP-02 - Inicio de sesión válido de administrador","manual","/H","","high","@CP-02 @matriz-t3","","### Identificador original
+
+CP-02
+
+### Precondiciones
+
+Usuario `ADMIN01` activo
+
+### Pasos
+
+Credenciales correctas de administrador
+
+### Resultado esperado
+
+HTTP 200, rol `ADMIN`, acceso habilitado al panel de administración
+
+### Automatización (referencia original)
+
+API `auth.spec.ts
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P1","","Status: Aprobado,Automation: API `auth.spec.ts,Prioridad original: P1","",""
+"","CP-03 - Credenciales inválidas muestran mensaje exigido","manual","/H","","high","@CP-03 @matriz-t3","","### Identificador original
+
+CP-03
+
+### Precondiciones
+
+Usuario existente
+
+### Pasos
+
+Contraseña errónea
+
+### Resultado esperado
+
+HTTP 401 y mensaje exacto: **“Credenciales inválidas.”** en la interfaz
+
+### Automatización (referencia original)
+
+API `auth.spec.ts` · E2E `01-login-credenciales-invalidas.png
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P1","","Status: Aprobado,Automation: API `auth.spec.ts` · E2E `01-login-credenciales-invalidas.png,Prioridad original: P1","",""
+"","CP-04 - Usuario inexistente no revela existencia","manual","/IA","","normal","@CP-04 @matriz-t3","","### Identificador original
+
+CP-04
+
+### Precondiciones
+
+—
+
+### Pasos
+
+Código `99999999` y contraseña cualquiera
+
+### Resultado esperado
+
+HTTP 401 y mismo mensaje: **“Credenciales inválidas.”** (previene enumeración)
+
+### Automatización (referencia original)
+
+API `auth.spec.ts
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P2","","Status: Aprobado,Automation: API `auth.spec.ts,Prioridad original: P2","",""
+"","CP-05 - Bloqueo temporal tras 3 intentos fallidos","manual","/H","","high","@CP-05 @matriz-t3","","### Identificador original
+
+CP-05
+
+### Precondiciones
+
+Usuario activo
+
+### Pasos
+
+Tres contraseñas incorrectas consecutivas
+
+### Resultado esperado
+
+Primeros 2 intentos: 401; tercer intento: HTTP 423 `ACCOUNT_LOCKED` y alerta en pantalla
+
+### Automatización (referencia original)
+
+API `auth.spec.ts` · E2E `02-login-cuenta-bloqueada.png
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P1","","Status: Aprobado,Automation: API `auth.spec.ts` · E2E `02-login-cuenta-bloqueada.png,Prioridad original: P1","",""
+"","CP-06 - Cuenta bloqueada rechaza incluso clave correcta","manual","/H","","high","@CP-06 @matriz-t3","","### Identificador original
+
+CP-06
+
+### Precondiciones
+
+Cuenta bloqueada por CP-05
+
+### Pasos
+
+Credenciales válidas del usuario
+
+### Resultado esperado
+
+HTTP 423; se mantiene `lockedUntil` en base de datos hasta cumplir el tiempo
+
+### Automatización (referencia original)
+
+API `auth.spec.ts
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P1","","Status: Aprobado,Automation: API `auth.spec.ts,Prioridad original: P1","",""
+"","CP-07 - Validación de campos requeridos","manual","/IA","","normal","@CP-07 @matriz-t3","","### Identificador original
+
+CP-07
+
+### Precondiciones
+
+Formulario en blanco
+
+### Pasos
+
+Clic en ingresar sin rellenar campos
+
+### Resultado esperado
+
+HTTP 400 en API; validación visual de campos obligatorios en el cliente
+
+### Automatización (referencia original)
+
+API `auth.spec.ts` · UI `LoginPage.test.tsx
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P2","","Status: Aprobado,Automation: API `auth.spec.ts` · UI `LoginPage.test.tsx,Prioridad original: P2","",""
+"","CP-08 - Normalización de espacios en código","manual","/IA","","low","@CP-08 @matriz-t3","","### Identificador original
+
+CP-08
+
+### Precondiciones
+
+Usuario activo
+
+### Pasos
+
+Código `""  20240001  ""
+
+### Resultado esperado
+
+Código saneado por DTO; autenticación exitosa sin errores
+
+### Automatización (referencia original)
+
+API `auth.spec.ts
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P3","","Status: Aprobado,Automation: API `auth.spec.ts,Prioridad original: P3","",""
+"","CP-09 - Cierre de sesión (Logout)","manual","/H","","normal","@CP-09 @matriz-t3","","### Identificador original
+
+CP-09
+
+### Precondiciones
+
+Sesión activa
+
+### Pasos
+
+Clic en botón ""Cerrar sesión""
+
+### Resultado esperado
+
+Token removido de localStorage; redirección inmediata a `/login
+
+### Automatización (referencia original)
+
+API `auth.spec.ts` · UI `AuthContext
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P2","","Status: Aprobado,Automation: API `auth.spec.ts` · UI `AuthContext,Prioridad original: P2","",""
+"","CP-10 - Estudiante restringido de rutas de administrador","manual","/H","","high","@CP-10 @matriz-t3","","### Identificador original
+
+CP-10
+
+### Precondiciones
+
+Sesión de estudiante
+
+### Pasos
+
+Petición a `GET /api/admin/reservations
+
+### Resultado esperado
+
+HTTP 403 Forbidden devuelto por los Guards de NestJS
+
+### Automatización (referencia original)
+
+API `auth.spec.ts` y `admin.spec.ts
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P1","","Status: Aprobado,Automation: API `auth.spec.ts` y `admin.spec.ts,Prioridad original: P1","",""
+"","CP-11 - Redirección de ruta protegida sin token","manual","/H","","high","@CP-11 @matriz-t3","","### Identificador original
+
+CP-11
+
+### Precondiciones
+
+Sin sesión iniciada
+
+### Pasos
+
+Abrir directamente URL `/catalogo
+
+### Resultado esperado
+
+Redirección automática hacia `/login` por `ProtectedRoute
+
+### Automatización (referencia original)
+
+UI `ProtectedRoute.test.tsx
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P1","","Status: Aprobado,Automation: UI `ProtectedRoute.test.tsx,Prioridad original: P1","",""
+"","CP-12 - Petición API sin cabecera Bearer es denegada","manual","/IA","","normal","@CP-12 @matriz-t3","","### Identificador original
+
+CP-12
+
+### Precondiciones
+
+—
+
+### Pasos
+
+Petición HTTP sin Authorization header
+
+### Resultado esperado
+
+HTTP 401 Unauthorized inmediato
+
+### Automatización (referencia original)
+
+API `auth.spec.ts
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P2","","Status: Aprobado,Automation: API `auth.spec.ts,Prioridad original: P2","",""
+"","CP-13 - Catálogo muestra nombre, código, categoría y estado","manual","/H","","high","@CP-13 @matriz-t3","","### Identificador original
+
+CP-13
+
+### Precondiciones
+
+Sesión de estudiante
+
+### Pasos
+
+Acceder a `/catalogo
+
+### Resultado esperado
+
+Cada tarjeta muestra: nombre, código inventario, categoría y badge Disponible/Prestado
+
+### Automatización (referencia original)
+
+API `equipment.spec.ts` · UI `CatalogPage.test.tsx` · E2E
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P1","","Status: Aprobado,Automation: API `equipment.spec.ts` · UI `CatalogPage.test.tsx` · E2E,Prioridad original: P1","",""
+"","CP-14 - Filtro exacto por categoría ""Cómputo""","manual","/H","","high","@CP-14 @matriz-t3","","### Identificador original
+
+CP-14
+
+### Precondiciones
+
+Catálogo cargado
+
+### Pasos
+
+Clic en botón filtro ""Cómputo""
+
+### Resultado esperado
+
+Se despliegan exclusivamente equipos clasificados como `Cómputo
+
+### Automatización (referencia original)
+
+API `equipment.spec.ts` · UI `CatalogPage.test.tsx
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P1","","Status: Aprobado,Automation: API `equipment.spec.ts` · UI `CatalogPage.test.tsx,Prioridad original: P1","",""
+"","CP-15 - Filtro exacto por categoría ""Electrónica""","manual","/H","","high","@CP-15 @matriz-t3","","### Identificador original
+
+CP-15
+
+### Precondiciones
+
+Catálogo cargado
+
+### Pasos
+
+Clic en botón filtro ""Electrónica""
+
+### Resultado esperado
+
+Se despliegan exclusivamente equipos clasificados como `Electrónica
+
+### Automatización (referencia original)
+
+API `equipment.spec.ts` · E2E `04-filtro-electronica.png
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P1","","Status: Aprobado,Automation: API `equipment.spec.ts` · E2E `04-filtro-electronica.png,Prioridad original: P1","",""
+"","CP-16 - Filtro exacto por categoría ""Redes""","manual","/H","","high","@CP-16 @matriz-t3","","### Identificador original
+
+CP-16
+
+### Precondiciones
+
+Catálogo cargado
+
+### Pasos
+
+Clic en botón filtro ""Redes""
+
+### Resultado esperado
+
+Se despliegan exclusivamente equipos clasificados como `Redes
+
+### Automatización (referencia original)
+
+API `equipment.spec.ts` · UI `CatalogPage.test.tsx
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P1","","Status: Aprobado,Automation: API `equipment.spec.ts` · UI `CatalogPage.test.tsx,Prioridad original: P1","",""
+"","CP-17 - Mensaje exacto cuando categoría no tiene equipos","manual","/H","","high","@CP-17 @matriz-t3","","### Identificador original
+
+CP-17
+
+### Precondiciones
+
+Filtro sin resultados
+
+### Pasos
+
+Filtrar categoría sin inventario
+
+### Resultado esperado
+
+Mensaje exacto: **“No hay equipos disponibles en esta categoría”**
+
+### Automatización (referencia original)
+
+UI `CatalogPage.test.tsx
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P1","","Status: Aprobado,Automation: UI `CatalogPage.test.tsx,Prioridad original: P1","",""
+"","CP-18 - Categoría desconocida devuelve lista completa","manual","/IA","","low","@CP-18 @matriz-t3","","### Identificador original
+
+CP-18
+
+### Precondiciones
+
+Catálogo cargado
+
+### Pasos
+
+GET /api/equipment?category=Inexistente
+
+### Resultado esperado
+
+HTTP 200 y catálogo completo tolerante a fallos sin errores 500
+
+### Automatización (referencia original)
+
+API `equipment.spec.ts
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P3","","Status: Aprobado,Automation: API `equipment.spec.ts,Prioridad original: P3","",""
+"","CP-19 - Filtrado exclusivo de equipos disponibles","manual","/H","","normal","@CP-19 @matriz-t3","","### Identificador original
+
+CP-19
+
+### Precondiciones
+
+Inventario mixto
+
+### Pasos
+
+GET /api/equipment/available
+
+### Resultado esperado
+
+Solo equipos en estado `AVAILABLE`; omite los que están `BORROWED
+
+### Automatización (referencia original)
+
+API `equipment.spec.ts
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P2","","Status: Aprobado,Automation: API `equipment.spec.ts,Prioridad original: P2","",""
+"","CP-20 - Búsqueda por texto en tiempo real","manual","/IA","","normal","@CP-20 @matriz-t3","","### Identificador original
+
+CP-20
+
+### Precondiciones
+
+Catálogo cargado
+
+### Pasos
+
+Escribir término de búsqueda
+
+### Resultado esperado
+
+Filtrado reactivo de tarjetas en el cliente coincidiendo por nombre o código
+
+### Automatización (referencia original)
+
+UI `CatalogPage.test.tsx
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P2","","Status: Aprobado,Automation: UI `CatalogPage.test.tsx,Prioridad original: P2","",""
+"","CP-21 - Métricas numéricas del catálogo","manual","/IA","","low","@CP-21 @matriz-t3","","### Identificador original
+
+CP-21
+
+### Precondiciones
+
+Datos sembrados
+
+### Pasos
+
+GET /api/equipment/stats
+
+### Resultado esperado
+
+Conteo exacto de total, disponibles, prestados y en mantenimiento
+
+### Automatización (referencia original)
+
+API `equipment.spec.ts` · UI `CatalogPage.test.tsx
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P3","","Status: Aprobado,Automation: API `equipment.spec.ts` · UI `CatalogPage.test.tsx,Prioridad original: P3","",""
+"","CP-22 - Consulta de equipo inexistente arroja 404","manual","/IA","","low","@CP-22 @matriz-t3","","### Identificador original
+
+CP-22
+
+### Precondiciones
+
+Sesión iniciada
+
+### Pasos
+
+GET /api/equipment/id-inexistente
+
+### Resultado esperado
+
+HTTP 404 con mensaje descriptivo de no encontrado
+
+### Automatización (referencia original)
+
+API `equipment.spec.ts
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P3","","Status: Aprobado,Automation: API `equipment.spec.ts,Prioridad original: P3","",""
+"","CP-23 - Catálogo requiere autenticación obligatoria","manual","/H","","normal","@CP-23 @matriz-t3","","### Identificador original
+
+CP-23
+
+### Precondiciones
+
+Sin credenciales
+
+### Pasos
+
+GET /api/equipment
+
+### Resultado esperado
+
+HTTP 401 rechazando el acceso no autenticado
+
+### Automatización (referencia original)
+
+API `equipment.spec.ts
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P2","","Status: Aprobado,Automation: API `equipment.spec.ts,Prioridad original: P2","",""
+"","CP-24 - Registrar solicitud de reserva conforme","manual","/H","","high","@CP-24 @matriz-t3","","### Identificador original
+
+CP-24
+
+### Precondiciones
+
+Equipo disponible
+
+### Pasos
+
+Fecha futura, horario 08:00 a 10:00
+
+### Resultado esperado
+
+HTTP 201 Created, estado `PENDING`, sin penalización
+
+### Automatización (referencia original)
+
+API `reservations.spec.ts` · E2E `05-reserva-registrada.png
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P1","","Status: Aprobado,Automation: API `reservations.spec.ts` · E2E `05-reserva-registrada.png,Prioridad original: P1","",""
+"","CP-25 - Bloquear solapamiento con reserva aprobada","manual","/H","","high","@CP-25 @matriz-t3","","### Identificador original
+
+CP-25
+
+### Precondiciones
+
+Reserva aprobada 09:00–11:00
+
+### Pasos
+
+Solicitar mismo equipo de 08:00 a 10:00
+
+### Resultado esperado
+
+HTTP 400 indicando cruce con reserva aprobada existente
+
+### Automatización (referencia original)
+
+API `reservations.spec.ts
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P1","","Status: Aprobado,Automation: API `reservations.spec.ts,Prioridad original: P1","",""
+"","CP-26 - Bloquear más de una reserva activa por estudiante","manual","/H","","high","@CP-26 @matriz-t3","","### Identificador original
+
+CP-26
+
+### Precondiciones
+
+Reserva pendiente activa
+
+### Pasos
+
+Solicitar segundo equipo en mismo horario
+
+### Resultado esperado
+
+HTTP 400: el estudiante ya mantiene una reserva activa
+
+### Automatización (referencia original)
+
+API `reservations.spec.ts
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P1","","Status: Aprobado,Automation: API `reservations.spec.ts,Prioridad original: P1","",""
+"","CP-27 - Reservas contiguas son admitidas sin cruce","manual","/IA","","normal","@CP-27 @matriz-t3","","### Identificador original
+
+CP-27
+
+### Precondiciones
+
+Reserva aprobada 08:00–10:00
+
+### Pasos
+
+Solicitar mismo equipo de 10:00 a 12:00
+
+### Resultado esperado
+
+HTTP 201 Created; los extremos iguales no se consideran cruce
+
+### Automatización (referencia original)
+
+API `reservations.spec.ts
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P2","","Status: Aprobado,Automation: API `reservations.spec.ts,Prioridad original: P2","",""
+"","CP-28 - Rechazar reserva sobre equipo prestado","manual","/H","","high","@CP-28 @matriz-t3","","### Identificador original
+
+CP-28
+
+### Precondiciones
+
+Equipo en `BORROWED
+
+### Pasos
+
+Intentar crear reserva
+
+### Resultado esperado
+
+HTTP 400 advirtiendo que el equipo no está disponible
+
+### Automatización (referencia original)
+
+API `reservations.spec.ts
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P1","","Status: Aprobado,Automation: API `reservations.spec.ts,Prioridad original: P1","",""
+"","CP-29 - Rechazar solicitud con fecha pasada","manual","/IA","","normal","@CP-29 @matriz-t3","","### Identificador original
+
+CP-29
+
+### Precondiciones
+
+Sesión activa
+
+### Pasos
+
+Seleccionar fecha anterior a hoy
+
+### Resultado esperado
+
+HTTP 400 por validación de fecha retroactiva
+
+### Automatización (referencia original)
+
+API `reservations.spec.ts
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P2","","Status: Aprobado,Automation: API `reservations.spec.ts,Prioridad original: P2","",""
+"","CP-30 - Hora de inicio posterior o igual a fin","manual","/H","","high","@CP-30 @matriz-t3","","### Identificador original
+
+CP-30
+
+### Precondiciones
+
+Formulario abierto
+
+### Pasos
+
+Inicio 12:00 y Fin 10:00
+
+### Resultado esperado
+
+HTTP 400; la interfaz alerta que el inicio debe ser anterior al fin
+
+### Automatización (referencia original)
+
+API `reservations.spec.ts` · UI `NewReservationPage.test.tsx
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P1","","Status: Aprobado,Automation: API `reservations.spec.ts` · UI `NewReservationPage.test.tsx,Prioridad original: P1","",""
+"","CP-31 - Restricción de duración máxima (4 horas)","manual","/H","","high","@CP-31 @matriz-t3","","### Identificador original
+
+CP-31
+
+### Precondiciones
+
+Formulario abierto
+
+### Pasos
+
+Rango horario de 5 horas continuas
+
+### Resultado esperado
+
+HTTP 400; bloqueo por regla de negocio de máximo 4 horas
+
+### Automatización (referencia original)
+
+API `reservations.spec.ts` · UI `NewReservationPage.test.tsx
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P1","","Status: Aprobado,Automation: API `reservations.spec.ts` · UI `NewReservationPage.test.tsx,Prioridad original: P1","",""
+"","CP-32 - Horario fuera de atención del laboratorio","manual","/IA","","normal","@CP-32 @matriz-t3","","### Identificador original
+
+CP-32
+
+### Precondiciones
+
+Formulario abierto
+
+### Pasos
+
+Solicitar de 06:00 a 07:00
+
+### Resultado esperado
+
+HTTP 400; horario de atención permitido: 07:00 a 22:00
+
+### Automatización (referencia original)
+
+API `reservations.spec.ts
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P2","","Status: Aprobado,Automation: API `reservations.spec.ts,Prioridad original: P2","",""
+"","CP-33 - Formato de hora malformado en payload","manual","/IA","","normal","@CP-33 @matriz-t3","","### Identificador original
+
+CP-33
+
+### Precondiciones
+
+Petición API directa
+
+### Pasos
+
+Enviar `startTime: ""8:00""
+
+### Resultado esperado
+
+HTTP 400 por validación de formato `HH:mm` de class-validator
+
+### Automatización (referencia original)
+
+API `reservations.spec.ts
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P2","","Status: Aprobado,Automation: API `reservations.spec.ts,Prioridad original: P2","",""
+"","CP-34 - Estudiante penalizado no puede reservar","manual","/H","","high","@CP-34 @matriz-t3","","### Identificador original
+
+CP-34
+
+### Precondiciones
+
+Cuenta `PENALIZED
+
+### Pasos
+
+Intentar solicitar préstamo
+
+### Resultado esperado
+
+HTTP 400 denegando transacción por estado de cuenta sancionado
+
+### Automatización (referencia original)
+
+API `reservations.spec.ts
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P1","","Status: Aprobado,Automation: API `reservations.spec.ts,Prioridad original: P1","",""
+"","CP-35 - Administrador no puede solicitar préstamos","manual","/H","","normal","@CP-35 @matriz-t3","","### Identificador original
+
+CP-35
+
+### Precondiciones
+
+Sesión `ADMIN
+
+### Pasos
+
+Petición a `POST /api/reservations
+
+### Resultado esperado
+
+HTTP 403; la funcionalidad de reserva es exclusiva de estudiantes
+
+### Automatización (referencia original)
+
+API `reservations.spec.ts
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P2","","Status: Aprobado,Automation: API `reservations.spec.ts,Prioridad original: P2","",""
+"","CP-36 - Reserva con ID de equipo inexistente","manual","/IA","","normal","@CP-36 @matriz-t3","","### Identificador original
+
+CP-36
+
+### Precondiciones
+
+Sesión activa
+
+### Pasos
+
+Enviar `equipmentId` inválido
+
+### Resultado esperado
+
+HTTP 404 indicando que el equipo no existe en catálogo
+
+### Automatización (referencia original)
+
+API `reservations.spec.ts
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P2","","Status: Aprobado,Automation: API `reservations.spec.ts,Prioridad original: P2","",""
+"","CP-37 - Estudiante únicamente visualiza sus propias reservas","manual","/H","","high","@CP-37 @matriz-t3","","### Identificador original
+
+CP-37
+
+### Precondiciones
+
+Reservas de varios usuarios
+
+### Pasos
+
+GET /api/reservations/me
+
+### Resultado esperado
+
+Retorna estrictamente las reservas del estudiante en sesión
+
+### Automatización (referencia original)
+
+API `reservations.spec.ts
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P1","","Status: Aprobado,Automation: API `reservations.spec.ts,Prioridad original: P1","",""
+"","CP-38 - Petición de reserva sin JWT es rechazada","manual","/H","","normal","@CP-38 @matriz-t3","","### Identificador original
+
+CP-38
+
+### Precondiciones
+
+Sin sesión
+
+### Pasos
+
+POST /api/reservations
+
+### Resultado esperado
+
+HTTP 401 Unauthorized
+
+### Automatización (referencia original)
+
+API `reservations.spec.ts
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P2","","Status: Aprobado,Automation: API `reservations.spec.ts,Prioridad original: P2","",""
+"","CP-39 - Preselección de equipo desde parámetro URL","manual","/IA","","normal","@CP-39 @matriz-t3","","### Identificador original
+
+CP-39
+
+### Precondiciones
+
+Catálogo
+
+### Pasos
+
+Navegar a `/reservar?equipo=<id>
+
+### Resultado esperado
+
+El formulario precarga el equipo seleccionado en el catálogo
+
+### Automatización (referencia original)
+
+UI `NewReservationPage.test.tsx
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P2","","Status: Aprobado,Automation: UI `NewReservationPage.test.tsx,Prioridad original: P2","",""
+"","CP-40 - Notificación de confirmación de solicitud","manual","/H","","normal","@CP-40 @matriz-t3","","### Identificador original
+
+CP-40
+
+### Precondiciones
+
+Formulario completo
+
+### Pasos
+
+Clic en confirmar
+
+### Resultado esperado
+
+Mensaje de éxito visible y redirección a ""Mis Reservas""
+
+### Automatización (referencia original)
+
+UI `NewReservationPage.test.tsx` · E2E
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P2","","Status: Aprobado,Automation: UI `NewReservationPage.test.tsx` · E2E,Prioridad original: P2","",""
+"","CP-41 - Selector de duración rápida (1h a 4h)","manual","/IA","","low","@CP-41 @matriz-t3","","### Identificador original
+
+CP-41
+
+### Precondiciones
+
+Formulario abierto
+
+### Pasos
+
+Clic en atajo ""2 horas""
+
+### Resultado esperado
+
+Calcula automáticamente hora de fin sumando 2 horas al inicio
+
+### Automatización (referencia original)
+
+UI `NewReservationPage.tsx
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P3","","Status: Aprobado,Automation: UI `NewReservationPage.tsx,Prioridad original: P3","",""
+"","CP-42 - Listar solicitudes pendientes por defecto","manual","/H","","high","@CP-42 @matriz-t3","","### Identificador original
+
+CP-42
+
+### Precondiciones
+
+Reservas en `PENDING
+
+### Pasos
+
+GET /api/admin/reservations
+
+### Resultado esperado
+
+Retorna lista de solicitudes pendientes con datos de estudiante y equipo
+
+### Automatización (referencia original)
+
+API `admin.spec.ts` · UI `AdminPendingPage.test.tsx
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P1","","Status: Aprobado,Automation: API `admin.spec.ts` · UI `AdminPendingPage.test.tsx,Prioridad original: P1","",""
+"","CP-43 - Filtrado por estado administrativo","manual","/IA","","normal","@CP-43 @matriz-t3","","### Identificador original
+
+CP-43
+
+### Precondiciones
+
+Múltiples estados
+
+### Pasos
+
+?status=APPROVED` o `?status=ALL
+
+### Resultado esperado
+
+Filtrado correcto de registros según el parámetro enviado
+
+### Automatización (referencia original)
+
+API `admin.spec.ts
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P2","","Status: Aprobado,Automation: API `admin.spec.ts,Prioridad original: P2","",""
+"","CP-44 - Aprobar reserva y marcar equipo como prestado","manual","/H","","high","@CP-44 @matriz-t3","","### Identificador original
+
+CP-44
+
+### Precondiciones
+
+Solicitud pendiente
+
+### Pasos
+
+Clic en botón ""Aprobar""
+
+### Resultado esperado
+
+Estado `APPROVED`, equipo pasa a `BORROWED`, evento en auditoría
+
+### Automatización (referencia original)
+
+API `admin.spec.ts` · E2E `06-solicitud-aprobada.png
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P1","","Status: Aprobado,Automation: API `admin.spec.ts` · E2E `06-solicitud-aprobada.png,Prioridad original: P1","",""
+"","CP-45 - Impedir aprobar si se genera cruce con otra aprobada","manual","/H","","high","@CP-45 @matriz-t3","","### Identificador original
+
+CP-45
+
+### Precondiciones
+
+Conflicto de horario
+
+### Pasos
+
+Intentar aprobar solicitud en cruce
+
+### Resultado esperado
+
+HTTP 400 por cruce de horario con otra reserva previamente aprobada
+
+### Automatización (referencia original)
+
+API `admin.spec.ts
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P1","","Status: Aprobado,Automation: API `admin.spec.ts,Prioridad original: P1","",""
+"","CP-46 - Solo es posible aprobar solicitudes pendientes","manual","/IA","","normal","@CP-46 @matriz-t3","","### Identificador original
+
+CP-46
+
+### Precondiciones
+
+Reserva ya aprobada
+
+### Pasos
+
+Reintentar aprobación
+
+### Resultado esperado
+
+HTTP 400 indicando que la reserva ya no está en estado pendiente
+
+### Automatización (referencia original)
+
+API `admin.spec.ts
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P2","","Status: Aprobado,Automation: API `admin.spec.ts,Prioridad original: P2","",""
+"","CP-47 - Rechazo exige motivo obligatorio (mínimo 5 letras)","manual","/H","","high","@CP-47 @matriz-t3","","### Identificador original
+
+CP-47
+
+### Precondiciones
+
+Solicitud pendiente
+
+### Pasos
+
+Confirmar rechazo sin justificación
+
+### Resultado esperado
+
+La interfaz bloquea el envío y alerta campo requerido
+
+### Automatización (referencia original)
+
+API `admin.spec.ts` · UI `AdminPendingPage.test.tsx
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P1","","Status: Aprobado,Automation: API `admin.spec.ts` · UI `AdminPendingPage.test.tsx,Prioridad original: P1","",""
+"","CP-48 - Motivo de rechazo demasiado corto","manual","/IA","","normal","@CP-48 @matriz-t3","","### Identificador original
+
+CP-48
+
+### Precondiciones
+
+Solicitud pendiente
+
+### Pasos
+
+Enviar justificación `""abc""
+
+### Resultado esperado
+
+HTTP 400 de validación; la solicitud permanece en `PENDING
+
+### Automatización (referencia original)
+
+API `admin.spec.ts
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P2","","Status: Aprobado,Automation: API `admin.spec.ts,Prioridad original: P2","",""
+"","CP-49 - Rechazo persiste motivo visible para el estudiante","manual","/H","","high","@CP-49 @matriz-t3","","### Identificador original
+
+CP-49
+
+### Precondiciones
+
+Solicitud pendiente
+
+### Pasos
+
+Justificar: `""Equipo en mantenimiento""
+
+### Resultado esperado
+
+Estado `REJECTED`, motivo guardado y visible en ""Mis Reservas""
+
+### Automatización (referencia original)
+
+API `admin.spec.ts` · UI `MyReservationsPage.test.tsx
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P1","","Status: Aprobado,Automation: API `admin.spec.ts` · UI `MyReservationsPage.test.tsx,Prioridad original: P1","",""
+"","CP-50 - Bloqueo de acceso de estudiantes a administración","manual","/H","","high","@CP-50 @matriz-t3","","### Identificador original
+
+CP-50
+
+### Precondiciones
+
+Sesión estudiante
+
+### Pasos
+
+GET /api/admin/stats
+
+### Resultado esperado
+
+HTTP 403 Forbidden
+
+### Automatización (referencia original)
+
+API `admin.spec.ts
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P1","","Status: Aprobado,Automation: API `admin.spec.ts,Prioridad original: P1","",""
+"","CP-51 - Indicadores administrativos de laboratorio","manual","/IA","","normal","@CP-51 @matriz-t3","","### Identificador original
+
+CP-51
+
+### Precondiciones
+
+Base poblada
+
+### Pasos
+
+GET /api/admin/stats
+
+### Resultado esperado
+
+Conteo exacto de reservas activas, préstamos y usuarios sancionados
+
+### Automatización (referencia original)
+
+API `admin.spec.ts` · UI `AdminPendingPage.test.tsx
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P2","","Status: Aprobado,Automation: API `admin.spec.ts` · UI `AdminPendingPage.test.tsx,Prioridad original: P2","",""
+"","CP-52 - Bitácora inmutable de auditoría","manual","/H","","normal","@CP-52 @matriz-t3","","### Identificador original
+
+CP-52
+
+### Precondiciones
+
+Eventos previos
+
+### Pasos
+
+GET /api/admin/audit?limit=10
+
+### Resultado esperado
+
+Registro de tipo de evento, código de actor, fecha e IP
+
+### Automatización (referencia original)
+
+API `admin.spec.ts
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P2","","Status: Aprobado,Automation: API `admin.spec.ts,Prioridad original: P2","",""
+"","CP-53 - Manejo de aprobación sobre reserva inexistente","manual","/IA","","low","@CP-53 @matriz-t3","","### Identificador original
+
+CP-53
+
+### Precondiciones
+
+Sesión admin
+
+### Pasos
+
+PATCH /api/admin/reservations/9999/approve
+
+### Resultado esperado
+
+HTTP 404 Not Found con mensaje claro
+
+### Automatización (referencia original)
+
+API `admin.spec.ts
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P3","","Status: Aprobado,Automation: API `admin.spec.ts,Prioridad original: P3","",""
+"","CP-54 - Devolución puntual sin penalización","manual","/H","","high","@CP-54 @matriz-t3","","### Identificador original
+
+CP-54
+
+### Precondiciones
+
+Préstamo vigente
+
+### Pasos
+
+Clic en ""Marcar Devolución"" a tiempo
+
+### Resultado esperado
+
+penaltyApplied = false`, estudiante continúa `ACTIVE`, equipo `AVAILABLE
+
+### Automatización (referencia original)
+
+API `admin.spec.ts
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P1","","Status: Aprobado,Automation: API `admin.spec.ts,Prioridad original: P1","",""
+"","CP-55 - Devolución tardía penaliza automáticamente","manual","/H","","high","@CP-55 @matriz-t3","","### Identificador original
+
+CP-55
+
+### Precondiciones
+
+Préstamo vencido
+
+### Pasos
+
+Clic en ""Marcar Devolución"" con retraso
+
+### Resultado esperado
+
+penaltyApplied = true`, estudiante cambia a `PENALIZED` automáticamente
+
+### Automatización (referencia original)
+
+API `admin.spec.ts` · E2E `07-devolucion-penalizada.png
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P1","","Status: Aprobado,Automation: API `admin.spec.ts` · E2E `07-devolucion-penalizada.png,Prioridad original: P1","",""
+"","CP-56 - Equipo devuelto retorna a estado Disponible","manual","/H","","high","@CP-56 @matriz-t3","","### Identificador original
+
+CP-56
+
+### Precondiciones
+
+Cualquier devolución
+
+### Pasos
+
+Confirmar recepción de equipo
+
+### Resultado esperado
+
+El equipo cambia inmediatamente su estado de `BORROWED` a `AVAILABLE
+
+### Automatización (referencia original)
+
+API `admin.spec.ts
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P1","","Status: Aprobado,Automation: API `admin.spec.ts,Prioridad original: P1","",""
+"","CP-57 - Solo se procesan devoluciones de reservas aprobadas","manual","/IA","","normal","@CP-57 @matriz-t3","","### Identificador original
+
+CP-57
+
+### Precondiciones
+
+Reserva en `PENDING
+
+### Pasos
+
+Intentar devolver préstamo
+
+### Resultado esperado
+
+HTTP 400 advirtiendo que solo aplica a reservas aprobadas
+
+### Automatización (referencia original)
+
+API `admin.spec.ts
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P2","","Status: Aprobado,Automation: API `admin.spec.ts,Prioridad original: P2","",""
+"","CP-58 - Registro de evento de penalización en bitácora","manual","/H","","high","@CP-58 @matriz-t3","","### Identificador original
+
+CP-58
+
+### Precondiciones
+
+Devolución tardía
+
+### Pasos
+
+Consultar auditoría tras CP-55
+
+### Resultado esperado
+
+Evento `PENALTY_APPLIED` registrado con código de infractor
+
+### Automatización (referencia original)
+
+API `admin.spec.ts` · E2E `08-bitacora-penalizacion.png
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P1","","Status: Aprobado,Automation: API `admin.spec.ts` · E2E `08-bitacora-penalizacion.png,Prioridad original: P1","",""
+"","CP-59 - Banner de advertencia de penalización al estudiante","manual","/IA","","normal","@CP-59 @matriz-t3","","### Identificador original
+
+CP-59
+
+### Precondiciones
+
+Cuenta penalizada
+
+### Pasos
+
+Estudiante abre ""Mis Reservas""
+
+### Resultado esperado
+
+Banner visible: **""Tu cuenta está penalizada por entrega tardía""**
+
+### Automatización (referencia original)
+
+UI `MyReservationsPage.test.tsx
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P2","","Status: Aprobado,Automation: UI `MyReservationsPage.test.tsx,Prioridad original: P2","",""
+"","CP-60 - Alerta previa al encargado antes de sancionar","manual","/IA","","normal","@CP-60 @matriz-t3","","### Identificador original
+
+CP-60
+
+### Precondiciones
+
+Préstamo con retraso
+
+### Pasos
+
+Abrir modal de devolución
+
+### Resultado esperado
+
+Mensaje modal informa que la acción penalizará al estudiante
+
+### Automatización (referencia original)
+
+UI `AdminReturnsPage.test.tsx
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P2","","Status: Aprobado,Automation: UI `AdminReturnsPage.test.tsx,Prioridad original: P2","",""
+"","CP-61 - Indicador de tiempo transcurrido desde vencimiento","manual","/H","","low","@CP-61 @matriz-t3","","### Identificador original
+
+CP-61
+
+### Precondiciones
+
+Préstamo vencido
+
+### Pasos
+
+Revisar panel de devoluciones
+
+### Resultado esperado
+
+Etiqueta dinámica: `""Vencida hace X h Y min""` para priorizar
+
+### Automatización (referencia original)
+
+UI `AdminReturnsPage.test.tsx
+
+### Estado en matriz
+
+Aprobado
+
+Prioridad original: P3","","Status: Aprobado,Automation: UI `AdminReturnsPage.test.tsx,Prioridad original: P3","",""

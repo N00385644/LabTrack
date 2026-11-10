@@ -1,0 +1,93 @@
+"ID","Title","Status","Folder","Emoji","Priority","Tags","Owner","Description","Examples","Labels","Issues","Url"
+"","IA-01 - Reservas contiguas","manual","/Casos sugeridos por IA","","normal","@IA-01 @casos-ia","","### Identificador original
+
+IA-01
+
+### Precondiciones
+
+Equipo disponible y reserva aprobada 08:00-10:00
+
+### Pasos
+
+Solicitar 10:00-12:00 para el mismo equipo
+
+### Resultado esperado
+
+La solicitud es aceptada sin cruce
+
+### Validación humana
+
+Validacion humana: pendiente
+
+Estado original: Pending human review
+
+Revisión original: Pendiente de revisión","","Validacion humana: pendiente","",""
+"","IA-02 - Duración cero","manual","/Casos sugeridos por IA","","normal","@IA-02 @casos-ia","","### Identificador original
+
+IA-02
+
+### Precondiciones
+
+Formulario de reserva abierto
+
+### Pasos
+
+Usar inicio 10:00 y fin 10:00; enviar
+
+### Resultado esperado
+
+La validación rechaza la ventana
+
+### Validación humana
+
+Validacion humana: pendiente
+
+Estado original: Pending human review
+
+Revisión original: Pendiente de revisión","","Validacion humana: pendiente","",""
+"","IA-03 - Límites de atención","manual","/Casos sugeridos por IA","","normal","@IA-03 @casos-ia","","### Identificador original
+
+IA-03
+
+### Precondiciones
+
+Formulario de reserva abierto
+
+### Pasos
+
+Usar 07:00-22:00
+
+### Resultado esperado
+
+El horario completo de atención es aceptado
+
+### Validación humana
+
+Validacion humana: pendiente
+
+Estado original: Pending human review
+
+Revisión original: Pendiente de revisión","","Validacion humana: pendiente","",""
+"","IA-04 - Normalización de código","manual","/Casos sugeridos por IA","","normal","@IA-04 @casos-ia","","### Identificador original
+
+IA-04
+
+### Precondiciones
+
+Usuario activo existente
+
+### Pasos
+
+Ingresar código con espacios y minúsculas
+
+### Resultado esperado
+
+El login normaliza el código y autentica
+
+### Validación humana
+
+Validacion humana: pendiente
+
+Estado original: Pending human review
+
+Revisión original: Pendiente de revisión","","Validacion humana: pendiente","",""
