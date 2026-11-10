@@ -349,7 +349,7 @@ def build_document():
     add_text(doc, "No se detectaron fallas estructurales de etiquetas, roles, nombres accesibles o teclado. El hallazgo pendiente es contraste insuficiente en textos secundarios, registrado en el backlog con objetivo de razón mínima 4.5:1.")
 
     # 10. IA
-    add_heading(doc, "10. Uso de agentes de IA")
+    add_heading(doc, "10. Uso de agentes de IA").paragraph_format.page_break_before = True
     add_text(doc, "El trabajo fue coordinado por agentes en worktrees separados. Se usaron herramientas para análisis estático, pruebas unitarias, Selenium, JMeter y axe-core. La documentación de prompts y reparto está en docs/prompts-y-skills-agentes.md.")
     add_table(doc, ["Actividad", "Evidencia"], [
         ["Análisis SonarQube", "Capturas reales, JSON y tabla ANTES/DESPUÉS"],
