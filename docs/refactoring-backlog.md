@@ -15,6 +15,12 @@ LabTrack es un sistema integral para la reserva y administración de equipos de 
 > **Aclaración sobre la línea base y reproducción:**
 > El repositorio Git de LabTrack cuenta con un único commit histórico (`840052e`, «Initial commit»). Para auditar con rigor el proceso de refactorización y contrastar el estado previo frente al estado final en un servidor local real de SonarQube (localhost:9000), el código del **ANTES es REPRODUCIDO** en `docs/evidencias-sonarqube/antes/src/` reinyectando los 44 defectos documentados en `docs/sonar-baseline.json`. Los escaneos en SonarQube arrojaron 44 issues iniciales (1 bug, 2 vulnerabilidades y 41 code smells; confiabilidad B, seguridad C, mantenibilidad A) frente a 0 issues finales (0 bugs, 0 vulnerabilidades, 0 code smells; calificaciones A/A/A).
 
+El alcance funcional declarado por el equipo incluye HU-01, HU-02, HU-03, HU-04, HU-05, HU-06,
+HU-07, HU-08, HU-11, HU-13, HU-14 y HU-15. La verificación de repositorio documentada en
+`docs/trazabilidad-historias-usuario.md` confirma evidencia completa con pruebas para HU-01 a
+HU-05, pero deja brechas de evidencia o de criterios para las demás HU; por tanto, esas brechas
+no se contabilizan como funcionalidades implementadas.
+
 ---
 
 ## 2. Criterios de Priorización de Deuda Técnica
@@ -49,6 +55,23 @@ La siguiente tabla consolida los defectos identificados en el código inicial, s
 | **RF-12** | **Pruebas de extremo a extremo automatizadas en navegadores adicionales (Cross-browser)**<br>La suite Selenium actual está validada sobre Google Chrome headless. | **Baja** | `frontend/e2e/` | Parametrizar la configuración de Selenium WebDriver para permitir la ejecución desatendida en Mozilla Firefox y Microsoft Edge en el pipeline de CI/CD. | **Planificado** | Agendado para la siguiente versión evolutiva (Sprint 2.0). |
 
 ---
+
+## 3.1 Brechas de historias de usuario sin evidencia completa
+
+Estas entradas son defectos funcionales pendientes, no afirmaciones de que la funcionalidad exista.
+Cada una incluye prioridad, solución propuesta y estado explícito.
+
+| ID | Defecto / Brecha | Prioridad | Archivos / Módulos | Solución propuesta | Estado | Evidencia actual |
+|---|---|---|---|---|---|---|
+| **HU-BR-01** | HU-01 no valida `N0` + 8 dígitos y el bloqueo configurado es de 5, no 15 minutos. | Alta | `backend/src/auth/dto/login.dto.ts`, `backend/src/auth/auth.service.ts` | Añadir `@Matches(/^N0\d{8}$/)` y parametrizar/verificar 15 minutos con pruebas de tiempo. | **Pendiente** | `backend/test/auth.spec.ts` cubre el flujo, no ambos criterios declarados. |
+| **HU-BR-05** | HU-05 no registra la fecha de levantamiento de la suspensión de 7 días. | Alta | `backend/prisma/schema.prisma`, `backend/src/admin/admin.service.ts` | Persistir `penaltyUntil`, aplicar expiración y añadir pruebas de devolución tardía/levantamiento. | **Pendiente** | Se verifica `PENALIZED`, pero no duración. |
+| **HU-BR-06** | HU-06 carece de carnet digital QR y pruebas de generación/lectura. | Media | `frontend/src`, `backend/src` | Crear vista de carnet, endpoint/valor firmado y pruebas UI/API de escaneo. | **Pendiente** | No hay archivos funcionales ni pruebas HU-06. |
+| **HU-BR-07** | HU-07 carece de CRUD admin de equipos, fotos, especificaciones y QR. | Alta | `backend/src/equipment`, `frontend/src/pages` | Añadir guardas admin, DTOs CRUD, almacenamiento de imagen y generación QR; cubrir API/UI. | **Pendiente** | Solo existen consultas del catálogo y sus pruebas. |
+| **HU-BR-08** | HU-08 no permite levantar sanciones con justificación médica o académica. | Alta | `backend/src/admin`, `frontend/src/pages` | Añadir endpoint transaccional, auditoría, formulario y pruebas de autorización/justificación. | **Pendiente** | Existe aplicación automática de penalización, no levantamiento. |
+| **HU-BR-11** | HU-11 no muestra gráficos de inventario ni tasa de puntualidad. | Media | `backend/src/admin`, `frontend/src/pages/AdminPendingPage.tsx` | Exponer series agregadas, incorporar gráficos y probar cálculo/renderizado de métricas. | **Pendiente** | Solo hay tarjetas numéricas y pruebas de contadores. |
+| **HU-BR-13** | HU-13 carece de CRUD de usuarios, reset de claves y desbloqueo administrativo. | Alta | `backend/src`, `frontend/src/pages` | Crear módulo admin de usuarios, políticas de código, reset y unlock; añadir API/UI tests. | **Pendiente** | No hay módulo ni pruebas de usuarios. |
+| **HU-BR-14** | HU-14 carece de cámara/lector QR para despacho y devolución. | Media | `frontend/src`, `backend/src` | Integrar captura QR, resolver equipo/usuario y probar cámara simulada y flujo de ventanilla. | **Pendiente** | No hay componentes, endpoints ni pruebas QR. |
+| **HU-BR-15** | HU-15 carece de acta PDF descargable y cláusula de responsabilidad. | Media | `frontend/src`, `backend/src` | Crear plantilla/generador PDF, endpoint seguro, botón de descarga y prueba de contenido. | **Pendiente** | No hay generador, ruta ni pruebas PDF. |
 
 ## 4. Convención de Cierre y Verificación Técnica
 
