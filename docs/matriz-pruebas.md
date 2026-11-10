@@ -5,6 +5,13 @@
 **Curso:** Calidad y Pruebas de Software · **Caso de Estudio T3:** Sistema de Gestión de Laboratorios "LabTrack"  
 **Docente:** Mark Anthony Arribasplata Palomino  
 **Versión evaluada:** 1.0.0 · **Fecha:** 09/11/2026  
+**Integrantes y participación:**  
+- BOÑON FERNÁNDEZ Josue Samuel — 100 %  
+- HERRERA RUITON Jhenifer — 100 %  
+- QUILICHE CABANILLA Carlos Miguel — 100 %  
+- RAICO MOYA Frank Jhancarlos — 100 %  
+- VILLANUEVA COJAL Luis Oswaldo — 100 %  
+*(Decisión del equipo: 100 % de participación para cada integrante).*  
 **Alcance funcional verificado:** HU-01 Autenticación Segura · HU-02 Catálogo y Filtrado · HU-03 Reserva de Equipos · HU-04 Aprobación y Rechazo Administrativo · HU-05 Devolución y Penalización Automática.
 **Alcance funcional declarado pendiente de evidencia completa:** HU-06, HU-07, HU-08, HU-11, HU-13, HU-14 y HU-15 (ver `docs/trazabilidad-historias-usuario.md`).
 **Alcance no funcional:** Rendimiento bajo Carga (50 usuarios) y Estrés (150 usuarios) con Apache JMeter 5.6.3.
@@ -15,10 +22,10 @@
 
 | Atributo | Significado y Criterios |
 |---|---|
-| **Origen** | **H** = Caso diseñado directamente por el equipo humano.<br>**IA** = Caso de borde propuesto mediante asistencia de IA (**Validación humana PENDIENTE** en los casos no consolidados). |
+| **Origen** | **H** = Caso diseñado directamente por el equipo humano.<br>**IA** = Caso propuesto mediante asistencia de IA. Los cinco casos complementarios IA-01 a IA-05 tienen validación humana de diseño registrada y ejecución no realizada; los CP de origen IA conservan sus resultados documentados. |
 | **Prioridad** | **P1 (Crítica)**: Afecta reglas de negocio nucleares, seguridad o transacciones financieras/académicas.<br>**P2 (Alta)**: Validación de restricciones, bordes de entrada y flujos alternativos importantes.<br>**P3 (Media)**: Mejoras de usabilidad, normalización de datos e interfaces cosméticas. |
 | **Nivel / Capa** | **API**: Pruebas de integración HTTP contra NestJS usando Vitest + Supertest.<br>**UI**: Pruebas de componentes web usando Vitest + React Testing Library sobre jsdom.<br>**E2E**: Pruebas de recorrido completo con Selenium WebDriver 4.27 sobre Google Chrome headless (ejecución real de esta auditoría).<br>**Carga / Estrés**: Simulación de concurrencia masiva con Apache JMeter 5.6.3. |
-| **Estado** | **Aprobado**: Ejecutado y conforme con los criterios de aceptación.<br>**Pendiente**: Caso sugerido por IA a la espera de validación humana formal. |
+| **Estado** | **Aprobado**: Ejecutado y conforme con los criterios de aceptación.<br>**No ejecutado**: Caso con diseño formalmente validado por el equipo humano, pero no ejecutado ni contabilizado como pasado. |
 
 > [!WARNING]
 > La matriz detallada contiene casos ejecutables para HU-01 a HU-05. Las HU-06, HU-07, HU-08,
@@ -31,7 +38,7 @@
 
 ## 2. Resumen Ejecutivo de Ejecución de Pruebas
 
-| Historia de Usuario / Dimensión | Casos Totales | Diseñados por Equipo (H) | Sugeridos por IA | Aprobados | Pendientes de Validación Humana | Estrategia de Automatización |
+| Historia de Usuario / Dimensión | Casos Totales | Diseñados por Equipo (H) | Sugeridos por IA | Aprobados | No Ejecutados (Diseño Validado) | Estrategia de Automatización |
 |---|---:|---:|---:|---:|---:|---|
 | **HU-01: Autenticación Segura** | 12 | 8 | 4 | 12 | 0 | API + UI + E2E (Selenium) |
 | **HU-02: Catálogo y Filtrado** | 11 | 7 | 4 | 11 | 0 | API + UI + E2E (Selenium) |
@@ -39,7 +46,7 @@
 | **HU-04: Aprobación y Rechazo** | 12 | 7 | 5 | 12 | 0 | API + UI + E2E (Selenium) |
 | **HU-05: Devolución y Penalización** | 8 | 5 | 3 | 8 | 0 | API + UI + E2E (Selenium) |
 | **HU-06, HU-07, HU-08, HU-11, HU-13, HU-14, HU-15** | — | 0 | 0 | 0 | **Pendientes de evidencia** | Sin pruebas verificables |
-| **Casos IA Complementarios (Borde)** | 5 | 0 | 5 | 0 | **5 (Pendientes)** | Propuesta Backend / Frontend |
+| **Casos IA Complementarios (Borde)** | 5 | 0 | 5 | 0 | **5 (No ejecutados)** | Propuesta Backend / Frontend |
 | **Subtotal Funcional** | **66** | **38** | **28** | **61** | **5** | — |
 | **Rendimiento Carga (50 usuarios)** | 5 | 3 | 2 | 5 | 0 | Apache JMeter 5.6.3 |
 | **Rendimiento Estrés (150 usuarios)** | 5 | 3 | 2 | 5 | 0 | Apache JMeter 5.6.3 |
@@ -50,7 +57,7 @@
 > 
 > **Herramientas de gestión y pruebas E2E:**
 > - La suite E2E de Selenium (`frontend/e2e/critical-flows.e2e.test.ts`) se ejecutó realmente en esta auditoría sobre el frontend compilado: **corrida 1 = 4 aprobadas / 3 fallidas**, **corrida final = 7 aprobadas / 0 fallidas** (ver sección 6).
-> - **Testomat.io:** proyecto LabTrack T3, 65 casos importados, 61 passed trasladados del CSV y 4 pending de validación humana; capturas reales en `docs/evidencias-pruebas/testomatio/`. La matriz propone cinco casos de IA, pero el CSV importado solo incluye IA-01 a IA-04; IA-05 no fue importado. La corrida permanece abierta para conservar los pending. No constituye una nueva ejecución de Selenium o Vitest. **Katalon Studio y TestLink no fueron ejecutados**.
+> - **Testomat.io:** proyecto LabTrack T3, 65 casos importados, 61 passed trasladados del CSV y 4 pending de ejecución; capturas reales en `docs/evidencias-pruebas/testomatio/`. La matriz propone cinco casos de IA, pero el CSV importado solo incluye IA-01 a IA-04; IA-05 no fue importado y permanece sin importar. La corrida permanece abierta para conservar los pending. No constituye una nueva ejecución de Selenium o Vitest. **Katalon Studio y TestLink no fueron ejecutados**.
 
 ## 2.1 Trazabilidad del alcance declarado sin casos aprobados
 
@@ -67,17 +74,25 @@
 
 ---
 
-## 3. Casos Sugeridos por Inteligencia Artificial (Validación Humana PENDIENTE)
+## 3. Casos Sugeridos por Inteligencia Artificial y Validación Humana de Diseño
 
-De acuerdo con el procedimiento de aseguramiento de calidad, los casos exploratorios propuestos por algoritmos de IA requieren validación formal de un analista antes de ser promovidos a la suite oficial:
+Con fecha **2026-11-09**, el equipo de aseguramiento de calidad llevó a cabo la revisión formal del diseño técnico de los casos exploratorios y de borde propuestos mediante asistencia de inteligencia artificial (IA-01 a IA-05). La revisión se realizó contrastando la lógica de cada caso frente al código fuente y pruebas implementadas en `backend/src` y `frontend/src`.
 
-| ID | Caso Sugerido por IA | Prioridad | Nivel Propuesto | Comportamiento Esperado | Validación Humana |
-|---|---|:---:|---|---|:---:|
-| **IA-01** | Dos reservas contiguas deben ser válidas | P1 | Backend + Frontend | Si un estudiante o equipo tiene reserva 08:00–10:00, una nueva solicitud 10:00–12:00 debe aceptarse porque los extremos contiguos no se solapan. | **PENDIENTE de validación humana** |
-| **IA-02** | Duración cero debe rechazarse antes del envío | P1 | Frontend (UI) | Formulario de reserva con `startTime == endTime` debe bloquear el botón de confirmación y advertir duración inválida en el cliente. | **PENDIENTE de validación humana** |
-| **IA-03** | Límites exactos de atención (07:00 y 22:00) | P2 | Backend + Frontend | Petición que inicie exactamente a las 07:00 o culmine exactamente a las 22:00 debe ser admitida; reservas a las 06:59 o 22:01 deben rechazarse con HTTP 400. | **PENDIENTE de validación humana** |
-| **IA-04** | Normalización de código con espacios y minúsculas | P2 | Backend (API) | Si el usuario ingresa `"  20240001  "`, el sistema debe aplicar `trim()` y reconocer el código sin arrojar error 401 indebido. | **PENDIENTE de validación humana** |
-| **IA-05** | Reintento automático con token JWT expirado | P1 | Frontend + E2E | Si la sesión caduca mientras el usuario navega el catálogo, el cliente debe limpiar el almacenamiento local y redirigir limpiamente a `/login`. | **PENDIENTE de validación humana** |
+> [!IMPORTANT]
+> **Aclaración de aseguramiento de calidad:**  
+> La validación humana registrada a continuación corresponde exclusivamente al **diseño técnico del caso** (verificación de coherencia conceptual, precondiciones, reglas de negocio y adecuación arquitectónica frente a la base de código).  
+> **Validar el diseño NO significa que el caso haya sido ejecutado ni que esté aprobado (passed).** Su estado de ejecución formal se mantiene estrictamente como **no ejecutado** para preservar la integridad de la auditoría y evitar falsear o inventar resultados de pruebas que no fueron corridas.  
+> Asimismo, **el caso IA-05 sigue sin importarse a Testomat.io** (el proyecto en Testomat.io solo aloja los casos IA-01 a IA-04 en estado pending).
+
+### Tabla de Validación Humana de Casos IA
+
+| ID | Caso Sugerido por IA | Prioridad | Nivel Propuesto | Comportamiento Esperado y Análisis contra Código | Veredicto del Diseño | Corrección / Ajuste Aplicado | Fecha | Revisado por | Estado de Ejecución |
+|---|---|:---:|---|---|:---:|---|:---:|---|:---:|
+| **IA-01** | Dos reservas contiguas deben ser válidas | P1 | Backend + Frontend | Si un estudiante o equipo tiene reserva 08:00–10:00, una nueva solicitud 10:00–12:00 debe aceptarse porque los extremos contiguos no se solapan. En `backend/src/reservations/reservations.service.ts`, la consulta de solapamiento usa operadores estrictos (`startTime < dto.endTime` y `endTime > dto.startTime`); los extremos contiguos (`10:00 == 10:00`) no colisionan. | **Válido** | Ninguna. El diseño es conforme con la lógica de negocio del backend. | 2026-11-09 | equipo (revisión asistida por agente, confirmada por el equipo) | **No ejecutado** |
+| **IA-02** | Duración cero debe rechazarse antes del envío | P1 | Frontend (UI) | Formulario con `startTime == endTime`. En `frontend/src/pages/NewReservationPage.tsx`, la función `validate()` intercepta el evento submit retornando error si `start >= end`, impidiendo la llamada a la API y mostrando alerta visual en pantalla. El backend además respalda la regla con HTTP 400. Sin embargo, el botón de confirmación en el cliente no se deshabilita (`disabled`) reactivamente por duración cero. | **Ajustado** | Se ajusta la especificación del diseño: en el cliente no se bloquea/deshabilita el botón de confirmación en la UI, sino que el formulario intercepta el evento `submit` mediante validación síncrona (`validate()`), detiene el envío y despliega la alerta descriptiva (*“La hora de inicio debe ser anterior a la hora de fin.”*). Se mantiene la salvaguarda de rechazo HTTP 400 en API. | 2026-11-09 | equipo (revisión asistida por agente, confirmada por el equipo) | **No ejecutado** |
+| **IA-03** | Límites exactos del horario (07:00 y 22:00) | P2 | Backend + Frontend | Petición que inicie exactamente a las 07:00 o culmine exactamente a las 22:00 debe admitirse; 06:59 o 22:01 deben rechazarse con HTTP 400. En `backend/src/reservations/reservations.service.ts`, las constantes son `LAB_OPEN = '07:00'` y `LAB_CLOSE = '22:00'`, evaluadas inclusivamente. En frontend `NewReservationPage.tsx` se valida la misma franja. | **Válido** | Ninguna. El diseño describe fielmente las condiciones de frontera implementadas. | 2026-11-09 | equipo (revisión asistida por agente, confirmada por el equipo) | **No ejecutado** |
+| **IA-04** | Normalización de código con espacios y minúsculas | P2 | Backend (API) | Si el usuario ingresa `"  20240001  "` o `"admin01"`. En `backend/src/auth/dto/login.dto.ts`, `@Transform` aplica `trim()`. En `backend/src/auth/auth.service.ts`, `dto.code.trim().toUpperCase()` normaliza el identificador y Prisma consulta con `mode: 'insensitive'`, permitiendo la autenticación legítima. | **Válido** | Ninguna. La normalización en DTO y servicio soporta espacios perimetrales e insensibilidad a mayúsculas/minúsculas. | 2026-11-09 | equipo (revisión asistida por agente, confirmada por el equipo) | **No ejecutado** |
+| **IA-05** | Manejo de sesión con token JWT expirado | P1 | Frontend + E2E | Con un JWT expirado almacenado al cargar una ruta protegida, `api.me()` falla, `AuthContext.tsx` ejecuta `clearSession`, elimina usuario/token y `ProtectedRoute.tsx` redirige a `/login`. Durante navegación activa, `frontend/src/lib/api.ts` genera `ApiError` 401 con el mensaje de sesión expirada; no implementa limpieza ni redirección global para cualquier 401. No hay reintento automático ni refresh token. | **Ajustado** | Se elimina la expectativa de reintento automático y se delimita el diseño validado a la carga inicial de una ruta protegida con JWT expirado. La notificación de sesión expirada existe en la capa API; la limpieza y redirección global durante navegación activa quedan como mejora pendiente, sin afirmar que estén implementadas. **IA-05 sigue sin importarse a Testomat.io**. | 2026-11-09 | equipo (revisión asistida por agente, confirmada por el equipo) | **No ejecutado** |
 
 ---
 
