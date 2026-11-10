@@ -134,8 +134,8 @@ def architecture() -> None:
     ax.text(0.7, 1.78, "Aseguramiento de la calidad", fontsize=10, fontweight="bold", color=NAVY)
 
     tools = [
-        ("Vitest + Supertest", "49 pruebas de API"),
-        ("React Testing Library", "44 pruebas de UI"),
+        ("Vitest + Supertest", "53 pruebas de API"),
+        ("React Testing Library", "48 pruebas de UI"),
         ("Selenium + Chrome", "7 flujos E2E"),
         ("Apache JMeter", "50 usuarios · 60 s"),
         ("SonarQube", "análisis estático"),
@@ -169,12 +169,12 @@ def pyramid() -> None:
     ax.axis("off")
 
     ax.text(0.2, 5.9, "Pirámide de automatización de LabTrack", fontsize=15, fontweight="bold", color=NAVY)
-    ax.text(0.2, 5.55, "100 ejecuciones automatizadas sobre tres niveles complementarios", fontsize=9, color=SLATE)
+    ax.text(0.2, 5.55, "108 ejecuciones automatizadas sobre tres niveles complementarios", fontsize=9, color=SLATE)
 
     bands = [
         ([(4.0, 3.65), (6.0, 3.65), (5.45, 5.0), (4.55, 5.0)], "7 E2E", "Selenium", TEAL, 9.5),
-        ([(2.6, 2.0), (7.4, 2.0), (6.3, 3.65), (3.7, 3.65)], "44 pruebas de interfaz", "Vitest + React Testing Library", NAVY_LIGHT, 11),
-        ([(0.7, 0.35), (9.3, 0.35), (7.4, 2.0), (2.6, 2.0)], "49 pruebas de API", "Vitest + Supertest + SWC", NAVY, 11),
+        ([(2.6, 2.0), (7.4, 2.0), (6.3, 3.65), (3.7, 3.65)], "48 pruebas de interfaz", "Vitest + React Testing Library", NAVY_LIGHT, 11),
+        ([(0.7, 0.35), (9.3, 0.35), (7.4, 2.0), (2.6, 2.0)], "53 pruebas de API", "Vitest + Supertest + SWC", NAVY, 11),
     ]
     for points, title, subtitle, color, title_size in bands:
         ax.add_patch(Polygon(points, closed=True, facecolor=color, edgecolor=WHITE, linewidth=3))
@@ -191,8 +191,15 @@ def pyramid() -> None:
 
 
 def coverage() -> None:
-    backend = json.loads((BASE.parent / "backend" / "coverage" / "coverage-summary.json").read_text(encoding="utf-8"))["total"]
-    frontend = json.loads((BASE.parent / "frontend" / "coverage" / "coverage-summary.json").read_text(encoding="utf-8"))["total"]
+    backend_path = BASE.parent / "backend" / "coverage" / "coverage-summary.json"
+    if not backend_path.exists():
+        backend_path = BASE / "evidencias-pruebas" / "unitarias" / "cobertura" / "backend-coverage-summary.json"
+    frontend_path = BASE.parent / "frontend" / "coverage" / "coverage-summary.json"
+    if not frontend_path.exists():
+        frontend_path = BASE / "evidencias-pruebas" / "unitarias" / "cobertura" / "frontend-coverage-summary.json"
+
+    backend = json.loads(backend_path.read_text(encoding="utf-8"))["total"]
+    frontend = json.loads(frontend_path.read_text(encoding="utf-8"))["total"]
 
     metrics = ["Sentencias", "Ramas", "Funciones"]
     backend_values = [
@@ -209,8 +216,8 @@ def coverage() -> None:
     x = range(len(metrics))
     width = 0.36
     fig, ax = plt.subplots(figsize=(9, 4.6), dpi=180)
-    bars_backend = ax.bar([i - width / 2 for i in x], backend_values, width, color=NAVY, label="Backend (49 pruebas)")
-    bars_frontend = ax.bar([i + width / 2 for i in x], frontend_values, width, color=TEAL, label="Frontend (44 pruebas)")
+    bars_backend = ax.bar([i - width / 2 for i in x], backend_values, width, color=NAVY, label="Backend (53 pruebas)")
+    bars_frontend = ax.bar([i + width / 2 for i in x], frontend_values, width, color=TEAL, label="Frontend (48 pruebas)")
 
     for bars in (bars_backend, bars_frontend):
         for bar in bars:
@@ -241,7 +248,7 @@ def coverage() -> None:
 
 def execution_summary() -> None:
     labels = ["API\nSupertest", "UI\nRTL", "E2E\nSelenium", "Carga\nJMeter"]
-    values = [49, 44, 7, 5]
+    values = [53, 48, 7, 5]
     colors = [NAVY, NAVY_LIGHT, TEAL, AMBER]
     fig, ax = plt.subplots(figsize=(8.6, 3.9), dpi=180)
     bars = ax.bar(labels, values, color=colors, width=0.58)
