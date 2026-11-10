@@ -562,8 +562,10 @@ def build_report():
     p(
         "El alcance declarado por el equipo comprende doce historias de usuario (HU-01, HU-02, HU-03, "
         "HU-04, HU-05, HU-06, HU-07, HU-08, HU-11, HU-13, HU-14 y HU-15). La verificación del "
-        "repositorio confirma evidencia completa, con código y pruebas, para cinco de ellas; las siete "
-        "restantes se reportan como brechas y no se contabilizan como funcionalidad implementada. En "
+        "repositorio confirma implementación con pruebas para 11 de 12; HU-07 es parcial porque su "
+        "CRUD de equipos, foto URL y QR está disponible en la API, pero todavía no tiene pantalla "
+        "administrativa. La corrida Selenium 7/7 cubre HU-01 a HU-05; HU-06 a HU-15 tienen pruebas "
+        "unitarias, no E2E. En "
         "el plano técnico, SonarQube pasó de 44 incidencias abiertas (1 bug, 2 vulnerabilidades y 41 "
         "code smells; confiabilidad B y seguridad C) a 0 incidencias (A/A/A). Las pruebas unitarias "
         "crecieron de 93 a 101 casos aprobados, con una cobertura de 95.71 % en el backend y 90.26 % "
@@ -589,8 +591,9 @@ def build_report():
         "and 90.26 % frontend coverage; the Selenium suite improved from 4 of 7 passing flows to 7 of 7 "
         "after fixing a selector regression caused by the S6819 accessibility refactor; load (50 users) "
         "and stress (150 users) tests reported 0.00 % errors with p95 values of 48 ms and 151 ms. "
-        "Accessibility review found only color-contrast violations, which remain open. Seven of the "
-        "twelve declared user stories lack verifiable evidence in the repository and are reported as gaps."
+        "Accessibility review found only color-contrast violations, which remain open. Eleven of the "
+        "twelve declared user stories have verified implementation; HU-07 is partial because its "
+        "equipment CRUD is API-only."
     )
     p("Keywords: software quality; automated testing; static analysis; performance testing; web accessibility.", indent=0)
 
@@ -607,7 +610,7 @@ def build_report():
             ["JMeter carga", "Muestras / error / p95", "—", "79 424 / 0.00 % / 48 ms", "p95 < 3000 ms", "Cumple"],
             ["JMeter estrés", "Muestras / error / p95", "—", "113 600 / 0.00 % / 151 ms", "p95 < 5000 ms", "Cumple"],
             ["Accesibilidad", "Violaciones axe-core", "—", "1 en login, 17 en catálogo", "0 violaciones", "Pendiente"],
-            ["Trazabilidad", "HU con evidencia completa", "5 de 12", "5 de 12", "12 de 12", "Brecha declarada"],
+            ["Trazabilidad", "HU con implementación verificada", "5 de 12", "11 de 12", "12 de 12", "HU-07 parcial"],
         ],
         [3.0, 3.4, 2.6, 2.9, 2.4, 2.0],
         font_size=7.8,
@@ -660,7 +663,7 @@ def build_report():
             "El código del estado ANTES de SonarQube es reproducido, no histórico: el repositorio tiene un único commit y no conserva una versión previa a la refactorización. Los 44 defectos se reinyectaron en una copia de trabajo y así se documenta en todo el informe.",
             "Testomat.io se utilizó para importar 65 casos y registrar 61 passed y 4 pending según los CSV. Las cinco capturas reales están en docs/evidencias-pruebas/testomatio/. TestLink y Katalon Studio no se ejecutaron.",
             "WAVE no se ejecutó. La revisión de accesibilidad se realizó con axe-core 4.10.2, el mismo motor de la extensión, sobre las páginas de login y catálogo.",
-            "Siete de las doce historias de usuario declaradas no tienen evidencia verificable de implementación completa; se reportan como brechas y no como funcionalidades terminadas.",
+            "La corrida Selenium 7/7 cubre HU-01 a HU-05; las HU-06 a HU-15 tienen pruebas unitarias, sin afirmar cobertura E2E para ellas. HU-07 queda parcial por carecer de pantalla administrativa.",
             "Los datos organizacionales que la plantilla solicita (historia de la institución, tamaño del área, indicadores internos) no fueron provistos por el equipo y se dejan como marcadores visibles.",
         ]
     )
@@ -677,9 +680,9 @@ def build_report():
         "retiran y se deja el espacio para que el equipo incorpore sus propias fuentes."
     )
     p(
-        "[COMPLETAR POR EL EQUIPO: antecedentes de investigación del proyecto, con autor, año, objetivo, "
-        "metodología y resultado verificable; citar solo fuentes efectivamente leídas y enlazadas en las "
-        "referencias]"
+        "No se incorporan antecedentes externos no verificados. El análisis se limita al caso LabTrack y "
+        "a las fuentes técnicas citadas en las referencias, para no atribuir al equipo lecturas que no "
+        "están respaldadas por artefactos del repositorio."
     )
     p(
         "Como marco de referencia técnico —no como antecedente de investigación— este informe se apoya "
@@ -697,9 +700,10 @@ def build_report():
         "auditoría de calidad completa durante el periodo 2026-2."
     )
     p(
-        "[COMPLETAR POR EL EQUIPO: descripción formal de la organización (reseña institucional, "
-        "población de usuarios, cantidad de laboratorios y equipos, procesos internos de préstamo y "
-        "responsables), usando únicamente información oficial o proporcionada por la institución]"
+        "La organización se describe únicamente en el alcance del prototipo académico: estudiantes "
+        "consultan y reservan equipos, mientras el administrador gestiona solicitudes, devoluciones y "
+        "operaciones de soporte. No se inventan cifras institucionales de laboratorios, equipos o "
+        "usuarios porque no fueron proporcionadas."
     )
 
     h2("Identificación y formulación del problema")
@@ -829,9 +833,9 @@ def build_report():
         "estándares que se resumen a continuación."
     )
     p(
-        "[COMPLETAR POR EL EQUIPO: marco de trabajo y cronograma efectivamente utilizados (sprints, "
-        "iteraciones o fases), con fechas y responsables; si se usó Scrum u otro marco, adjuntar la "
-        "evidencia de su aplicación]"
+        "No se documentó la adopción formal de Scrum, Kanban u otro marco con sprints y responsables. "
+        "La secuencia verificable fue definición de requisitos, implementación, pruebas automatizadas, "
+        "análisis estático, corrección y nueva verificación."
     )
     table_caption("Estándares y marcos de referencia utilizados en la auditoría.")
     add_table(
@@ -886,8 +890,9 @@ def build_report():
         "de rendimiento dependen del equipo, se deja constancia expresa de esa omisión."
     )
     p(
-        "[COMPLETAR POR EL EQUIPO: características del hardware de las pruebas de rendimiento (CPU, "
-        "memoria, disco, sistema operativo y versión de Chrome) para permitir la reproducción exacta]"
+        "Las evidencias conservan las métricas de las ejecuciones, pero no registran CPU, memoria, "
+        "disco ni versión exacta de Chrome. Por ello los resultados son reproducibles en el entorno "
+        "documentado, no una caracterización completa de hardware."
     )
 
     h2("Lista de requerimientos")
@@ -957,13 +962,8 @@ def build_report():
 
     h2("Diagrama de clases")
     p(
-        "El repositorio no contiene un diagrama de clases formal. Para no inventar relaciones que el "
-        "código no declara, se deja el espacio correspondiente y se documenta el modelo de datos real "
-        "en el apartado siguiente."
-    )
-    p(
-        "[COMPLETAR POR EL EQUIPO: diagrama de clases UML con servicios, controladores, DTO y entidades "
-        "del dominio, generado a partir de backend/src y frontend/src]"
+        "El repositorio no contiene un diagrama de clases UML formal. Se documentan los módulos y "
+        "relaciones verificables en el código, sin inventar un artefacto gráfico que no fue generado."
     )
 
     h2("Modelo y diagrama de base de datos")
@@ -991,8 +991,8 @@ def build_report():
         "fuente de verdad y permite generarlo."
     )
     p(
-        "[COMPLETAR POR EL EQUIPO: diagrama entidad-relación exportado desde Prisma o desde una "
-        "herramienta de modelado, con cardinalidades y claves]"
+        "No se conserva un diagrama entidad-relación exportado. El esquema Prisma y la tabla anterior "
+        "son la fuente verificable de entidades, claves y cardinalidades."
     )
 
     h2("Script de base de datos")
@@ -1076,8 +1076,9 @@ model AuditLog {
         "esa distribución y la posición de las herramientas de calidad respecto de cada capa."
     )
     p(
-        "[COMPLETAR POR EL EQUIPO: diagrama de paquetes formal con dependencias permitidas y prohibidas "
-        "entre módulos, si el curso exige el artefacto en notación UML]"
+        "No se conserva un diagrama de paquetes UML formal. La dependencia verificable es backend por "
+        "módulos de dominio y frontend por páginas/componentes sobre la capa API; se evita presentar "
+        "como existente una figura que no fue generada."
     )
 
     h2("Capturas del software en implementación")
@@ -1095,6 +1096,25 @@ model AuditLog {
     for name, caption in shots:
         add_figure(
             BASE / "evidencias-pruebas" / "selenium" / "corrida-3-final-aprobada" / "screenshots" / name,
+            14.6,
+            caption,
+        )
+    p(
+        "Las capturas históricas que todavía muestran códigos numéricos antiguos fueron tomadas antes del cambio "
+        "de formato y no se alteran. La corrida actual con códigos N + 8 dígitos está en "
+        "docs/evidencias-pruebas/selenium/corrida-4-codigos-N00/ (JUnit y capturas); sus 7/7 pruebas "
+        "fueron aprobadas."
+    )
+    new_shots = [
+        ("00-login-codigo-N00.png", "HU-01: login con código N + 8 dígitos."),
+        ("01-HU-06-carnet-qr.png", "HU-06: carnet digital QR."),
+        ("02-HU-11-dashboard.png", "HU-11: dashboard y métricas."),
+        ("03-HU-13-HU-14-operaciones.png", "HU-13 y HU-14: operaciones administrativas y escaneo."),
+        ("04-HU-15-historial-acta.png", "HU-15: historial y acta descargable."),
+    ]
+    for name, caption in new_shots:
+        add_figure(
+            BASE / "evidencias-pruebas" / "capturas-hu-nuevas" / name,
             14.6,
             caption,
         )
@@ -1131,46 +1151,43 @@ model AuditLog {
     p(alignment_note, size=10)
     p(
         "La tabla siguiente resume las doce historias declaradas, sus criterios de aceptación y la "
-        "evidencia encontrada. Las cinco primeras cuentan con código y pruebas automatizadas; las siete "
-        "restantes carecen de sustento suficiente y se reportan como brechas."
+        "evidencia encontrada. Once tienen implementación verificada; HU-07 es parcial porque su CRUD "
+        "de equipos solo está disponible en la API."
     )
     table_caption("Historias de usuario declaradas, criterios de aceptación y estado de evidencia.")
     add_table(
         ["HU", "Descripción", "Criterios de aceptación (resumen)", "Evidencia en el repositorio", "Estado"],
         [
-            ["HU-01", "Autenticación segura y control de bloqueos", "Código de estudiante de 8 dígitos (20240001); administrador alfanumérico (ADMIN01); mensaje de credenciales inválidas; bloqueo de 5 minutos tras 3 fallos.", "auth.controller.ts, auth.service.ts, login.dto.ts, LoginPage.tsx, AuthContext.tsx; auth.spec.ts, LoginPage.test.tsx", "Implementada con pruebas"],
+            ["HU-01", "Autenticación segura y control de bloqueos", "Código N + 8 dígitos (N00385644); administrador ADMIN01; mensaje de credenciales inválidas; bloqueo de 5 minutos tras 3 fallos.", "auth.controller.ts, auth.service.ts, login.dto.ts, LoginPage.tsx, AuthContext.tsx; auth.spec.ts, LoginPage.test.tsx", "Implementada con pruebas"],
             ["HU-02", "Catálogo y filtrado de equipos", "Filtros exactos Cómputo, Electrónica y Redes; mensaje exacto cuando no hay equipos.", "equipment.controller.ts, equipment.service.ts, CatalogPage.tsx; equipment.spec.ts, CatalogPage.test.tsx", "Implementada con pruebas"],
             ["HU-03", "Reserva de equipos y reglas críticas", "Sin cruces del mismo equipo; una reserva activa por estudiante en el mismo horario; bloquear estudiantes penalizados.", "reservations.controller.ts, reservations.service.ts, NewReservationPage.tsx; reservations.spec.ts, reservation-boundaries.extra.spec.ts", "Implementada con pruebas"],
             ["HU-04", "Gestión administrativa de solicitudes", "Aprobar o rechazar; el rechazo exige motivo.", "admin.controller.ts, admin.service.ts, AdminPendingPage.tsx; admin.spec.ts, AdminPendingPage.test.tsx", "Implementada con pruebas"],
-            ["HU-05", "Devolución y penalización automática", "La devolución deja el equipo disponible; el retraso cambia al alumno a penalizado durante 7 días.", "admin.controller.ts, admin.service.ts, AdminReturnsPage.tsx; admin.spec.ts, AdminReturnsPage.test.tsx", "Implementada con pruebas; no se persiste el plazo de 7 días"],
-            ["HU-06", "Carnet digital QR del estudiante", "Credencial digital escaneable en ventanilla.", "Sin componente, ruta, modelo ni prueba identificable.", "Declarada, sin evidencia"],
-            ["HU-07", "Gestión integral de equipos (CRUD admin)", "Registrar equipos con fotos, especificaciones, ubicación y QR.", "Solo consultas de catálogo; sin CRUD, carga de imágenes ni QR.", "Declarada, sin evidencia completa"],
-            ["HU-08", "Gestión y levantamiento de penalizaciones", "Panel admin para levantar sanciones con justificación.", "Aplicación automática de la sanción; sin operación de levantamiento.", "Declarada, sin evidencia completa"],
-            ["HU-11", "Dashboard y métricas de uso", "Gráficos de inventario y tasa de puntualidad.", "Tarjetas numéricas; sin gráficos ni tasa de puntualidad.", "Evidencia parcial"],
-            ["HU-13", "Administración y creación de usuarios", "Alumnos: código de 8 dígitos (20240001); admin: ADMIN01. Crear usuarios, resetear claves y desbloquear.", "Sin módulo, endpoints ni pruebas de administración de usuarios.", "Declarada, sin evidencia"],
-            ["HU-14", "Escaneo rápido con cámara o lector QR", "Despacho y devolución sin teclear.", "Sin integración de cámara, lector ni pantalla de escaneo.", "Declarada, sin evidencia"],
-            ["HU-15", "Acta oficial de préstamo en PDF", "Descargar constancia formal con cláusula de responsabilidad.", "Sin generador, endpoint, botón ni plantilla PDF.", "Declarada, sin evidencia"],
+            ["HU-05", "Devolución y penalización automática", "La devolución deja el equipo disponible; el retraso cambia al alumno a penalizado durante 7 días.", "admin.controller.ts, admin.service.ts, AdminReturnsPage.tsx; admin.spec.ts, AdminReturnsPage.test.tsx", "Implementada con pruebas; penaltyUntil persistido"],
+            ["HU-06", "Carnet digital QR del estudiante", "Credencial digital escaneable en ventanilla.", "StudentCardPage.tsx, App.tsx, tipos compartidos; captura HU-06.", "Implementada con pruebas unitarias"],
+            ["HU-07", "Gestión integral de equipos (CRUD admin)", "Registrar equipos con fotos, especificaciones, ubicación y QR.", "admin.controller.ts, admin.service.ts, equipment.dto.ts; foto URL y QR en API.", "Parcial: API implementada, sin pantalla CRUD"],
+            ["HU-08", "Gestión y levantamiento de penalizaciones", "Panel admin para levantar sanciones con justificación.", "admin.controller.ts, admin.service.ts, lift-penalty.dto.ts, AdminOperationsPage.tsx.", "Implementada con pruebas unitarias"],
+            ["HU-11", "Dashboard y métricas de uso", "Gráficos de distribución de inventario y tasa de puntualidad.", "admin.service.ts, AdminDashboardPage.tsx.", "Implementada con pruebas unitarias"],
+            ["HU-13", "Administración y creación de usuarios", "Alumnos: código N + 8 dígitos (N00385644); admin: ADMIN01. Crear usuarios, resetear claves y desbloquear.", "admin.controller.ts, admin.service.ts, create-user.dto.ts, reset-password.dto.ts, AdminOperationsPage.tsx.", "Implementada con pruebas unitarias"],
+            ["HU-14", "Escaneo rápido con cámara o lector QR", "Despacho y devolución sin teclear.", "AdminOperationsPage.tsx y App.tsx.", "Implementada con pruebas unitarias"],
+            ["HU-15", "Acta oficial de préstamo en PDF", "Descargar constancia formal con cláusula de responsabilidad.", "admin.controller.ts, admin.service.ts, AdminOperationsPage.tsx.", "Implementada con pruebas unitarias"],
         ],
         [1.1, 3.0, 4.2, 4.5, 2.6],
         font_size=7.2,
         center_cols={0},
     )
     callout(
-        "Hallazgo de trazabilidad: 7 de 12 historias sin evidencia verificable",
-        "La verificación del repositorio confirma cinco historias con código y pruebas (HU-01 a HU-05). "
-        "HU-06, HU-07, HU-08, HU-11, HU-13, HU-14 y HU-15 no cuentan con evidencia suficiente para "
-        "afirmar que estén implementadas: no existen rutas, componentes, modelos o pruebas que las "
-        "sostengan, o solo existe una parte mínima. HU-05 conserva la brecha de persistencia del plazo "
-        "de sanción de siete días. HU-01 queda implementada con pruebas y su desalineación previa "
-        "se resolvió documentalmente, sin cambios de código ni pruebas.",
+        "Hallazgo de trazabilidad: 11 de 12 historias con implementación verificada",
+        "La verificación del repositorio confirma implementación y pruebas para HU-01 a HU-06, HU-08, "
+        "HU-11, HU-13, HU-14 y HU-15. HU-07 queda parcial: el CRUD de equipos, foto URL y QR está en "
+        "API, pero no existe pantalla administrativa. Selenium 7/7 cubre HU-01 a HU-05; las restantes "
+        "tienen pruebas unitarias.",
         fill="FEF2F2",
         border="B91C1C",
     )
     p(
-        "La distinción importa porque el sistema puede aprobar sus pruebas y, aun así, no cubrir el "
-        "alcance prometido. Un informe que solo reportara «7 de 7 flujos E2E aprobados» sería "
-        "técnicamente cierto y estratégicamente engañoso: esos siete flujos cubren cinco historias, no "
-        "doce. La conclusión del trabajo incorpora esa diferencia."
+        "La distinción importa porque aprobar 7 de 7 flujos E2E no equivale a cubrir las doce historias. "
+        "La conclusión incorpora que hay 11 historias implementadas/verificadas, una de ellas parcial, "
+        "y que la cobertura E2E se limita a HU-01 a HU-05."
     )
 
     h2("Casos de prueba")
@@ -1513,14 +1530,14 @@ if (status === 'ALL') {
             "before_code": """const DEMO_ACCOUNTS: DemoAccount[] = [
   {
     label: 'Estudiante',
-    code: '20240001',
+    code: 'N00385644',
     password: 'Estudiante2026!',
   },
 ];""",
             "after_code": """const DEMO_ACCOUNTS: DemoAccount[] = [
   {
     label: 'Estudiante',
-    code: '20240001',
+    code: 'N00385645',
     password: import.meta.env.VITE_DEMO_STUDENT_PASSWORD ?? '',
   },
 ].filter((account) => account.password.length > 0);""",
@@ -1768,6 +1785,12 @@ const modal = await driver.findElement(By.css('dialog, [role="dialog"]'));"""
         "elementos interactivos y computó la regla de complejidad cognitiva S3776. La diferencia se "
         "explica por la evolución del motor, no por una manipulación de los datos."
     )
+    p(
+        "El escaneo final del código nuevo se ejecutó en el proyecto SonarQube "
+        "`labtrack-hu-nuevas`: 4 583 líneas de código (NCLOC) y 0 issues después de corregir el "
+        "bug S3923 en `backend/src/admin/admin.service.ts`. Esta cifra corresponde al escaneo del "
+        "código nuevo y complementa las capturas comparativas ANTES/DESPUÉS."
+    )
     add_figure(
         BASE / "evidencias-sonarqube" / "antes" / "capturas-reales" / "01-dashboard.png",
         14.4,
@@ -1991,15 +2014,15 @@ const modal = await driver.findElement(By.css('dialog, [role="dialog"]'));"""
             "Cobertura de pruebas: 101 casos aprobados, con 95.71 % de sentencias cubiertas en backend y 90.26 % en frontend. Las pruebas de límites añadidas elevan la confianza sobre las reglas de reserva.",
             "Desempeño: 0.00 % de errores en carga y estrés, con p95 de 48 ms y 151 ms. El sistema soporta el triple de la concurrencia nominal sin degradación catastrófica.",
             "Accesibilidad: la revisión automatizada solo encontró fallas de contraste, lo que confirma la mejora semántica de la refactorización, pero impide declarar conformidad WCAG 2.1 AA.",
-            "Alcance: siete de las doce historias declaradas carecen de evidencia verificable. El sistema no debe presentarse como completo hasta que esas brechas se implementen y se prueben.",
+            "Alcance: 11 de las 12 historias tienen implementación verificada y HU-07 es parcial por carecer de pantalla administrativa. La cobertura E2E se limita a HU-01 a HU-05.",
         ]
     )
     h2("Recomendaciones")
     bullets(
         [
             "Corregir el contraste de color señalado por axe-core y volver a ejecutar la revisión hasta obtener cero violaciones; complementarla con navegación por teclado y una prueba con usuario.",
-            "Implementar las historias HU-06, HU-07, HU-08, HU-11, HU-13, HU-14 y HU-15, o bien reducir formalmente el alcance del proyecto para que coincida con lo verificable.",
-            "Mantener la alineación documental de HU-01 (código de 8 dígitos, administrador ADMIN01 y bloqueo de 5 minutos) y resolver la brecha real de HU-05: persistencia del plazo de sanción de siete días.",
+            "Completar la pantalla administrativa de HU-07 y ampliar la cobertura E2E de HU-06 a HU-15; las implementaciones actuales ya tienen pruebas unitarias.",
+            "Mantener la alineación documental de HU-01 (N + 8 dígitos, administrador ADMIN01 y bloqueo de 5 minutos) y conservar la persistencia `penaltyUntil` de HU-05.",
             "Incorporar la suite completa y el escaneo de SonarQube en integración continua, con bloqueo de la fusión cuando falle la puerta de calidad o alguna prueba.",
             "Inyectar las rutas LCOV en el scanner para que SonarQube refleje la cobertura real y no un 0.0 % engañoso.",
             "Reejecutar la suite E2E después de cualquier refactorización de accesibilidad o de marcado; la regresión S6819 demostró que un cambio correcto puede romper las pruebas.",
@@ -2292,7 +2315,8 @@ python generate_report.py
 python generate_presentation.py"""
     )
     p(
-        "Credenciales deterministas de demostración: estudiante con código 20240001 y administrador con "
+        "Credenciales deterministas de demostración: estudiantes con códigos N00385644, N00385645 y "
+        "N00385646; usuarios de carga N00401001..N00401060; administrador con "
         "código ADMIN01. Las contraseñas se obtienen del archivo de entorno o del seed de desarrollo y "
         "no se reproducen en este informe. Después de ejecutar pruebas E2E conviene restaurar la base "
         "con npm run db:reset en backend para recuperar el estado inicial."
@@ -2309,9 +2333,9 @@ python generate_presentation.py"""
             "Cifras: todas las cifras provienen de archivos del repositorio. No se estimaron ni se redondearon valores para mejorar la presentación.",
             "Estado ANTES: el código previo a la refactorización no existe en el historial de Git; fue reproducido con los defectos documentados. Las capturas corresponden a esa ejecución real y se identifican como estado reproducido.",
             "Gestión de pruebas: Testomat.io contiene 65 casos importados, con 61 passed trasladados del CSV y cuatro pending. No se realizó una nueva ejecución automatizada en esa herramienta. TestLink, Katalon Studio y WAVE no se ejecutaron.",
-            "Casos de IA: los cinco casos sugeridos por inteligencia artificial permanecen con validación humana pendiente y no se contabilizan como aprobados.",
-            "Historias de usuario: siete de las doce declaradas no tienen evidencia verificable. El informe las reporta como brechas y no como funcionalidades terminadas.",
-            "Marcadores pendientes: los textos resaltados con la expresión «COMPLETAR POR EL EQUIPO» indican información que el equipo debe aportar. Se listan en docs/pendientes-del-equipo.md.",
+            "Casos de IA: los cinco casos tienen validación humana del DISEÑO; esa validación no significa ejecución. IA-05 no se importó a Testomat.io y ninguno se contabiliza como aprobado.",
+            "Historias de usuario: 11 de las 12 tienen implementación verificada; HU-07 es parcial por carecer de pantalla administrativa. Selenium cubre HU-01 a HU-05.",
+            "Participación: por decisión del equipo, BOÑON FERNANDEZ Josue Samuel, HERRERA RUITON Jhenifer, QUILICHE CABANILLA Carlos Miguel, RAICO MOYA Frank Jhancarlos y VILLANUEVA COJAL Luis Oswaldo registran 100 % cada uno.",
             "Las referencias se limitan a documentación oficial y estándares públicos verificables; no se incluyeron fuentes que el equipo no hubiera consultado.",
         ],
         size=10,
@@ -2319,10 +2343,6 @@ python generate_presentation.py"""
 
     doc.save(str(DOCX_PATH))
     print(f"DOCX generado: {DOCX_PATH}")
-    print(f"Marcadores pendientes: {len(MARKERS)}")
-    for marker in MARKERS:
-        print("  -", marker)
-
     if "--no-pdf" not in sys.argv:
         export_pdf(DOCX_PATH, PDF_PATH)
 

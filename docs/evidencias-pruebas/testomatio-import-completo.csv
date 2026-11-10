@@ -1,12 +1,12 @@
-﻿ID,Title,Suite,Priority,Preconditions,Steps,Expected result,Automation,Status
-CP-01,Inicio de sesión válido de estudiante,H,P1,Usuario `20240001` activo,"Código `20240001` y clave correcta; clic en ""Ingresar""","HTTP 200, JWT emitido, usuario sin `passwordHash`; redirección a `/catalogo",API `auth.spec.ts` · E2E `03-catalogo-estudiante.png,Aprobado
+ID,Title,Suite,Priority,Preconditions,Steps,Expected result,Automation,Status
+CP-01,Inicio de sesión válido de estudiante,H,P1,Usuario `N00385644` activo,"Código `N00385644` y clave correcta; clic en ""Ingresar""","HTTP 200, JWT emitido, usuario sin `passwordHash`; redirección a `/catalogo",API `auth.spec.ts` · E2E `03-catalogo-estudiante.png,Aprobado
 CP-02,Inicio de sesión válido de administrador,H,P1,Usuario `ADMIN01` activo,Credenciales correctas de administrador,"HTTP 200, rol `ADMIN`, acceso habilitado al panel de administración",API `auth.spec.ts,Aprobado
 CP-03,Credenciales inválidas muestran mensaje exigido,H,P1,Usuario existente,Contraseña errónea,HTTP 401 y mensaje exacto: **“Credenciales inválidas.”** en la interfaz,API `auth.spec.ts` · E2E `01-login-credenciales-invalidas.png,Aprobado
 CP-04,Usuario inexistente no revela existencia,IA,P2,—,Código `99999999` y contraseña cualquiera,HTTP 401 y mismo mensaje: **“Credenciales inválidas.”** (previene enumeración),API `auth.spec.ts,Aprobado
 CP-05,Bloqueo temporal tras 3 intentos fallidos,H,P1,Usuario activo,Tres contraseñas incorrectas consecutivas,Primeros 2 intentos: 401; tercer intento: HTTP 423 `ACCOUNT_LOCKED` y alerta en pantalla,API `auth.spec.ts` · E2E `02-login-cuenta-bloqueada.png,Aprobado
 CP-06,Cuenta bloqueada rechaza incluso clave correcta,H,P1,Cuenta bloqueada por CP-05,Credenciales válidas del usuario,HTTP 423; se mantiene `lockedUntil` en base de datos hasta cumplir el tiempo,API `auth.spec.ts,Aprobado
 CP-07,Validación de campos requeridos,IA,P2,Formulario en blanco,Clic en ingresar sin rellenar campos,HTTP 400 en API; validación visual de campos obligatorios en el cliente,API `auth.spec.ts` · UI `LoginPage.test.tsx,Aprobado
-CP-08,Normalización de espacios en código,IA,P3,Usuario activo,"Código `""  20240001  """,Código saneado por DTO; autenticación exitosa sin errores,API `auth.spec.ts,Aprobado
+CP-08,Normalización de espacios en código,IA,P3,Usuario activo,"Código `""  N00385644  """,Código saneado por DTO; autenticación exitosa sin errores,API `auth.spec.ts,Aprobado
 CP-09,Cierre de sesión (Logout),H,P2,Sesión activa,"Clic en botón ""Cerrar sesión""",Token removido de localStorage; redirección inmediata a `/login,API `auth.spec.ts` · UI `AuthContext,Aprobado
 CP-10,Estudiante restringido de rutas de administrador,H,P1,Sesión de estudiante,Petición a `GET /api/admin/reservations,HTTP 403 Forbidden devuelto por los Guards de NestJS,API `auth.spec.ts` y `admin.spec.ts,Aprobado
 CP-11,Redirección de ruta protegida sin token,H,P1,Sin sesión iniciada,Abrir directamente URL `/catalogo,Redirección automática hacia `/login` por `ProtectedRoute,UI `ProtectedRoute.test.tsx,Aprobado

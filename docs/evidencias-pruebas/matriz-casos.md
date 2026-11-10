@@ -42,7 +42,7 @@ La columna de validación humana permanece pendiente deliberadamente.
 | IA-02 | Duración cero debe rechazarse antes del envío | P1 | Frontend | Pendiente de revisión |
 | IA-03 | Inicio a las 07:00 y fin a las 22:00 | P2 | Backend + frontend | Pendiente de revisión |
 | IA-04 | Código de usuario con espacios y minúsculas | P2 | Backend | Pendiente de revisión |
-| IA-05 | Reintento con token expirado | P1 | Backend + E2E | Pendiente de revisión |
+| IA-05 | Manejo de sesión con token expirado | P1 | Backend + E2E | Diseño validado; no ejecutado; no importado a Testomat.io |
 
 ## Plantilla Katalon
 
