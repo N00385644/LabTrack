@@ -275,8 +275,8 @@ def slide_verdict(prs):
     add_text(slide, Inches(0.6), Inches(5.06), Inches(4.4), Inches(0.26), "LO QUE FALTA PARA CERRAR", 9, RED, True)
     pending = [
         "Contraste WCAG 2.1 AA: axe-core reporta 1 regla pendiente.",
-        "HU-06, 07, 08, 11, 13, 14 y 15 sin código ni pruebas verificables.",
-        "WAVE no se ejecutó; no se declara conformidad total.",
+        "HU-06, 07, 08, 11, 13, 14 y 15 sin evidencia completa.",
+        "HU-05: los 7 días de penalización no están modelados. WAVE pendiente.",
     ]
     y = Inches(5.38)
     for item in pending:
@@ -284,11 +284,12 @@ def slide_verdict(prs):
         add_text(slide, Inches(0.85), y, Inches(11.5), Inches(0.30), item, 10.5, INK)
         y += Inches(0.38)
 
+    add_text(slide, Inches(0.6), Inches(6.55), Inches(12.0), Inches(0.30), "Testomat.io: 65 importados, 61 passed según CSV y 4 pending de validación humana.", 10.5, TEAL_DARK)
     footer(slide)
     add_notes(
         slide,
         "Veredicto honesto: el sistema supera las pruebas en el alcance verificado, pero no se declara "
-        "conformidad total. Las brechas están documentadas y priorizadas en el backlog.",
+        "conformidad total. Las brechas están documentadas y priorizadas en el backlog. HU-01: código de estudiante de 8 dígitos (20240001), administrador ADMIN01 y bloqueo de 5 minutos tras 3 fallos. HU-BR-01: Resuelto por alineacion documental, prioridad Baja, sin cambiar código ni pruebas. Las historias originales del docente no fijan formato ni duración. Testomat.io: corrida d1058425, 61 passed trasladados del CSV y 4 pending; no es una nueva ejecución de Selenium o Vitest. IA-05 sigue propuesto y no está en el CSV importado. Evidencia: docs/evidencias-pruebas/testomatio/.",
     )
 
 

@@ -658,7 +658,7 @@ def build_report():
     bullets(
         [
             "El código del estado ANTES de SonarQube es reproducido, no histórico: el repositorio tiene un único commit y no conserva una versión previa a la refactorización. Los 44 defectos se reinyectaron en una copia de trabajo y así se documenta en todo el informe.",
-            "Testomat.io, TestLink y Katalon Studio no se ejecutaron. Se entrega la plantilla de importación y el archivo CSV, sin fabricar capturas de herramientas que no se abrieron.",
+            "Testomat.io se utilizó para importar 65 casos y registrar 61 passed y 4 pending según los CSV. Las cinco capturas reales están en docs/evidencias-pruebas/testomatio/. TestLink y Katalon Studio no se ejecutaron.",
             "WAVE no se ejecutó. La revisión de accesibilidad se realizó con axe-core 4.10.2, el mismo motor de la extensión, sobre las páginas de login y catálogo.",
             "Siete de las doce historias de usuario declaradas no tienen evidencia verificable de implementación completa; se reportan como brechas y no como funcionalidades terminadas.",
             "Los datos organizacionales que la plantilla solicita (historia de la institución, tamaño del área, indicadores internos) no fueron provistos por el equipo y se dejan como marcadores visibles.",
@@ -1127,6 +1127,8 @@ model AuditLog {
     )
 
     h2("Historias de usuario, criterios de aceptación y trazabilidad")
+    alignment_note = next(line.removeprefix("> ") for line in (BASE / "historias-usuario-implementadas.md").read_text(encoding="utf-8").splitlines() if line.startswith("> Nota de alineacion:"))
+    p(alignment_note, size=10)
     p(
         "La tabla siguiente resume las doce historias declaradas, sus criterios de aceptación y la "
         "evidencia encontrada. Las cinco primeras cuentan con código y pruebas automatizadas; las siete "
@@ -1136,7 +1138,7 @@ model AuditLog {
     add_table(
         ["HU", "Descripción", "Criterios de aceptación (resumen)", "Evidencia en el repositorio", "Estado"],
         [
-            ["HU-01", "Autenticación segura y control de bloqueos", "Código N0 + 8 dígitos; mensaje exacto de credenciales inválidas; bloqueo de 15 minutos tras 3 fallos.", "auth.controller.ts, auth.service.ts, login.dto.ts, LoginPage.tsx, AuthContext.tsx; auth.spec.ts, LoginPage.test.tsx", "Implementada con pruebas; bloqueo configurado en 5 min y sin regex estricta"],
+            ["HU-01", "Autenticación segura y control de bloqueos", "Código de estudiante de 8 dígitos (20240001); administrador alfanumérico (ADMIN01); mensaje de credenciales inválidas; bloqueo de 5 minutos tras 3 fallos.", "auth.controller.ts, auth.service.ts, login.dto.ts, LoginPage.tsx, AuthContext.tsx; auth.spec.ts, LoginPage.test.tsx", "Implementada con pruebas"],
             ["HU-02", "Catálogo y filtrado de equipos", "Filtros exactos Cómputo, Electrónica y Redes; mensaje exacto cuando no hay equipos.", "equipment.controller.ts, equipment.service.ts, CatalogPage.tsx; equipment.spec.ts, CatalogPage.test.tsx", "Implementada con pruebas"],
             ["HU-03", "Reserva de equipos y reglas críticas", "Sin cruces del mismo equipo; una reserva activa por estudiante en el mismo horario; bloquear estudiantes penalizados.", "reservations.controller.ts, reservations.service.ts, NewReservationPage.tsx; reservations.spec.ts, reservation-boundaries.extra.spec.ts", "Implementada con pruebas"],
             ["HU-04", "Gestión administrativa de solicitudes", "Aprobar o rechazar; el rechazo exige motivo.", "admin.controller.ts, admin.service.ts, AdminPendingPage.tsx; admin.spec.ts, AdminPendingPage.test.tsx", "Implementada con pruebas"],
@@ -1145,7 +1147,7 @@ model AuditLog {
             ["HU-07", "Gestión integral de equipos (CRUD admin)", "Registrar equipos con fotos, especificaciones, ubicación y QR.", "Solo consultas de catálogo; sin CRUD, carga de imágenes ni QR.", "Declarada, sin evidencia completa"],
             ["HU-08", "Gestión y levantamiento de penalizaciones", "Panel admin para levantar sanciones con justificación.", "Aplicación automática de la sanción; sin operación de levantamiento.", "Declarada, sin evidencia completa"],
             ["HU-11", "Dashboard y métricas de uso", "Gráficos de inventario y tasa de puntualidad.", "Tarjetas numéricas; sin gráficos ni tasa de puntualidad.", "Evidencia parcial"],
-            ["HU-13", "Administración y creación de usuarios", "Crear alumnos o admins; resetear claves; desbloquear cuentas.", "Sin módulo, endpoints ni pruebas de administración de usuarios.", "Declarada, sin evidencia"],
+            ["HU-13", "Administración y creación de usuarios", "Alumnos: código de 8 dígitos (20240001); admin: ADMIN01. Crear usuarios, resetear claves y desbloquear.", "Sin módulo, endpoints ni pruebas de administración de usuarios.", "Declarada, sin evidencia"],
             ["HU-14", "Escaneo rápido con cámara o lector QR", "Despacho y devolución sin teclear.", "Sin integración de cámara, lector ni pantalla de escaneo.", "Declarada, sin evidencia"],
             ["HU-15", "Acta oficial de préstamo en PDF", "Descargar constancia formal con cláusula de responsabilidad.", "Sin generador, endpoint, botón ni plantilla PDF.", "Declarada, sin evidencia"],
         ],
@@ -1158,9 +1160,9 @@ model AuditLog {
         "La verificación del repositorio confirma cinco historias con código y pruebas (HU-01 a HU-05). "
         "HU-06, HU-07, HU-08, HU-11, HU-13, HU-14 y HU-15 no cuentan con evidencia suficiente para "
         "afirmar que estén implementadas: no existen rutas, componentes, modelos o pruebas que las "
-        "sostengan, o solo existe una parte mínima. Además, HU-01 y HU-05 incumplen dos criterios "
-        "declarados (duración del bloqueo y persistencia del plazo de sanción). El informe no convierte "
-        "esas brechas en funcionalidades: las registra y las prioriza en el backlog.",
+        "sostengan, o solo existe una parte mínima. HU-05 conserva la brecha de persistencia del plazo "
+        "de sanción de siete días. HU-01 queda implementada con pruebas y su desalineación previa "
+        "se resolvió documentalmente, sin cambios de código ni pruebas.",
         fill="FEF2F2",
         border="B91C1C",
     )
@@ -1374,14 +1376,37 @@ model AuditLog {
         6.6,
         "Consola de la corrida final: 7 pruebas aprobadas y 0 fallidas.",
     )
+    h3("Gestión de casos en Testomat.io")
     p(
-        "Herramientas de gestión de pruebas. Testomat.io, TestLink y Katalon Studio no se ejecutaron: "
-        "requieren cuenta o servidor y no formaban parte del entorno disponible. Para no fabricar "
-        "evidencias, se entrega la plantilla de importación y el archivo "
-        "docs/evidencias-pruebas/testomatio-import.csv, listos para cargar los casos cuando la cátedra "
-        "habilite el acceso. Esta limitación se declara también en la conclusión y en las "
-        "recomendaciones."
+        "En el proyecto LabTrack T3 de Testomat.io se importaron 61 casos CP-01 a CP-61 y cuatro "
+        "casos IA-01 a IA-04. La corrida Corrida T3 - automatizada (d1058425) registra 61 passed, "
+        "0 failed, 0 skipped y 4 pending. Los resultados se trasladaron de la columna Status del CSV; "
+        "esta actividad no constituye una nueva ejecución de Selenium o Vitest."
     )
+    p(
+        "Las suites respetan el origen: H contiene 38 casos, IA contiene 23 y Casos sugeridos por IA "
+        "contiene cuatro. Esta última conserva el campo Validacion humana: pendiente. La matriz "
+        "documental propone cinco casos de IA, pero el CSV suministrado contiene solo cuatro; "
+        "IA-05 permanece propuesto y no fue importado. La corrida sigue abierta porque finalizarla "
+        "convertiría los pendientes en skipped. La cuenta utiliza una prueba gratuita Enterprise; "
+        "no se verificó la importación en el plan gratuito permanente."
+    )
+    p(
+        "El primer intento de importación falló con Runtime error Page[Tests] require columns[Folder]. "
+        "Se prepararon copias compatibles con el formato nativo, preservando identificadores, datos "
+        "y estados. Las importaciones finales aceptaron 61 y 4 casos, sin filas rechazadas. "
+        "TestLink y Katalon Studio no se ejecutaron."
+    )
+    for filename, caption in (
+        ("01-suites.png", "Testomat.io: suites del proyecto LabTrack T3 y conteos de casos."),
+        ("02-detalle-caso.png", "Testomat.io: detalle de CP-01 con precondiciones, pasos y resultado esperado."),
+        ("03-run-resumen.png", "Testomat.io: corrida d1058425 con 61 passed, 0 failed y 4 pending."),
+        ("04-reporte.png", "Testomat.io: estadísticas de resultados por suite de la corrida."),
+        ("05-casos-ia.png", "Testomat.io: cuatro casos de IA con validación humana pendiente."),
+    ):
+        add_figure(BASE / "evidencias-pruebas" / "testomatio" / filename, 14.4, caption)
+    p("Proyecto: https://app.testomat.io/projects/labtrack-t3/. Corrida: https://app.testomat.io/projects/labtrack-t3/runs/d1058425.", size=9)
+
 
     h2("Documentación de la refactorización")
     p(
@@ -1974,12 +1999,12 @@ const modal = await driver.findElement(By.css('dialog, [role="dialog"]'));"""
         [
             "Corregir el contraste de color señalado por axe-core y volver a ejecutar la revisión hasta obtener cero violaciones; complementarla con navegación por teclado y una prueba con usuario.",
             "Implementar las historias HU-06, HU-07, HU-08, HU-11, HU-13, HU-14 y HU-15, o bien reducir formalmente el alcance del proyecto para que coincida con lo verificable.",
-            "Ajustar HU-01 y HU-05 a sus criterios declarados: validación estricta del código y persistencia del plazo de sanción de siete días.",
+            "Mantener la alineación documental de HU-01 (código de 8 dígitos, administrador ADMIN01 y bloqueo de 5 minutos) y resolver la brecha real de HU-05: persistencia del plazo de sanción de siete días.",
             "Incorporar la suite completa y el escaneo de SonarQube en integración continua, con bloqueo de la fusión cuando falle la puerta de calidad o alguna prueba.",
             "Inyectar las rutas LCOV en el scanner para que SonarQube refleje la cobertura real y no un 0.0 % engañoso.",
             "Reejecutar la suite E2E después de cualquier refactorización de accesibilidad o de marcado; la regresión S6819 demostró que un cambio correcto puede romper las pruebas.",
             "Validar formalmente los cinco casos sugeridos por IA antes de incorporarlos a la suite oficial, dejando registro del revisor y del resultado.",
-            "Ejecutar Testomat.io o TestLink y WAVE cuando el entorno lo permita, y archivar las capturas correspondientes para completar la evidencia de herramientas.",
+            "Conservar las capturas de Testomat.io y revisar los cuatro casos importados de IA antes de ejecutarlos. IA-05 sigue propuesto fuera de la importación. Ejecutar WAVE cuando el entorno lo permita.",
             "Parametrizar Selenium para Firefox y Edge y ampliar las pruebas de rendimiento con escenarios de red lenta y base de datos degradada.",
         ]
     )
@@ -2220,9 +2245,9 @@ const modal = await driver.findElement(By.css('dialog, [role="dialog"]'));"""
             ["JMeter carga", "docs/evidencias-jmeter/carga/", "Real", "Dashboard, summary.json, tablas y gráficos"],
             ["JMeter estrés", "docs/evidencias-jmeter/estres/", "Real", "Dashboard, summary.json, tablas y gráficos"],
             ["Accesibilidad", "docs/evidencias-accesibilidad/axe-resultados.json", "Real", "Violaciones de contraste por página"],
-            ["Plantilla Testomat.io", "docs/evidencias-pruebas/testomatio-import.csv", "Plantilla", "Importación de casos, no ejecutada"],
+            ["Testomat.io", "docs/evidencias-pruebas/testomatio/", "Capturas reales", "65 importados; 61 passed y 4 pending según CSV"],
             ["Trazabilidad", "docs/trazabilidad-historias-usuario.md", "Documento", "Verificación de las doce historias"],
-            ["Backlog", "docs/refactoring-backlog.md", "Documento", "Catorce ítems técnicos y nueve brechas"],
+            ["Backlog", "docs/refactoring-backlog.md", "Documento", "Catorce ítems técnicos; ocho brechas pendientes y una alineación documental resuelta"],
             ["Matriz de pruebas", "docs/matriz-pruebas.md", "Documento", "66 casos funcionales y 10 de rendimiento"],
         ],
         [4.0, 5.6, 3.0, 5.4],
@@ -2283,7 +2308,7 @@ python generate_presentation.py"""
             "Índices: el índice de contenido, el de tablas, el de figuras y el de anexos se generan con campos de Word a partir de los títulos y de la numeración SEQ. Si el documento se abre en un procesador que no actualiza campos, deben actualizarse manualmente con F9.",
             "Cifras: todas las cifras provienen de archivos del repositorio. No se estimaron ni se redondearon valores para mejorar la presentación.",
             "Estado ANTES: el código previo a la refactorización no existe en el historial de Git; fue reproducido con los defectos documentados. Las capturas corresponden a esa ejecución real y se identifican como estado reproducido.",
-            "Evidencias no realizadas: Testomat.io, TestLink, Katalon Studio y WAVE no se ejecutaron. Se entregan plantillas y se declara la limitación en lugar de simular capturas.",
+            "Gestión de pruebas: Testomat.io contiene 65 casos importados, con 61 passed trasladados del CSV y cuatro pending. No se realizó una nueva ejecución automatizada en esa herramienta. TestLink, Katalon Studio y WAVE no se ejecutaron.",
             "Casos de IA: los cinco casos sugeridos por inteligencia artificial permanecen con validación humana pendiente y no se contabilizan como aprobados.",
             "Historias de usuario: siete de las doce declaradas no tienen evidencia verificable. El informe las reporta como brechas y no como funcionalidades terminadas.",
             "Marcadores pendientes: los textos resaltados con la expresión «COMPLETAR POR EL EQUIPO» indican información que el equipo debe aportar. Se listan en docs/pendientes-del-equipo.md.",

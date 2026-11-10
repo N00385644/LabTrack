@@ -5,6 +5,8 @@ from __future__ import annotations
 import subprocess
 from pathlib import Path
 
+from PIL import Image
+
 from docx import Document
 from docx.enum.section import WD_SECTION
 from docx.enum.table import WD_TABLE_ALIGNMENT
@@ -68,6 +70,7 @@ def add_table(doc, headers, rows, font_size=8.5):
 def add_heading(doc, text, level=1):
     paragraph = doc.add_paragraph()
     paragraph.paragraph_format.space_before = Pt(8 if level == 1 else 5)
+    paragraph.paragraph_format.keep_with_next = True
     paragraph.paragraph_format.space_after = Pt(4)
     run = paragraph.add_run(text)
     set_font(run, size=15 if level == 1 else 12, bold=True, color=BLUE)
@@ -99,14 +102,21 @@ def add_figure(doc, path, caption, context, number):
     paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
     paragraph.paragraph_format.space_before = Pt(4)
     paragraph.paragraph_format.space_after = Pt(1)
-    paragraph.add_run().add_picture(str(path), width=Cm(15.7))
+    paragraph.paragraph_format.keep_with_next = True
+    with Image.open(path) as image:
+        width, height = image.size
+    scale = min(Cm(15.7) / width, Cm(21) / height)
+    paragraph.add_run().add_picture(str(path), width=int(width * scale), height=int(height * scale))
     caption_paragraph = doc.add_paragraph()
     caption_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
     caption_paragraph.paragraph_format.space_after = Pt(1)
+    caption_paragraph.paragraph_format.keep_with_next = True
+    caption_paragraph.paragraph_format.keep_together = True
     caption_run = caption_paragraph.add_run(f"Figura {number}. {caption}")
     set_font(caption_run, size=9, italic=True, color=GRAY)
     context_paragraph = doc.add_paragraph()
     context_paragraph.paragraph_format.space_after = Pt(5)
+    context_paragraph.paragraph_format.keep_together = True
     context_run = context_paragraph.add_run("Que demuestra: ")
     set_font(context_run, size=9, bold=True, color=BLUE)
     context_run = context_paragraph.add_run(context)
@@ -216,7 +226,7 @@ def build_document():
         ["Carga y estrés", "JMeter; 50 y 150 usuarios concurrentes", "Aprobadas; ver sección 5"],
         ["Casos IA", "IA-01 a IA-05", "Validación humana PENDIENTE"],
     ])
-    add_text(doc, "La matriz original está en docs/matriz-pruebas.md y la matriz complementaria en docs/evidencias-pruebas/matriz-casos.md. Katalon y Testomat.io/TestLink no se ejecutaron; solo se dejó la plantilla y el archivo docs/evidencias-pruebas/testomatio-import.csv.")
+    add_text(doc, "La matriz original está en docs/matriz-pruebas.md y la matriz complementaria en docs/evidencias-pruebas/matriz-casos.md. Testomat.io contiene 65 casos importados: 61 passed según CSV y cuatro pending. Los cinco casos de IA de la matriz siguen pendientes de validación humana; el CSV importado solo incluye IA-01 a IA-04. TestLink y Katalon no se ejecutaron.")
     add_table(doc, ["ID", "Caso representativo", "Resultado"], [
         ["U-01", "Reserva contigua no cruza", "Aprobado"],
         ["U-02", "Duración cero es inválida", "Aprobado"],
@@ -242,7 +252,19 @@ def build_document():
     selenium_dir = BASE / "evidencias-pruebas" / "selenium" / "corrida-3-final-aprobada" / "screenshots"
     for path in image_list(selenium_dir):
         figure = add_figure(doc, path, f"Selenium: {path.stem.replace('-', ' ')}", "La captura muestra un paso verificable del flujo funcional automatizado final.", figure)
-    add_text(doc, "No se presentan capturas de Katalon ni Testomat.io/TestLink porque esas herramientas no fueron ejecutadas.")
+    add_heading(doc, "4.1 Gestión de casos en Testomat.io", level=2)
+    add_text(doc, "En el proyecto LabTrack T3 se importaron 61 casos CP-01 a CP-61 y cuatro casos IA-01 a IA-04. La corrida Corrida T3 - automatizada (d1058425) conserva 61 passed, 0 failed, 0 skipped y 4 pending. Los resultados se registraron según el CSV; no representan una nueva ejecución de Selenium o Vitest.")
+    add_text(doc, "Las suites H e IA contienen 38 y 23 casos de la matriz. Casos sugeridos por IA contiene cuatro casos con Validacion humana: pendiente. IA-05 está propuesto en la matriz, pero no figura en el CSV importado. La corrida permanece abierta: finalizarla convertiría los pending en skipped.")
+    add_text(doc, "El primer intento falló con Runtime error Page[Tests] require columns[Folder]. Las copias compatibles conservaron los datos originales y las importaciones finales aceptaron 61 y 4 casos, sin filas rechazadas. La cuenta usa una prueba gratuita Enterprise; la importación en el plan gratuito permanente no fue verificada. TestLink y Katalon no se ejecutaron.")
+    for filename, caption, context in (
+        ("01-suites.png", "Testomat.io: suites y conteos", "Las tres suites contienen 38, 23 y 4 casos; total importado: 65."),
+        ("02-detalle-caso.png", "Testomat.io: detalle de CP-01", "El caso conserva sus precondiciones, pasos y resultado esperado."),
+        ("03-run-resumen.png", "Testomat.io: resumen de la corrida", "Los 61 passed proceden de Status Aprobado en el CSV; los cuatro casos de IA siguen pending."),
+        ("04-reporte.png", "Testomat.io: estadísticas por suite", "La distribución distingue los 61 aprobados de la matriz y los cuatro casos pendientes de validación."),
+        ("05-casos-ia.png", "Testomat.io: casos sugeridos por IA", "Los cuatro casos importados conservan el campo Validacion humana: pendiente."),
+    ):
+        figure = add_figure(doc, BASE / "evidencias-pruebas" / "testomatio" / filename, caption, context, figure)
+    add_text(doc, "Proyecto: https://app.testomat.io/projects/labtrack-t3/. Corrida: https://app.testomat.io/projects/labtrack-t3/runs/d1058425.")
 
     # 5. JMeter
     add_heading(doc, "5. Resultados de JMeter")
@@ -312,6 +334,10 @@ def build_document():
         ["Sin evidencia verificable completa", "7 de 12", "La declaración no basta para afirmar cobertura"],
     ])
     add_text(doc, "La matriz detallada, criterios de aceptación, archivos y pruebas se encuentra en docs/trazabilidad-historias-usuario.md. Las brechas deben permanecer en el backlog hasta contar con evidencia reproducible.")
+
+    alignment_note = next(line.removeprefix("> ") for line in (BASE / "historias-usuario-implementadas.md").read_text(encoding="utf-8").splitlines() if line.startswith("> Nota de alineacion:"))
+    add_text(doc, alignment_note)
+    add_text(doc, "HU-BR-01: Resuelto por alineacion documental, prioridad Baja. HU-01 usa código de estudiante de 8 dígitos (20240001), código alfanumérico ADMIN01 para el administrador y bloqueo de 5 minutos tras 3 fallos. HU-05 conserva la brecha de duración de 7 días no modelada; HU-06, 07, 08, 11, 13, 14 y 15 siguen sin evidencia completa.")
 
     # 9. Accesibilidad
     add_heading(doc, "9. Accesibilidad")

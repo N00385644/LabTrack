@@ -50,7 +50,7 @@
 > 
 > **Herramientas de gestión y pruebas E2E:**
 > - La suite E2E de Selenium (`frontend/e2e/critical-flows.e2e.test.ts`) se ejecutó realmente en esta auditoría sobre el frontend compilado: **corrida 1 = 4 aprobadas / 3 fallidas**, **corrida final = 7 aprobadas / 0 fallidas** (ver sección 6).
-> - **Katalon Studio y Testomat.io / TestLink NO fueron ejecutados** en esta auditoría: se incluyen las plantillas formales y el archivo de interoperabilidad `docs/evidencias-pruebas/testomatio-import.csv` para exportación/importación sin fabricar capturas ficticias.
+> - **Testomat.io:** proyecto LabTrack T3, 65 casos importados, 61 passed trasladados del CSV y 4 pending de validación humana; capturas reales en `docs/evidencias-pruebas/testomatio/`. La matriz propone cinco casos de IA, pero el CSV importado solo incluye IA-01 a IA-04; IA-05 no fue importado. La corrida permanece abierta para conservar los pending. No constituye una nueva ejecución de Selenium o Vitest. **Katalon Studio y TestLink no fueron ejecutados**.
 
 ## 2.1 Trazabilidad del alcance declarado sin casos aprobados
 
