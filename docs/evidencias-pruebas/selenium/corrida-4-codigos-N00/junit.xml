@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites name="vitest tests" tests="7" failures="0" errors="0" time="5.951222">
+    <testsuite name="e2e/critical-flows.e2e.test.ts" timestamp="2026-11-10T02:30:17.114Z" hostname="LuisVillanueva" tests="7" failures="0" errors="0" skipped="0" time="5.951222">
+        <testcase classname="e2e/critical-flows.e2e.test.ts" name="Flujos críticos de LabTrack · Selenium &gt; HU-01 · rechaza credenciales inválidas con el mensaje exigido" time="0.7700885">
+        </testcase>
+        <testcase classname="e2e/critical-flows.e2e.test.ts" name="Flujos críticos de LabTrack · Selenium &gt; HU-01 · bloquea la cuenta tras 3 intentos fallidos" time="0.9981761">
+        </testcase>
+        <testcase classname="e2e/critical-flows.e2e.test.ts" name="Flujos críticos de LabTrack · Selenium &gt; HU-01 · inicia sesión como estudiante y muestra el catálogo" time="0.5180232">
+        </testcase>
+        <testcase classname="e2e/critical-flows.e2e.test.ts" name="Flujos críticos de LabTrack · Selenium &gt; HU-02 · aplica los filtros exactos por categoría" time="0.2985409">
+        </testcase>
+        <testcase classname="e2e/critical-flows.e2e.test.ts" name="Flujos críticos de LabTrack · Selenium &gt; HU-03 · registra una reserva desde el catálogo" time="0.5603967">
+        </testcase>
+        <testcase classname="e2e/critical-flows.e2e.test.ts" name="Flujos críticos de LabTrack · Selenium &gt; HU-04 · el administrador aprueba la solicitud pendiente" time="0.9487092">
+        </testcase>
+        <testcase classname="e2e/critical-flows.e2e.test.ts" name="Flujos críticos de LabTrack · Selenium &gt; HU-05 · registra la devolución tardía y aplica la penalización" time="0.9986637">
+        </testcase>
+    </testsuite>
+</testsuites>

@@ -61,7 +61,7 @@ async function main() {
 
   const demo = await prisma.user.create({
     data: {
-      code: '20240001',
+      code: 'N00385644',
       fullName: 'Valeria Ramos Quispe',
       email: 'valeria.ramos@labtrack.edu.pe',
       passwordHash: studentHash,
@@ -71,7 +71,7 @@ async function main() {
 
   const diego = await prisma.user.create({
     data: {
-      code: '20240002',
+      code: 'N00385645',
       fullName: 'Diego Fernández Soto',
       email: 'diego.fernandez@labtrack.edu.pe',
       passwordHash: studentHash,
@@ -81,7 +81,7 @@ async function main() {
 
   const camila = await prisma.user.create({
     data: {
-      code: '20240003',
+      code: 'N00385646',
       fullName: 'Camila Torres Vega',
       email: 'camila.torres@labtrack.edu.pe',
       passwordHash: studentHash,
@@ -91,7 +91,7 @@ async function main() {
 
   if (process.env.SEED_LOAD_USERS !== 'false') {
     for (let index = 1; index <= 60; index += 1) {
-      const code = `2024${String(1000 + index).padStart(4, '0')}`;
+      const code = `N0040${String(1000 + index).padStart(4, '0')}`;
       await prisma.user.create({
         data: {
           code,

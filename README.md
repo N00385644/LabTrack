@@ -102,10 +102,10 @@ powershell -ExecutionPolicy Bypass -File .\scripts\stop.ps1
 
 | Rol | Código | Contraseña |
 |---|---|---|
-| Estudiante | `20240001` | `Estudiante2026!` |
+| Estudiante | `N00385644` | `Estudiante2026!` |
 | Administrador | `ADMIN01` | `Admin2026!` |
-| Estudiantes adicionales | `20240002`, `20240003` | `Estudiante2026!` |
-| Usuarios de carga (JMeter) | `20241001` … `20241050` | `Carga2026!` |
+| Estudiantes adicionales | `N00385645`, `N00385646` | `Estudiante2026!` |
+| Usuarios de carga (JMeter) | `N00401001` … `N00401050` | `Carga2026!` |
 
 > El seed incluye una reserva aprobada vencida del equipo `ELEC-003` para demostrar la penalización automática de HU-05.
 

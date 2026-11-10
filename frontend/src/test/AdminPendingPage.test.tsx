@@ -28,7 +28,7 @@ describe('AdminPendingPage · HU-04', () => {
 
     expect(await screen.findByText('Valeria Ramos Quispe')).toBeInTheDocument();
     expect(screen.getByText('Laptop de prueba')).toBeInTheDocument();
-    expect(screen.getByText('20240001')).toBeInTheDocument();
+    expect(screen.getByText('N00385644')).toBeInTheDocument();
   });
 
   it('exige un motivo antes de rechazar una solicitud', async () => {

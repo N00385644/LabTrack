@@ -40,7 +40,7 @@ describe('HU-01 · Autenticación segura', () => {
     expect(response.status).toBe(200);
     expect(response.body.accessToken).toEqual(expect.any(String));
     expect(response.body.user).toMatchObject({
-      code: '20240001',
+      code: 'N00385644',
       fullName: 'Estudiante Uno',
       role: 'STUDENT',
       status: 'ACTIVE',
@@ -49,10 +49,10 @@ describe('HU-01 · Autenticación segura', () => {
   });
 
   it('normaliza el código con espacios y minúsculas', async () => {
-    const response = await loginRequest(app, '  20240001  ', TEST_PASSWORD);
+    const response = await loginRequest(app, '  N00385644  ', TEST_PASSWORD);
 
     expect(response.status).toBe(200);
-    expect(response.body.user.code).toBe('20240001');
+    expect(response.body.user.code).toBe('N00385644');
   });
 
   it('rechaza una contraseña incorrecta con el mensaje institucional', async () => {

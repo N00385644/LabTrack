@@ -59,7 +59,7 @@ describe('HU-03 · Reserva de equipos', () => {
       penaltyApplied: false,
     });
     expect(response.body.equipment.inventoryCode).toBe('COMP-T01');
-    expect(response.body.student.code).toBe('20240001');
+    expect(response.body.student.code).toBe('N00385644');
   });
 
   it('bloquea una reserva que se cruza con otra aprobada del mismo equipo', async () => {

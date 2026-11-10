@@ -48,7 +48,7 @@ describe('Flujos críticos de LabTrack · Selenium', () => {
 
   it('HU-01 · bloquea la cuenta tras 3 intentos fallidos', async () => {
     await visit(driver, '/login');
-    await typeTestId(driver, 'login-code', '20241059');
+    await typeTestId(driver, 'login-code', 'N00401059');
     await typeTestId(driver, 'login-password', 'ClaveIncorrecta2026!');
 
     for (let attempt = 1; attempt <= 3; attempt += 1) {
@@ -73,7 +73,7 @@ describe('Flujos críticos de LabTrack · Selenium', () => {
   });
 
   it('HU-01 · inicia sesión como estudiante y muestra el catálogo', async () => {
-    await login(driver, '20240001', 'Estudiante2026!');
+    await login(driver, 'N00385644', 'Estudiante2026!');
 
     expect(await driver.getCurrentUrl()).toContain('/catalogo');
     expect(await (await findTestId(driver, 'nav-catalogo')).isDisplayed()).toBe(true);

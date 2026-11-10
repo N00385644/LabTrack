@@ -105,4 +105,4 @@ Write-Host '  Aplicación : http://localhost:4173'
 Write-Host '  API        : http://localhost:3000/api'
 Write-Host '  Swagger    : http://localhost:3000/api/docs'
 Write-Host ''
-Write-Host 'Estudiante 20240001 / Estudiante2026!  ·  Admin ADMIN01 / Admin2026!' -ForegroundColor DarkGray
+Write-Host 'Estudiante N00385644 / Estudiante2026!  ·  Admin ADMIN01 / Admin2026!' -ForegroundColor DarkGray

@@ -89,9 +89,9 @@ export class AdminService {
 
   async createUser(dto: CreateUserDto, admin: AuthUser) {
     const isStudent = dto.role === 'STUDENT';
-    const validCode = isStudent ? /^\d{8}$/.test(dto.code) : /^[A-Z0-9]+$/i.test(dto.code);
+    const validCode = isStudent ? /^N\d{8}$/.test(dto.code) : /^[A-Z0-9]+$/i.test(dto.code);
     if (!validCode) {
-      throw new DomainException(isStudent ? 'El código de alumno debe tener exactamente 8 dígitos.' : 'El código administrativo debe ser alfanumérico.');
+      throw new DomainException(isStudent ? 'El código de alumno debe tener el formato N + 8 dígitos (ej. N00385644).' : 'El código administrativo debe ser alfanumérico.');
     }
     const passwordHash = await bcrypt.hash(dto.password, 10);
     try {

@@ -7,7 +7,7 @@ import type { Equipment, Reservation, User } from '../lib/types';
 
 export const studentUser: User = {
   id: 'user-student',
-  code: '20240001',
+  code: 'N00385644',
   fullName: 'Valeria Ramos Quispe',
   email: 'valeria@labtrack.pe',
   role: 'STUDENT',

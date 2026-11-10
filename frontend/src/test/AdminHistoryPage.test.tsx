@@ -17,7 +17,7 @@ const auditEvent: AuditEvent = {
   id: 'audit-1',
   event: 'PENALTY_APPLIED',
   actorCode: 'ADMIN01',
-  detail: 'Penalización aplicada al estudiante 20240002 por devolución tardía.',
+  detail: 'Penalización aplicada al estudiante N00385645 por devolución tardía.',
   ipAddress: '127.0.0.1',
   createdAt: new Date().toISOString(),
 };

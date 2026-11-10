@@ -43,7 +43,7 @@ export async function seedBase(): Promise<BaseFixture> {
 
   const student = await prisma.user.create({
     data: {
-      code: '20240001',
+      code: 'N00385644',
       fullName: 'Estudiante Uno',
       email: 'uno@test.labtrack.pe',
       passwordHash,
@@ -53,7 +53,7 @@ export async function seedBase(): Promise<BaseFixture> {
 
   const otherStudent = await prisma.user.create({
     data: {
-      code: '20240002',
+      code: 'N00385645',
       fullName: 'Estudiante Dos',
       email: 'dos@test.labtrack.pe',
       passwordHash,
@@ -63,7 +63,7 @@ export async function seedBase(): Promise<BaseFixture> {
 
   const penalizedStudent = await prisma.user.create({
     data: {
-      code: '20240003',
+      code: 'N00385646',
       fullName: 'Estudiante Penalizado',
       email: 'tres@test.labtrack.pe',
       passwordHash,

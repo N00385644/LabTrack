@@ -297,9 +297,9 @@ describe('HU-04 · Gestión de solicitudes (administrador)', () => {
     const response = await request(app.getHttpServer())
       .post(`${API}/admin/users`)
       .set(auth(adminToken))
-      .send({ code: '20249999', fullName: 'Nuevo alumno', password: TEST_PASSWORD, role: 'STUDENT' });
+      .send({ code: 'N00409999', fullName: 'Nuevo alumno', password: TEST_PASSWORD, role: 'STUDENT' });
     expect(response.status).toBe(201);
-    expect(response.body.code).toBe('20249999');
+    expect(response.body.code).toBe('N00409999');
   });
 
   it('solo permite devolver reservas aprobadas', async () => {

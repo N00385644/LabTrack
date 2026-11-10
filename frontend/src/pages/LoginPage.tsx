@@ -27,7 +27,7 @@ interface DemoAccount {
 const DEMO_ACCOUNTS: DemoAccount[] = [
   {
     label: 'Estudiante',
-    code: '20240001',
+    code: 'N00385644',
     password: import.meta.env.VITE_DEMO_STUDENT_PASSWORD ?? '',
     name: 'Valeria Ramos',
     role: 'STUDENT' as const,
@@ -173,7 +173,7 @@ export default function LoginPage() {
                     value={code}
                     onChange={(event) => setCode(event.target.value)}
                     className="input pl-10"
-                    placeholder="Ej. 20240001"
+                    placeholder="Ej. N00385644"
                     data-testid="login-code"
                   />
                 </div>

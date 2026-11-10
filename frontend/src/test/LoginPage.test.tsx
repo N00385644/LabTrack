@@ -19,7 +19,7 @@ describe('LoginPage · HU-01', () => {
 
     await userEvent.click(screen.getByTestId('demo-student'));
 
-    expect(screen.getByTestId('login-code')).toHaveValue('20240001');
+    expect(screen.getByTestId('login-code')).toHaveValue('N00385644');
     expect(screen.getByTestId('login-password')).toHaveValue('Estudiante2026!');
   });
 
@@ -27,7 +27,7 @@ describe('LoginPage · HU-01', () => {
     vi.spyOn(api, 'login').mockRejectedValue(new ApiError(401, 'Credenciales inválidas.'));
 
     renderWithProviders(<LoginPage />, { user: null });
-    await userEvent.type(screen.getByTestId('login-code'), '20240001');
+    await userEvent.type(screen.getByTestId('login-code'), 'N00385644');
     await userEvent.type(screen.getByTestId('login-password'), 'Incorrecta1!');
     await userEvent.click(screen.getByTestId('login-submit'));
 
@@ -41,7 +41,7 @@ describe('LoginPage · HU-01', () => {
     );
 
     renderWithProviders(<LoginPage />, { user: null });
-    await userEvent.type(screen.getByTestId('login-code'), '20240001');
+    await userEvent.type(screen.getByTestId('login-code'), 'N00385644');
     await userEvent.type(screen.getByTestId('login-password'), 'Incorrecta1!');
     await userEvent.click(screen.getByTestId('login-submit'));
 
@@ -56,11 +56,11 @@ describe('LoginPage · HU-01', () => {
     });
 
     renderWithProviders(<LoginPage />, { user: null });
-    await userEvent.type(screen.getByTestId('login-code'), '20240001');
+    await userEvent.type(screen.getByTestId('login-code'), 'N00385644');
     await userEvent.type(screen.getByTestId('login-password'), 'Estudiante2026!');
     await userEvent.click(screen.getByTestId('login-submit'));
 
-    expect(api.login).toHaveBeenCalledWith('20240001', 'Estudiante2026!');
+    expect(api.login).toHaveBeenCalledWith('N00385644', 'Estudiante2026!');
     expect(localStorage.getItem('labtrack_token')).toBe('jwt-de-prueba');
   });
 });
