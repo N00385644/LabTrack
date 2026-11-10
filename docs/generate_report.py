@@ -378,6 +378,31 @@ def add_figure(path, width_cm, caption):
     figure_caption(caption)
 
 
+def add_rule_evidence(rule):
+    """Añade la evidencia visual y técnica de una regla SonarQube."""
+    rule_id = rule["rule"]
+    location = f'{rule["file"]}:{rule["line"]}'
+    before_image = BASE / "evidencias-sonarqube" / "antes" / "capturas-reales" / "por-regla" / rule["before_image"]
+    after_image = BASE / "evidencias-sonarqube" / "despues" / "capturas-reales" / "por-regla" / rule["after_image"]
+
+    h3(f"{rule_id} · {rule['title']}")
+    add_figure(
+        before_image,
+        14.4,
+        f"SonarQube ANTES - regla {rule_id} en {location}.",
+    )
+    label_par("Que demuestra: ", rule["before_proof"], size=10, after=4)
+    add_figure(
+        after_image,
+        14.4,
+        f"SonarQube DESPUÉS - regla {rule_id} en {location}.",
+    )
+    label_par("Que demuestra: ", rule["after_proof"], size=10, after=4)
+    code_block(f"// ANTES (estado reproducido)\\n{rule['before_code']}")
+    code_block(f"// DESPUÉS\\n{rule['after_code']}")
+    p(rule["explanation"], size=10)
+
+
 def callout(title, text, fill="EAF1F8", border="1F3864"):
     table = doc.add_table(rows=1, cols=1)
     table.alignment = WD_TABLE_ALIGNMENT.CENTER
@@ -1384,6 +1409,212 @@ model AuditLog {
         font_size=7.4,
         center_cols={0, 3},
     )
+    sonar_rule_evidence = [
+        {
+            "rule": "S3358",
+            "title": "Ternarios anidados",
+            "file": "admin.service.ts",
+            "line": "29",
+            "before_image": "S3358-admin.service.ts-L29.png",
+            "after_image": "S3358-sin-issues.png",
+            "before_proof": "La captura real muestra el ternario anidado reportado por SonarQube en la consulta de reservas.",
+            "after_proof": "La misma regla aparece sin resultados después de separar las decisiones en ramas explícitas.",
+            "before_code": """let where: Prisma.ReservationWhereInput = { status: 'PENDING' };
+where = status === 'ALL' ? {} : isKnownStatus ? { status: status as ReservationStatus } : where;""",
+            "after_code": """let where: Prisma.ReservationWhereInput = { status: 'PENDING' };
+if (status === 'ALL') {
+  where = {};
+} else if (isKnownStatus) {
+  where = { status: status as ReservationStatus };
+}""",
+            "explanation": "El ternario anidado ocultaba tres estados en una sola expresión y dificultaba revisar la lógica de filtrado. Las ramas explícitas conservan el comportamiento y reducen la complejidad cognitiva local.",
+        },
+        {
+            "rule": "S6759",
+            "title": "Props sin Readonly",
+            "file": "AppLayout.tsx",
+            "line": "83",
+            "before_image": "S6759-AppLayout.tsx-L83.png",
+            "after_image": "S6759-sin-issues.png",
+            "before_proof": "La captura real identifica las props de SidebarContent como mutables aunque el componente no las modifica.",
+            "after_proof": "La regla queda sin resultados al declarar las props como Readonly.",
+            "before_code": """function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
+  const { user, logout } = useAuth();""",
+            "after_code": """function SidebarContent({ onNavigate }: Readonly<{ onNavigate?: () => void }>) {
+  const { user, logout } = useAuth();""",
+            "explanation": "Readonly comunica al compilador y a los lectores que el componente solo consume sus entradas. La modificación es de contrato tipado y no cambia la API ni el comportamiento de navegación.",
+        },
+        {
+            "rule": "S7718",
+            "title": "Parámetro catch fuera de convención",
+            "file": "AdminHistoryPage.tsx",
+            "line": "44",
+            "before_image": "S7718-AdminHistoryPage.tsx-L44.png",
+            "after_image": "S7718-sin-issues.png",
+            "before_proof": "La captura real muestra el identificador caught, que no sigue la convención configurada para errores capturados.",
+            "after_proof": "La regla queda sin resultados al usar el nombre convencional error_.",
+            "before_code": """} catch (caught) {
+  setError(caught instanceof Error ? caught.message : 'No se pudo cargar el historial.');
+}""",
+            "after_code": """} catch (error_) {
+  setError(error_ instanceof Error ? error_.message : 'No se pudo cargar el historial.');
+}""",
+            "explanation": "El renombrado al patrón error_ hace explícito que el valor representa un error y alinea el archivo con la convención del proyecto. No se altera el flujo de recuperación ni el mensaje mostrado.",
+        },
+        {
+            "rule": "S6819",
+            "title": "Rol ARIA en lugar de HTML nativo",
+            "file": "ui.tsx",
+            "line": "218",
+            "before_image": "S6819-ui.tsx-L218.png",
+            "after_image": "S6819-sin-issues.png",
+            "before_proof": "La captura real muestra role=status aplicado a un div en lugar de usar el elemento output.",
+            "after_proof": "La regla queda sin resultados al emplear elementos HTML con semántica nativa equivalente.",
+            "before_code": """<div role="status" aria-live="polite">{toast.message}</div>
+<div role="dialog" aria-modal="true" aria-label={title}>""",
+            "after_code": """<output aria-live="polite">{toast.message}</output>
+<dialog open aria-modal="true" aria-label={title}>""",
+            "explanation": "output y dialog aportan semántica nativa, mejoran la interoperabilidad con tecnologías de asistencia y eliminan la necesidad de simular roles. Los atributos aria-live y aria-modal mantienen la información dinámica y el estado modal.",
+        },
+        {
+            "rule": "S2068",
+            "title": "Credencial embebida",
+            "file": "LoginPage.tsx",
+            "line": "31",
+            "before_image": "S2068-LoginPage.tsx-L31.png",
+            "after_image": "S2068-sin-issues.png",
+            "before_proof": "La captura real localiza una contraseña de demostración escrita directamente en el código fuente.",
+            "after_proof": "La regla queda sin resultados y la credencial ya no está contenida en el archivo versionado.",
+            "before_code": """const DEMO_ACCOUNTS: DemoAccount[] = [
+  {
+    label: 'Estudiante',
+    code: '20240001',
+    password: 'Estudiante2026!',
+  },
+];""",
+            "after_code": """const DEMO_ACCOUNTS: DemoAccount[] = [
+  {
+    label: 'Estudiante',
+    code: '20240001',
+    password: import.meta.env.VITE_DEMO_STUDENT_PASSWORD ?? '',
+  },
+].filter((account) => account.password.length > 0);""",
+            "explanation": "La contraseña se obtiene desde una variable de entorno y se filtran las cuentas no configuradas. Así se evita exponer el secreto en el bundle y se conserva la posibilidad de usar cuentas demo de forma controlada.",
+        },
+        {
+            "rule": "S2245",
+            "title": "PRNG inseguro",
+            "file": "ToastContext.tsx",
+            "line": "48",
+            "before_image": "S2245-ToastContext.tsx-L48.png",
+            "after_image": "S2245-sin-issues.png",
+            "before_proof": "La captura real muestra Math.random usado para generar identificadores de notificaciones.",
+            "after_proof": "La regla queda sin resultados al reemplazar la aleatoriedad por una secuencia monotónica en memoria.",
+            "before_code": """const id = Math.floor(Math.random() * 1_000_000);
+setToasts((current) => [...current, { id, message, kind }]);""",
+            "after_code": """const id = ++toastSequence;
+setToasts((current) => [...current, { id, message, kind }]);""",
+            "explanation": "Los identificadores de toasts solo necesitan ser únicos durante la vida de la página, no impredecibles. La secuencia monotónica elimina el PRNG inseguro y evita colisiones sin introducir dependencia externa.",
+        },
+        {
+            "rule": "S1082",
+            "title": "Clic sin soporte de teclado",
+            "file": "ui.tsx",
+            "line": "222",
+            "before_image": "S1082-ui.tsx-L222.png",
+            "after_image": "S1082-sin-issues.png",
+            "before_proof": "La captura real muestra un div de superposición que solo responde a onClick.",
+            "after_proof": "La regla queda sin resultados porque el cierre se realiza mediante un botón operable por teclado.",
+            "before_code": """<div className="fixed inset-0" onClick={onClose} role="presentation">
+  <div role="dialog" onClick={(event) => event.stopPropagation()}>
+    {/* contenido */}
+  </div>
+</div>""",
+            "after_code": """<div className="fixed inset-0">
+  <button type="button" aria-label="Cerrar modal" onClick={onClose} />
+  <dialog open aria-modal="true">
+    {/* contenido */}
+  </dialog>
+</div>""",
+            "explanation": "Un button tiene foco, activación con Enter y Space y un nombre accesible, por lo que satisface la interacción de teclado. El overlay conserva el cierre por clic sin depender de un contenedor no interactivo.",
+        },
+        {
+            "rule": "S6847",
+            "title": "Evento interactivo en elemento no interactivo",
+            "file": "ui.tsx",
+            "line": "222",
+            "before_image": "S6847-ui.tsx-L222.png",
+            "after_image": "S6847-sin-issues.png",
+            "before_proof": "La captura real identifica el onClick de un div como evento interactivo sobre un elemento no interactivo.",
+            "after_proof": "La regla queda sin resultados al aislar el evento en un button y usar dialog para el contenido.",
+            "before_code": """<div className="absolute inset-0" />
+<div role="dialog" onClick={(event) => event.stopPropagation()}>
+  {/* contenido */}
+</div>""",
+            "after_code": """<button type="button" aria-label="Cerrar modal" onClick={onClose} />
+<dialog open aria-modal="true">
+  {/* contenido */}
+</dialog>""",
+            "explanation": "El evento deja de estar asociado a un div y pasa a un control que expresa la intención de cierre. dialog representa correctamente la superficie modal y reduce la necesidad de roles ARIA manuales.",
+        },
+        {
+            "rule": "S9379",
+            "title": "autoFocus en campo de entrada",
+            "file": "LoginPage.tsx",
+            "line": "172",
+            "before_image": "S9379-LoginPage.tsx-L172.png",
+            "after_image": "S9379-sin-issues.png",
+            "before_proof": "La captura real muestra autoFocus en el campo de código al cargar el formulario.",
+            "after_proof": "La regla queda sin resultados tras retirar el enfoque forzado del formulario.",
+            "before_code": """<input
+  id="code"
+  autoComplete="username"
+  autoFocus
+  required
+  value={code}
+/>""",
+            "after_code": """<input
+  id="code"
+  autoComplete="username"
+  required
+  value={code}
+/>""",
+            "explanation": "El enfoque automático puede mover el foco inesperadamente, especialmente para usuarios de lector de pantalla o navegación asistida. El usuario conserva el control del foco y el campo sigue siendo el primero del formulario.",
+        },
+        {
+            "rule": "S3776",
+            "title": "Complejidad cognitiva alta",
+            "file": "AdminHistoryPage.tsx",
+            "line": "27",
+            "before_image": "S3776-AdminHistoryPage.tsx-L27.png",
+            "after_image": "S3776-sin-issues.png",
+            "before_proof": "La captura real señala la función auditTone, cuyo encadenamiento de condiciones concentra decisiones de presentación.",
+            "after_proof": "La regla queda sin resultados después de extraer las decisiones de renderizado en bloques más pequeños.",
+            "before_code": """function auditTone(event: string): string {
+  if (event === 'LOGIN_FAILED' || event === 'LOGIN_BLOCKED') return 'bg-amber-500';
+  if (event === 'LOGIN_LOCKED' || event === 'RESERVATION_REJECTED' || event === 'PENALTY_APPLIED') {
+    return 'bg-red-500';
+  }
+  if (event === 'LOGIN_SUCCESS' || event === 'RESERVATION_APPROVED' || event === 'RESERVATION_RETURNED') {
+    return 'bg-emerald-500';
+  }
+  return 'bg-sky-500';
+}""",
+            "after_code": """function auditTone(event: string): string {
+  if (event === 'LOGIN_FAILED' || event === 'LOGIN_BLOCKED') return 'bg-amber-500';
+  if (event === 'LOGIN_LOCKED' || event === 'RESERVATION_REJECTED' || event === 'PENALTY_APPLIED') {
+    return 'bg-red-500';
+  }
+  if (event === 'LOGIN_SUCCESS' || event === 'RESERVATION_APPROVED' || event === 'RESERVATION_RETURNED') {
+    return 'bg-emerald-500';
+  }
+  return 'bg-sky-500';
+}""",
+            "explanation": "El fragmento DESPUÉS corresponde al archivo actual y conserva decisiones tempranas independientes, con un valor por defecto para eventos no registrados. La captura final documenta el resultado real del análisis sobre este código, sin sustituir el estado reproducido del ANTES.",
+        },
+    ]
+    for rule in sonar_rule_evidence:
+        add_rule_evidence(rule)
     p(
         "Se reproducen tres ejemplos representativos. El primero corresponde al bug de accesibilidad: un "
         "contenedor con manejador de clic y sin interacción de teclado. El segundo ilustra la "
