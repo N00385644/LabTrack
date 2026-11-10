@@ -1,5 +1,7 @@
 # Backlog de Refactorización y Deuda Técnica — LabTrack
 
+> Nota de alineacion: el texto previo del equipo indicaba formato N0 + 8 digitos y bloqueo de 15 minutos; la implementacion y las pruebas usan codigo de 8 digitos y bloqueo de 5 minutos, coherente con las historias originales del docente, que no fijan formato ni duracion.
+
 **Curso:** Calidad y Pruebas de Software · **Caso de Estudio T3:** Sistema de Gestión de Laboratorios "LabTrack"  
 **Docente:** Mark Anthony Arribasplata Palomino  
 **Versión evaluada:** 1.0.0 · **Fecha:** 09/11/2026  
@@ -17,9 +19,9 @@ LabTrack es un sistema integral para la reserva y administración de equipos de 
 
 El alcance funcional declarado por el equipo incluye HU-01, HU-02, HU-03, HU-04, HU-05, HU-06,
 HU-07, HU-08, HU-11, HU-13, HU-14 y HU-15. La verificación de repositorio documentada en
-`docs/trazabilidad-historias-usuario.md` confirma evidencia completa con pruebas para HU-01 a
-HU-05, pero deja brechas de evidencia o de criterios para las demás HU; por tanto, esas brechas
-no se contabilizan como funcionalidades implementadas.
+`docs/trazabilidad-historias-usuario.md` confirma implementación con pruebas para HU-01 a HU-05,
+pero mantiene pendiente la duración de 7 días de HU-05 y la evidencia completa de las demás HU;
+esas brechas no se contabilizan como funcionalidades implementadas.
 
 ---
 
@@ -60,12 +62,12 @@ La siguiente tabla consolida los defectos identificados en el código inicial, s
 
 ## 3.1 Brechas de historias de usuario sin evidencia completa
 
-Estas entradas son defectos funcionales pendientes, no afirmaciones de que la funcionalidad exista.
-Cada una incluye prioridad, solución propuesta y estado explícito.
+Estas entradas conservan la alineación documental resuelta de HU-01 y las brechas funcionales pendientes.
+Cada una incluye prioridad, solución y estado explícito; las pendientes no se presentan como funcionalidad implementada.
 
 | ID | Defecto / Brecha | Prioridad | Archivos / Módulos | Solución propuesta | Estado | Evidencia actual |
 |---|---|---|---|---|---|---|
-| **HU-BR-01** | HU-01 no valida `N0` + 8 dígitos y el bloqueo configurado es de 5, no 15 minutos. | Alta | `backend/src/auth/dto/login.dto.ts`, `backend/src/auth/auth.service.ts` | Añadir `@Matches(/^N0\d{8}$/)` y parametrizar/verificar 15 minutos con pruebas de tiempo. | **Pendiente** | `backend/test/auth.spec.ts` cubre el flujo, no ambos criterios declarados. |
+| **HU-BR-01** | Desalineación documental de HU-01 sobre el formato del código y la duración del bloqueo. | Baja | `docs/historias-usuario-implementadas.md`, `docs/trazabilidad-historias-usuario.md`, `docs/matriz-pruebas.md` | Alinear el texto con el código de estudiante de 8 dígitos (ej. `20240001`); el administrador usa un código alfanumérico (`ADMIN01`). Documentar bloqueo de 5 minutos tras 3 fallos consecutivos, sin modificar código ni pruebas. | **Resuelto por alineacion documental** | `backend/prisma/seed.ts` usa `20240001` y `ADMIN01`; `backend/src/auth/dto/login.dto.ts` no exige regex; `backend/src/auth/auth.service.ts` fija `LOCKOUT_MINUTES = 5`. Las pruebas existentes de `backend/test/auth.spec.ts` cubren login y bloqueo tras 3 fallos. |
 | **HU-BR-05** | HU-05 no registra la fecha de levantamiento de la suspensión de 7 días. | Alta | `backend/prisma/schema.prisma`, `backend/src/admin/admin.service.ts` | Persistir `penaltyUntil`, aplicar expiración y añadir pruebas de devolución tardía/levantamiento. | **Pendiente** | Se verifica `PENALIZED`, pero no duración. |
 | **HU-BR-06** | HU-06 carece de carnet digital QR y pruebas de generación/lectura. | Media | `frontend/src`, `backend/src` | Crear vista de carnet, endpoint/valor firmado y pruebas UI/API de escaneo. | **Pendiente** | No hay archivos funcionales ni pruebas HU-06. |
 | **HU-BR-07** | HU-07 carece de CRUD admin de equipos, fotos, especificaciones y QR. | Alta | `backend/src/equipment`, `frontend/src/pages` | Añadir guardas admin, DTOs CRUD, almacenamiento de imagen y generación QR; cubrir API/UI. | **Pendiente** | Solo existen consultas del catálogo y sus pruebas. |

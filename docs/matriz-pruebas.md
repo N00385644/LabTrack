@@ -1,5 +1,7 @@
 # Matriz de Casos de Prueba y Trazabilidad de Calidad — LabTrack
 
+> Nota de alineacion: el texto previo del equipo indicaba formato N0 + 8 digitos y bloqueo de 15 minutos; la implementacion y las pruebas usan codigo de 8 digitos y bloqueo de 5 minutos, coherente con las historias originales del docente, que no fijan formato ni duracion.
+
 **Curso:** Calidad y Pruebas de Software · **Caso de Estudio T3:** Sistema de Gestión de Laboratorios "LabTrack"  
 **Docente:** Mark Anthony Arribasplata Palomino  
 **Versión evaluada:** 1.0.0 · **Fecha:** 09/11/2026  
@@ -23,6 +25,7 @@
 > HU-11, HU-13, HU-14 y HU-15 forman parte del alcance declarado por el equipo, pero no se
 > presentan como aprobadas: la trazabilidad las conserva explícitamente como brechas sin evidencia
 > verificable o con evidencia parcial.
+> HU-05 conserva la brecha de duración de la penalización: los 7 días no están modelados.
 
 ---
 
@@ -53,6 +56,7 @@
 
 | HU | Brecha documentada | Acción de QA |
 |---|---|---|
+| HU-05 | La penalización no modela vencimiento ni duración de 7 días. | Modelar la duración y añadir pruebas de expiración y levantamiento. |
 | HU-06 | No existe carnet QR ni prueba de escaneo. | Diseñar flujo UI/API y prueba de generación/lectura QR. |
 | HU-07 | No existe CRUD administrativo completo de equipos, fotos ni QR. | Implementar endpoints y pantalla admin; añadir pruebas API/UI. |
 | HU-08 | Existe penalización automática, pero no levantamiento con justificación. | Añadir operación de levantamiento, auditoría y prueba de autorización. |
@@ -81,6 +85,8 @@ De acuerdo con el procedimiento de aseguramiento de calidad, los casos explorato
 
 ### HU-01 · Autenticación Segura
 *Como estudiante universitario, quiero iniciar sesión en la plataforma utilizando mi código y contraseña, para acceder a mi panel personal de préstamos.*
+
+Criterios alineados de HU-01: código de estudiante de 8 dígitos (ej. `20240001`); el administrador usa un código alfanumérico (`ADMIN01`). Bloqueo temporal de 5 minutos tras 3 intentos fallidos consecutivos.
 
 | ID | Caso de Prueba | Origen | Prio. | Precondición | Entrada / Pasos | Resultado Esperado | Nivel · Evidencia | Estado |
 |---|---|:---:|:---:|---|---|---|---|:---:|
