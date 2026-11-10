@@ -15,7 +15,7 @@
 |---|---|
 | **Origen** | **H** = Caso diseñado directamente por el equipo humano.<br>**IA** = Caso de borde propuesto mediante asistencia de IA (**Validación humana PENDIENTE** en los casos no consolidados). |
 | **Prioridad** | **P1 (Crítica)**: Afecta reglas de negocio nucleares, seguridad o transacciones financieras/académicas.<br>**P2 (Alta)**: Validación de restricciones, bordes de entrada y flujos alternativos importantes.<br>**P3 (Media)**: Mejoras de usabilidad, normalización de datos e interfaces cosméticas. |
-| **Nivel / Capa** | **API**: Pruebas de integración HTTP contra NestJS usando Vitest + Supertest.<br>**UI**: Pruebas de componentes web usando Vitest + React Testing Library sobre jsdom.<br>**E2E**: Pruebas de recorrido completo con Selenium WebDriver 4.51 en Google Chrome headless (*evidencias de corrida previa*).<br>**Carga / Estrés**: Simulación de concurrencia masiva con Apache JMeter 5.6.3. |
+| **Nivel / Capa** | **API**: Pruebas de integración HTTP contra NestJS usando Vitest + Supertest.<br>**UI**: Pruebas de componentes web usando Vitest + React Testing Library sobre jsdom.<br>**E2E**: Pruebas de recorrido completo con Selenium WebDriver 4.27 sobre Google Chrome headless (ejecución real de esta auditoría).<br>**Carga / Estrés**: Simulación de concurrencia masiva con Apache JMeter 5.6.3. |
 | **Estado** | **Aprobado**: Ejecutado y conforme con los criterios de aceptación.<br>**Pendiente**: Caso sugerido por IA a la espera de validación humana formal. |
 
 > [!WARNING]
@@ -46,7 +46,7 @@
 > **Evolución de las pruebas unitarias:** La suite de pruebas automatizadas aumentó de **93 a 101 pruebas** (+8 pruebas nuevas de límites y bordes: 53 en backend y 48 en frontend). Todas finalizaron con código de salida 0. La cobertura real de código medida con Istanbul/V8 alcanzó **95.71 % en el backend** y **90.26 % en el frontend**.
 > 
 > **Herramientas de gestión y pruebas E2E:**
-> - Las capturas de flujos E2E (`frontend/e2e/screenshots/`) provienen de una **corrida previa documentada**, no habiéndose re-ejecutado en este ciclo.
+> - La suite E2E de Selenium (`frontend/e2e/critical-flows.e2e.test.ts`) se ejecutó realmente en esta auditoría sobre el frontend compilado: **corrida 1 = 4 aprobadas / 3 fallidas**, **corrida final = 7 aprobadas / 0 fallidas** (ver sección 6).
 > - **Katalon Studio y Testomat.io / TestLink NO fueron ejecutados** en esta auditoría: se incluyen las plantillas formales y el archivo de interoperabilidad `docs/evidencias-pruebas/testomatio-import.csv` para exportación/importación sin fabricar capturas ficticias.
 
 ## 2.1 Trazabilidad del alcance declarado sin casos aprobados
@@ -212,9 +212,62 @@ De acuerdo con el procedimiento de aseguramiento de calidad, los casos explorato
 
 ---
 
-## 6. Formatos de Interoperabilidad con Herramientas de Gestión de Pruebas
+## 6. Pruebas de Extremo a Extremo (E2E) con Selenium 4.27
 
-### 6.1 Plantilla para Katalon Studio
+La suite `frontend/e2e/critical-flows.e2e.test.ts` se ejecutó realmente en esta auditoría con Selenium WebDriver 4.27 sobre Google Chrome 157 en modo headless, contra el backend NestJS en `localhost:3000` (base `labtrack_test`) y el frontend compilado servido en `localhost:4173`. Son siete pruebas que recorren las cinco historias con evidencia verificable.
+
+### 6.1 Casos E2E y resultado por corrida
+
+| ID | Prueba E2E | HU | Corrida 1 | Corrida final |
+|---|---|:---:|:---:|:---:|
+| **E2E-01** | Rechaza credenciales inválidas con el mensaje exigido | HU-01 | Aprobada | Aprobada |
+| **E2E-02** | Bloquea la cuenta tras 3 intentos fallidos | HU-01 | Aprobada | Aprobada |
+| **E2E-03** | Inicia sesión como estudiante y muestra el catálogo | HU-01 | Aprobada | Aprobada |
+| **E2E-04** | Aplica los filtros exactos por categoría | HU-02 | Aprobada | Aprobada |
+| **E2E-05** | Registra una reserva desde el catálogo | HU-03 | **Fallida** (timeout) | Aprobada |
+| **E2E-06** | El administrador aprueba la solicitud pendiente | HU-04 | **Fallida** (timeout) | Aprobada |
+| **E2E-07** | Registra la devolución tardía y aplica la penalización | HU-05 | **Fallida** (selector `[role="dialog"]`) | Aprobada |
+
+### 6.2 Resumen de ejecuciones
+
+| Corrida | Pruebas | Aprobadas | Fallidas | Duración | Evidencia |
+|---|---:|---:|---:|---:|---|
+| 1 · regresión detectada | 7 | 4 | 3 | 28.60 s | `docs/evidencias-pruebas/selenium/corrida-1-regresion-detectada/junit.xml` |
+| Final · suite corregida | 7 | 7 | 0 | 5.84 s | `docs/evidencias-pruebas/selenium/corrida-3-final-aprobada/junit.xml` y `screenshots/01..08*.png` |
+
+La corrida 1 no reveló un fallo funcional del sistema: la reserva, la aprobación y la devolución sí ocurrían. Lo que falló fue la forma en que las pruebas localizaban los avisos en pantalla, como se documenta en el defecto D-01.
+
+---
+
+## 7. Defectos Detectados y Estado
+
+| ID | Defecto | Severidad | Prioridad | Estado |
+|---|---|:---:|:---:|:---:|
+| **D-01** | Regresión de selectores E2E causada por la refactorización de accesibilidad S6819 | Alta | Alta | **Resuelto** |
+| **D-02** | Contraste de color insuficiente detectado por axe-core en inicio de sesión y catálogo | Media | Alta | **Pendiente** |
+
+### 7.1 D-01 · Regresión de selectores E2E por S6819 (Resuelto)
+
+* **Síntoma:** la corrida 1 aprobó 4 de 7 pruebas. HU-03 y HU-04 agotaron el tiempo de espera buscando el aviso de confirmación; HU-05 no encontró el elemento `[role="dialog"]`.
+* **Causa raíz:** la corrección de la regla SonarQube **S6819** reemplazó `<div role="status">` por `<output>` y `<div role="dialog">` por `<dialog>`. Ambos elementos ya exponen el rol de forma implícita, pero el selector CSS `[role="status"]` solo detecta el atributo escrito en el HTML.
+* **Archivos corregidos:** `frontend/e2e/helpers/e2e.ts` y `frontend/e2e/critical-flows.e2e.test.ts` (solo código de pruebas; no se modificó código de producción).
+* **Solución:** los selectores pasaron a `output, [role="status"]` y `dialog, [role="dialog"]`, tolerantes a la implementación nativa y a la explícita.
+* **Verificación:** corrida final con **7 de 7** pruebas aprobadas; JUnit y capturas en `docs/evidencias-pruebas/selenium/corrida-3-final-aprobada/`.
+* **Lección registrada:** toda refactorización de accesibilidad debe volver a ejecutar la suite E2E antes de considerarse terminada (ver `docs/refactoring-backlog.md`, RF-13).
+
+### 7.2 D-02 · Contraste de color insuficiente según axe-core (Pendiente)
+
+* **Síntoma:** axe-core 4.10.2 reportó 1 violación `color-contrast` (serious) en el inicio de sesión y 17 nodos con la misma violación en el catálogo; no se detectaron violaciones de estructura, etiquetas ni teclado.
+* **Causa probable:** combinación de texto secundario sobre fondos claros con una relación de contraste inferior a 4.5:1 (WCAG 2.1 AA, criterio 1.4.3).
+* **Estado:** **pendiente de corrección.** No se declara conformidad WCAG 2.1 AA mientras la revisión automática siga reportando violaciones. WAVE no se ejecutó.
+* **Evidencia:** `docs/evidencias-accesibilidad/axe-resultados.json`.
+* **Acción:** ajustar la paleta de texto secundario y repetir axe-core hasta obtener cero violaciones (ver `docs/refactoring-backlog.md`, RF-14).
+
+---
+
+## 8. Formatos de Interoperabilidad con Herramientas de Gestión de Pruebas
+
+### 8.1 Plantilla para Katalon Studio
 Para integrar estos casos en Katalon Studio sin ejecutar capturas ficticias, se provee la siguiente estructura estandarizada:
 
 ```
@@ -231,7 +284,7 @@ Actual Result: [Registrar al ejecutar en Katalon]
 Status: Not Run (Plantilla lista para ejecución desatendida)
 ```
 
-### 6.2 Plantilla para Testomat.io / TestLink
+### 8.2 Plantilla para Testomat.io / TestLink
 Se dispone del archivo exportable `docs/evidencias-pruebas/testomatio-import.csv` conteniendo los campos:
 * `Suite`, `Title`, `Description`, `Preconditions`, `Steps`, `Expected Result`, `Priority`, `Status`.
 * Todos los casos sugeridos por IA conservan la etiqueta `Pending human review` garantizando integridad metodológica.
