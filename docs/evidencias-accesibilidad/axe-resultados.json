@@ -1,0 +1,9 @@
+﻿{
+  "herramienta": "axe-core 4.10.2 (mismo motor de la extension AXE), reglas WCAG 2.0/2.1 A y AA",
+  "fecha": "2026-11-09",
+  "aplicacion": "LabTrack frontend compilado en http://localhost:4173",
+  "paginas": {
+    "login": { "violaciones": [ { "regla": "color-contrast", "impacto": "serious", "ayuda": "Elements must meet minimum color contrast ratio thresholds", "elementos": 1 } ], "reglas_aprobadas": 19, "revision_manual": 1 },
+    "catalogo": { "violaciones": [ { "regla": "color-contrast", "impacto": "serious", "ayuda": "Elements must meet minimum color contrast ratio thresholds", "elementos": 17 } ], "reglas_aprobadas": 17, "revision_manual": 0 }
+  }
+}

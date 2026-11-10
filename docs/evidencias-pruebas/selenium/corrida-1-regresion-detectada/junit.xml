@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites name="vitest tests" tests="7" failures="3" errors="0" time="28.6039389">
+    <testsuite name="e2e/critical-flows.e2e.test.ts" timestamp="2026-11-10T00:12:18.280Z" hostname="LuisVillanueva" tests="7" failures="3" errors="0" skipped="0" time="28.6039389">
+        <testcase classname="e2e/critical-flows.e2e.test.ts" name="Flujos críticos de LabTrack · Selenium &gt; HU-01 · rechaza credenciales inválidas con el mensaje exigido" time="0.590138">
+        </testcase>
+        <testcase classname="e2e/critical-flows.e2e.test.ts" name="Flujos críticos de LabTrack · Selenium &gt; HU-01 · bloquea la cuenta tras 3 intentos fallidos" time="0.9856496">
+        </testcase>
+        <testcase classname="e2e/critical-flows.e2e.test.ts" name="Flujos críticos de LabTrack · Selenium &gt; HU-01 · inicia sesión como estudiante y muestra el catálogo" time="0.5221941">
+        </testcase>
+        <testcase classname="e2e/critical-flows.e2e.test.ts" name="Flujos críticos de LabTrack · Selenium &gt; HU-02 · aplica los filtros exactos por categoría" time="0.3228149">
+        </testcase>
+        <testcase classname="e2e/critical-flows.e2e.test.ts" name="Flujos críticos de LabTrack · Selenium &gt; HU-03 · registra una reserva desde el catálogo" time="12.5020737">
+            <failure message="No apareció el mensaje que contiene &quot;pendiente de aprobación&quot;
+Wait timed out after 12086ms" type="TimeoutError">
+TimeoutError: No apareció el mensaje que contiene &quot;pendiente de aprobación&quot;
+Wait timed out after 12086ms
+ ❯ node_modules/selenium-webdriver/lib/webdriver.js:939:22
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Serialized Error: { remoteStacktrace: &apos;&apos; }
+            </failure>
+        </testcase>
+        <testcase classname="e2e/critical-flows.e2e.test.ts" name="Flujos críticos de LabTrack · Selenium &gt; HU-04 · el administrador aprueba la solicitud pendiente" time="12.646868">
+            <failure message="No apareció el mensaje que contiene &quot;aprobada&quot;
+Wait timed out after 12158ms" type="TimeoutError">
+TimeoutError: No apareció el mensaje que contiene &quot;aprobada&quot;
+Wait timed out after 12158ms
+ ❯ node_modules/selenium-webdriver/lib/webdriver.js:939:22
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Serialized Error: { remoteStacktrace: &apos;&apos; }
+            </failure>
+        </testcase>
+        <testcase classname="e2e/critical-flows.e2e.test.ts" name="Flujos críticos de LabTrack · Selenium &gt; HU-05 · registra la devolución tardía y aplica la penalización" time="0.3381731">
+            <failure message="no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;[role=&quot;dialog&quot;]&quot;}
+  (Session info: chrome=157.0.8103.50)" type="NoSuchElementError">
+NoSuchElementError: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;[role=&quot;dialog&quot;]&quot;}
+  (Session info: chrome=157.0.8103.50)
+ ❯ Object.throwDecodedError node_modules/selenium-webdriver/lib/error.js:523:15
+ ❯ parseHttpResponse node_modules/selenium-webdriver/lib/http.js:527:13
+ ❯ Executor.execute node_modules/selenium-webdriver/lib/http.js:459:28
+ ❯ Driver.execute node_modules/selenium-webdriver/lib/webdriver.js:756:17
+ ❯ e2e/critical-flows.e2e.test.ts:179:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Serialized Error: { remoteStacktrace: &apos;Symbols not available. Dumping unresolved backtrace:\n\t(No symbol) [0x7ff7ae679cf5]\n\t(No symbol) [0x7ff7ae579540]\n\t(No symbol) [0x7ff7ae402763]\n\t(No symbol) [0x7ff7aec5e5d1]\n\t(No symbol) [0x7ff7aec5e82c]\n\t(No symbol) [0x7ff7aec8c787]\n\t(No symbol) [0x7ff7ae435481]\n\t(No symbol) [0x7ff7ae41b389]\n\t(No symbol) [0x7ff7ae41c6b3]\n\t(No symbol) [0x7ff7aeb452e1]\n\t(No symbol) [0x7ff7aeb6c54b]\n\t(No symbol) [0x7ff7aeb60c00]\n\t(No symbol) [0x7ff7ae7a2f3e]\n\t(No symbol) [0x7ff7ae588d85]\n\t(No symbol) [0x7ff7ae583424]\n\t(No symbol) [0x7ff7ae5835b4]\n\t(No symbol) [0x7ff7ae56c7ec]\n\t(No symbol) [0x7fffab28dda7]\n\t(No symbol) [0x7fffacc3ee4c]\n&apos; }
+            </failure>
+        </testcase>
+    </testsuite>
+</testsuites>

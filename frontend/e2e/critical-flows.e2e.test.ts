@@ -1,4 +1,4 @@
-import { By, until, type WebDriver } from 'selenium-webdriver';
+﻿import { By, until, type WebDriver } from 'selenium-webdriver';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import {
   BASE_URL,
@@ -176,7 +176,7 @@ describe('Flujos críticos de LabTrack · Selenium', () => {
     ).click();
     const warning = await findTestId(driver, 'return-confirm');
     await driver.wait(until.elementIsVisible(warning), 5_000);
-    const dialog = await driver.findElement(By.css('[role="dialog"]'));
+    const dialog = await driver.findElement(By.css('dialog, [role="dialog"]'));
     expect(await dialog.getText()).toContain('Penalizado');
 
     await clickTestId(driver, 'return-confirm');
@@ -195,3 +195,4 @@ describe('Flujos críticos de LabTrack · Selenium', () => {
     await screenshot(driver, '08-bitacora-penalizacion');
   });
 });
+

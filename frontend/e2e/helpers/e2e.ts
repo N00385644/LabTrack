@@ -1,4 +1,4 @@
-import fs from 'node:fs';
+﻿import fs from 'node:fs';
 import path from 'node:path';
 import { Builder, By, until, type WebDriver, type WebElement } from 'selenium-webdriver';
 import chrome from 'selenium-webdriver/chrome';
@@ -97,7 +97,7 @@ export async function screenshot(driver: WebDriver, name: string): Promise<void>
 export async function waitForToast(driver: WebDriver, fragment: string): Promise<void> {
   await driver.wait(
     async () => {
-      const toasts = await driver.findElements(By.css('[role="status"]'));
+      const toasts = await driver.findElements(By.css('output, [role="status"]'));
       for (const toast of toasts) {
         if ((await toast.getText()).toLowerCase().includes(fragment.toLowerCase())) {
           return true;
@@ -156,3 +156,4 @@ export async function waitForRowMissing(
     `La fila con ${fragment} seguía visible`,
   );
 }
+
