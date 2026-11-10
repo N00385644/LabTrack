@@ -130,6 +130,9 @@ export const api = {
     stats(): Promise<AdminStats> {
       return request<AdminStats>('/admin/stats');
     },
+    dashboard(): Promise<AdminStats> {
+      return request<AdminStats>('/admin/dashboard');
+    },
     reservations(status: string): Promise<Reservation[]> {
       return request<Reservation[]>(`/admin/reservations?status=${status}`);
     },
@@ -152,6 +155,45 @@ export const api = {
         `/admin/reservations/${id}/return`,
         { method: 'PATCH' },
       );
+    },
+    users(): Promise<User[]> {
+      return request<User[]>('/admin/users');
+    },
+    createUser(input: { code: string; fullName: string; email?: string; password: string; role: 'STUDENT' | 'ADMIN' }): Promise<User> {
+      return request<User>('/admin/users', { method: 'POST', body: JSON.stringify(input) });
+    },
+    resetPassword(id: string, password: string) {
+      return request<{ message: string }>(`/admin/users/${id}/reset-password`, { method: 'PATCH', body: JSON.stringify({ password }) });
+    },
+    unlock(id: string) {
+      return request<{ message: string }>(`/admin/users/${id}/unlock`, { method: 'PATCH' });
+    },
+    liftPenalty(id: string, justification: string) {
+      return request<User>(`/admin/users/${id}/lift-penalty`, { method: 'PATCH', body: JSON.stringify({ justification }) });
+    },
+    equipment(): Promise<Equipment[]> {
+      return request<Equipment[]>('/admin/equipment');
+    },
+    createEquipment(input: Omit<Equipment, 'id' | 'status'>) {
+      return request<Equipment>('/admin/equipment', { method: 'POST', body: JSON.stringify(input) });
+    },
+    scan(code: string, action: 'DISPATCH' | 'RETURN') {
+      return request<Reservation & { late?: boolean }>('/admin/scan', { method: 'POST', body: JSON.stringify({ code, action }) });
+    },
+    actaUrl(id: string) {
+      return `${API_URL}/admin/reservations/${id}/acta`;
+    },
+    async downloadActa(id: string): Promise<void> {
+      const response = await fetch(`${API_URL}/admin/reservations/${id}/acta`, {
+        headers: { Authorization: `Bearer ${getStoredToken() ?? ''}` },
+      });
+      if (!response.ok) throw new ApiError(response.status, 'No se pudo descargar el acta.');
+      const blobUrl = URL.createObjectURL(await response.blob());
+      const link = document.createElement('a');
+      link.href = blobUrl;
+      link.target = '_blank';
+      link.click();
+      URL.revokeObjectURL(blobUrl);
     },
   },
 };

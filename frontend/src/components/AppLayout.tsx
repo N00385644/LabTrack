@@ -10,6 +10,7 @@ import {
   LogOut,
   Menu,
   ShieldCheck,
+  ScanLine,
   Undo2,
   X,
 } from 'lucide-react';
@@ -24,6 +25,13 @@ interface NavItem {
 }
 
 const STUDENT_NAV: NavItem[] = [
+  {
+    to: '/carnet',
+    label: 'Carnet digital',
+    description: 'QR de estudiante',
+    icon: <ShieldCheck className="h-4 w-4" />,
+    testId: 'nav-carnet',
+  },
   {
     to: '/catalogo',
     label: 'Catálogo',
@@ -48,6 +56,20 @@ const STUDENT_NAV: NavItem[] = [
 ];
 
 const ADMIN_NAV: NavItem[] = [
+  {
+    to: '/admin/dashboard',
+    label: 'Dashboard',
+    description: 'Indicadores operativos',
+    icon: <Boxes className="h-4 w-4" />,
+    testId: 'nav-dashboard',
+  },
+  {
+    to: '/admin/operaciones',
+    label: 'Operaciones',
+    description: 'Usuarios y escaneo',
+    icon: <ScanLine className="h-4 w-4" />,
+    testId: 'nav-operaciones',
+  },
   {
     to: '/admin/pendientes',
     label: 'Solicitudes',

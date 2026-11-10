@@ -82,9 +82,17 @@ export class ReservationsService {
         if (user.role === 'ADMIN') {
           throw new DomainException('Las cuentas administrativas no pueden registrar reservas.');
         }
+        if (user.status === 'PENALIZED' && user.penaltyUntil && user.penaltyUntil <= new Date()) {
+          await tx.user.update({
+            where: { id: user.id },
+            data: { status: 'ACTIVE', penaltyUntil: null },
+          });
+          user.status = 'ACTIVE';
+          user.penaltyUntil = null;
+        }
         if (user.status === 'PENALIZED') {
           throw new DomainException(
-            'Tu cuenta está penalizada por una devolución tardía. Contacta al encargado del laboratorio.',
+            `Tu cuenta está penalizada hasta el ${user.penaltyUntil?.toISOString().slice(0, 10) ?? 'la fecha indicada'}.`,
           );
         }
 

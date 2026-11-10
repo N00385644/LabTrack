@@ -149,6 +149,13 @@ export default function AdminHistoryPage() {
                             {formatDateTime(reservation.reviewedAt)}
                           </span>
                         ) : null}
+                        <button
+                          type="button"
+                          className="mt-2 block font-semibold text-teal-700 hover:text-teal-900"
+                          onClick={() => void api.admin.downloadActa(reservation.id)}
+                        >
+                          Descargar acta
+                        </button>
                       </td>
                     </tr>
                   ))}

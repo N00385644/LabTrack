@@ -20,6 +20,7 @@ export interface SafeUser {
   email: string;
   role: string;
   status: string;
+  penaltyUntil: string | null;
 }
 
 export interface LoginResult {
@@ -45,6 +46,7 @@ export class AuthService {
       email: user.email,
       role: user.role,
       status: user.status,
+      penaltyUntil: user.penaltyUntil?.toISOString() ?? null,
     };
   }
 

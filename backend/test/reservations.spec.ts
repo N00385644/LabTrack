@@ -6,6 +6,7 @@ import {
   createReservation,
   dateOffset,
   isoDateOffset,
+  prisma,
   resetDatabase,
   seedBase,
   TEST_PASSWORD,
@@ -184,6 +185,21 @@ describe('HU-03 · Reserva de equipos', () => {
 
     expect(response.status).toBe(400);
     expect(response.body.message).toContain('penalizada');
+  });
+
+  it('reactiva automáticamente una penalización vencida', async () => {
+    await prisma.user.update({
+      where: { id: base.student.id },
+      data: { status: 'PENALIZED', penaltyUntil: new Date(Date.now() - 1000) },
+    });
+    const response = await request(app.getHttpServer())
+      .post(`${API}/reservations`)
+      .set(auth(studentToken))
+      .send(createPayload());
+    expect(response.status).toBe(201);
+    const student = await prisma.user.findUniqueOrThrow({ where: { id: base.student.id } });
+    expect(student.status).toBe('ACTIVE');
+    expect(student.penaltyUntil).toBeNull();
   });
 
   it('impide que un administrador registre reservas', async () => {

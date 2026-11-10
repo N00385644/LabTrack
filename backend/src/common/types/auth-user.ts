@@ -6,6 +6,7 @@ export interface AuthUser {
   fullName: string;
   role: Role;
   status: UserStatus;
+  penaltyUntil: string | null;
 }
 
 export interface JwtPayload {

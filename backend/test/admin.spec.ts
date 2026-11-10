@@ -260,10 +260,46 @@ describe('HU-04 · Gestión de solicitudes (administrador)', () => {
 
     const student = await prisma.user.findUniqueOrThrow({ where: { id: base.student.id } });
     expect(student.status).toBe('PENALIZED');
+    expect(student.penaltyUntil).toEqual(expect.any(Date));
+    expect(student.penaltyUntil!.getTime()).toBeGreaterThan(Date.now() + 6 * 24 * 60 * 60 * 1000);
+    expect(student.penaltyUntil!.getTime()).toBeLessThan(Date.now() + 8 * 24 * 60 * 60 * 1000);
 
     const audit = await prisma.auditLog.findMany({ where: { event: 'PENALTY_APPLIED' } });
     expect(audit).toHaveLength(1);
     expect(audit[0].detail).toContain(base.student.code);
+  });
+
+  it('permite levantar una penalización solo con justificación', async () => {
+    await prisma.user.update({ where: { id: base.student.id }, data: { status: 'PENALIZED', penaltyUntil: new Date(Date.now() + 86400000) } });
+    const invalid = await request(app.getHttpServer())
+      .patch(`${API}/admin/users/${base.student.id}/lift-penalty`)
+      .set(auth(adminToken))
+      .send({ justification: 'no' });
+    expect(invalid.status).toBe(400);
+
+    const response = await request(app.getHttpServer())
+      .patch(`${API}/admin/users/${base.student.id}/lift-penalty`)
+      .set(auth(adminToken))
+      .send({ justification: 'Se verificó la devolución del equipo.' });
+    expect(response.status).toBe(200);
+    expect(response.body.status).toBe('ACTIVE');
+    const student = await prisma.user.findUniqueOrThrow({ where: { id: base.student.id } });
+    expect(student.penaltyUntil).toBeNull();
+  });
+
+  it('crea usuarios y valida el formato del código de alumno', async () => {
+    const invalid = await request(app.getHttpServer())
+      .post(`${API}/admin/users`)
+      .set(auth(adminToken))
+      .send({ code: 'ABC', fullName: 'Nuevo alumno', password: TEST_PASSWORD, role: 'STUDENT' });
+    expect(invalid.status).toBe(400);
+
+    const response = await request(app.getHttpServer())
+      .post(`${API}/admin/users`)
+      .set(auth(adminToken))
+      .send({ code: '20249999', fullName: 'Nuevo alumno', password: TEST_PASSWORD, role: 'STUDENT' });
+    expect(response.status).toBe(201);
+    expect(response.body.code).toBe('20249999');
   });
 
   it('solo permite devolver reservas aprobadas', async () => {

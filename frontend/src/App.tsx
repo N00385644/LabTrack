@@ -13,6 +13,9 @@ import LoginPage from './pages/LoginPage';
 import MyReservationsPage from './pages/MyReservationsPage';
 import NewReservationPage from './pages/NewReservationPage';
 import NotFoundPage from './pages/NotFoundPage';
+import StudentCardPage from './pages/StudentCardPage';
+import AdminDashboardPage from './pages/AdminDashboardPage';
+import AdminOperationsPage from './pages/AdminOperationsPage';
 
 function HomeRedirect() {
   const { user, loading } = useAuth();
@@ -35,11 +38,14 @@ export default function App() {
                 <Route path="/catalogo" element={<CatalogPage />} />
                 <Route path="/reservar" element={<NewReservationPage />} />
                 <Route path="/mis-reservas" element={<MyReservationsPage />} />
+                <Route path="/carnet" element={<StudentCardPage />} />
               </Route>
             </Route>
 
             <Route element={<ProtectedRoute role="ADMIN" />}>
               <Route element={<AppLayout />}>
+                <Route path="/admin/dashboard" element={<AdminDashboardPage />} />
+                <Route path="/admin/operaciones" element={<AdminOperationsPage />} />
                 <Route path="/admin/pendientes" element={<AdminPendingPage />} />
                 <Route path="/admin/devoluciones" element={<AdminReturnsPage />} />
                 <Route path="/admin/historial" element={<AdminHistoryPage />} />
