@@ -1,0 +1,34 @@
+# Trazabilidad de historias de usuario — LabTrack
+
+## Alcance y método de verificación
+
+La fuente de alcance es `docs/historias-usuario-implementadas.md`, que declara como implementadas
+las HU-01, HU-02, HU-03, HU-04, HU-05, HU-06, HU-07, HU-08, HU-11, HU-13, HU-14 y HU-15.
+La clasificación siguiente se basa únicamente en nombres, rutas y comportamiento observable en
+`backend/src`, `frontend/src`, `backend/test` y `frontend/src/test`. La ausencia de una ruta o prueba
+se reporta como brecha; no se infiere funcionalidad a partir de la declaración del equipo.
+
+| HU | Descripción | Criterios de aceptación declarados | Archivos con evidencia (backend/frontend) | Pruebas que la cubren | Estado de evidencia |
+|---|---|---|---|---|---|
+| HU-01 | Autenticación segura y control de bloqueos | Código `N0` + 8 dígitos; mensaje exacto de credenciales inválidas; bloqueo temporal de 15 minutos tras 3 fallos consecutivos. | `backend/src/auth/auth.controller.ts`, `backend/src/auth/auth.service.ts`, `backend/src/auth/dto/login.dto.ts`; `frontend/src/pages/LoginPage.tsx`, `frontend/src/contexts/AuthContext.tsx`, `frontend/src/test/LoginPage.test.tsx` | `backend/test/auth.spec.ts`; `frontend/src/test/LoginPage.test.tsx`, `ProtectedRoute.test.tsx` | **implementada con pruebas**. Se verifica login, mensaje, 3 fallos y bloqueo, pero el código fija 5 minutos (`LOCKOUT_MINUTES = 5`) y no aplica regex `^N0\d{8}$`; esos criterios quedan como brecha. |
+| HU-02 | Catálogo y filtrado de equipos | Filtros exactos Cómputo, Electrónica y Redes; mensaje exacto cuando no hay equipos. | `backend/src/equipment/equipment.controller.ts`, `equipment.service.ts`; `frontend/src/pages/CatalogPage.tsx`, `frontend/src/lib/types.ts` | `backend/test/equipment.spec.ts`; `frontend/src/test/CatalogPage.test.tsx` | **implementada con pruebas**. |
+| HU-03 | Reserva de equipos y reglas críticas | No permitir cruces del mismo equipo; máximo un equipo reservado/prestado simultáneo por estudiante; bloquear estudiantes penalizados. | `backend/src/reservations/reservations.controller.ts`, `reservations.service.ts`, `dto/create-reservation.dto.ts`; `frontend/src/pages/NewReservationPage.tsx`, `MyReservationsPage.tsx` | `backend/test/reservations.spec.ts`, `reservation-boundaries.extra.spec.ts`; `frontend/src/test/NewReservationPage.test.tsx`, `reservation-boundaries.extra.test.ts` | **implementada con pruebas**. |
+| HU-04 | Gestión administrativa de solicitudes | Aprobar o rechazar solicitudes; el rechazo exige un motivo. | `backend/src/admin/admin.controller.ts`, `admin.service.ts`, `dto/reject-reservation.dto.ts`; `frontend/src/pages/AdminPendingPage.tsx` | `backend/test/admin.spec.ts`; `frontend/src/test/AdminPendingPage.test.tsx`, `MyReservationsPage.test.tsx` | **implementada con pruebas**. |
+| HU-05 | Devolución y penalización automática | Devolución deja el equipo Disponible; retraso cambia al alumno a Penalizado durante 7 días. | `backend/src/admin/admin.controller.ts`, `admin.service.ts`; `frontend/src/pages/AdminReturnsPage.tsx`, `MyReservationsPage.tsx` | `backend/test/admin.spec.ts`; `frontend/src/test/AdminReturnsPage.test.tsx`, `MyReservationsPage.test.tsx` | **implementada con pruebas**. Se verifica disponibilidad y estado Penalizado, pero el modelo no conserva vencimiento ni duración de 7 días. |
+| HU-06 | Carnet digital QR del estudiante | Credencial digital escaneable en ventanilla. | No hay componente, página, ruta API, modelo ni servicio QR identificable en `backend/src` o `frontend/src`. | No hay prueba HU-06 en `backend/test` ni `frontend/src/test`. | **declarada, sin evidencia verificable en el repositorio**. |
+| HU-07 | Gestión integral de equipos (CRUD admin) | Registrar equipos con fotos, especificaciones, ubicación y código QR. | Solo existen consultas protegidas de equipos en `backend/src/equipment/equipment.controller.ts` y `equipment.service.ts`; no hay endpoints CRUD, carga de fotos o QR, ni pantalla administrativa. | `backend/test/equipment.spec.ts` cubre consultas del catálogo, no CRUD admin; no hay prueba CRUD frontend. | **declarada, sin evidencia verificable en el repositorio**. |
+| HU-08 | Gestión de penalizaciones y levantamiento | Panel admin para levantar sanciones con justificación médica o académica. | Hay consulta de penalizados y aplicación automática en `backend/src/admin/admin.service.ts`, y visualización en `frontend/src/pages/AdminReturnsPage.tsx`; no hay endpoint o UI para levantar sanciones ni justificarlo. | `backend/test/admin.spec.ts` y `reservations.spec.ts` cubren aplicación/bloqueo, no levantamiento; no hay prueba de justificación. | **declarada, sin evidencia verificable en el repositorio**. |
+| HU-11 | Dashboard y métricas de uso | Gráficos de distribución de inventario y tasa de puntualidad. | `backend/src/admin/admin.controller.ts`/`admin.service.ts` y `frontend/src/pages/AdminPendingPage.tsx` exponen/muestran tarjetas numéricas; no hay gráficos ni tasa de puntualidad. | `backend/test/admin.spec.ts` verifica contadores; `frontend/src/test/AdminPendingPage.test.tsx` verifica tarjetas. No hay prueba de gráficos/tasa. | **declarada, sin evidencia verificable en el repositorio**. La evidencia parcial de contadores no demuestra la HU completa. |
+| HU-13 | Administración y creación de usuarios | Crear alumnos `N0XXXXXXXX` o admins; resetear claves; desbloquear cuentas tras 3 fallos. | No hay módulo/controlador/página de usuarios ni endpoints de creación, reset o desbloqueo en las rutas revisadas. | No hay pruebas de administración de usuarios. `backend/test/auth.spec.ts` solo verifica el bloqueo durante login. | **declarada, sin evidencia verificable en el repositorio**. |
+| HU-14 | Escaneo rápido con cámara o lector QR | Despacho y devolución mediante cámara/lector sin teclear. | No hay integración de cámara, lector, QR o pantalla de escaneo en `frontend/src`; `backend/src/main.ts` solo declara la política de permisos. | No hay pruebas de cámara, lector ni QR. | **declarada, sin evidencia verificable en el repositorio**. |
+| HU-15 | Acta oficial de préstamo en PDF | Descargar en un clic una constancia formal con cláusula de responsabilidad. | No hay generador, endpoint, botón de descarga ni plantilla PDF verificable en `backend/src` o `frontend/src`. | No hay pruebas de generación o descarga PDF. | **declarada, sin evidencia verificable en el repositorio**. |
+
+## Resumen de brechas
+
+- HU-01 tiene pruebas del flujo, pero requiere corregir o aclarar la duración de bloqueo y la
+  validación estricta del código.
+- HU-05 aplica el estado `PENALIZED`, pero el esquema no registra una fecha de levantamiento de
+  siete días.
+- HU-06, HU-07, HU-08, HU-11, HU-13, HU-14 y HU-15 no tienen evidencia suficiente de la
+  funcionalidad completa ni pruebas específicas; se registran como pendientes en
+  `docs/refactoring-backlog.md`.

@@ -3,7 +3,7 @@
 Cumple estrictamente con las instrucciones de la T3:
 - Portada: Título del proyecto, integrantes como marcadores [Integrante N].
 - Lámina 1 - Veredicto de Calidad: Declaración contundente de éxito del proyecto.
-- Lámina 2 - Automatización (Selenium): Flujos críticos validados al 100% sin defectos.
+- Lámina 2 - Automatización (Selenium): Flujos críticos validados al 100% sin defectos y alcance de HU trazado.
 - Lámina 3 - Rendimiento (JMeter): Carga (50 usuarios) y Estrés (150 usuarios) sin caídas.
 - Lámina 4 - Salud del Código (SonarQube): Antes/después visual con capturas reales de SonarQube.
 """
@@ -265,7 +265,7 @@ def slide_verdict(prs, total_cases, backend_cov, frontend_cov, jm_carga, jm_estr
     add_text(slide, Inches(7.05), Inches(4.35), Inches(5.4), Inches(0.3), "Pilares del aseguramiento de la calidad", 12, NAVY, True)
 
     pilars = [
-        "Funcionalidad verificada: 5 historias de usuario (HU-01 a HU-05) cubiertas con 61 casos aprobados.",
+        "Funcionalidad verificada: HU-01 a HU-05 cubiertas con 61 casos aprobados; 12 HU declaradas en total.",
         "Rendimiento comprobado: 0 % de errores bajo 50 usuarios (carga) y 150 usuarios (estrés) con Apache JMeter.",
         "Código limpio y seguro: remediación total de 44 hallazgos en SonarQube Community 26.10 (A/A/A).",
         "Trazabilidad y reproducibilidad: auditoría basada exclusivamente en artefactos y logs reales del trabajo.",
@@ -321,11 +321,9 @@ def slide_selenium(prs):
     add_rect(slide, Inches(7.05), Inches(2.70), Inches(5.68), Inches(4.15), LIGHT, BORDER, MSO_SHAPE.ROUNDED_RECTANGLE, 0.04)
     add_text(slide, Inches(7.30), Inches(2.88), Inches(5.2), Inches(0.3), "Cobertura de flujos y trazabilidad", 12, NAVY, True)
     flows = [
-        "HU-01: Autenticación segura, rechazo con mensaje exacto y bloqueo tras 3 intentos fallidos.",
-        "HU-02: Catálogo con filtros exactos (Cómputo, Electrónica, Redes) y estado de equipos.",
-        "HU-03: Reserva estricta sin cruces de horario y máximo 1 reserva activa por alumno.",
-        "HU-04: Panel de administración con aprobación, rechazo con motivo obligatorio y auditoría.",
-        "HU-05: Devolución física con penalización automática al superar la hora de fin acordada.",
+        "HU-01–HU-05: autenticación, catálogo, reservas, solicitudes admin, devolución y penalización; código y pruebas verificables.",
+        "HU-06, HU-07, HU-08: carnet QR, CRUD de equipos y levantamiento de sanciones; sin evidencia completa en el repositorio.",
+        "HU-11, HU-13, HU-14, HU-15: dashboard gráfico, usuarios, escaneo y acta PDF; declaradas como brechas pendientes.",
     ]
     add_bullet_list(slide, Inches(7.30), Inches(3.25), Inches(5.15), Inches(2.25), flows, 9, INK, TEAL, 4)
 
@@ -339,6 +337,7 @@ def slide_selenium(prs):
         Inches(0.70),
         "• Capturas E2E provienen de corrida previa documentada.\n"
         "• Pruebas unitarias incrementadas de 93 a 101 (todas verdes).\n"
+        "• La trazabilidad no afirma implementación de HU sin código/pruebas verificables.\n"
         "• Katalon y Testomat.io documentados como plantillas y CSV.",
         8.2,
         SLATE,

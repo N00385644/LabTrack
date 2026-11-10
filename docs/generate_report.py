@@ -345,6 +345,57 @@ def load_json(path: Path, default=None):
     return json.loads(path.read_text(encoding="utf-8-sig"))
 
 
+def add_user_story_traceability(doc):
+    add_heading(doc, "Historias de usuario implementadas y trazabilidad", 1)
+    add_paragraph(
+        doc,
+        "Contexto del proyecto para compañeros: Las historias de usuario representan las capacidades "
+        "que el equipo declara necesarias para operar LabTrack. Esta revisión no convierte una declaración "
+        "en evidencia: cada estado se determinó buscando controladores, servicios, páginas y pruebas en "
+        "backend/src, frontend/src, backend/test y frontend/src/test. El alcance declarado comprende "
+        "HU-01, HU-02, HU-03, HU-04, HU-05, HU-06, HU-07, HU-08, HU-11, HU-13, HU-14 y HU-15.",
+        align="justify",
+    )
+    add_paragraph(
+        doc,
+        "La tabla distingue entre funcionalidades verificadas con pruebas, funcionalidades con código "
+        "pero sin pruebas suficientes y declaraciones para las que no existe evidencia verificable. Las "
+        "brechas se trasladan al backlog para evitar afirmar una cobertura funcional que el repositorio "
+        "no demuestra.",
+        align="justify",
+    )
+    rows = [
+        ["HU-01", "Autenticación y bloqueos", "N0+8 dígitos; mensaje exacto; 15 min tras 3 fallos.", "auth.service.ts; LoginPage.tsx", "auth.spec.ts; LoginPage.test.tsx", "Implementada con pruebas; código usa 5 min y no regex N0."],
+        ["HU-02", "Catálogo y filtros", "Cómputo/Electrónica/Redes; mensaje exacto sin resultados.", "equipment.controller/service; CatalogPage.tsx", "equipment.spec.ts; CatalogPage.test.tsx", "Implementada con pruebas."],
+        ["HU-03", "Reserva crítica", "Sin cruces; máximo una activa; bloqueo a penalizados.", "reservations.controller/service; NewReservationPage.tsx", "reservations.spec.ts; reservation-boundaries; NewReservationPage.test.tsx", "Implementada con pruebas."],
+        ["HU-04", "Solicitudes admin", "Aprobar/rechazar; motivo obligatorio.", "admin.controller/service; AdminPendingPage.tsx", "admin.spec.ts; AdminPendingPage.test.tsx", "Implementada con pruebas."],
+        ["HU-05", "Devolución y penalización", "Equipo disponible; penalización automática 7 días.", "admin.service; AdminReturnsPage.tsx", "admin.spec.ts; AdminReturnsPage.test.tsx", "Implementada con pruebas; no se modelan los 7 días."],
+        ["HU-06", "Carnet QR", "Credencial digital escaneable.", "Sin evidencia de módulo, ruta o página.", "Sin pruebas HU-06.", "Declarada, sin evidencia verificable."],
+        ["HU-07", "CRUD admin de equipos", "Fotos, especificaciones, ubicación y QR.", "Solo consultas de equipment; sin CRUD admin.", "Solo pruebas de consulta de catálogo.", "Declarada, sin evidencia verificable."],
+        ["HU-08", "Levantamiento de sanciones", "Justificación médica/académica y levantamiento.", "Aplicación automática, sin operación de levantamiento.", "Pruebas de aplicación, no de levantamiento.", "Declarada, sin evidencia verificable."],
+        ["HU-11", "Dashboard y métricas", "Gráficos de inventario y puntualidad.", "Tarjetas de contadores admin; sin gráficos/tasa.", "admin.spec.ts y AdminPendingPage.test.tsx cubren contadores.", "Declarada, sin evidencia verificable de la HU completa."],
+        ["HU-13", "CRUD de usuarios", "Crear, resetear claves y desbloquear.", "Sin módulo/página/endpoints de usuarios.", "Sin pruebas de usuarios.", "Declarada, sin evidencia verificable."],
+        ["HU-14", "Escaneo con cámara/QR", "Despacho y devolución sin teclear.", "Sin integración de cámara, lector o QR.", "Sin pruebas de escaneo.", "Declarada, sin evidencia verificable."],
+        ["HU-15", "Acta PDF", "Descarga formal con responsabilidad.", "Sin generador, ruta o botón PDF.", "Sin pruebas PDF.", "Declarada, sin evidencia verificable."],
+    ]
+    add_table(
+        doc,
+        ["HU", "Descripción", "Criterios de aceptación", "Archivos backend/frontend", "Pruebas", "Estado de evidencia"],
+        rows,
+        [0.8, 2.1, 4.0, 3.2, 3.2, 3.2],
+        font_size=6.6,
+        header_size=7.0,
+    )
+    add_caption(doc, "Tabla 2. Trazabilidad de las historias de usuario declaradas por el equipo.")
+    add_paragraph(
+        doc,
+        "Resultado de la revisión: HU-01 a HU-05 tienen evidencia de código y pruebas, aunque HU-01 "
+        "y HU-05 conservan diferencias frente a sus criterios declarados. HU-06, HU-07, HU-08, HU-11, "
+        "HU-13, HU-14 y HU-15 quedan como brechas pendientes y no se presentan como implementadas.",
+        align="justify",
+    )
+
+
 # ---------------------------------------------------------------------------
 # Portada institucional
 # ---------------------------------------------------------------------------
@@ -493,7 +544,9 @@ def build_report():
     add_callout(
         doc,
         "Veredicto de Calidad y Certificación para Producción",
-        "LabTrack ha superado exitosamente nuestras auditorías de calidad técnica. Los flujos críticos de las cinco historias "
+        "LabTrack ha superado exitosamente nuestras auditorías de calidad técnica en los cinco flujos verificables. El alcance "
+        "declarado por el equipo comprende doce historias; las siete adicionales quedan trazadas como brechas pendientes. Los flujos "
+        "críticos de las cinco historias "
         "de usuario están automatizados al 100 % sin defectos abiertos; el código base pasó de 44 incidencias (1 bug, 2 vulnerabilidades "
         "y 41 code smells; confiabilidad B, seguridad C) a 0 incidencias totales en SonarQube (A / A / A; Quality Gate Passed); "
         "las 101 pruebas unitarias y de integración se ejecutan de manera limpia con una cobertura superior al 90 % en frontend y 95 % "
@@ -550,7 +603,7 @@ def build_report():
     add_bullets(
         doc,
         [
-            "Diseñar una matriz exhaustiva de casos de prueba trazada a las cinco historias de usuario (HU-01 a HU-05), incorporando escenarios exploratorios sugeridos por IA con su respectiva validación.",
+            "Diseñar una matriz exhaustiva de casos de prueba para las HU-01 a HU-05 verificables y registrar la trazabilidad y brechas del alcance declarado HU-06, HU-07, HU-08, HU-11, HU-13, HU-14 y HU-15.",
             "Automatizar la verificación funcional en tres capas: pruebas de integración de API (Supertest), pruebas de interfaz gráfica (React Testing Library) y flujos extremo a extremo (Selenium en Chrome headless).",
             "Evaluar el comportamiento no funcional del sistema sometiéndolo a perfiles de carga sostenida (50 usuarios concurrentes) y sobrecarga por estrés (150 usuarios concurrentes) mediante Apache JMeter 5.6.3.",
             "Ejecutar el análisis estático de código fuente con SonarQube Community Build 26.10, diagnosticar la deuda técnica inicial y aplicar una refactorización guiada que erradique vulnerabilidades y malas prácticas.",
@@ -567,6 +620,12 @@ def build_report():
         align="justify",
     )
     add_figure(doc, ASSETS / "arquitectura.png", 16.0, "Figura 1. Arquitectura de tres capas de LabTrack y distribución de herramientas de calidad.")
+
+    # -----------------------------------------------------------------------
+    # Trazabilidad del alcance funcional declarado
+    # -----------------------------------------------------------------------
+    doc.add_page_break()
+    add_user_story_traceability(doc)
 
     # -----------------------------------------------------------------------
     # Sección 2: Metodología de análisis estático
@@ -952,8 +1011,10 @@ def build_report():
     )
     add_paragraph(
         doc,
-        "En LabTrack se consolidaron 61 casos funcionales aprobados que cubren exhaustivamente las cinco historias de usuario. Además, se formularon "
-        "cinco (5) casos exploratorios de borde sugeridos por inteligencia artificial cuya validación humana permanece PENDIENTE según el protocolo formal de QA.",
+        "En LabTrack se consolidaron 61 casos funcionales aprobados para las cinco historias de usuario con evidencia ejecutable (HU-01 a HU-05). "
+        "Las siete historias adicionales del alcance declarado se mantienen trazadas como brechas, sin inventar casos aprobados para funciones "
+        "que no son verificables en el repositorio. Además, se formularon cinco (5) casos exploratorios de borde sugeridos por inteligencia artificial "
+        "cuya validación humana permanece PENDIENTE según el protocolo formal de QA.",
         align="justify",
     )
     add_table(
@@ -1237,7 +1298,8 @@ def build_report():
         doc,
         "Contexto del proyecto para compañeros: La deuda técnica no se elimina por casualidad; requiere registrar formalmente cada hallazgo, "
         "asignarle una prioridad según el riesgo operacional, definir su solución técnica y contrastar su resolución con evidencias objetivas. "
-        "El backlog de refactorización de LabTrack comprende doce (12) ítems categorizados y gestionados.",
+        "El backlog de refactorización de LabTrack comprende doce (12) ítems técnicos categorizados y nueve (9) brechas funcionales de historias de usuario "
+        "en estado pendiente, documentadas con prioridad, solución propuesta y evidencia disponible.",
         align="justify",
     )
     add_table(

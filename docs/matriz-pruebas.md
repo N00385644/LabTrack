@@ -3,7 +3,8 @@
 **Curso:** Calidad y Pruebas de Software · **Caso de Estudio T3:** Sistema de Gestión de Laboratorios "LabTrack"  
 **Docente:** Mark Anthony Arribasplata Palomino  
 **Versión evaluada:** 1.0.0 · **Fecha:** 09/11/2026  
-**Alcance funcional:** HU-01 Autenticación Segura · HU-02 Catálogo y Filtrado · HU-03 Reserva de Equipos · HU-04 Aprobación y Rechazo Administrativo · HU-05 Devolución y Penalización Automática  
+**Alcance funcional verificado:** HU-01 Autenticación Segura · HU-02 Catálogo y Filtrado · HU-03 Reserva de Equipos · HU-04 Aprobación y Rechazo Administrativo · HU-05 Devolución y Penalización Automática.
+**Alcance funcional declarado pendiente de evidencia completa:** HU-06, HU-07, HU-08, HU-11, HU-13, HU-14 y HU-15 (ver `docs/trazabilidad-historias-usuario.md`).
 **Alcance no funcional:** Rendimiento bajo Carga (50 usuarios) y Estrés (150 usuarios) con Apache JMeter 5.6.3.
 
 ---
@@ -17,6 +18,12 @@
 | **Nivel / Capa** | **API**: Pruebas de integración HTTP contra NestJS usando Vitest + Supertest.<br>**UI**: Pruebas de componentes web usando Vitest + React Testing Library sobre jsdom.<br>**E2E**: Pruebas de recorrido completo con Selenium WebDriver 4.51 en Google Chrome headless (*evidencias de corrida previa*).<br>**Carga / Estrés**: Simulación de concurrencia masiva con Apache JMeter 5.6.3. |
 | **Estado** | **Aprobado**: Ejecutado y conforme con los criterios de aceptación.<br>**Pendiente**: Caso sugerido por IA a la espera de validación humana formal. |
 
+> [!WARNING]
+> La matriz detallada contiene casos ejecutables para HU-01 a HU-05. Las HU-06, HU-07, HU-08,
+> HU-11, HU-13, HU-14 y HU-15 forman parte del alcance declarado por el equipo, pero no se
+> presentan como aprobadas: la trazabilidad las conserva explícitamente como brechas sin evidencia
+> verificable o con evidencia parcial.
+
 ---
 
 ## 2. Resumen Ejecutivo de Ejecución de Pruebas
@@ -28,6 +35,7 @@
 | **HU-03: Reserva de Equipos** | 18 | 11 | 7 | 18 | 0 | API + UI + E2E (Selenium) |
 | **HU-04: Aprobación y Rechazo** | 12 | 7 | 5 | 12 | 0 | API + UI + E2E (Selenium) |
 | **HU-05: Devolución y Penalización** | 8 | 5 | 3 | 8 | 0 | API + UI + E2E (Selenium) |
+| **HU-06, HU-07, HU-08, HU-11, HU-13, HU-14, HU-15** | — | 0 | 0 | 0 | **Pendientes de evidencia** | Sin pruebas verificables |
 | **Casos IA Complementarios (Borde)** | 5 | 0 | 5 | 0 | **5 (Pendientes)** | Propuesta Backend / Frontend |
 | **Subtotal Funcional** | **66** | **38** | **28** | **61** | **5** | — |
 | **Rendimiento Carga (50 usuarios)** | 5 | 3 | 2 | 5 | 0 | Apache JMeter 5.6.3 |
@@ -40,6 +48,18 @@
 > **Herramientas de gestión y pruebas E2E:**
 > - Las capturas de flujos E2E (`frontend/e2e/screenshots/`) provienen de una **corrida previa documentada**, no habiéndose re-ejecutado en este ciclo.
 > - **Katalon Studio y Testomat.io / TestLink NO fueron ejecutados** en esta auditoría: se incluyen las plantillas formales y el archivo de interoperabilidad `docs/evidencias-pruebas/testomatio-import.csv` para exportación/importación sin fabricar capturas ficticias.
+
+## 2.1 Trazabilidad del alcance declarado sin casos aprobados
+
+| HU | Brecha documentada | Acción de QA |
+|---|---|---|
+| HU-06 | No existe carnet QR ni prueba de escaneo. | Diseñar flujo UI/API y prueba de generación/lectura QR. |
+| HU-07 | No existe CRUD administrativo completo de equipos, fotos ni QR. | Implementar endpoints y pantalla admin; añadir pruebas API/UI. |
+| HU-08 | Existe penalización automática, pero no levantamiento con justificación. | Añadir operación de levantamiento, auditoría y prueba de autorización. |
+| HU-11 | Existen contadores, pero no gráficos de inventario ni tasa de puntualidad. | Definir métricas, componentes gráficos y pruebas de datos/renderizado. |
+| HU-13 | No existe administración de usuarios, reset ni desbloqueo. | Crear módulo admin y pruebas de ciclo de vida de usuario. |
+| HU-14 | No existe integración de cámara/lector QR. | Añadir componente de captura y pruebas con dispositivo simulado. |
+| HU-15 | No existe generación ni descarga de acta PDF. | Añadir plantilla/generador, endpoint y prueba de descarga/cláusula. |
 
 ---
 
